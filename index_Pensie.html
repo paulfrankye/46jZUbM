@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+  <script>
+    function restPlatCalc() {
+
+      // Inputs
+
+      nrAn = document.getElementById("nrAn").value;
+      salBrut = document.getElementById("salBrut").value;
+      valAge = document.getElementById("valAge").value;
+
+      // Vars
+
+      var salMedEcon;
+      var nrPctPerAn;
+      var nrAniContr;
+      var nrPctContr;
+      var nrPctStab;
+      var nrPctNecontr;
+      var nrPctTotal;
+      var valPctRef;
+      var valPens;
+
+      // Results
+
+      var nrPctPerAnRes = document.getElementById('nrPctPerAn');
+      var nrAniContrRes = document.getElementById('nrAniContr');
+      var nrPctContrRes = document.getElementById('nrPctContr');
+      var nrPctStabRes = document.getElementById('nrPctStab');
+      var nrPctNecontrRes = document.getElementById('nrPctNecontr');
+      var nrPctTotalRes = document.getElementById('nrPctTotal');
+      var valPctRefRes = document.getElementById('valPctRef');
+      var valPensRes = document.getElementById('valPens');
+
+      // Formulas
+
+      salMedEcon = 6789;
+      nrPctPerAn = parseFloat(salBrut) / parseFloat(salMedEcon);
+      nrAniContr = 65 - parseFloat(valAge);
+      nrPctContr = parseFloat(nrPctPerAn) * parseFloat(nrAniContr);
+
+      // =IF(B6<26,0,IF(AND(B6>=26,B6<27),0.5,IF(AND(B6>=27,B6<28),2*0.5,IF(AND(B6>=28,B6<29),3*0.5,IF(AND(B6>=29,B6<30),4*0.5,IF(AND(B6>=30,B6<31),5*0.5,IF(AND(B6>=31,B6<32),5*0.5+1*0.75,IF(AND(B6>=32,B6<33),5*0.5+2*0.75,IF(AND(B6>=33,B6<34),5*0.5+3*0.75,IF(AND(B6>=34,B6<35),5*0.5+4*0.75,IF(AND(B6>=35,B6<36),5*0.5+5*0.75,IF(AND(B6>=36,B6<37),5*0.5+2*0.75+1*1,IF(AND(B6>=37,B6<38),5*0.5+2*0.75+2*1,IF(AND(B6>=38,B6<39),5*0.5+2*0.75+3*1,IF(AND(B6>=39,B6<40),5*0.5+2*0.75+4*1,IF(AND(B6>=40,B6<41),5*0.5+2*0.75+5*1)))))))))))))))) 
+
+      if (nrAniContr < 26) {
+        nrPctStab = 0
+      } else {
+        if (nrAniContr >= 26 && nrAniContr < 27) {
+          nrPctStab = 0.5;
+        } else {
+          if (nrAniContr >= 27 && nrAniContr < 28) {
+            nrPctStab = 2 * 0.5;
+          } else {
+            if (nrAniContr >= 28 && nrAniContr < 29) {
+              nrPctStab = 3 * 0.5;
+            } else {
+              if (nrAniContr >= 29 && nrAniContr < 30) {
+                nrPctStab = 4 * 0.5;
+              } else {
+                if (nrAniContr >= 30 && nrAniContr < 31) {
+                  nrPctStab = 5 * 0.5;
+                }
+                else {
+                  if (nrAniContr >= 31 && nrAniContr < 32) {
+                    nrPctStab = 5 * 0.5 + 1 * 0.75;
+                  } else {
+                    if (nrAniContr >= 32 && nrAniContr < 33) {
+                      nrPctStab = 5 * 0.5 + 2 * 0.75;
+                    } else {
+                      if (nrAniContr >= 33 && nrAniContr < 34) {
+                        nrPctStab = nrPctStab = 5 * 0.5 + 3 * 0.75;
+                      } else {
+                        if (nrAniContr >= 34 && nrAniContr < 35) {
+                          nrPctStab = 5 * 0.5 + 4 * 0.75;
+                        } else {
+                          if (nrAniContr >= 35 && nrAniContr < 36) {
+                            nrPctStab = 5 * 0.5 + 5 * 0.75;
+                          } else {
+                            if (nrAniContr >= 36 && nrAniContr < 37) {
+                              nrPctStab = 5 * 0.5 + 5 * 0.75 + 1 * 1;
+                            } else {
+                              if (nrAniContr >= 37 && nrAniContr < 38) {
+                                nrPctStab = 5 * 0.5 + 5 * 0.75 + 2 * 1;
+                              } else {
+                                if (nrAniContr >= 38 && nrAniContr < 39) {
+                                  nrPctStab = 5 * 0.5 + 5 * 0.75 + 3 * 1;
+                                } else {
+                                  if (nrAniContr >= 39 && nrAniContr < 40) {
+                                    nrPctStab = 5 * 0.5 + 5 * 0.75 + 4 * 1;
+                                  } else {
+                                    if (nrAniContr >= 40 & nrAniContr < 41) {
+                                      nrPctStab = 5 * 0.5 + 5 * 0.75 + 5 * 1;
+                                    }
+                                    else {
+                                      nrPctStab = 5 * 0.5 + 5 * 0.75 + 5 * 1;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      nrPctNecontr = 0;
+      nrPctTotal = parseFloat(nrPctContr) + parseFloat(nrPctStab) + parseFloat(nrPctNecontr);
+      valPctRef = 81;
+      valPens = parseFloat(nrPctTotal) * parseFloat(valPctRef);
+
+      // Display
+
+      nrPctPerAnRes.innerHTML = parseFloat(nrPctPerAn).toFixed(2);
+      nrAniContrRes.innerHTML = parseFloat(nrAniContr).toFixed(2);
+      nrPctContrRes.innerHTML = parseFloat(nrPctContr).toFixed(2);
+      nrPctStabRes.innerHTML = parseFloat(nrPctStab).toFixed(2);
+      nrPctNecontrRes.innerHTML = parseFloat(nrPctNecontr).toFixed(2);
+      nrPctTotalRes.innerHTML = parseFloat(nrPctTotal).toFixed(2);
+      valPctRefRes.innerHTML = parseFloat(valPctRef).toFixed(2);
+      valPensRes.innerHTML = parseFloat(valPens).toFixed(2);
+    }
+  </script>
+</head>
+
+<body>
+
+  <form action="">
+    Anul de referință: <select id="nrAn">
+      <option value="2023">2023</option>
+      <option value="2024">2024</option>
+    </select><br />
+    Salariu brut: <input type="text" id="salBrut" value="5490" style="width: 31px"><br />
+    Varsta: <input type="text" id="valAge" value="35" style="width: 16px"> <input type="button" id="sub" value="Submit"
+      onclick="restPlatCalc()"><br />
+    Nr puncte per an: <span id="nrPctPerAn"></span><br />
+    Nr ani de contributivitate: <span id="nrAniContr"></span><br />
+    Nr puncte de contributivitate: <span id="nrPctContr"></span><br />
+    Nr puncte de stabilitate: <span id="nrPctStab"></span><br />
+    Nr puncte de necontributivitate: <span id="nrPctNecontr"></span><br />
+    Nr puncte total: <span id="nrPctTotal"></span><br />
+    Valoare punct de referință: <span id="valPctRef"></span><br />
+    <b>Valoare pensie: <span id="valPens"></span></b>
+  </form>
+
+</body>
+
+</html>
