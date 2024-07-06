@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
   <script>
-    function mortgageCalc() {
+    function restPlatCalc() {
       var nrLun;
       var nrAn;
       var zileLucr;
@@ -248,8 +248,7 @@
     </select><br />
     Salariu tarifar: <input type="text" id="salTarif" value="4250" style="width: 31px"><br />
     Bonus: <input type="text" id="valBonusInp" value="1200" style="width: 31px"> <input type="button" id="sub"
-      value="Submit" onclick="mortgageCalc()"><br />
-    <!--<input type="number" id="monthlyCost" name="monthlyCost"> you don't need it-->
+      value="Submit" onclick="restPlatCalc()"><br />
     Ore lucrate - Ore: <span id="oreLucr"></span><br />
     Ore lucrate - RON: <span id="oreLucrRon"></span><br />
     Ore Suplimentare 100% - Ore: <span id="oreSupl100"></span><br />
@@ -274,7 +273,7 @@
     Deducere Supl. de Bază: <span id="dedSupl"></span><br />
     <b>Venit Impozabil: <span id="venitImp"></span></b><br />
     Impozit: <span id="valImp"></span><br />
-    <b>Rest Plata: <span id="restPlat"></b></span><!-- result will be here -->
+    <b>Rest Plata: <span id="restPlat"></b></span>
   </form>
 
 </body>
