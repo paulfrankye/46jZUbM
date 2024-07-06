@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+  <script>
+    function valNetCalc() {
+
+      // Inputs
+
+      venitAgentiePerComanda = document.getElementById("venitAgentiePerComanda").value;
+      bacsisCashPerComanda = document.getElementById("bacsisCashPerComanda").value;
+      comenziPerOra = document.getElementById("comenziPerOra").value;
+      kmPerComanda = document.getElementById("kmPerComanda").value;
+      orePerLuna = document.getElementById("orePerLuna").value;
+      consumCombustibil = document.getElementById("consumCombustibil").value;
+      pretCombustibil = document.getElementById("pretCombustibil").value;
+
+      // Vars
+
+      var venitAgentie;
+      var bacsisCard;
+      var incasariCash;
+      var venitApp;
+      var bacsisCash;
+      var totalIncasari;
+      var totalIncasariPerOra;
+      var valComision;
+      var restPlata;
+      var valCombustibil;
+      var valContabilitate;
+      var venitImpozabil;
+      var contrPensie;
+      var contrSanatate;
+      var valImpozit;
+      var venitNet;
+      var venitNetPerOra;
+
+      // Results
+
+      var venitAgentieRes = document.getElementById('venitAgentie');
+      var bacsisCardRes = document.getElementById('bacsisCard');
+      var incasariCashRes = document.getElementById('incasariCash');
+      var venitAppRes = document.getElementById('venitApp');
+      var bacsisCashRes = document.getElementById('bacsisCash');
+      var totalIncasariRes = document.getElementById('totalIncasari');
+      var totalIncasariPerOraRes = document.getElementById('totalIncasariPerOra');
+      var valComisionRes = document.getElementById('valComision');
+      var restPlataRes = document.getElementById('restPlata');
+      var valCombustibilRes = document.getElementById('valCombustibil');
+      var valContabilitateRes = document.getElementById('valContabilitate');
+      var venitImpozabilRes = document.getElementById('venitImpozabil');
+      var contrPensieRes = document.getElementById('contrPensie');
+      var contrSanatateRes = document.getElementById('contrSanatate');
+      var valImpozitRes = document.getElementById('valImpozit');
+      var venitNetRes = document.getElementById('venitNet');
+      var venitNetPerOraRes = document.getElementById('venitNetPerOra');
+
+      // Formulas
+
+      venitAgentie = parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(venitAgentiePerComanda);
+      bacsisCard = 0;
+      incasariCash = 0;
+      venitApp = parseFloat(venitAgentie) + parseFloat(bacsisCard);
+      bacsisCash = parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(bacsisCashPerComanda);
+      totalIncasari = parseFloat(venitApp) + parseFloat(bacsisCash);
+      totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(orePerLuna);
+      valComision = parseFloat(venitAgentie) * (0.10 + 0.0149 * 1.19);
+      restPlata = parseFloat(venitAgentie) + parseFloat(bacsisCard) - parseFloat(valComision);
+      valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
+      valContabilitate = 89;
+      venitImpozabil = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
+      if (venitImpozabil >= 3300) {
+        contrPensie = 3300 * 0.25;
+      } else {
+        contrPensie = 0;
+      }
+      contrSanatate = parseFloat(venitImpozabil) * 0.1;
+      valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrSanatate)) * 0.1;
+      venitNet = parseFloat(restPlata) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit);
+      venitNetPerOra = parseFloat(venitNet) / parseFloat(orePerLuna);
+
+      // Display
+
+      venitAgentieRes.innerHTML = parseFloat(venitAgentie).toFixed(0);
+      bacsisCardRes.innerHTML = parseFloat(bacsisCard).toFixed(0);
+      incasariCashRes.innerHTML = parseFloat(incasariCash).toFixed(0);
+      venitAppRes.innerHTML = parseFloat(venitApp).toFixed(0);
+      bacsisCashRes.innerHTML = parseFloat(bacsisCash).toFixed(0);
+      totalIncasariRes.innerHTML = parseFloat(totalIncasari).toFixed(0);
+      totalIncasariPerOraRes.innerHTML = parseFloat(totalIncasariPerOra).toFixed(2);
+      valComisionRes.innerHTML = parseFloat(valComision).toFixed(0);
+      restPlataRes.innerHTML = parseFloat(restPlata).toFixed(0);
+      valCombustibilRes.innerHTML = parseFloat(valCombustibil).toFixed(0);
+      valContabilitateRes.innerHTML = parseFloat(valContabilitate).toFixed(0);
+      venitImpozabilRes.innerHTML = parseFloat(venitImpozabil).toFixed(0);
+      contrPensieRes.innerHTML = parseFloat(contrPensie).toFixed(0);
+      contrSanatateRes.innerHTML = parseFloat(contrSanatate).toFixed(0);
+      valImpozitRes.innerHTML = parseFloat(valImpozit).toFixed(0);
+      venitNetRes.innerHTML = parseFloat(venitNet).toFixed(0);
+      venitNetPerOraRes.innerHTML = parseFloat(venitNetPerOra).toFixed(2);
+    }
+  </script>
+</head>
+
+<body>
+
+  <form action="">
+    Venit agenție per comandă: <input type="text" id="venitAgentiePerComanda" value="13.50" style="width: 31px"><br />
+    Bacșiș cash per comandă: <input type="text" id="bacsisCashPerComanda" value="1.50" style="width: 31px"><br />
+    Comenzi per oră: <input type="text" id="comenziPerOra" value="2" style="width: 31px"><br />
+    Km per comandă: <input type="text" id="kmPerComanda" value="7" style="width: 31px"><br />
+    Ore per lună: <input type="text" id="orePerLuna" value="88" style="width: 31px"><br />
+    Consum combustibil: <input type="text" id="consumCombustibil" value="9" style="width: 31px"><br />
+    Preț combustibil: <input type="text" id="pretCombustibil" value="7.50" style="width: 31px"> <input type="button"
+      id="sub" value="Submit" onclick="valNetCalc()"><br />
+    Venit agenție: <span id="venitAgentie"></span><br />
+    Bacșiș card: <span id="bacsisCard"></span><br />
+    Încasări cash: <span id="incasariCash"></span><br />
+    <b>Venit aplicație: <span id="venitApp"></b><br />
+    Bacșiș cash: <span id="bacsisCash"></span><br />
+    <b>Total încasări: <span id="totalIncasari"></span></b><br />
+    Comision: <span id="valComision"></span><br />
+    <b>Rest plată: <span id="restPlata"></b><br />
+    Combustibil: <span id="valCombustibil"></span><br />
+    Contabilitate: <span id="valContabilitate"></span><br />
+    <b>Venit impozabil: <span id="venitImpozabil"></span></b><br />
+    Pensie: <span id="contrPensie"></span><br />
+    Sănătate: <span id="contrSanatate"></span><br />
+    Impozit: <span id="valImpozit"></span><br />
+    <b>Venit net: <span id="venitNet"></span></b><br /><br />
+    Total încasări per oră: <span id="totalIncasariPerOra"></span><br />
+    Venit net per oră: <span id="venitNetPerOra"></span><br />
+
+  </form>
+
+</body>
+
+</html>
