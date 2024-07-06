@@ -9,116 +9,96 @@
 
       // Inputs
 
-      nrLun = document.getElementById("nrLun").value;
       nrAn = document.getElementById("nrAn").value;
-      sarbLeg = document.getElementById("sarbLeg").value;
-      zileWe = document.getElementById("zileWe").value;
-      zileCoSel = document.getElementById("zileCoSel").value;
-      salTarif = document.getElementById("salTarif").value;
-      valBonusInp = document.getElementById("valBonusInp").value;
+      salBrut = document.getElementById("salBrut").value;
+      valAge = document.getElementById("valAge").value;
 
       // Vars
 
-      var nrLun;
-      var nrAn;
-      var zileLucr;
-      var sarbLeg;
-      var zileWe;
-      var zileCoSel;
-      var salTarif;
-      var valBonusInp;
-      var oreLucr;
-      var oreLucrRon;
-      var oreSupl100;
-      var oreSuplRon100;
-      var oreSupl75;
-      var oreSuplRon75;
-      var oreSarbLeg;
-      var oreSarbLegRon;
-      var zileCo;
-      var zileCoRon;
-      var oreWe;
-      var oreWeRon;
-      var valBonus;
-      var decElectr;
-      var nrTich;
-      var valTich;
-      var venitBrut;
-      var contrSanat;
-      var contrPens;
-      var venitNet;
-      var dedBaza;
-      var dedSupl;
-      var venitImp;
-      var valImp;
-      var restPlat;
+      var salMedEcon;
+      var nrPctPerAn;
+      var nrAniContr;
+      var nrPctContr;
+      var nrPctStab;
+      var nrPctNecontr;
+      var nrPctTotal;
+      var valPctRef;
+      var valPens;
 
       // Results
 
-      var oreLucrRes = document.getElementById('oreLucr');
-      var oreLucrRonRes = document.getElementById('oreLucrRon');
-      var oreSupl100Res = document.getElementById('oreSupl100');
-      var oreSuplRon100Res = document.getElementById('oreSuplRon100');
-      var oreSupl75Res = document.getElementById('oreSupl75');
-      var oreSuplRon75Res = document.getElementById('oreSuplRon75');
-      var oreSarbLegRes = document.getElementById('oreSarbLeg');
-      var oreSarbLegRonRes = document.getElementById('oreSarbLegRon');
-      var zileCoRes = document.getElementById('zileCo');
-      var zileCoRonRes = document.getElementById('zileCoRon');
-      var oreWeRes = document.getElementById('oreWe');
-      var oreWeRonRes = document.getElementById('oreWeRon');
-      var valBonusRes = document.getElementById('valBonus');
-      var decElectrRes = document.getElementById('decElectr');
-      var nrTichRes = document.getElementById('nrTich');
-      var valTichRes = document.getElementById('valTich');
-      var venitBrutRes = document.getElementById('venitBrut');
-      var contrSanatRes = document.getElementById('contrSanat');
-      var contrPensRes = document.getElementById('contrPens');
-      var venitNetRes = document.getElementById('venitNet');
-      var dedBazaRes = document.getElementById('dedBaza');
-      var dedSuplRes = document.getElementById('dedSupl');
-      var venitImpRes = document.getElementById('venitImp');
-      var valImpRes = document.getElementById('valImp');
-      var restPlatRes = document.getElementById('restPlat');
+      var nrPctPerAnRes = document.getElementById('nrPctPerAn');
+      var nrAniContrRes = document.getElementById('nrAniContr');
+      var nrPctContrRes = document.getElementById('nrPctContr');
+      var nrPctStabRes = document.getElementById('nrPctStab');
+      var nrPctNecontrRes = document.getElementById('nrPctNecontr');
+      var nrPctTotalRes = document.getElementById('nrPctTotal');
+      var valPctRefRes = document.getElementById('valPctRef');
+      var valPensRes = document.getElementById('valPens');
 
-      // Ifs
+      // Formulas
 
-      if (nrAn == '2024') {
-        if (nrLun == '1') {
-          zileLucr = 20;
+      salMedEcon = 6789;
+      nrPctPerAn = parseFloat(salBrut) / parseFloat(salMedEcon);
+      nrAniContr = 65 - parseFloat(valAge);
+      nrPctContr = parseFloat(nrPctPerAn) * parseFloat(nrAniContr);
+
+      // =IF(B6<26,0,IF(AND(B6>=26,B6<27),0.5,IF(AND(B6>=27,B6<28),2*0.5,IF(AND(B6>=28,B6<29),3*0.5,IF(AND(B6>=29,B6<30),4*0.5,IF(AND(B6>=30,B6<31),5*0.5,IF(AND(B6>=31,B6<32),5*0.5+1*0.75,IF(AND(B6>=32,B6<33),5*0.5+2*0.75,IF(AND(B6>=33,B6<34),5*0.5+3*0.75,IF(AND(B6>=34,B6<35),5*0.5+4*0.75,IF(AND(B6>=35,B6<36),5*0.5+5*0.75,IF(AND(B6>=36,B6<37),5*0.5+2*0.75+1*1,IF(AND(B6>=37,B6<38),5*0.5+2*0.75+2*1,IF(AND(B6>=38,B6<39),5*0.5+2*0.75+3*1,IF(AND(B6>=39,B6<40),5*0.5+2*0.75+4*1,IF(AND(B6>=40,B6<41),5*0.5+2*0.75+5*1)))))))))))))))) 
+
+      if (nrAniContr < 26) {
+        nrPctStab = 0
+      } else {
+        if (nrAniContr >= 26 && nrAniContr < 27) {
+          nrPctStab = 0.5;
         } else {
-          if (nrLun == '2') {
-            zileLucr = 21;
+          if (nrAniContr >= 27 && nrAniContr < 28) {
+            nrPctStab = 2 * 0.5;
           } else {
-            if (nrLun == '3') {
-              zileLucr = 21;
+            if (nrAniContr >= 28 && nrAniContr < 29) {
+              nrPctStab = 3 * 0.5;
             } else {
-              if (nrLun == '4') {
-                zileLucr = 22;
+              if (nrAniContr >= 29 && nrAniContr < 30) {
+                nrPctStab = 4 * 0.5;
               } else {
-                if (nrLun == '5') {
-                  zileLucr = 20;
-                } else {
-                  if (nrLun == '6') {
-                    zileLucr = 19;
+                if (nrAniContr >= 30 && nrAniContr < 31) {
+                  nrPctStab = 5 * 0.5;
+                }
+                else {
+                  if (nrAniContr >= 31 && nrAniContr < 32) {
+                    nrPctStab = 5 * 0.5 + 1 * 0.75;
                   } else {
-                    if (nrLun == '7') {
-                      zileLucr = 23;
+                    if (nrAniContr >= 32 && nrAniContr < 33) {
+                      nrPctStab = 5 * 0.5 + 2 * 0.75;
                     } else {
-                      if (nrLun == '8') {
-                        zileLucr = 21;
+                      if (nrAniContr >= 33 && nrAniContr < 34) {
+                        nrPctStab = nrPctStab = 5 * 0.5 + 3 * 0.75;
                       } else {
-                        if (nrLun == '9') {
-                          zileLucr = 21;
+                        if (nrAniContr >= 34 && nrAniContr < 35) {
+                          nrPctStab = 5 * 0.5 + 4 * 0.75;
                         } else {
-                          if (nrLun == '10') {
-                            zileLucr = 23;
+                          if (nrAniContr >= 35 && nrAniContr < 36) {
+                            nrPctStab = 5 * 0.5 + 5 * 0.75;
                           } else {
-                            if (nrLun == '11') {
-                              zileLucr = 21;
+                            if (nrAniContr >= 36 && nrAniContr < 37) {
+                              nrPctStab = 5 * 0.5 + 5 * 0.75 + 1 * 1;
                             } else {
-                              if (nrLun == '12') {
-                                zileLucr = 20;
+                              if (nrAniContr >= 37 && nrAniContr < 38) {
+                                nrPctStab = 5 * 0.5 + 5 * 0.75 + 2 * 1;
+                              } else {
+                                if (nrAniContr >= 38 && nrAniContr < 39) {
+                                  nrPctStab = 5 * 0.5 + 5 * 0.75 + 3 * 1;
+                                } else {
+                                  if (nrAniContr >= 39 && nrAniContr < 40) {
+                                    nrPctStab = 5 * 0.5 + 5 * 0.75 + 4 * 1;
+                                  } else {
+                                    if (nrAniContr >= 40 & nrAniContr < 41) {
+                                      nrPctStab = 5 * 0.5 + 5 * 0.75 + 5 * 1;
+                                    }
+                                    else {
+                                      nrPctStab = 5 * 0.5 + 5 * 0.75 + 5 * 1;
+                                    }
+                                  }
+                                }
                               }
                             }
                           }
@@ -131,65 +111,23 @@
             }
           }
         }
-      } else {
-        zileLucr = 0;
       }
 
-      // Formulas
-
-      oreLucr = parseInt(zileLucr) * 8 - parseInt(zileCoSel) * 8;
-      oreLucrRon = parseInt(oreLucr) * (parseInt(salTarif) / zileLucr / 8);
-      oreSupl100 = parseInt(sarbLeg) * 8;
-      oreSuplRon100 = parseInt(sarbLeg) * (parseInt(salTarif) / zileLucr);
-      oreSuplRon75 = parseInt(sarbLeg) * 8;
-      oreSuplRon75 = parseInt(sarbLeg) * (parseInt(salTarif) / zileLucr) * 0.75;
-      oreSarbLeg = parseInt(sarbLeg) * 8;
-      oreSarbLegRon = parseInt(sarbLeg) * (parseInt(salTarif) / zileLucr);
-      zileCo = parseInt(zileCoSel);
-      zileCoRon = parseInt(zileCoSel) * (parseInt(salTarif) / zileLucr);
-      oreWe = parseInt(zileWe) * 8;
-      oreWeRon = parseInt(zileWe) * (parseInt(salTarif) / zileLucr) * 0.1;
-      valBonus = valBonusInp;
-      decElectr = 40;
-      nrTich = parseInt(zileLucr) - parseInt(zileCoSel);
-      valTich = (parseInt(zileLucr) - parseInt(zileCoSel)) * 30;
-      venitBrut = (parseInt(salTarif) + parseInt(oreSuplRon100) + parseInt(oreSuplRon75) + parseInt(oreSarbLegRon) + parseInt(oreWeRon) + parseInt(valBonusInp) + parseInt(decElectr));
-      contrSanat = (parseInt(venitBrut) + parseInt(valTich)) * 0.1;
-      contrPens = parseInt(venitBrut) * 0.25;
-      venitNet = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPens);
-      dedBaza = 0;
-      dedSupl = 0;
-      venitImp = parseInt(venitBrut) + parseInt(valTich) - parseInt(contrSanat) - parseInt(contrPens) - parseInt(dedBaza) - parseInt(dedSupl);
-      valImp = venitImp * 0.1;
-      restPlat = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPens) - parseInt(valImp);
+      nrPctNecontr = 0;
+      nrPctTotal = parseFloat(nrPctContr) + parseFloat(nrPctStab) + parseFloat(nrPctNecontr);
+      valPctRef = 81;
+      valPens = parseFloat(nrPctTotal) * parseFloat(valPctRef);
 
       // Display
 
-      oreLucrRes.innerHTML = Math.trunc(oreLucr);
-      oreLucrRonRes.innerHTML = Math.trunc(oreLucrRon);
-      oreSupl100Res.innerHTML = Math.trunc(oreSupl100);
-      oreSuplRon100Res.innerHTML = Math.trunc(oreSuplRon100);
-      oreSupl75Res.innerHTML = Math.trunc(oreSuplRon75);
-      oreSuplRon75Res.innerHTML = Math.trunc(oreSuplRon75);
-      oreSarbLegRes.innerHTML = Math.trunc(oreSarbLeg);
-      oreSarbLegRonRes.innerHTML = Math.trunc(oreSarbLegRon);
-      zileCoRes.innerHTML = Math.trunc(zileCo);
-      zileCoRonRes.innerHTML = Math.trunc(zileCoRon);
-      oreWeRes.innerHTML = Math.trunc(oreWe);
-      oreWeRonRes.innerHTML = Math.trunc(oreWeRon);
-      valBonusRes.innerHTML = Math.trunc(valBonus);
-      decElectrRes.innerHTML = Math.trunc(decElectr);
-      nrTichRes.innerHTML = Math.trunc(nrTich);
-      valTichRes.innerHTML = Math.trunc(valTich);
-      venitBrutRes.innerHTML = Math.trunc(venitBrut);
-      contrSanatRes.innerHTML = Math.trunc(contrSanat);
-      contrPensRes.innerHTML = Math.trunc(contrPens);
-      venitNetRes.innerHTML = Math.trunc(venitNet);
-      dedBazaRes.innerHTML = Math.trunc(dedBaza);
-      dedSuplRes.innerHTML = Math.trunc(dedSupl);
-      venitImpRes.innerHTML = Math.trunc(venitImp);
-      valImpRes.innerHTML = Math.trunc(valImp);
-      restPlatRes.innerHTML = Math.trunc(restPlat);
+      nrPctPerAnRes.innerHTML = parseFloat(nrPctPerAn).toFixed(2);
+      nrAniContrRes.innerHTML = parseFloat(nrAniContr).toFixed(2);
+      nrPctContrRes.innerHTML = parseFloat(nrPctContr).toFixed(2);
+      nrPctStabRes.innerHTML = parseFloat(nrPctStab).toFixed(2);
+      nrPctNecontrRes.innerHTML = parseFloat(nrPctNecontr).toFixed(2);
+      nrPctTotalRes.innerHTML = parseFloat(nrPctTotal).toFixed(2);
+      valPctRefRes.innerHTML = parseFloat(valPctRef).toFixed(2);
+      valPensRes.innerHTML = parseFloat(valPens).toFixed(2);
     }
   </script>
 </head>
@@ -197,99 +135,21 @@
 <body>
 
   <form action="">
-    Luna: <select id="nrLun">
-      <option value="1">Ian</option>
-      <option value="2">Feb</option>
-      <option value="3">Mar</option>
-      <option value="4">Apr</option>
-      <option value="5">Mai</option>
-      <option value="6">Iun</option>
-      <option value="7">Iul</option>
-      <option value="8">Aug</option>
-      <option value="9">Sept</option>
-      <option value="10">Oct</option>
-      <option value="11">Nov</option>
-      <option value="12">Dec</option>
-    </select><br />
-    Anul: <select id="nrAn">
+    Anul de referință: <select id="nrAn">
+      <option value="2023">2023</option>
       <option value="2024">2024</option>
-      <option value="2025">2025</option>
     </select><br />
-    Sarbatori legale: <select id="sarbLeg">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select><br />
-    Zile weekend: <select id="zileWe">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select><br />
-    Zile concediu: <select id="zileCoSel">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-      <option value="15">15</option>
-      <option value="16">16</option>
-      <option value="17">17</option>
-      <option value="18">18</option>
-      <option value="19">19</option>
-      <option value="20">20</option>
-      <option value="21">21</option>
-      <option value="22">22</option>
-      <option value="23">23</option>
-    </select><br />
-    Salariu tarifar: <input type="text" id="salTarif" value="4250" style="width: 31px"><br />
-    Bonus: <input type="text" id="valBonusInp" value="1200" style="width: 31px"> <input type="button" id="sub"
-      value="Submit" onclick="restPlatCalc()"><br />
-    Ore lucrate - Ore: <span id="oreLucr"></span><br />
-    Ore lucrate - RON: <span id="oreLucrRon"></span><br />
-    Ore Suplimentare 100% - Ore: <span id="oreSupl100"></span><br />
-    Ore Suplimentare 100% - RON: <span id="oreSuplRon100"></span><br />
-    Ore Suplimentare 75% - Ore: <span id="oreSupl75"></span><br />
-    Ore Suplimentare 75% - RON: <span id="oreSuplRon75"></span><br />
-    Ore Sarbatoare Legala - Ore: <span id="oreSarbLeg"></span><br />
-    Ore Sarbatoare Legala - RON: <span id="oreSarbLegRon"></span><br />
-    Concediu de Odihnă - Zile: <span id="zileCo"></span><br />
-    Concediu de Odihnă - RON: <span id="zileCoRon"></span><br />
-    Ore Weekend - Ore: <span id="oreWe"></span><br />
-    Ore Weekend - RON: <span id="oreWeRon"></span><br />
-    Bonus Operațional: <span id="valBonus"></span><br />
-    Decont Electricitate: <span id="decElectr"></span><br />
-    Număr Tichete Masă: <span id="nrTich"></span><br />
-    Valoare Tichete Masă: <span id="valTich"></span><br />
-    <b>Total Venituri Brute: <span id="venitBrut"></span></b><br />
-    Contribuție Sănătate (10%): <span id="contrSanat"></span><br />
-    Contribuție Pensie (25%): <span id="contrPens"></span><br />
-    <b>Venit Net: <span id="venitNet"></span></b><br />
-    Deducere de Bază: <span id="dedBaza"></span><br />
-    Deducere Supl. de Bază: <span id="dedSupl"></span><br />
-    <b>Venit Impozabil: <span id="venitImp"></span></b><br />
-    Impozit: <span id="valImp"></span><br />
-    <b>Rest Plata: <span id="restPlat"></b></span>
+    Salariu brut: <input type="text" id="salBrut" value="5490" style="width: 31px"><br />
+    Varsta: <input type="text" id="valAge" value="35" style="width: 16px"> <input type="button" id="sub" value="Submit"
+      onclick="restPlatCalc()"><br />
+    Nr puncte per an: <span id="nrPctPerAn"></span><br />
+    Nr ani de contributivitate: <span id="nrAniContr"></span><br />
+    Nr puncte de contributivitate: <span id="nrPctContr"></span><br />
+    Nr puncte de stabilitate: <span id="nrPctStab"></span><br />
+    Nr puncte de necontributivitate: <span id="nrPctNecontr"></span><br />
+    Nr puncte total: <span id="nrPctTotal"></span><br />
+    Valoare punct de referință: <span id="valPctRef"></span><br />
+    <b>Valoare pensie: <span id="valPens"></span></b>
   </form>
 
 </body>
