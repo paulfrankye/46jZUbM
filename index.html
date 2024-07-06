@@ -6,6 +6,19 @@
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
   <script>
     function restPlatCalc() {
+
+      // Inputs
+
+      nrLun = document.getElementById("nrLun").value;
+      nrAn = document.getElementById("nrAn").value;
+      sarbLeg = document.getElementById("sarbLeg").value;
+      zileWe = document.getElementById("zileWe").value;
+      zileCoSel = document.getElementById("zileCoSel").value;
+      salTarif = document.getElementById("salTarif").value;
+      valBonusInp = document.getElementById("valBonusInp").value;
+
+      // Vars
+
       var nrLun;
       var nrAn;
       var zileLucr;
@@ -39,6 +52,9 @@
       var venitImp;
       var valImp;
       var restPlat;
+
+      // Results
+
       var oreLucrRes = document.getElementById('oreLucr');
       var oreLucrRonRes = document.getElementById('oreLucrRon');
       var oreSupl100Res = document.getElementById('oreSupl100');
@@ -64,13 +80,9 @@
       var venitImpRes = document.getElementById('venitImp');
       var valImpRes = document.getElementById('valImp');
       var restPlatRes = document.getElementById('restPlat');
-      nrLun = document.getElementById("nrLun").value;
-      nrAn = document.getElementById("nrAn").value;
-      sarbLeg = document.getElementById("sarbLeg").value;
-      zileWe = document.getElementById("zileWe").value;
-      zileCoSel = document.getElementById("zileCoSel").value;
-      salTarif = document.getElementById("salTarif").value;
-      valBonusInp = document.getElementById("valBonusInp").value;
+
+      // Ifs
+
       if (nrAn == '2024') {
         if (nrLun == '1') {
           zileLucr = 20;
@@ -122,6 +134,9 @@
       } else {
         zileLucr = 0;
       }
+
+      // Formulas
+
       oreLucr = parseInt(zileLucr) * 8 - parseInt(zileCoSel) * 8;
       oreLucrRon = parseInt(oreLucr) * (parseInt(salTarif) / zileLucr / 8);
       oreSupl100 = parseInt(sarbLeg) * 8;
@@ -147,7 +162,9 @@
       venitImp = parseInt(venitBrut) + parseInt(valTich) - parseInt(contrSanat) - parseInt(contrPens) - parseInt(dedBaza) - parseInt(dedSupl);
       valImp = venitImp * 0.1;
       restPlat = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPens) - parseInt(valImp);
-      console.log('zileLucr = ' + zileLucr);
+
+      // Display
+
       oreLucrRes.innerHTML = Math.trunc(oreLucr);
       oreLucrRonRes.innerHTML = Math.trunc(oreLucrRon);
       oreSupl100Res.innerHTML = Math.trunc(oreSupl100);
@@ -230,7 +247,6 @@
       <option value="7">7</option>
       <option value="8">8</option>
       <option value="9">9</option>
-      <option value="10">10</option>
       <option value="10">10</option>
       <option value="11">11</option>
       <option value="12">12</option>
