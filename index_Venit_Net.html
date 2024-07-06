@@ -39,13 +39,17 @@
       var valContRes = document.getElementById('valCont');
       var valNetRes = document.getElementById('valNet');
 
+      // Value
+
+      var daysInCurrentMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
+
       // Formulas
 
       valTotIncas = parseFloat(venitAgent) + parseFloat(tipsCard) + parseFloat(tipsCash);
       valComis = parseFloat(venitAgent) * parseFloat(procComis) / 100 + (parseFloat(venitAgent) + parseFloat(valBonus)) * 0.0177;
       valRestPlat = parseFloat(venitAgent) + parseFloat(tipsCard) - parseFloat(incasCash) + parseFloat(valBonus) - parseFloat(valComis);
       valComb = parseFloat(valKm) / 100 * parseFloat(procCons) * parseFloat(pretComb);
-      valCont = parseFloat(pretCont) / 30;
+      valCont = parseFloat(pretCont) / parseFloat(daysInCurrentMonth);
       valTaxe = (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1 + (parseFloat(valRestPlat) - ((parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1)) * 0.1;
       valNet = parseFloat(valRestPlat) + parseFloat(tipsCash) + parseFloat(incasCash) - parseFloat(valComb) - parseFloat(valCont) - parseFloat(valTaxe);
 
@@ -65,15 +69,15 @@
 <body>
 
   <form action="">
-    Venit agenție: <input type="number" id="venitAgent" value="240" style="width: 31px"><br />
-    Bacșiș card: <input type="number" id="tipsCard" value="0" style="width: 31px"><br />
-    Încasări cash: <input type="number" id="incasCash" value="0" style="width: 31px"><br />
-    Bacșiș cash: <input type="number" id="tipsCash" value="0" style="width: 31px"><br />
-    Bonus: <input type="number" id="valBonus" value="0" style="width: 31px"><br />
-    Kilometri: <input type="number" id="valKm" value="110" style="width: 31px"><br />
+    Venit agenție: <input type="number" id="venitAgent" value="" style="width: 31px"><br />
+    Bacșiș card: <input type="number" id="tipsCard" value="" style="width: 31px"><br />
+    Încasări cash: <input type="number" id="incasCash" value="" style="width: 31px"><br />
+    Bacșiș cash: <input type="number" id="tipsCash" value="" style="width: 31px"><br />
+    Bonus: <input type="number" id="valBonus" value="" style="width: 31px"><br />
+    Kilometri: <input type="number" id="valKm" value="" style="width: 31px"><br />
     Consum: <input type="number" id="procCons" value="9" style="width: 31px"><br />
     Preț: <input type="number" id="pretComb" value="7.50" style="width: 31px"><br />
-    Comision: <input type="number" id="procComis" value="10" style="width: 31px"><br />
+    Comision: <input type="number" id="procComis" value="9" style="width: 31px"><br />
     Contabilitate: <input type="number" id="pretCont" value="89" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="venitNetCalc()"><br />
     <b>Total încasări: <span id="valTotIncas"></b><br />
