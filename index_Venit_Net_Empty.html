@@ -65,17 +65,23 @@
 <body>
 
   <form action="">
-    Venit agenție: <input type="number" inputmode="numeric" id="venitAgent" value="" style="width: 31px"><br />
-    Bacșiș card: <input type="number" inputmode="numeric" id="tipsCard" value="" style="width: 31px"><br />
-    Încasări cash: <input type="number" inputmode="numeric" id="incasCash" value="" style="width: 31px"><br />
-    Bacșiș cash: <input type="number" inputmode="numeric" id="tipsCash" value="" style="width: 31px"><br />
-    Bonus: <input type="number" inputmode="numeric" id="valBonus" value="" style="width: 31px"><br />
-    Kilometri: <input type="number" inputmode="numeric" id="valKm" value="" style="width: 31px"><br />
-    Consum: <input type="number" inputmode="numeric" id="procCons" value="9" style="width: 31px"><br />
-    Preț: <input type="number" inputmode="numeric" id="pretComb" value="7.50" style="width: 31px"><br />
-    Comision: <input type="number" inputmode="numeric" id="procComis" value="9" style="width: 31px"><br />
-    Contabilitate: <input type="number" inputmode="numeric" id="pretCont" value="89" style="width: 31px"> <input
-      type="button" id="sub" value="Submit" onclick="venitNetCalc()"><br />
+    Venit agenție: <input type="number" pattern="[0-9]*" inputmode="numeric" id="venitAgent" value=""
+      style="width: 31px"><br />
+    Bacșiș card: <input type="number" pattern="[0-9]*" inputmode="numeric" id="tipsCard" value=""
+      style="width: 31px"><br />
+    Încasări cash: <input type="number" pattern="[0-9]*" inputmode="numeric" id="incasCash" value=""
+      style="width: 31px"><br />
+    Bacșiș cash: <input type="number" pattern="[0-9]*" inputmode="numeric" id="tipsCash" value=""
+      style="width: 31px"><br />
+    Bonus: <input type="number" pattern="[0-9]*" inputmode="numeric" id="valBonus" value="" style="width: 31px"><br />
+    Kilometri: <input type="number" pattern="[0-9]*" inputmode="numeric" id="valKm" value="" style="width: 31px"><br />
+    Consum: <input type="number" pattern="[0-9]*" inputmode="numeric" id="procCons" value="9" style="width: 31px"><br />
+    Preț: <input type="number" pattern="[0-9]*" inputmode="numeric" id="pretComb" value="7.50"
+      style="width: 31px"><br />
+    Comision: <input type="number" pattern="[0-9]*" inputmode="numeric" id="procComis" value="9"
+      style="width: 31px"><br />
+    Contabilitate: <input type="number" pattern="[0-9]*" inputmode="numeric" id="pretCont" value="89"
+      style="width: 31px"> <input type="button" id="sub" value="Submit" onclick="venitNetCalc()"><br />
     <b>Total încasări: <span id="valTotIncas"></b><br />
     Comision: <span id="valComis"></span></span><br />
     <b>Rest plată: <span id="valRestPlat"></span></b><br />
