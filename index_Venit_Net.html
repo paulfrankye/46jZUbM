@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
   <script>
-    function venitNetCalc() {
+    function valNetCalc() {
 
       // Inputs
 
@@ -69,24 +69,24 @@
 <body>
 
   <form action="">
-    Venit agenție: <input type="number" id="venitAgent" value="" style="width: 31px"><br />
-    Bacșiș card: <input type="number" id="tipsCard" value="" style="width: 31px"><br />
-    Încasări cash: <input type="number" id="incasCash" value="" style="width: 31px"><br />
-    Bacșiș cash: <input type="number" id="tipsCash" value="" style="width: 31px"><br />
-    Bonus: <input type="number" id="valBonus" value="" style="width: 31px"><br />
-    Kilometri: <input type="number" id="valKm" value="" style="width: 31px"><br />
+    Venit agenție: <input type="number" id="venitAgent" value="240" style="width: 31px"><br />
+    Bacșiș card: <input type="number" id="tipsCard" value="0" style="width: 31px"><br />
+    Încasări cash: <input type="number" id="incasCash" value="0" style="width: 31px"><br />
+    Bacșiș cash: <input type="number" id="tipsCash" value="0" style="width: 31px"><br />
+    Bonus: <input type="number" id="valBonus" value="0" style="width: 31px"><br />
+    Kilometri: <input type="number" id="valKm" value="110" style="width: 31px"><br />
     Consum: <input type="number" id="procCons" value="9" style="width: 31px"><br />
     Preț: <input type="number" id="pretComb" value="7.50" style="width: 31px"><br />
     Comision: <input type="number" id="procComis" value="9" style="width: 31px"><br />
     Contabilitate: <input type="number" id="pretCont" value="89" style="width: 31px"> <input type="button" id="sub"
-      value="Submit" onclick="venitNetCalc()"><br />
+      value="Submit" onclick="valNetCalc()"><br />
     <b>Total încasări: <span id="valTotIncas"></b><br />
     Comision: <span id="valComis"></span></span><br />
     <b>Rest plată: <span id="valRestPlat"></span></b><br />
     Combustibil: <span id="valComb"></span><br />
     Taxe: <span id="valTaxe"></span><br />
     Contabilitate: <span id="valCont"></span><br />
-    <b>Net: <span id="valNet"></span></b><br />
+    <b>Venit net: <span id="valNet"></span></b><br />
   </form>
 
 </body>
