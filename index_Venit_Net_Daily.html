@@ -9,6 +9,7 @@
 
       // Inputs
 
+      nrOre = document.getElementById("nrOre").value;
       venitAgent = document.getElementById("venitAgent").value;
       tipsCard = document.getElementById("tipsCard").value;
       incasCash = document.getElementById("incasCash").value;
@@ -30,6 +31,10 @@
       var valTaxe;
       var valCont;
       var valVenitNet;
+      var valTotIncasPerOra;
+      var valVenitNetPerOra;
+      var valTotIncasPerNorma;
+      var valVenitNetPerNorma;
 
       // Results
 
@@ -41,6 +46,10 @@
       var valTaxeRes = document.getElementById('valTaxe');
       var valContRes = document.getElementById('valCont');
       var valVenitNetRes = document.getElementById('valVenitNet');
+      var valTotIncasPerOraRes = document.getElementById('valTotIncasPerOra');
+      var valVenitNetPerOraRes = document.getElementById('valVenitNetPerOra');
+      var valTotIncasPerNormaRes = document.getElementById('valTotIncasPerNorma');
+      var valVenitNetPerNormaRes = document.getElementById('valVenitNetPerNorma');
 
       // Value
 
@@ -56,6 +65,10 @@
       valCont = parseFloat(pretCont) / parseFloat(daysInCurrentMonth);
       valTaxe = (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1 + (parseFloat(valRestPlat) - ((parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1)) * 0.1;
       valVenitNet = parseFloat(valRestPlat) + parseFloat(tipsCash) + parseFloat(incasCash) - parseFloat(valComb) - parseFloat(valCont) - parseFloat(valTaxe);
+      valTotIncasPerOra = parseFloat(valTotIncas) / parseFloat(nrOre);
+      valVenitNetPerOra = parseFloat(valVenitNet) / parseFloat(nrOre);
+      valTotIncasPerNorma = parseFloat(valTotIncasPerOra) * 176;
+      valVenitNetPerNorma = parseFloat(valVenitNetPerOra) * 176;
 
       // Display
 
@@ -67,6 +80,10 @@
       valTaxeRes.innerHTML = parseFloat(valTaxe).toFixed(2);
       valContRes.innerHTML = parseFloat(valCont).toFixed(2);
       valVenitNetRes.innerHTML = parseFloat(valVenitNet).toFixed(2);
+      valTotIncasPerOraRes.innerHTML = parseFloat(valTotIncasPerOra).toFixed(2);
+      valVenitNetPerOraRes.innerHTML = parseFloat(valVenitNetPerOra).toFixed(2);
+      valTotIncasPerNormaRes.innerHTML = parseFloat(valTotIncasPerNorma).toFixed(0);
+      valVenitNetPerNormaRes.innerHTML = parseFloat(valVenitNetPerNorma).toFixed(0);
     }
   </script>
 </head>
@@ -74,6 +91,10 @@
 <body>
 
   <form action="">
+    Ore: <select id="nrOre">
+      <option value="4">4</option>
+      <option value="8" selected>8</option>
+    </select><br />
     Venit agenție: <input type="number" id="venitAgent" value="" style="width: 31px"><br />
     Bacșiș card: <input type="number" id="tipsCard" value="" style="width: 31px"><br />
     Încasări cash: <input type="number" id="incasCash" value="" style="width: 31px"><br />
@@ -92,7 +113,11 @@
     Combustibil: <span id="valComb"></span><br />
     Taxe: <span id="valTaxe"></span><br />
     Contabilitate: <span id="valCont"></span><br />
-    <b>Venit net: <span id="valVenitNet"></span></b><br />
+    <b>Venit net: <span id="valVenitNet"></span></b><br /><br />
+    Total încasări per oră: <span id="valTotIncasPerOra"></span><br />
+    Venit net per oră: <span id="valVenitNetPerOra"></span><br /><br />
+    Total încasări per normă: <span id="valTotIncasPerNorma"></span><br />
+    Venit net per normă: <span id="valVenitNetPerNorma"></span><br /><br />
   </form>
 
 </body>
