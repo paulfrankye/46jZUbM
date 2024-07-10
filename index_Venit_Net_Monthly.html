@@ -25,7 +25,6 @@
       var venitApp;
       var bacsisCash;
       var totalIncasari;
-      var totalIncasariPerOra;
       var valComision;
       var restPlata;
       var valCombustibil;
@@ -35,6 +34,7 @@
       var contrSanatate;
       var valImpozit;
       var venitNet;
+      var totalIncasariPerOra;
       var venitNetPerOra;
       var totalIncasariPerNorma;
       var venitNetPerNorma;
@@ -47,7 +47,6 @@
       var venitAppRes = document.getElementById('venitApp');
       var bacsisCashRes = document.getElementById('bacsisCash');
       var totalIncasariRes = document.getElementById('totalIncasari');
-      var totalIncasariPerOraRes = document.getElementById('totalIncasariPerOra');
       var valComisionRes = document.getElementById('valComision');
       var restPlataRes = document.getElementById('restPlata');
       var valCombustibilRes = document.getElementById('valCombustibil');
@@ -57,6 +56,7 @@
       var contrSanatateRes = document.getElementById('contrSanatate');
       var valImpozitRes = document.getElementById('valImpozit');
       var venitNetRes = document.getElementById('venitNet');
+      var totalIncasariPerOraRes = document.getElementById('totalIncasariPerOra');
       var venitNetPerOraRes = document.getElementById('venitNetPerOra');
       var totalIncasariPerNormaRes = document.getElementById('totalIncasariPerNorma');
       var venitNetPerNormaRes = document.getElementById('venitNetPerNorma');
@@ -69,7 +69,6 @@
       venitApp = parseFloat(venitAgentie) + parseFloat(bacsisCard);
       bacsisCash = parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(bacsisCashPerComanda);
       totalIncasari = parseFloat(venitApp) + parseFloat(bacsisCash);
-      totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(orePerLuna);
       valComision = parseFloat(venitAgentie) * (0.10 + 0.0149 * 1.19);
       restPlata = parseFloat(venitAgentie) + parseFloat(bacsisCard) - parseFloat(incasariCash) - parseFloat(valComision);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
@@ -83,6 +82,7 @@
       contrSanatate = parseFloat(venitImpozabil) * 0.1;
       valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrSanatate)) * 0.1;
       venitNet = parseFloat(restPlata) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit);
+      totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(orePerLuna);
       venitNetPerOra = parseFloat(venitNet) / parseFloat(orePerLuna);
       totalIncasariPerNorma = parseFloat(totalIncasariPerOra) * 176;
       venitNetPerNorma = parseFloat(venitNetPerOra) * 176;
@@ -95,7 +95,6 @@
       venitAppRes.innerHTML = parseFloat(venitApp).toFixed(0);
       bacsisCashRes.innerHTML = parseFloat(bacsisCash).toFixed(0);
       totalIncasariRes.innerHTML = parseFloat(totalIncasari).toFixed(0);
-      totalIncasariPerOraRes.innerHTML = parseFloat(totalIncasariPerOra).toFixed(2);
       valComisionRes.innerHTML = parseFloat(valComision).toFixed(0);
       restPlataRes.innerHTML = parseFloat(restPlata).toFixed(0);
       valCombustibilRes.innerHTML = parseFloat(valCombustibil).toFixed(0);
@@ -105,6 +104,7 @@
       contrSanatateRes.innerHTML = parseFloat(contrSanatate).toFixed(0);
       valImpozitRes.innerHTML = parseFloat(valImpozit).toFixed(0);
       venitNetRes.innerHTML = parseFloat(venitNet).toFixed(0);
+      totalIncasariPerOraRes.innerHTML = parseFloat(totalIncasariPerOra).toFixed(2);
       venitNetPerOraRes.innerHTML = parseFloat(venitNetPerOra).toFixed(2);
       totalIncasariPerNormaRes.innerHTML = parseFloat(totalIncasariPerNorma).toFixed(0);
       venitNetPerNormaRes.innerHTML = parseFloat(venitNetPerNorma).toFixed(0);
