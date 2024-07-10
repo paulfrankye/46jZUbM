@@ -9,6 +9,7 @@
 
       // Inputs
 
+      nrOre = document.getElementById("nrOre").value;
       venitAgent = document.getElementById("venitAgent").value;
       tipsCard = document.getElementById("tipsCard").value;
       incasCash = document.getElementById("incasCash").value;
@@ -22,6 +23,7 @@
 
       // Vars
 
+      var valVenitApp;
       var valTotIncas;
       var valComis;
       var valRestPlat;
@@ -32,6 +34,7 @@
 
       // Results
 
+      var valVenitAppRes = document.getElementById('valVenitApp');
       var valTotIncasRes = document.getElementById('valTotIncas');
       var valComisRes = document.getElementById('valComis');
       var valRestPlatRes = document.getElementById('valRestPlat');
@@ -46,6 +49,7 @@
 
       // Formulas
 
+      valVenitApp = parseFloat(venitAgent) + parseFloat(tipsCard);
       valTotIncas = parseFloat(venitAgent) + parseFloat(tipsCard) + parseFloat(tipsCash);
       valComis = parseFloat(venitAgent) * parseFloat(procComis) / 100 + (parseFloat(venitAgent) + parseFloat(valBonus)) * 0.0177;
       valRestPlat = parseFloat(venitAgent) + parseFloat(tipsCard) - parseFloat(incasCash) + parseFloat(valBonus) - parseFloat(valComis);
@@ -56,6 +60,7 @@
 
       // Display
 
+      valVenitAppRes.innerHTML = parseFloat(valVenitApp).toFixed(2);
       valTotIncasRes.innerHTML = parseFloat(valTotIncas).toFixed(2);
       valComisRes.innerHTML = parseFloat(valComis).toFixed(2);
       valRestPlatRes.innerHTML = parseFloat(valRestPlat).toFixed(2);
@@ -70,6 +75,7 @@
 <body>
 
   <form action="">
+    Ore: <input type="number" id="nrOre" value="" style="width: 31px"><br />
     Venit agenție: <input type="number" id="venitAgent" value="" style="width: 31px"><br />
     Bacșiș card: <input type="number" id="tipsCard" value="" style="width: 31px"><br />
     Încasări cash: <input type="number" id="incasCash" value="" style="width: 31px"><br />
@@ -81,13 +87,18 @@
     Comision: <input type="number" id="procComis" value="9" style="width: 31px"><br />
     Contabilitate: <input type="number" id="pretCont" value="89" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="valVenitNetCalc()"><br />
+    <b>Venit aplicație: <span id="valVenitApp"></b><br />
     <b>Total încasări: <span id="valTotIncas"></b><br />
     Comision: <span id="valComis"></span></span><br />
     <b>Rest plată: <span id="valRestPlat"></span></b><br />
     Combustibil: <span id="valComb"></span><br />
     Taxe: <span id="valTaxe"></span><br />
     Contabilitate: <span id="valCont"></span><br />
-    <b>Venit net: <span id="valVenitNet"></span></b><br />
+    <b>Venit net: <span id="valVenitNet"></span></b><br /><br />
+    Total încasări per oră: <span id="valTotIncasPerOra"></span><br />
+    Venit net per oră: <span id="valVenitNetPerOra"></span><br /><br />
+    Total încasări per normă: <span id="valTotIncasPerNorma"></span><br />
+    Venit net per normă: <span id="valVenitNetPerNorma"></span><br /><br />
   </form>
 
 </body>
