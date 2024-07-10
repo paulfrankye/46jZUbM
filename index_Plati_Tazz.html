@@ -34,7 +34,7 @@
 
       valComision = parseFloat(valVenitAgent) * 0.09;
       valTaxaOperat = (parseFloat(valVenitAgent) + parseFloat(valBonus)) * 0.0149 * 1.19;
-      valTotPlata = parseFloat(valVenitAgent) + parseFloat(valTips) - parseFloat(valIncasCash) - parseFloat(valComision) - parseFloat(valTaxaOperat);
+      valTotPlata = parseFloat(valVenitAgent) + parseFloat(valTips) - parseFloat(valIncasCash) + parseFloat(valBonus) - parseFloat(valCIM) - parseFloat(valSelfPay) - parseFloat(valTaxaActivare) - parseFloat(valRestPlata) - parseFloat(valComision) - parseFloat(valTaxaOperat);
 
       // Display
 
