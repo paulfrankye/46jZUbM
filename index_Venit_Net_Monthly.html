@@ -36,6 +36,8 @@
       var valImpozit;
       var venitNet;
       var venitNetPerOra;
+      var totalIncasariPerNorma;
+      var venitNetPerNorma;
 
       // Results
 
@@ -56,6 +58,8 @@
       var valImpozitRes = document.getElementById('valImpozit');
       var venitNetRes = document.getElementById('venitNet');
       var venitNetPerOraRes = document.getElementById('venitNetPerOra');
+      var totalIncasariPerNormaRes = document.getElementById('totalIncasariPerNorma');
+      var venitNetPerNormaRes = document.getElementById('venitNetPerNorma');
 
       // Formulas
 
@@ -80,6 +84,8 @@
       valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrSanatate)) * 0.1;
       venitNet = parseFloat(restPlata) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit);
       venitNetPerOra = parseFloat(venitNet) / parseFloat(orePerLuna);
+      totalIncasariPerNorma = parseFloat(totalIncasariPerOra) * 176;
+      venitNetPerNorma = parseFloat(venitNetPerOra) * 176;
 
       // Display
 
@@ -100,6 +106,8 @@
       valImpozitRes.innerHTML = parseFloat(valImpozit).toFixed(0);
       venitNetRes.innerHTML = parseFloat(venitNet).toFixed(0);
       venitNetPerOraRes.innerHTML = parseFloat(venitNetPerOra).toFixed(2);
+      totalIncasariPerNormaRes.innerHTML = parseFloat(totalIncasariPerNorma).toFixed(0);
+      venitNetPerNormaRes.innerHTML = parseFloat(venitNetPerNorma).toFixed(0);
     }
   </script>
 </head>
@@ -132,8 +140,8 @@
     <b>Venit net: <span id="venitNet"></span></b><br /><br />
     Total încasări per oră: <span id="totalIncasariPerOra"></span><br />
     Venit net per oră: <span id="venitNetPerOra"></span><br /><br />
-    Total încasări per normă: <span id="totalIncasariPerOra"></span><br />
-    Venit net per normă: <span id="venitNetPerOra"></span><br />
+    Total încasări per normă: <span id="totalIncasariPerNorma"></span><br />
+    Venit net per normă: <span id="venitNetPerNorma"></span><br />
   </form>
 
 </body>
