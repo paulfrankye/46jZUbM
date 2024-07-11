@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+  <script>
+    function ratingFinalCalc() {
+
+      // Inputs
+
+      ratingClient = document.getElementById("ratingClient").value;
+      ratingPrezenta = document.getElementById("ratingPrezenta").value;
+      ratingOreDeVarf = document.getElementById("ratingOreDeVarf").value;
+      ratingAcceptare = document.getElementById("ratingAcceptare").value;
+      ratingCompletare = document.getElementById("ratingCompletare").value;
+
+      // Vars
+
+      var ratingFinal;
+      var ratingFinalDisplay;
+      var oraProgramator;
+
+      // Results
+
+      var ratingFinalDisplayRes = document.getElementById('ratingFinalDisplay');
+      var oraProgramatorRes = document.getElementById('oraProgramator');
+
+      // Formulas
+
+      ratingFinal = parseFloat(ratingClient) * 0.15 + parseFloat(ratingPrezenta) * 0.25 + parseFloat(ratingOreDeVarf) * 0.25 + parseFloat(ratingAcceptare) * 0.20 + parseFloat(ratingCompletare) * 0.15;
+      if (ratingFinal < 0) {
+        ratingFinalDisplay = 0;
+      } else {
+        if (ratingFinal >= 0 && ratingFinal <= 5) {
+          ratingFinalDisplay = ratingFinal;
+        } else {
+          if (ratingFinal > 5) {
+            ratingFinalDisplay = 5;
+          }
+        }
+      }
+      if (ratingFinal < 3) {
+        oraProgramator = '16:30';
+      } else {
+        if (ratingFinal >= 3 && ratingFinal < 3.3) {
+          oraProgramator = '16:00';
+        } else {
+          if (ratingFinal >= 3.3 && ratingFinal < 3.5) {
+            oraProgramator = '15:30';
+          } else {
+            if (ratingFinal >= 3.5 && ratingFinal < 3.7) {
+              oraProgramator = '15:00';
+            } else {
+              if (ratingFinal >= 3.7 && ratingFinal < 4) {
+                oraProgramator = '14:30'
+              } else {
+                if (ratingFinal >= 4 && ratingFinal < 4.2) {
+                  oraProgramator = '14:00';
+                } else {
+                  if (ratingFinal >= 4.2 && ratingFinal < 4.5) {
+                    oraProgramator = '13:30';
+                  } else {
+                    if (ratingFinal >= 4.5) {
+                      oraProgramator = '13:00';
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      };
+
+      // Display
+
+      ratingFinalDisplayRes.innerHTML = parseFloat(ratingFinalDisplay).toFixed(1)
+      oraProgramatorRes.innerHTML = oraProgramator;
+    }
+  </script>
+</head>
+
+<body>
+
+  <form action="">
+    Rating client: <input type="text" id="ratingClient" value="3.9" style="width: 31px"><br />
+    Rating prezență: <input type="text" id="ratingPrezenta" min="0" max="5" value="5.0" style="width: 31px"><br />
+    Rating ore de vârf: <input type="text" id="ratingOreDeVarf" min="0" max="5" value="2.2" style="width: 31px"><br />
+    Rating acceptare: <input type="text" id="ratingAcceptare" min="0" max="5" value="5.0" style="width: 31px"><br />
+    Rating completare: <input type="text" id="ratingCompletare" min="0" max="5" value="3.5" style="width: 31px">
+    <input type="button" id="sub" value="Submit" onclick="ratingFinalCalc()"><br />
+    <b>Rating: <span id="ratingFinalDisplay"></span></span></b><br />
+    Programator: <span id="oraProgramator"></span></span>
+  </form>
+
+</body>
+
+</html>
