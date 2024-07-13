@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+
+  <script>
+    function ratingFinalCalc() {
+
+      // Inputs
+
+      dataStart = document.getElementById("dataStart").value;
+      ratingClient = document.getElementById("ratingClient").value;
+      oreLucrate = document.getElementById("oreLucrate").value;
+      oreAbsente = document.getElementById("oreAbsente").value;
+      oreDeVarf = document.getElementById("oreDeVarf").value;
+      comenziAcceptate = document.getElementById("comenziAcceptate").value;
+      comenziRefuzate = document.getElementById("comenziRefuzate").value;
+      comenziLivrate = document.getElementById("comenziLivrate").value;
+
+      // Vars
+
+      var dataCurenta;
+      var zileStart;
+      var ratingClientDisplay;
+      var ratingPrezenta;
+      var ratingOreDeVarf;
+      var ratingAcceptare;
+      var ratingCompletare;
+      var ratingFinalDisplay;
+      var ratingFinal;
+      var oraProgramator;
+
+      // Results
+
+      var ratingClientDisplayRes = document.getElementById('ratingClientDisplay');
+      var ratingPrezentaRes = document.getElementById('ratingPrezenta');
+      var ratingOreDeVarfRes = document.getElementById('ratingOreDeVarf');
+      var ratingAcceptareRes = document.getElementById('ratingAcceptare');
+      var ratingCompletareRes = document.getElementById('ratingCompletare');
+      var ratingFinalDisplayRes = document.getElementById('ratingFinalDisplay');
+      var oraProgramatorRes = document.getElementById('oraProgramator');
+
+      // Value
+
+      function dateDiffInDaysCalc(a, b) {
+        var _MS_PER_DAY = 1000 * 60 * 60 * 24;
+        var utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+        var utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+        return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+      }
+
+      var a = new Date(dataStart);
+      var b = new Date();
+      var dateDiffInDays = dateDiffInDaysCalc(a, b);
+      var dateDiffInDaysUse;
+
+      if (dateDiffInDays < 180) {
+        dateDiffInDaysUse = dateDiffInDays;
+      } else {
+        dateDiffInDaysUse = 180;
+      }
+
+      // Formulas
+
+      ratingClientDisplay = parseFloat(ratingClient);
+      ratingPrezenta = parseFloat(oreLucrate) / (parseFloat(oreLucrate) + parseFloat(oreAbsente)) * 5;
+      ratingOreDeVarf = parseFloat(oreDeVarf) / (parseFloat(dateDiffInDaysUse) * 6) * 4 + 1;
+      ratingAcceptare = parseFloat(comenziAcceptate) / (parseFloat(comenziAcceptate) + parseFloat(comenziRefuzate)) * 5;
+      ratingCompletare = parseFloat(comenziLivrate) / 200 * 5;
+      ratingFinal = parseFloat(ratingClient) * 0.15 + parseFloat(ratingPrezenta) * 0.25 + parseFloat(ratingOreDeVarf) * 0.25 + parseFloat(ratingAcceptare) * 0.20 + parseFloat(ratingCompletare) * 0.15;
+      if (ratingFinal < 0) {
+        ratingFinalDisplay = 0;
+      } else {
+        if (ratingFinal >= 0 && ratingFinal <= 5) {
+          ratingFinalDisplay = parseFloat(ratingFinal.toPrecision(2));
+        } else {
+          if (ratingFinal > 5) {
+            ratingFinalDisplay = 5;
+          }
+        }
+      }
+      if (parseFloat(ratingFinal.toPrecision(2)) < 3) {
+        oraProgramator = '16:30';
+      } else {
+        if (parseFloat(ratingFinal.toPrecision(2)) >= 3 && parseFloat(ratingFinal.toPrecision(2)) < 3.3) {
+          oraProgramator = '16:00';
+        } else {
+          if (parseFloat(ratingFinal.toPrecision(2)) >= 3.3 && parseFloat(ratingFinal.toPrecision(2)) < 3.5) {
+            oraProgramator = '15:30';
+          } else {
+            if (parseFloat(ratingFinal.toPrecision(2)) >= 3.5 && parseFloat(ratingFinal.toPrecision(2)) < 3.7) {
+              oraProgramator = '15:00';
+            } else {
+              if (parseFloat(ratingFinal.toPrecision(2)) >= 3.7 && parseFloat(ratingFinal.toPrecision(2)) < 4) {
+                oraProgramator = '14:30'
+              } else {
+                if (parseFloat(ratingFinal.toPrecision(2)) >= 4 && parseFloat(ratingFinal.toPrecision(2)) < 4.2) {
+                  oraProgramator = '14:00';
+                } else {
+                  if (parseFloat(ratingFinal.toPrecision(2)) >= 4.2 && parseFloat(ratingFinal.toPrecision(2)) < 4.5) {
+                    oraProgramator = '13:30';
+                  } else {
+                    if (parseFloat(ratingFinal.toPrecision(2)) >= 4.5) {
+                      oraProgramator = '13:00';
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      };
+
+      // Display
+
+      ratingClientDisplayRes.innerHTML = parseFloat(ratingClientDisplay).toFixed(1);
+      ratingPrezentaRes.innerHTML = parseFloat(ratingPrezenta).toFixed(1);
+      ratingOreDeVarfRes.innerHTML = parseFloat(ratingOreDeVarf).toFixed(1);
+      ratingAcceptareRes.innerHTML = parseFloat(ratingAcceptare).toFixed(1);
+      ratingCompletareRes.innerHTML = parseFloat(ratingCompletare).toFixed(1);
+      ratingFinalDisplayRes.innerHTML = parseFloat(ratingFinalDisplay).toFixed(1);
+      oraProgramatorRes.innerHTML = oraProgramator;
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <form action="">
+    Dată început: <input type="date" id="dataStart" value="2023-10-10"><br />
+    Rating client: <input type="text" id="ratingClient" value="3.8" style="width: 31px"><br />
+    Ore lucrate: <input type="text" id="oreLucrate" value="607" style="width: 31px"><br />
+    Ore absente: <input type="text" id="oreAbsente" value="3" style="width: 31px"><br />
+    Ore de vârf: <input type="text" id="oreDeVarf" value="322" style="width: 31px"><br />
+    Acceptate: <input type="text" id="comenziAcceptate" value="125" style="width: 31px"><br />
+    Refuzate: <input type="text" id="comenziRefuzate" value="2" style="width: 31px"><br />
+    Livrate: <input type="text" id="comenziLivrate" value="125" style="width: 31px"> <input type="button" id="sub"
+      value="Submit" onclick="ratingFinalCalc()"><br />
+    Rating client: <span id="ratingClientDisplay"></span><br />
+    Rating prezență: <span id="ratingPrezenta"></span><br />
+    Rating ore de vârf: <span id="ratingOreDeVarf"></span><br />
+    Rating acceptare: <span id="ratingAcceptare"></span><br />
+    Rating completare: <span id="ratingCompletare"></span><br />
+    <b>Rating: <span id="ratingFinalDisplay"></span></b><br />
+    Programator: <span id="oraProgramator"></span><br />
+  </form>
+
+</body>
+
+</html>
