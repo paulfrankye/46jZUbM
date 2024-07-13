@@ -34,35 +34,35 @@
         ratingFinalDisplay = 0;
       } else {
         if (ratingFinal >= 0 && ratingFinal <= 5) {
-          ratingFinalDisplay = ratingFinal;
+          ratingFinalDisplay = parseFloat(ratingFinal.toPrecision(2));
         } else {
           if (ratingFinal > 5) {
             ratingFinalDisplay = 5;
           }
         }
       }
-      if (ratingFinal < 3) {
+      if (parseFloat(ratingFinal.toPrecision(2)) < 3) {
         oraProgramator = '16:30';
       } else {
-        if (ratingFinal >= 3 && ratingFinal < 3.3) {
+        if (parseFloat(ratingFinal.toPrecision(2)) >= 3 && parseFloat(ratingFinal.toPrecision(2)) < 3.3) {
           oraProgramator = '16:00';
         } else {
-          if (ratingFinal >= 3.3 && ratingFinal < 3.5) {
+          if (parseFloat(ratingFinal.toPrecision(2)) >= 3.3 && parseFloat(ratingFinal.toPrecision(2)) < 3.5) {
             oraProgramator = '15:30';
           } else {
-            if (ratingFinal >= 3.5 && ratingFinal < 3.7) {
+            if (parseFloat(ratingFinal.toPrecision(2)) >= 3.5 && parseFloat(ratingFinal.toPrecision(2)) < 3.7) {
               oraProgramator = '15:00';
             } else {
-              if (ratingFinal >= 3.7 && ratingFinal < 4) {
+              if (parseFloat(ratingFinal.toPrecision(2)) >= 3.7 && parseFloat(ratingFinal.toPrecision(2)) < 4) {
                 oraProgramator = '14:30'
               } else {
-                if (ratingFinal >= 4 && ratingFinal < 4.2) {
+                if (parseFloat(ratingFinal.toPrecision(2)) >= 4 && parseFloat(ratingFinal.toPrecision(2)) < 4.2) {
                   oraProgramator = '14:00';
                 } else {
-                  if (ratingFinal >= 4.2 && ratingFinal < 4.5) {
+                  if (parseFloat(ratingFinal.toPrecision(2)) >= 4.2 && parseFloat(ratingFinal.toPrecision(2)) < 4.5) {
                     oraProgramator = '13:30';
                   } else {
-                    if (ratingFinal >= 4.5) {
+                    if (parseFloat(ratingFinal.toPrecision(2)) >= 4.5) {
                       oraProgramator = '13:00';
                     }
                   }
