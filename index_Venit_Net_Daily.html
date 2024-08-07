@@ -13,7 +13,7 @@
       nrOre = document.getElementById("nrOre").value;
       venitAgentie = document.getElementById("venitAgentie").value;
       tipsCard = document.getElementById("tipsCard").value;
-      incasCash = document.getElementById("incasCash").value;
+      incasariCash = document.getElementById("incasariCash").value;
       tipsCash = document.getElementById("tipsCash").value;
       valBonus = document.getElementById("valBonus").value;
       nrKm = document.getElementById("nrKm").value;
@@ -96,11 +96,11 @@
       valTotalIncasariDisplayTwo = parseFloat(valTotalIncasari);
       valComision = parseFloat(venitAgentie) * parseFloat(procComision) / 100;
       valTaxaOperationala = (parseFloat(venitAgentie) + parseFloat(valBonus)) * 0.0149 * 1.19;
-      valRestPlata = parseFloat(venitAgentie) + parseFloat(tipsCard) - parseFloat(incasCash) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOperationala);
+      valRestPlata = parseFloat(venitAgentie) + parseFloat(tipsCard) - parseFloat(incasariCash) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOperationala);
       valCombustibil = parseFloat(nrKm) / 100 * parseFloat(procConsum) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate) / parseFloat(daysInCurrentMonth);
       valTaxe = (parseFloat(valRestPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate)) * 0.1 + (parseFloat(valRestPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - ((parseFloat(valRestPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate)) * 0.1)) * 0.1;
-      valVenitNet = parseFloat(valRestPlata) + parseFloat(tipsCash) + parseFloat(incasCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(valTaxe);
+      valVenitNet = parseFloat(valRestPlata) + parseFloat(tipsCash) + parseFloat(incasariCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(valTaxe);
       valTotalIncasariPerOra = parseFloat(valTotalIncasari) / parseFloat(nrOre);
       valTotalIncasariPerOraDisplayTwo = valTotalIncasariPerOra;
       valVenitNetPerOra = parseFloat(valVenitNet) / parseFloat(nrOre);
@@ -159,7 +159,7 @@
     Ore: <input type="number" id="nrOre" value="" style="width: 31px"><br />
     Venit agenție: <input type="number" id="venitAgentie" value="" style="width: 31px"><br />
     Bacșiș card: <input type="number" id="tipsCard" value="" style="width: 31px"><br />
-    Încasări cash: <input type="number" id="incasCash" value="" style="width: 31px"><br />
+    Încasări cash: <input type="number" id="incasariCash" value="" style="width: 31px"><br />
     Bacșiș cash: <input type="number" id="tipsCash" value="" style="width: 31px"><br />
     Bonus: <input type="number" id="valBonus" value="" style="width: 31px"><br />
     Kilometri: <input type="number" id="nrKm" value="" style=" width: 31px"><br />

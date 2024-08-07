@@ -76,7 +76,7 @@
       valTaxaOper = parseFloat(venitAgentie) * (0.0149 * 1.19);
       restPlata = parseFloat(venitAgentie) + parseFloat(bacsisCard) - parseFloat(incasariCash) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
-      valContabilitate = 89;
+      valContabilitate = 119;
       venitImpozabil = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
       if (venitImpozabil >= 3300) {
         contrPensie = 3300 * 0.25;
