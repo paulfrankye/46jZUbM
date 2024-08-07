@@ -29,7 +29,7 @@
       var valTotalIncasari;
       var valTotalIncasariDisplayTwo;
       var valComision;
-      var valTaxaOperationala;
+      var valTaxaOper;
       var valRestPlata;
       var valCombustibil;
       var valTaxe;
@@ -63,7 +63,7 @@
       var valTotalIncasariRes = document.getElementById('valTotalIncasari');
       var valTotalIncasariDisplayTwoRes = document.getElementById('valTotalIncasariDisplayTwo');
       var valComisionRes = document.getElementById('valComision');
-      var valTaxaOperationalaRes = document.getElementById('valTaxaOperationala');
+      var valTaxaOperRes = document.getElementById('valTaxaOper');
       var valRestPlataRes = document.getElementById('valRestPlata');
       var valCombustibilRes = document.getElementById('valCombustibil');
       var valTaxeRes = document.getElementById('valTaxe');
@@ -95,8 +95,8 @@
       valTotalIncasari = parseFloat(venitAgentie) + parseFloat(tipsCard) + parseFloat(tipsCash);
       valTotalIncasariDisplayTwo = parseFloat(valTotalIncasari);
       valComision = parseFloat(venitAgentie) * parseFloat(procComision) / 100;
-      valTaxaOperationala = (parseFloat(venitAgentie) + parseFloat(valBonus)) * 0.0149 * 1.19;
-      valRestPlata = parseFloat(venitAgentie) + parseFloat(tipsCard) - parseFloat(incasariCash) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOperationala);
+      valTaxaOper = (parseFloat(venitAgentie) + parseFloat(valBonus)) * 0.0149 * 1.19;
+      valRestPlata = parseFloat(venitAgentie) + parseFloat(tipsCard) - parseFloat(incasariCash) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = parseFloat(nrKm) / 100 * parseFloat(procConsum) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate) / parseFloat(daysInCurrentMonth);
       valTaxe = (parseFloat(valRestPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate)) * 0.1 + (parseFloat(valRestPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - ((parseFloat(valRestPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate)) * 0.1)) * 0.1;
@@ -128,7 +128,7 @@
       valTotalIncasariRes.innerHTML = parseFloat(valTotalIncasari).toFixed(2);
       valTotalIncasariDisplayTwoRes.innerHTML = parseFloat(valTotalIncasariDisplayTwo).toFixed(2);
       valComisionRes.innerHTML = parseFloat(valComision).toFixed(2);
-      valTaxaOperationalaRes.innerHTML = parseFloat(valTaxaOperationala).toFixed(2);
+      valTaxaOperRes.innerHTML = parseFloat(valTaxaOper).toFixed(2);
       valRestPlataRes.innerHTML = parseFloat(valRestPlata).toFixed(2);
       valCombustibilRes.innerHTML = parseFloat(valCombustibil).toFixed(2);
       valTaxeRes.innerHTML = parseFloat(valTaxe).toFixed(2);
@@ -172,7 +172,7 @@
     Bacșiș cash: <span id="tipsCashDisplay"></span></span><br />
     <b>Total încasări: <span id="valTotalIncasari"></b><br />
     Comision: <span id="valComision"></span></span><br />
-    Taxă operațională: <span id="valTaxaOperationala"></span></span><br />
+    Taxă operațională: <span id="valTaxaOper"></span></span><br />
     <b>Rest plată: <span id="valRestPlata"></span></b><br />
     Combustibil: <span id="valCombustibil"></span><br />
     Taxe: <span id="valTaxe"></span><br />
