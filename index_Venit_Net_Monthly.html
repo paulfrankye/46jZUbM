@@ -76,7 +76,7 @@
       valTaxaOper = parseFloat(venitAgentie) * (0.0149 * 1.19);
       restPlata = parseFloat(venitAgentie) + parseFloat(bacsisCard) - parseFloat(incasariCash) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
-      valContabilitate = 119;
+      valContabilitate = 89;
       venitImpozabil = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
       if (venitImpozabil >= 3300) {
         contrPensie = 3300 * 0.25;
@@ -84,7 +84,7 @@
         contrPensie = 0;
       }
       contrSanatate = parseFloat(venitImpozabil) * 0.1;
-      valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrSanatate)) * 0.1;
+      valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensie) - parseFloat(contrSanatate)) * 0.1;
       venitNet = parseFloat(restPlata) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit);
       totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(orePerLuna);
       venitNetPerOra = parseFloat(venitNet) / parseFloat(orePerLuna);
