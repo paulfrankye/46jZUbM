@@ -85,7 +85,7 @@
       }
       contrSanatate = parseFloat(venitImpozabil) * 0.1;
       valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensie) - parseFloat(contrSanatate)) * 0.1;
-      venitNet = parseFloat(restPlata) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit);
+      venitNet = parseFloat(restPlata) + parseFloat(incasariCash) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit);
       totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(orePerLuna);
       venitNetPerOra = parseFloat(venitNet) / parseFloat(orePerLuna);
       totalIncasariPerNorma = parseFloat(totalIncasariPerOra) * 176;
