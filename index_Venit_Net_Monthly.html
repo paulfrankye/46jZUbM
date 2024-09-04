@@ -12,6 +12,7 @@
 
       venitAgentiePerComanda = document.getElementById("venitAgentiePerComanda").value;
       bacsisCashPerComanda = document.getElementById("bacsisCashPerComanda").value;
+      valBonus = document.getElementById("valBonus").value;
       comenziPerOra = document.getElementById("comenziPerOra").value;
       kmPerComanda = document.getElementById("kmPerComanda").value;
       orePerLuna = document.getElementById("orePerLuna").value;
@@ -71,10 +72,10 @@
       incasariCash = 0;
       venitApp = parseFloat(venitAgentie) + parseFloat(bacsisCard);
       bacsisCash = parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(bacsisCashPerComanda);
-      totalIncasari = parseFloat(venitApp) + parseFloat(bacsisCash);
+      totalIncasari = parseFloat(venitApp) + parseFloat(valBonus) + (bacsisCash);
       valComision = parseFloat(venitAgentie) * 0.10;
-      valTaxaOper = parseFloat(venitAgentie) * (0.0149 * 1.19);
-      restPlata = parseFloat(venitAgentie) + parseFloat(bacsisCard) - parseFloat(incasariCash) - parseFloat(valComision) - parseFloat(valTaxaOper);
+      valTaxaOper = (parseFloat(venitAgentie) + parseFloat(valBonus)) * (0.0149 * 1.19);
+      restPlata = parseFloat(venitAgentie) + parseFloat(bacsisCard) - parseFloat(incasariCash) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
       valContabilitate = 119;
       venitImpozabil = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
@@ -123,6 +124,7 @@
   <form action="">
     Venit agenție per comandă: <input type="text" id="venitAgentiePerComanda" value="14.25" style="width: 31px"><br />
     Bacșiș cash per comandă: <input type="text" id="bacsisCashPerComanda" value="1.70" style="width: 31px"><br />
+    Bonus: <input type="text" id="valBonus" value="" style="width: 31px"><br />
     Comenzi per oră: <input type="text" id="comenziPerOra" value="2" style="width: 31px"><br />
     Km per comandă: <input type="text" id="kmPerComanda" value="7" style="width: 31px"><br />
     Ore per lună: <input type="text" id="orePerLuna" value="88" style="width: 31px"><br />
