@@ -26,6 +26,7 @@
 
       var valVenitApp;
       var tipsCashDisplay;
+      var valBonusDisplay;
       var valTotIncas;
       var valComis;
       var valTaxaOper;
@@ -47,6 +48,7 @@
 
       var valVenitAppRes = document.getElementById('valVenitApp');
       var tipsCashDisplayRes = document.getElementById('tipsCashDisplay');
+      var valBonusDisplayRes = document.getElementById('valBonusDisplay');
       var valTotIncasRes = document.getElementById('valTotIncas');
       var valComisRes = document.getElementById('valComis');
       var valTaxaOperRes = document.getElementById('valTaxaOper');
@@ -70,7 +72,8 @@
 
       valVenitApp = parseFloat(venitAgent) + parseFloat(tipsCard);
       tipsCashDisplay = tipsCash;
-      valTotIncas = parseFloat(venitAgent) + parseFloat(tipsCard) + parseFloat(tipsCash);
+      valBonusDisplay = valBonus;
+      valTotIncas = parseFloat(venitAgent) + parseFloat(tipsCard) + parseFloat(tipsCash) + parseFloat(valBonus);
       valComis = parseFloat(venitAgent) * parseFloat(procComis) / 100;
       valTaxaOper = (parseFloat(venitAgent) + parseFloat(valBonus)) * 0.0149 * 1.19;
       valRestPlat = parseFloat(venitAgent) + parseFloat(tipsCard) - parseFloat(incasCash) + parseFloat(valBonus) - parseFloat(valComis) - parseFloat(valTaxaOper);
@@ -91,6 +94,7 @@
 
       valVenitAppRes.innerHTML = parseFloat(valVenitApp).toFixed(2);
       tipsCashDisplayRes.innerHTML = parseFloat(tipsCashDisplay).toFixed(2);
+      valBonusDisplayRes.innerHTML = parseFloat(valBonusDisplay).toFixed(2);
       valTotIncasRes.innerHTML = parseFloat(valTotIncas).toFixed(2);
       valComisRes.innerHTML = parseFloat(valComis).toFixed(2);
       valTaxaOperRes.innerHTML = parseFloat(valTaxaOper).toFixed(2);
@@ -120,13 +124,14 @@
     Bacșiș cash: <input type="number" id="tipsCash" value="" style="width: 31px"><br />
     Bonus: <input type="number" id="valBonus" value="" style="width: 31px"><br />
     Kilometri: <input type="number" id="valKm" value="" style=" width: 31px"><br />
-    Consum: <input type="number" id="procCons" value="9" style="width: 31px"><br />
-    Preț: <input type="number" id="pretComb" value="7.50" style="width: 31px"><br />
+    Consum: <input type="number" id="procCons" value="8.29" style="width: 31px"><br />
+    Preț: <input type="number" id="pretComb" value="7.24" style="width: 31px"><br />
     Comision: <input type="number" id="procComis" value="9" style="width: 31px"><br />
     Contabilitate: <input type="number" id="pretCont" value="89" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="valVenitNetCalc()"><br />
     <b>Venit aplicație: <span id="valVenitApp"></span></b><br />
     Bacșiș cash: <span id="tipsCashDisplay"></span><br />
+    Bonus: <span id="valBonusDisplay"></span><br />
     <b>Total încasări: <span id="valTotIncas"></b><br />
     Comision: <span id="valComis"></span><br />
     Taxă operațională: <span id="valTaxaOper"></span><br />
