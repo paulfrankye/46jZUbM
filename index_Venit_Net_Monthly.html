@@ -14,6 +14,7 @@
       bacsisCashPerComanda = document.getElementById("bacsisCashPerComanda").value;
       valBonus = document.getElementById("valBonus").value;
       valPensie = document.getElementById("valPensie").value;
+      selPensie = document.getElementById("selPensie").value;
       comenziPerOra = document.getElementById("comenziPerOra").value;
       kmPerComanda = document.getElementById("kmPerComanda").value;
       orePerLuna = document.getElementById("orePerLuna").value;
@@ -86,8 +87,14 @@
       valContabilitate = 119;
       valPensieDisplay = parseFloat(valPensie);
       venitImpozabil = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - parseFloat(valPensieDisplay);
-      if (venitImpozabil >= 3700) {
-        contrPensie = 3700 * 0.25;
+      if (selPensie === 'Da') {
+        if (venitImpozabil >= 3700) {
+          contrPensie = 3700 * 0.25;
+        } else {
+          contrPensie = 0;
+        }
+      } else if (selPensie === 'Nu') {
+        contrPensie = 0;
       } else {
         contrPensie = 0;
       }
@@ -132,14 +139,18 @@
 
   <form action="">
     Venit agenție per comandă: <input type="text" id="venitAgentiePerComanda" value="14.25" style="width: 31px"><br />
-    Bacșiș cash per comandă: <input type="text" id="bacsisCashPerComanda" value="1.70" style="width: 31px"><br />
+    Bacșiș cash per comandă: <input type="text" id="bacsisCashPerComanda" value="1.75" style="width: 31px"><br />
     Bonus: <input type="text" id="valBonus" value="0" style="width: 31px"><br />
     Pensie: <input type="text" id="valPensie" value="0" style="width: 31px"><br />
+    Pensie: <select id="selPensie">
+      <option value="Da">Da</option>
+      <option value="Nu">Nu</option>
+    </select><br />
     Comenzi per oră: <input type="text" id="comenziPerOra" value="2" style="width: 31px"><br />
     Km per comandă: <input type="text" id="kmPerComanda" value="7" style="width: 31px"><br />
     Ore per lună: <input type="text" id="orePerLuna" value="88" style="width: 31px"><br />
-    Consum combustibil: <input type="text" id="consumCombustibil" value="8.24" style="width: 31px"><br />
-    Preț combustibil: <input type="text" id="pretCombustibil" value="7.29" style="width: 31px"> <input type="button"
+    Consum combustibil: <input type="text" id="consumCombustibil" value="8.82" style="width: 31px"><br />
+    Preț combustibil: <input type="text" id="pretCombustibil" value="6.89" style="width: 31px"> <input type="button"
       id="sub" value="Submit" onclick="venitNetCalc()"><br />
     Venit agenție: <span id="venitAgentie"></span><br />
     Bacșiș card: <span id="bacsisCard"></span><br />
