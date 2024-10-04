@@ -53,6 +53,7 @@
       var venitImp;
       var valImp;
       var restPlat;
+      var salMin;
 
       // Results
 
@@ -84,41 +85,42 @@
 
       // Ifs
 
-      if (nrAn == '2024') {
-        if (nrLun == '1') {
+      if (nrAn == 2024) {
+        salMin = 3700;
+        if (nrLun == 1) {
           zileLucr = 20;
         } else {
-          if (nrLun == '2') {
+          if (nrLun == 2) {
             zileLucr = 21;
           } else {
-            if (nrLun == '3') {
+            if (nrLun == 3) {
               zileLucr = 21;
             } else {
-              if (nrLun == '4') {
+              if (nrLun == 4) {
                 zileLucr = 22;
               } else {
-                if (nrLun == '5') {
+                if (nrLun == 5) {
                   zileLucr = 20;
                 } else {
-                  if (nrLun == '6') {
+                  if (nrLun == 6) {
                     zileLucr = 19;
                   } else {
-                    if (nrLun == '7') {
+                    if (nrLun == 7) {
                       zileLucr = 23;
                     } else {
-                      if (nrLun == '8') {
+                      if (nrLun == 8) {
                         zileLucr = 21;
                       } else {
-                        if (nrLun == '9') {
+                        if (nrLun == 9) {
                           zileLucr = 21;
                         } else {
-                          if (nrLun == '10') {
+                          if (nrLun == 10) {
                             zileLucr = 23;
                           } else {
-                            if (nrLun == '11') {
+                            if (nrLun == 11) {
                               zileLucr = 21;
                             } else {
-                              if (nrLun == '12') {
+                              if (nrLun == 12) {
                                 zileLucr = 20;
                               }
                             }
@@ -158,7 +160,89 @@
       contrSanat = (parseInt(venitBrut) + parseInt(valTich)) * 0.1;
       contrPens = parseInt(venitBrut) * 0.25;
       venitNet = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPens);
-      dedBaza = 0;
+      if ((parseInt(venitBrut) + parseInt(valTich)) <= parseInt(salMin)) { dedBaza = (parseInt(venitNet) * 0.2); } else {
+        if ((parseInt(salMin) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 50))) { dedBaza = (parseInt(venitNet) * 0.195); } else {
+          if (((parseInt(salMin) + 50) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 100))) { dedBaza = (parseInt(venitNet) * 0.19); } else {
+            if (((parseInt(salMin) + 100) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 150))) { dedBaza = (parseInt(venitNet) * 0.185); } else {
+              if (((parseInt(salMin) + 150) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 200))) { dedBaza = (parseInt(venitNet) * 0.18); } else {
+                if (((parseInt(salMin) + 200) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 250))) { dedBaza = (parseInt(venitNet) * 0.175); } else {
+                  if (((parseInt(salMin) + 250) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 300))) { dedBaza = (parseInt(venitNet) * 0.17); } else {
+                    if (((parseInt(salMin) + 300) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 350))) { dedBaza = (parseInt(venitNet) * 0.165); } else {
+                      if (((parseInt(salMin) + 350) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 400))) { dedBaza = (parseInt(venitNet) * 0.16); } else {
+                        if (((parseInt(salMin) + 400) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 450))) { dedBaza = (parseInt(venitNet) * 0.155); } else {
+                          if (((parseInt(salMin) + 450) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 500))) { dedBaza = (parseInt(venitNet) * 0.15); } else {
+                            if (((parseInt(salMin) + 500) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 550))) { dedBaza = (parseInt(venitNet) * 0.145); } else {
+                              if (((parseInt(salMin) + 550) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 600))) { dedBaza = (parseInt(venitNet) * 0.14); } else {
+                                if (((parseInt(salMin) + 600) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 650))) { dedBaza = (parseInt(venitNet) * 0.135); } else {
+                                  if (((parseInt(salMin) + 650) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 700))) { dedBaza = (parseInt(venitNet) * 0.13); } else {
+                                    if (((parseInt(salMin) + 700) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 750))) { dedBaza = (parseInt(venitNet) * 0.125); } else {
+                                      if (((parseInt(salMin) + 750) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 800))) { dedBaza = (parseInt(venitNet) * 0.12); } else {
+                                        if (((parseInt(salMin) + 800) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 850))) { dedBaza = (parseInt(venitNet) * 0.115); } else {
+                                          if (((parseInt(salMin) + 850) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 900))) { dedBaza = (parseInt(venitNet) * 0.11); } else {
+                                            if (((parseInt(salMin) + 900) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 950))) { dedBaza = (parseInt(venitNet) * 0.105); } else {
+                                              if (((parseInt(salMin) + 950) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1000))) { dedBaza = (parseInt(venitNet) * 0.1); } else {
+                                                if (((parseInt(salMin) + 1000) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1050))) { dedBaza = (parseInt(venitNet) * 0.095); } else {
+                                                  if (((parseInt(salMin) + 1050) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1100))) { dedBaza = (parseInt(venitNet) * 0.09); } else {
+                                                    if (((parseInt(salMin) + 1100) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1150))) { dedBaza = (parseInt(venitNet) * 0.085); } else {
+                                                      if (((parseInt(salMin) + 1150) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1200))) { dedBaza = (parseInt(venitNet) * 0.08); } else {
+                                                        if (((parseInt(salMin) + 1200) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1250))) { dedBaza = (parseInt(venitNet) * 0.075); } else {
+                                                          if (((parseInt(salMin) + 1250) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1300))) { dedBaza = (parseInt(venitNet) * 0.07); } else {
+                                                            if (((parseInt(salMin) + 1300) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1350))) { dedBaza = (parseInt(venitNet) * 0.065); } else {
+                                                              if (((parseInt(salMin) + 1350) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1400))) { dedBaza = (parseInt(venitNet) * 0.06); } else {
+                                                                if (((parseInt(salMin) + 1400) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1450))) { dedBaza = (parseInt(venitNet) * 0.055); } else {
+                                                                  if (((parseInt(salMin) + 1450) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1500))) { dedBaza = (parseInt(venitNet) * 0.05); } else {
+                                                                    if (((parseInt(salMin) + 1500) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1550))) { dedBaza = (parseInt(venitNet) * 0.045); } else {
+                                                                      if (((parseInt(salMin) + 1550) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1600))) { dedBaza = (parseInt(venitNet) * 0.04); } else {
+                                                                        if (((parseInt(salMin) + 1600) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1650))) { dedBaza = (parseInt(venitNet) * 0.035); } else {
+                                                                          if (((parseInt(salMin) + 1650) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1700))) { dedBaza = (parseInt(venitNet) * 0.03); } else {
+                                                                            if (((parseInt(salMin) + 1700) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1750))) { dedBaza = (parseInt(venitNet) * 0.025); } else {
+                                                                              if (((parseInt(salMin) + 1750) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1800))) { dedBaza = (parseInt(venitNet) * 0.02); } else {
+                                                                                if (((parseInt(salMin) + 1800) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1850))) { dedBaza = (parseInt(venitNet) * 0.015); } else {
+                                                                                  if (((parseInt(salMin) + 1850) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1900))) { dedBaza = (parseInt(venitNet) * 0.01); } else {
+                                                                                    if (((parseInt(salMin) + 1900) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 1950))) { dedBaza = (parseInt(venitNet) * 0.005); } else {
+                                                                                      if (((parseInt(salMin) + 1950) < (parseInt(venitBrut) + parseInt(valTich))) && ((parseInt(venitBrut) + parseInt(valTich)) <= (parseInt(salMin) + 2000))) { dedBaza = (parseInt(venitNet) * 0); } else {
+                                                                                        dedBaza = 0;
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       dedSupl = 0;
       venitImp = parseInt(venitBrut) + parseInt(valTich) - parseInt(contrSanat) - parseInt(contrPens) - parseInt(dedBaza) - parseInt(dedSupl);
       valImp = venitImp * 0.1;
@@ -193,7 +277,7 @@
       restPlatRes.innerHTML = Math.trunc(restPlat);
     }
   </script>
-  
+
 </head>
 
 <body>
