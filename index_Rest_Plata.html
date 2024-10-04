@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
 
   <script>
+
     function restPlatCalc() {
 
       // Inputs
@@ -86,7 +87,6 @@
       // Ifs
 
       if (nrAn == 2024) {
-        salMin = 3700;
         if (nrLun == 1) {
           zileLucr = 20;
         } else {
@@ -136,6 +136,17 @@
         }
       } else {
         zileLucr = 0;
+      }
+      if (nrAn == 2024) {
+        if (nrLun < 7) {
+          salMin = 3300;
+        } else {
+          if (nrLun >= 7) {
+            salMin = 3700;
+          }
+        }
+      } else {
+        salMin = 0;
       }
 
       // Formulas
@@ -276,6 +287,7 @@
       valImpRes.innerHTML = Math.trunc(valImp);
       restPlatRes.innerHTML = Math.trunc(restPlat);
     }
+
   </script>
 
 </head>
