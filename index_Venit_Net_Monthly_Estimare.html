@@ -95,7 +95,7 @@
       venitImpozabil = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - parseFloat(valPensieDisplay);
       if (selPensie === 'Da') {
         if (venitImpozabil >= 4050) {
-          contrPensie = 4050 * 0.25;
+          contrPensie = (4050 - 300) * 0.25;
         } else {
           contrPensie = 0;
         }
