@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
 
   <script>
+
     function restPlatCalc() {
 
       // Inputs
@@ -158,8 +159,9 @@
       nrPctNecontrRes.innerHTML = parseFloat(nrPctNecontr).toFixed(2);
       nrPctTotalRes.innerHTML = parseFloat(nrPctTotal).toFixed(2);
       valPctRefRes.innerHTML = parseFloat(valPctRef).toFixed(2);
-      valPensRes.innerHTML = parseFloat(valPens).toFixed(2);
+      valPensRes.innerHTML = Math.trunc(valPens);
     }
+
   </script>
 
 </head>
