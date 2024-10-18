@@ -26,6 +26,7 @@
 
       var valVenitApp;
       var tipsCashDisplay;
+      var valBonusDisplay;
       var valTotIncas;
       var valComis;
       var valTaxaOper;
@@ -36,13 +37,18 @@
       var valVenitNet;
       var valTotIncasPerOra;
       var valVenitNetPerOra;
+      var procVenitNetPerOra;
+      var procVenitNetPerOraDisplay;
       var valTotIncasPerNorma;
       var valVenitNetPerNorma;
+      var procVenitNetPerNorma;
+      var procVenitNetPerNormaDisplay;
 
       // Results
 
       var valVenitAppRes = document.getElementById('valVenitApp');
       var tipsCashDisplayRes = document.getElementById('tipsCashDisplay');
+      var valBonusDisplayRes = document.getElementById('valBonusDisplay');
       var valTotIncasRes = document.getElementById('valTotIncas');
       var valComisRes = document.getElementById('valComis');
       var valTaxaOperRes = document.getElementById('valTaxaOper');
@@ -53,8 +59,10 @@
       var valVenitNetRes = document.getElementById('valVenitNet');
       var valTotIncasPerOraRes = document.getElementById('valTotIncasPerOra');
       var valVenitNetPerOraRes = document.getElementById('valVenitNetPerOra');
+      var procVenitNetPerOraDisplayRes = document.getElementById('procVenitNetPerOraDisplay');
       var valTotIncasPerNormaRes = document.getElementById('valTotIncasPerNorma');
       var valVenitNetPerNormaRes = document.getElementById('valVenitNetPerNorma');
+      var procVenitNetPerNormaDisplayRes = document.getElementById('procVenitNetPerNormaDisplay');
 
       // Value
 
@@ -64,24 +72,29 @@
 
       valVenitApp = parseFloat(venitAgent) + parseFloat(tipsCard);
       tipsCashDisplay = tipsCash;
-      valTotIncas = parseFloat(venitAgent) + parseFloat(tipsCard) + parseFloat(tipsCash);
+      valBonusDisplay = valBonus;
+      valTotIncas = parseFloat(venitAgent) + parseFloat(tipsCard) + parseFloat(tipsCash) + parseFloat(valBonus);
       valComis = parseFloat(venitAgent) * parseFloat(procComis) / 100;
       valTaxaOper = (parseFloat(venitAgent) + parseFloat(valBonus)) * 0.0149 * 1.19;
-      valRestPlat = parseFloat(venitAgent) + parseFloat(tipsCard) - parseFloat(incasCash) + parseFloat(valBonus) - parseFloat(valComis) - parseFloat(valTaxaOper);;
+      valRestPlat = parseFloat(venitAgent) + parseFloat(tipsCard) - parseFloat(incasCash) + parseFloat(valBonus) - parseFloat(valComis) - parseFloat(valTaxaOper);
       valComb = parseFloat(valKm) / 100 * parseFloat(procCons) * parseFloat(pretComb);
       valCont = parseFloat(pretCont) / parseFloat(daysInCurrentMonth) * 7;
       valTaxe = (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1 + (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont) - ((parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1)) * 0.1;
       valVenitNet = parseFloat(valRestPlat) + parseFloat(tipsCash) + parseFloat(incasCash) - parseFloat(valComb) - parseFloat(valCont) - parseFloat(valTaxe);
       valTotIncasPerOra = parseFloat(valTotIncas) / parseFloat(nrOre);
       valVenitNetPerOra = parseFloat(valVenitNet) / parseFloat(nrOre);
+      procVenitNetPerOra = parseFloat(valVenitNetPerOra) / parseFloat(valTotIncasPerOra) * 100;
+      procVenitNetPerOraDisplay = parseFloat(procVenitNetPerOra).toFixed(2) + '%';
       valTotIncasPerNorma = parseFloat(valTotIncasPerOra) * 176;
       valVenitNetPerNorma = parseFloat(valVenitNetPerOra) * 176;
+      procVenitNetPerNorma = parseFloat(valVenitNetPerNorma) / (valTotIncasPerNorma) * 100;
+      procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
 
       // Display
 
       valVenitAppRes.innerHTML = parseFloat(valVenitApp).toFixed(2);
-      valVenitAppRes.innerHTML = parseFloat(valVenitApp).toFixed(2);
       tipsCashDisplayRes.innerHTML = parseFloat(tipsCashDisplay).toFixed(2);
+      valBonusDisplayRes.innerHTML = parseFloat(valBonusDisplay).toFixed(2);
       valTotIncasRes.innerHTML = parseFloat(valTotIncas).toFixed(2);
       valComisRes.innerHTML = parseFloat(valComis).toFixed(2);
       valTaxaOperRes.innerHTML = parseFloat(valTaxaOper).toFixed(2);
@@ -92,8 +105,10 @@
       valVenitNetRes.innerHTML = parseFloat(valVenitNet).toFixed(2);
       valTotIncasPerOraRes.innerHTML = parseFloat(valTotIncasPerOra).toFixed(2);
       valVenitNetPerOraRes.innerHTML = parseFloat(valVenitNetPerOra).toFixed(2);
+      procVenitNetPerOraDisplayRes.innerHTML = procVenitNetPerOraDisplay;
       valTotIncasPerNormaRes.innerHTML = parseFloat(valTotIncasPerNorma).toFixed(0);
       valVenitNetPerNormaRes.innerHTML = parseFloat(valVenitNetPerNorma).toFixed(0);
+      procVenitNetPerNormaDisplayRes.innerHTML = procVenitNetPerNormaDisplay;
     }
   </script>
 
@@ -108,14 +123,15 @@
     Încasări cash: <input type="number" id="incasCash" value="" style="width: 31px"><br />
     Bacșiș cash: <input type="number" id="tipsCash" value="" style="width: 31px"><br />
     Bonus: <input type="number" id="valBonus" value="" style="width: 31px"><br />
-    Kilometri: <input type="number" id="valKm" value="" style="width: 31px"><br />
-    Consum: <input type="number" id="procCons" value="9" style="width: 31px"><br />
-    Preț: <input type="number" id="pretComb" value="7.50" style="width: 31px"><br />
+    Kilometri: <input type="number" id="valKm" value="" style=" width: 31px"><br />
+    Consum: <input type="number" id="procCons" value="8.71" style="width: 31px"><br />
+    Preț: <input type="number" id="pretComb" value="6.87" style=" width: 31px"><br />
     Comision: <input type="number" id="procComis" value="9" style="width: 31px"><br />
     Contabilitate: <input type="number" id="pretCont" value="89" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="valVenitNetCalc()"><br />
-    <b>Venit aplicație: <span id="valVenitApp"></b><br />
+    <b>Venit aplicație: <span id="valVenitApp"></span></b><br />
     Bacșiș cash: <span id="tipsCashDisplay"></span><br />
+    Bonus: <span id="valBonusDisplay"></span><br />
     <b>Total încasări: <span id="valTotIncas"></b><br />
     Comision: <span id="valComis"></span><br />
     Taxă operațională: <span id="valTaxaOper"></span><br />
@@ -125,9 +141,11 @@
     Contabilitate: <span id="valCont"></span><br />
     <b>Venit net: <span id="valVenitNet"></span></b><br /><br />
     Total încasări per oră: <span id="valTotIncasPerOra"></span><br />
-    Venit net per oră: <span id="valVenitNetPerOra"></span><br /><br />
+    Venit net per oră: <span id="valVenitNetPerOra"></span><br />
+    Procentaj: <span id="procVenitNetPerOraDisplay"></span><br /><br />
     Total încasări per normă: <span id="valTotIncasPerNorma"></span><br />
     Venit net per normă: <span id="valVenitNetPerNorma"></span><br />
+    Procentaj: <span id="procVenitNetPerNormaDisplay"></span><br /><br />
   </form>
 
 </body>
