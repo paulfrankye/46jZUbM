@@ -49,6 +49,9 @@
       var venitNetPerNorma;
       var procVenitNetPerNorma;
       var procVenitNetPerNormaDisplay;
+      var nrLuni;
+      var nrLuniDisplay;
+      var venitNetMediu;
 
       // Results
 
@@ -76,6 +79,9 @@
       var totalIncasariPerNormaRes = document.getElementById('totalIncasariPerNorma');
       var venitNetPerNormaRes = document.getElementById('venitNetPerNorma');
       var procVenitNetPerNormaDisplayRes = document.getElementById('procVenitNetPerNormaDisplay');
+      var nrLuniRes = document.getElementById('nrLuni');
+      var nrLuniDisplayRes = document.getElementById('nrLuniDisplay');
+      var venitNetMediuRes = document.getElementById('venitNetMediu');
 
       // Formulas
 
@@ -115,6 +121,21 @@
       venitNetPerNorma = parseFloat(venitNetPerOra) * 176;
       procVenitNetPerNorma = parseFloat(venitNetPerNorma) / (totalIncasariPerNorma) * 100;
       procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
+      nrLuni = (4050 * 12) / venitImpozabil;
+      if (nrLuni <= 0) {
+        nrLuniDisplay = 0;
+      } else {
+        if (nrLuni > 0 && nrLuni <= 12) {
+          nrLuniDisplay = nrLuni;
+        } else {
+          if (nrLuni > 12) {
+            nrLuniDisplay = 12;
+          } else {
+            nrLuniDisplay = 0;
+          }
+        }
+      }
+      venitNetMediu = (parseFloat(venitNet) * Math.trunc(nrLuniDisplay) / 12);
 
       // Display
 
@@ -142,7 +163,11 @@
       totalIncasariPerNormaRes.innerHTML = parseFloat(totalIncasariPerNorma).toFixed(0);
       venitNetPerNormaRes.innerHTML = parseFloat(venitNetPerNorma).toFixed(0);
       procVenitNetPerNormaDisplayRes.innerHTML = procVenitNetPerNormaDisplay;
+      nrLuniDisplayRes.innerHTML = Math.trunc(nrLuniDisplay);
+      venitNetMediuRes.innerHTML = parseFloat(venitNetMediu).toFixed(0);
+
     }
+
   </script>
 
 </head>
@@ -188,6 +213,9 @@
     Total încasări per normă: <span id="totalIncasariPerNorma"></span><br />
     Venit net per normă: <span id="venitNetPerNorma"></span><br />
     Procentaj: <span id="procVenitNetPerNormaDisplay"></span><br /><br />
+    Luni: <span id="nrLuniDisplay"></span><br />
+    Venit net: <span id="venitNetMediu"></span><br /><br />
+
   </form>
 
 </body>
