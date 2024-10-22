@@ -53,8 +53,6 @@
       nrAniContr = 65 - parseFloat(valAge);
       nrPctContr = parseFloat(nrPctPerAn) * parseFloat(nrAniContr);
 
-      // =IF(B6<26,0,IF(AND(B6>=26,B6<27),0.5,IF(AND(B6>=27,B6<28),2*0.5,IF(AND(B6>=28,B6<29),3*0.5,IF(AND(B6>=29,B6<30),4*0.5,IF(AND(B6>=30,B6<31),5*0.5,IF(AND(B6>=31,B6<32),5*0.5+1*0.75,IF(AND(B6>=32,B6<33),5*0.5+2*0.75,IF(AND(B6>=33,B6<34),5*0.5+3*0.75,IF(AND(B6>=34,B6<35),5*0.5+4*0.75,IF(AND(B6>=35,B6<36),5*0.5+5*0.75,IF(AND(B6>=36,B6<37),5*0.5+2*0.75+1*1,IF(AND(B6>=37,B6<38),5*0.5+2*0.75+2*1,IF(AND(B6>=38,B6<39),5*0.5+2*0.75+3*1,IF(AND(B6>=39,B6<40),5*0.5+2*0.75+4*1,IF(AND(B6>=40,B6<41),5*0.5+2*0.75+5*1)))))))))))))))) 
-
       if (nrAniContr <= 25) {
         nrPctStab = 0
       } else {
