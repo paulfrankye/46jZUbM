@@ -55,92 +55,18 @@
 
       // =IF(B6<26,0,IF(AND(B6>=26,B6<27),0.5,IF(AND(B6>=27,B6<28),2*0.5,IF(AND(B6>=28,B6<29),3*0.5,IF(AND(B6>=29,B6<30),4*0.5,IF(AND(B6>=30,B6<31),5*0.5,IF(AND(B6>=31,B6<32),5*0.5+1*0.75,IF(AND(B6>=32,B6<33),5*0.5+2*0.75,IF(AND(B6>=33,B6<34),5*0.5+3*0.75,IF(AND(B6>=34,B6<35),5*0.5+4*0.75,IF(AND(B6>=35,B6<36),5*0.5+5*0.75,IF(AND(B6>=36,B6<37),5*0.5+2*0.75+1*1,IF(AND(B6>=37,B6<38),5*0.5+2*0.75+2*1,IF(AND(B6>=38,B6<39),5*0.5+2*0.75+3*1,IF(AND(B6>=39,B6<40),5*0.5+2*0.75+4*1,IF(AND(B6>=40,B6<41),5*0.5+2*0.75+5*1)))))))))))))))) 
 
-      if (nrAniContr < 26) {
+      if (nrAniContr <= 25) {
         nrPctStab = 0
       } else {
-        if (nrAniContr >= 26 && nrAniContr < 27) {
-          nrPctStab = 0.5;
+        if (nrAniContr > 25 && nrAniContr <= 30) {
+          nrPctStab = (nrAniContr - 25) * 0.5;
         } else {
-          if (nrAniContr >= 27 && nrAniContr < 28) {
-            nrPctStab = 2 * 0.5;
+          if (nrAniContr > 30 && nrAniContr <= 35) {
+            nrPctStab = parseFloat(5 * 0.5) + (nrAniContr - 30) * 0.75;
           } else {
-            if (nrAniContr >= 28 && nrAniContr < 29) {
-              nrPctStab = 3 * 0.5;
-            } else {
-              if (nrAniContr >= 29 && nrAniContr < 30) {
-                nrPctStab = 4 * 0.5;
-              } else {
-                if (nrAniContr >= 30 && nrAniContr < 31) {
-                  nrPctStab = 5 * 0.5;
-                }
-                else {
-                  if (nrAniContr >= 31 && nrAniContr < 32) {
-                    nrPctStab = 5 * 0.5 + 1 * 0.75;
-                  } else {
-                    if (nrAniContr >= 32 && nrAniContr < 33) {
-                      nrPctStab = 5 * 0.5 + 2 * 0.75;
-                    } else {
-                      if (nrAniContr >= 33 && nrAniContr < 34) {
-                        nrPctStab = 5 * 0.5 + 3 * 0.75;
-                      } else {
-                        if (nrAniContr >= 34 && nrAniContr < 35) {
-                          nrPctStab = 5 * 0.5 + 4 * 0.75;
-                        } else {
-                          if (nrAniContr >= 35 && nrAniContr < 36) {
-                            nrPctStab = 5 * 0.5 + 5 * 0.75;
-                          } else {
-                            if (nrAniContr >= 36 && nrAniContr < 37) {
-                              nrPctStab = 5 * 0.5 + 5 * 0.75 + 1 * 1;
-                            } else {
-                              if (nrAniContr >= 37 && nrAniContr < 38) {
-                                nrPctStab = 5 * 0.5 + 5 * 0.75 + 2 * 1;
-                              } else {
-                                if (nrAniContr >= 38 && nrAniContr < 39) {
-                                  nrPctStab = 5 * 0.5 + 5 * 0.75 + 3 * 1;
-                                } else {
-                                  if (nrAniContr >= 39 && nrAniContr < 40) {
-                                    nrPctStab = 5 * 0.5 + 5 * 0.75 + 4 * 1;
-                                  } else {
-                                    if (nrAniContr >= 40 & nrAniContr < 41) {
-                                      nrPctStab = 5 * 0.5 + 5 * 0.75 + 5 * 1;
-                                    } else {
-                                      if (nrAniContr >= 41 & nrAniContr < 42) {
-                                        nrPctStab = 5 * 0.5 + 5 * 0.75 + 6 * 1;
-                                      } else {
-                                        if (nrAniContr >= 42 & nrAniContr < 43) {
-                                          nrPctStab = 5 * 0.5 + 5 * 0.75 + 7 * 1;
-                                        } else {
-                                          if (nrAniContr >= 43 & nrAniContr < 44) {
-                                            nrPctStab = 5 * 0.5 + 5 * 0.75 + 8 * 1;
-                                          } else {
-                                            if (nrAniContr >= 44 & nrAniContr < 45) {
-                                              nrPctStab = 5 * 0.5 + 5 * 0.75 + 9 * 1;
-                                            } else {
-                                              if (nrAniContr >= 45 & nrAniContr < 46) {
-                                                nrPctStab = 5 * 0.5 + 5 * 0.75 + 10 * 1;
-                                              } else {
-                                                if (nrAniContr >= 46 & nrAniContr < 47) {
-                                                  nrPctStab = 5 * 0.5 + 5 * 0.75 + 11 * 1;
-                                                } else {
-                                                  nrPctStab = 0;
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
+            if (nrAniContr > 35) {
+              nrPctStab = parseFloat(5 * 0.5) + parseFloat(5 * 0.75) + (nrAniContr - 35) * 1;
+
             }
           }
         }
