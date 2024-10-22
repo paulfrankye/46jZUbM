@@ -13,7 +13,8 @@
 
       nrAn = document.getElementById("nrAn").value;
       salBrut = document.getElementById("salBrut").value;
-      valAge = document.getElementById("valAge").value;
+      valFrom = document.getElementById("valFrom").value;
+      valTo = document.getElementById("valTo").value;
 
       // Vars
 
@@ -50,7 +51,7 @@
         }
       }
       nrPctPerAn = parseFloat(salBrut) / parseFloat(salMedEcon);
-      nrAniContr = 65 - parseFloat(valAge);
+      nrAniContr = parseFloat(valTo) - parseFloat(valFrom);
       nrPctContr = parseFloat(nrPctPerAn) * parseFloat(nrAniContr);
       if (nrAniContr <= 25) {
         nrPctStab = 0;
@@ -97,8 +98,9 @@
       <option value="2024">2024</option>
       <option value="2025">2025</option>
     </select><br />
-    Salariu brut: <input type="text" id="salBrut" value="5190" style="width: 31px"><br />
-    Varsta: <input type="text" id="valAge" value="19" style="width: 16px"> <input type="button" id="sub" value="Submit"
+    Salariu brut: <input type="text" id="salBrut" value="4050" style="width: 31px"><br />
+    De la: <input type="text" id="valFrom" value="22" style="width: 16px"><br />
+    Pana la: <input type="text" id="valTo" value="65" style="width: 16px"> <input type="button" id="sub" value="Submit"
       onclick="restPlatCalc()"><br />
     Nr puncte per an: <span id="nrPctPerAn"></span><br />
     Nr ani de contributivitate: <span id="nrAniContr"></span><br />
