@@ -46,7 +46,15 @@
       ratingPrezenta = parseFloat(oreLucrate) / (parseFloat(oreLucrate) + parseFloat(oreAbsente)) * 5;
       ratingOreDeVarf = parseFloat(oreDeVarf) / (180 * 6) * 4 + 1;
       ratingAcceptare = parseFloat(comenziAcceptate) / (parseFloat(comenziAcceptate) + parseFloat(comenziRefuzate)) * 5;
-      ratingCompletare = parseFloat(comenziLivrate) / 200 * 5;
+      if (comenziLivrate <= 0) {
+        ratingCompletare = 0;
+      } else {
+        if (comenziLivrate > 0 && comenziLivrate < 200) {
+          ratingCompletare = parseFloat(comenziLivrate) / 200 * 5;
+        } else {
+          ratingCompletare = 5;
+        }
+      }
       ratingFinal = parseFloat(ratingClient) * 0.15 + parseFloat(ratingPrezenta) * 0.25 + parseFloat(ratingOreDeVarf) * 0.25 + parseFloat(ratingAcceptare) * 0.20 + parseFloat(ratingCompletare) * 0.15;
       if (ratingFinal < 0) {
         ratingFinalDisplay = 0;
@@ -111,12 +119,12 @@
 
   <form action="">
     Rating client: <input type="text" id="ratingClient" value="3.8" style="width: 31px"><br />
-    Ore lucrate: <input type="text" id="oreLucrate" value="607" style="width: 31px"><br />
-    Ore absente: <input type="text" id="oreAbsente" value="3" style="width: 31px"><br />
-    Ore de vârf: <input type="text" id="oreDeVarf" value="322" style="width: 31px"><br />
-    Acceptate: <input type="text" id="comenziAcceptate" value="125" style="width: 31px"><br />
-    Refuzate: <input type="text" id="comenziRefuzate" value="2" style="width: 31px"><br />
-    Livrate: <input type="text" id="comenziLivrate" value="125" style="width: 31px"> <input type="button" id="sub"
+    Ore lucrate: <input type="text" id="oreLucrate" value="1320" style="width: 31px"><br />
+    Ore absente: <input type="text" id="oreAbsente" value="0" style="width: 31px"><br />
+    Ore de vârf: <input type="text" id="oreDeVarf" value="792" style="width: 31px"><br />
+    Acceptate: <input type="text" id="comenziAcceptate" value="2640" style="width: 31px"><br />
+    Refuzate: <input type="text" id="comenziRefuzate" value="0" style="width: 31px"><br />
+    Livrate: <input type="text" id="comenziLivrate" value="2640" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="ratingFinalCalc()"><br />
     Rating client: <span id="ratingClientDisplay"></span><br />
     Rating prezență: <span id="ratingPrezenta"></span><br />
