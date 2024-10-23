@@ -16,6 +16,7 @@
       sarbLeg = document.getElementById("sarbLeg").value;
       zileWe = document.getElementById("zileWe").value;
       zileCoSel = document.getElementById("zileCoSel").value;
+      zileNoapte = document.getElementById("zileNoapte").value;
       salTarif = document.getElementById("salTarif").value;
       valBonusInp = document.getElementById("valBonusInp").value;
 
@@ -41,6 +42,8 @@
       var zileCoRon;
       var oreWe;
       var oreWeRon;
+      var oreNoapte;
+      var oreNoapteRon;
       var valBonus;
       var decElectr;
       var nrTich;
@@ -70,6 +73,8 @@
       var zileCoRonRes = document.getElementById('zileCoRon');
       var oreWeRes = document.getElementById('oreWe');
       var oreWeRonRes = document.getElementById('oreWeRon');
+      var oreNoapteRes = document.getElementById('oreNoapte');
+      var oreNoapteRonRes = document.getElementById('oreNoapteRon');
       var valBonusRes = document.getElementById('valBonus');
       var decElectrRes = document.getElementById('decElectr');
       var nrTichRes = document.getElementById('nrTich');
@@ -215,11 +220,13 @@
       zileCoRon = parseInt(zileCoSel) * (parseInt(salTarif) / zileLucr);
       oreWe = parseInt(zileWe) * 8;
       oreWeRon = parseInt(zileWe) * (parseInt(salTarif) / zileLucr) * 0.1;
+      oreNoapte = parseInt(zileNoapte) * 8;
+      oreNoapteRon = parseInt(zileNoapte) * (parseInt(salTarif) / zileLucr) * 0.25;
       valBonus = valBonusInp;
       decElectr = 40;
       nrTich = parseInt(zileLucr) - parseInt(zileCoSel);
       valTich = parseInt(nrTich) * 30;
-      venitBrut = (parseInt(salTarif) + parseInt(oreSuplRon100) + parseInt(oreSuplRon75) + parseInt(oreSarbLegRon) + parseInt(oreWeRon) + parseInt(valBonusInp) + parseInt(decElectr));
+      venitBrut = (parseInt(salTarif) + parseInt(oreSuplRon100) + parseInt(oreSuplRon75) + parseInt(oreSarbLegRon) + parseInt(oreWeRon) + parseInt(oreNoapteRon) + parseInt(valBonusInp) + parseInt(decElectr));
       contrSanat = (parseInt(venitBrut) + parseInt(valTich)) * 0.1;
       contrPens = parseInt(venitBrut) * 0.25;
       venitNet = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPens);
@@ -407,6 +414,8 @@
       zileCoRonRes.innerHTML = Math.trunc(zileCoRon);
       oreWeRes.innerHTML = Math.trunc(oreWe);
       oreWeRonRes.innerHTML = Math.trunc(oreWeRon);
+      oreNoapteRes.innerHTML = Math.trunc(oreNoapte);
+      oreNoapteRonRes.innerHTML = Math.trunc(oreNoapteRon);
       valBonusRes.innerHTML = Math.trunc(valBonus);
       decElectrRes.innerHTML = Math.trunc(decElectr);
       nrTichRes.innerHTML = Math.trunc(nrTich);
@@ -495,6 +504,32 @@
       <option value="22">22</option>
       <option value="23">23</option>
     </select><br />
+    Zile noapte: <select id="zileNoapte">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+    </select><br />
     Salariu tarifar: <input type="text" id="salTarif" value="4250" style="width: 31px"><br />
     Bonus: <input type="text" id="valBonusInp" value="1500" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="restPlatCalc()"><br />
@@ -510,6 +545,8 @@
     Concediu de Odihnă - RON: <span id="zileCoRon"></span><br />
     Ore Weekend - Ore: <span id="oreWe"></span><br />
     Ore Weekend - RON: <span id="oreWeRon"></span><br />
+    Ore Noapte - Ore: <span id="oreNoapte"></span><br />
+    Ore Noapte - RON: <span id="oreNoapteRon"></span><br />
     Bonus Operațional: <span id="valBonus"></span><br />
     Decont Electricitate: <span id="decElectr"></span><br />
     Număr Tichete Masă: <span id="nrTich"></span><br />
