@@ -24,6 +24,7 @@
 
       // Vars
 
+      var venitAsiguratCalc;
       var venitAgentie;
       var bacsisCard;
       var incasariCash;
@@ -86,6 +87,11 @@
 
       // Formulas
 
+      if (venitAsigurat == 4050) {
+        venitAsiguratCalc = (4050 - 300);
+      } else {
+        venitAsiguratCalc = venitAsigurat;
+      }
       venitAgentie = parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(venitAgentiePerComanda);
       bacsisCard = 0;
       incasariCash = 0;
@@ -98,7 +104,7 @@
       restPlata = parseFloat(venitAgentie) + parseFloat(bacsisCard) - parseFloat(incasariCash) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
       valContabilitate = 119;
-      valPensieDisplay = parseFloat(venitAsigurat) * 0.25;
+      valPensieDisplay = parseFloat(venitAsiguratCalc) * 0.25;
       venitImpozabil = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - parseFloat(valPensieDisplay);
       if (selPensie === 'Da') {
         if (venitImpozabil >= 4050) {
