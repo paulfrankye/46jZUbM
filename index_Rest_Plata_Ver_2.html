@@ -13,11 +13,11 @@
 
       nrLun = document.getElementById("nrLun").value;
       nrAn = document.getElementById("nrAn").value;
-      sarbLeg = document.getElementById("sarbLeg").value;
-      zileWe = document.getElementById("zileWe").value;
-      zileCoSel = document.getElementById("zileCoSel").value;
-      zileNoapte = document.getElementById("zileNoapte").value;
-      turaNoapte = document.getElementById("turaNoapte").value;
+      zileLucrInp = document.getElementById("zileLucrInp").value;
+      zileSlInp = document.getElementById("zileSlInp").value;
+      zileCoInp = document.getElementById("zileCoInp").value;
+      oreWeInp = document.getElementById("oreWeInp").value;
+      oreNoapteInp = document.getElementById("oreNoapteInp").value;
       salTarif = document.getElementById("salTarif").value;
       valBonusInp = document.getElementById("valBonusInp").value;
 
@@ -26,9 +26,9 @@
       var nrLun;
       var nrAn;
       var zileLucr;
-      var sarbLeg;
-      var zileWe;
-      var zileCoSel;
+      var zileLucrInp;
+      var zileSlInp;
+      var zileCoInp;
       var salTarif;
       var valBonusInp;
       var oreLucr;
@@ -41,9 +41,9 @@
       var oreSarbLegRon;
       var zileCo;
       var zileCoRon;
-      var oreWe;
+      var oreWeInp;
       var oreWeRon;
-      var oreNoapte;
+      var oreNoapteInp;
       var oreNoapteRon;
       var valBonus;
       var decElectr;
@@ -209,83 +209,23 @@
 
       // Formulas
 
-      oreLucr = parseInt(zileLucr) * 8 - parseInt(zileCoSel) * 8;
-      oreLucrRon = parseInt(oreLucr) * (parseInt(salTarif) / parseInt(zileLucr) / 8);
-      oreSupl100 = parseInt(sarbLeg) * 8;
-      oreSuplRon100 = parseInt(sarbLeg) * (parseInt(salTarif) / parseInt(zileLucr));
-      oreSupl75 = parseInt(sarbLeg) * 8;
-      oreSuplRon75 = parseInt(sarbLeg) * (parseInt(salTarif) / parseInt(zileLucr)) * 0.75;
-      oreSarbLeg = parseInt(sarbLeg) * 8;
-      oreSarbLegRon = parseInt(sarbLeg) * (parseInt(salTarif) / parseInt(zileLucr));
-      zileCo = parseInt(zileCoSel);
-      zileCoRon = parseInt(zileCoSel) * (parseInt(salTarif) / parseInt(zileLucr));
-      oreWe = parseInt(zileWe) * 8;
-      oreWeRon = parseInt(zileWe) * (parseInt(salTarif) / parseInt(zileLucr)) * 0.1;
-      if (turaNoapte == 15) {
-        oreNoapte = parseInt(zileNoapte) * 1;
-      } else {
-        if (turaNoapte == 16) {
-          oreNoapte = parseInt(zileNoapte) * 2;
-        } else {
-          if (turaNoapte == 17) {
-            oreNoapte = parseInt(zileNoapte) * 3;
-          } else {
-            if (turaNoapte == 18) {
-              oreNoapte = parseInt(zileNoapte) * 4;
-            } else {
-              if (turaNoapte == 19) {
-                oreNoapte = parseInt(zileNoapte) * 5;
-              } else {
-                if (turaNoapte == 20) {
-                  oreNoapte = parseInt(zileNoapte) * 6;
-                } else {
-                  if (turaNoapte == 21) {
-                    oreNoapte = parseInt(zileNoapte) * 7;
-                  } else {
-                    if (turaNoapte == 22) {
-                      oreNoapte = parseInt(zileNoapte) * 8;
-                    } else {
-                      if (turaNoapte == 23) {
-                        oreNoapte = parseInt(zileNoapte) * 7;
-                      } else {
-                        if (turaNoapte == 0) {
-                          oreNoapte = parseInt(zileNoapte) * 6;
-                        } else {
-                          if (turaNoapte == 1) {
-                            oreNoapte = parseInt(zileNoapte) * 5;
-                          } else {
-                            if (turaNoapte == 2) {
-                              oreNoapte = parseInt(zileNoapte) * 4;
-                            } else {
-                              if (turaNoapte == 3) {
-                                oreNoapte = parseInt(zileNoapte) * 3;
-                              } else {
-                                if (turaNoapte == 4) {
-                                  oreNoapte = parseInt(zileNoapte) * 2;
-                                } else {
-                                  if (turaNoapte == 5) {
-                                    oreNoapte = parseInt(zileNoapte) * 1;
-                                  } else {
-                                    oreNoapte = 0;
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      oreNoapteRon = parseInt(oreNoapte) * (parseInt(salTarif) / parseInt(zileLucr) / 8) * 0.25;
+      oreLucr = parseInt(zileLucrInp) * 8;
+      oreLucrRon = parseInt(zileLucrInp) * (parseInt(salTarif) / parseInt(zileLucr));
+      oreSupl100 = parseInt(zileSlInp) * 8;
+      oreSuplRon100 = parseInt(zileSlInp) * (parseInt(salTarif) / parseInt(zileLucr));
+      oreSupl75 = parseInt(zileSlInp) * 8;
+      oreSuplRon75 = parseInt(zileSlInp) * (parseInt(salTarif) / parseInt(zileLucr)) * 0.75;
+      oreSarbLeg = parseInt(zileSlInp) * 8;
+      oreSarbLegRon = parseInt(zileSlInp) * (parseInt(salTarif) / parseInt(zileLucr));
+      zileCo = parseInt(zileCoInp);
+      zileCoRon = parseInt(zileCoInp) * (parseInt(salTarif) / parseInt(zileLucr));
+      oreWe = parseInt(oreWeInp);
+      oreWeRon = parseInt(oreWeInp) * (parseInt(salTarif) / parseInt(zileLucr) / 8) * 0.1;
+      oreNoapte = parseInt(oreNoapteInp);
+      oreNoapteRon = parseInt(oreNoapteInp) * (parseInt(salTarif) / parseInt(zileLucr) / 8) * 0.25;
       valBonus = valBonusInp;
       decElectr = 40;
-      nrTich = parseInt(zileLucr) - parseInt(zileCoSel);
+      nrTich = parseInt(zileLucrInp) - parseInt(zileCoInp);
       valTich = parseInt(nrTich) * 30;
       venitBrut = (parseInt(oreLucrRon) + parseInt(oreSuplRon100) + parseInt(oreSuplRon75) + parseInt(oreSarbLegRon) + parseInt(oreWeRon) + parseInt(oreNoapteRon) + parseInt(valBonusInp) + parseInt(decElectr));
       contrSanat = (parseInt(venitBrut) + parseInt(valTich)) * 0.1;
@@ -518,105 +458,11 @@
       <option value="2024">2024</option>
       <option value="2025">2025</option>
     </select><br />
-    Tura: <select id="turaNoapte">
-      <option value="7">7:00</option>
-      <option value="8">8:00</option>
-      <option value="9">9:00</option>
-      <option value="10" selected>10:00</option>
-      <option value="11">11:00</option>
-      <option value="12">12:00</option>
-      <option value="23">13:00</option>
-      <option value="14">14:00</option>
-      <option value="15">15:00</option>
-      <option value="16">16:00</option>
-      <option value="17">17:00</option>
-      <option value="18">18:00</option>
-      <option value="19">19:00</option>
-      <option value="20">20:00</option>
-      <option value="21">21:00</option>
-      <option value="22">22:00</option>
-      <option value="23">23:00</option>
-      <option value="0">0:00</option>
-      <option value="1">1:00</option>
-      <option value="2">2:00</option>
-      <option value="3">3:00</option>
-      <option value="4">4:00</option>
-      <option value="5">5:00</option>
-      <option value="6">6:00</option>
-    </select><br />
-    Sarbatori legale: <select id="sarbLeg">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select><br />
-    Zile concediu: <select id="zileCoSel">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-      <option value="15">15</option>
-      <option value="16">16</option>
-      <option value="17">17</option>
-      <option value="18">18</option>
-      <option value="19">19</option>
-      <option value="20">20</option>
-      <option value="21">21</option>
-      <option value="22">22</option>
-      <option value="23">23</option>
-    </select><br />
-    Zile weekend: <select id="zileWe">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select><br />
-    Zile noapte: <select id="zileNoapte">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-      <option value="15">15</option>
-      <option value="16">16</option>
-      <option value="17">17</option>
-      <option value="18">18</option>
-      <option value="19">19</option>
-      <option value="20">20</option>
-      <option value="21">21</option>
-      <option value="22">22</option>
-      <option value="23">23</option>
-    </select><br />
+    Zile lucrate: <input type="text" id="zileLucrInp" value="" style="width: 31px"><br />
+    Zile sarbatori legale: <input type="text" id="zileSlInp" value="" style="width: 31px"><br />
+    Zile concediu: <input type="text" id="zileCoInp" value="" style="width: 31px"><br />
+    Ore weekend: <input type="text" id="oreWeInp" value="" style="width: 31px"><br />
+    Ore noapte: <input type="text" id="oreNoapteInp" value="" style="width: 31px"><br />
     Salariu tarifar: <input type="text" id="salTarif" value="4250" style="width: 31px"><br />
     Bonus: <input type="text" id="valBonusInp" value="1500" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="restPlatCalc()"><br />
