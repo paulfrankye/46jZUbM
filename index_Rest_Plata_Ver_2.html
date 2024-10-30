@@ -20,6 +20,8 @@
       oreNoapteInp = document.getElementById("oreNoapteInp").value;
       salTarif = document.getElementById("salTarif").value;
       valBonusInp = document.getElementById("valBonusInp").value;
+      decElectrInp = document.getElementById("decElectrInp").value;
+      valTichInp = document.getElementById("valTichInp").value;
 
       // Vars
 
@@ -31,6 +33,8 @@
       var zileCoInp;
       var salTarif;
       var valBonusInp;
+      var decElectrInp;
+      var valTichInp;
       var oreLucr;
       var oreLucrRon;
       var oreSupl100;
@@ -223,10 +227,10 @@
       oreWeRon = parseInt(oreWeInp) * (parseInt(salTarif) / parseInt(zileLucr) / 8) * 0.1;
       oreNoapte = parseInt(oreNoapteInp);
       oreNoapteRon = parseInt(oreNoapteInp) * (parseInt(salTarif) / parseInt(zileLucr) / 8) * 0.25;
-      valBonus = valBonusInp;
-      decElectr = 40;
+      valBonus = parseInt(valBonusInp);
+      decElectr = parseInt(decElectrInp);
       nrTich = parseInt(zileLucrInp);
-      valTich = parseInt(nrTich) * 30;
+      valTich = parseInt(nrTich) * parseInt(valTichInp);
       venitBrut = (parseInt(oreLucrRon) + parseInt(zileCoRon) + parseInt(oreSuplRon100) + parseInt(oreSuplRon75) + parseInt(oreSarbLegRon) + parseInt(oreWeRon) + parseInt(oreNoapteRon) + parseInt(valBonusInp) + parseInt(decElectr));
       contrSanat = (parseInt(venitBrut) + parseInt(valTich)) * 0.1;
       contrPens = parseInt(venitBrut) * 0.25;
@@ -464,7 +468,9 @@
     Ore weekend: <input type="text" id="oreWeInp" value="" style="width: 31px"><br />
     Ore noapte: <input type="text" id="oreNoapteInp" value="" style="width: 31px"><br />
     Salariu tarifar: <input type="text" id="salTarif" value="4250" style="width: 31px"><br />
-    Bonus: <input type="text" id="valBonusInp" value="1500" style="width: 31px"> <input type="button" id="sub"
+    Bonus: <input type="text" id="valBonusInp" value="1500" style="width: 31px"><br />
+    Decont: <input type="text" id="decElectrInp" value="40" style="width: 31px"><br />
+    Tichet: <input type="text" id="valTichInp" value="30" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="restPlatCalc()"><br />
     Ore lucrate - Ore: <span id="oreLucr"></span><br />
     Ore lucrate - RON: <span id="oreLucrRon"></span><br />
