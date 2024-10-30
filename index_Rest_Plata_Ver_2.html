@@ -14,7 +14,7 @@
       nrLun = document.getElementById("nrLun").value;
       nrAn = document.getElementById("nrAn").value;
       zileLucrInp = document.getElementById("zileLucrInp").value;
-      zileSlInp = document.getElementById("zileSlInp").value;
+      zileSarbLegInp = document.getElementById("zileSarbLegInp").value;
       zileCoInp = document.getElementById("zileCoInp").value;
       oreWeInp = document.getElementById("oreWeInp").value;
       oreNoapteInp = document.getElementById("oreNoapteInp").value;
@@ -27,7 +27,7 @@
       var nrAn;
       var zileLucr;
       var zileLucrInp;
-      var zileSlInp;
+      var zileSarbLegInp;
       var zileCoInp;
       var salTarif;
       var valBonusInp;
@@ -211,12 +211,12 @@
 
       oreLucr = parseInt(zileLucrInp) * 8;
       oreLucrRon = parseInt(zileLucrInp) * (parseInt(salTarif) / parseInt(zileLucr));
-      oreSupl100 = parseInt(zileSlInp) * 8;
-      oreSuplRon100 = parseInt(zileSlInp) * (parseInt(salTarif) / parseInt(zileLucr));
-      oreSupl75 = parseInt(zileSlInp) * 8;
-      oreSuplRon75 = parseInt(zileSlInp) * (parseInt(salTarif) / parseInt(zileLucr)) * 0.75;
-      oreSarbLeg = parseInt(zileSlInp) * 8;
-      oreSarbLegRon = parseInt(zileSlInp) * (parseInt(salTarif) / parseInt(zileLucr));
+      oreSupl100 = parseInt(zileSarbLegInp) * 8;
+      oreSuplRon100 = parseInt(zileSarbLegInp) * (parseInt(salTarif) / parseInt(zileLucr));
+      oreSupl75 = parseInt(zileSarbLegInp) * 8;
+      oreSuplRon75 = parseInt(zileSarbLegInp) * (parseInt(salTarif) / parseInt(zileLucr)) * 0.75;
+      oreSarbLeg = parseInt(zileSarbLegInp) * 8;
+      oreSarbLegRon = parseInt(zileSarbLegInp) * (parseInt(salTarif) / parseInt(zileLucr));
       zileCo = parseInt(zileCoInp);
       zileCoRon = parseInt(zileCoInp) * (parseInt(salTarif) / parseInt(zileLucr));
       oreWe = parseInt(oreWeInp);
@@ -459,7 +459,7 @@
       <option value="2025">2025</option>
     </select><br />
     Zile lucrate: <input type="text" id="zileLucrInp" value="" style="width: 31px"><br />
-    Zile sarbatori legale: <input type="text" id="zileSlInp" value="" style="width: 31px"><br />
+    Zile sarbatori legale: <input type="text" id="zileSarbLegInp" value="" style="width: 31px"><br />
     Zile concediu: <input type="text" id="zileCoInp" value="" style="width: 31px"><br />
     Ore weekend: <input type="text" id="oreWeInp" value="" style="width: 31px"><br />
     Ore noapte: <input type="text" id="oreNoapteInp" value="" style="width: 31px"><br />
