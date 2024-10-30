@@ -288,7 +288,7 @@
       oreNoapteRon = parseInt(oreNoapte) * (parseInt(salTarif) / parseInt(zileLucr) / 8) * 0.25;
       valBonus = parseInt(valBonusInp);
       decElectr = 40;
-      nrTich = parseInt(zileLucrInp) - parseInt(zileCoSel);
+      nrTich = parseInt(zileLucrInp);
       valTich = parseInt(nrTich) * 30;
       venitBrut = (parseInt(oreLucrRon) + parseInt(zileCoRon) + parseInt(oreSuplRon100) + parseInt(oreSuplRon75) + parseInt(oreSarbLegRon) + parseInt(oreWeRon) + parseInt(oreNoapteRon) + parseInt(valBonusInp) + parseInt(decElectr));
       contrSanat = (parseInt(venitBrut) + parseInt(valTich)) * 0.1;
