@@ -16,31 +16,35 @@
 
       // Vars
 
+      var venitBrut;
       var contrSanat;
       var contrPensie;
       var valImp;
-      var valNet;
+      var venitNet;
 
       // Results
 
+      var venitBrutRes = document.getElementById('venitBrut');
       var contrSanatRes = document.getElementById('contrSanat');
       var contrPensieRes = document.getElementById('contrPensie');
       var valImpRes = document.getElementById('valImp');
-      var valNetRes = document.getElementById('valNet');
+      var venitNetRes = document.getElementById('venitNet');
 
       // Formulas
 
+      venitBrut = parseInt(salBrut) + parseInt(valBonus);
       contrSanat = (parseInt(salBrut) + parseInt(valBonus)) * 0.1;
       contrPensie = (parseInt(salBrut) + parseInt(valBonus)) * 0.25;
       valImp = (parseInt(salBrut) + parseInt(valBonus) - parseInt(contrSanat) - parseInt(contrPensie)) * 0.1;
-      valNet = parseInt(salBrut) + parseInt(valBonus) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(valImp);
+      venitNet = parseInt(salBrut) + parseInt(valBonus) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(valImp);
 
       // Display
 
+      venitBrutRes.innerHTML = parseInt(venitBrut).toFixed(0);
       contrSanatRes.innerHTML = parseInt(contrSanat).toFixed(0);
       contrPensieRes.innerHTML = parseInt(contrPensie).toFixed(0);
       valImpRes.innerHTML = parseInt(valImp).toFixed(0);
-      valNetRes.innerHTML = parseInt(valNet).toFixed(0);
+      venitNetRes.innerHTML = parseInt(venitNet).toFixed(0);
 
     }
 
@@ -54,10 +58,11 @@
     Salariu brut: <input type="text" id="salBrut" value="4250" style="width: 31px"><br />
     Bonus: <input type="text" id="valBonus" value="1500" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="restPlatCalc()"><br />
-    Sănătate: <span id="contrSanat"></span><br />
-    Pensie: <span id="contrPensie"></span><br />
+    <b>Total venituri brute: <span id="venitBrut"></span></b><br />
+    Contribuție sănătate: <span id="contrSanat"></span><br />
+    Contribuție pensie: <span id="contrPensie"></span><br />
     Impozit: <span id="valImp"></span><br />
-    <b>Salariu net: <span id="valNet"></span></b><br />
+    <b>Salariu net: <span id="venitNet"></span></b><br />
   </form>
 
 </body>
