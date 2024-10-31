@@ -11,7 +11,7 @@
 
       // Inputs
 
-      salBrut = document.getElementById("salBrut").value;
+      salTarif = document.getElementById("salTarif").value;
       valBonus = document.getElementById("valBonus").value;
 
       // Vars
@@ -20,7 +20,7 @@
       var contrSanat;
       var contrPensie;
       var valImp;
-      var venitNet;
+      var restPlat;
 
       // Results
 
@@ -28,15 +28,15 @@
       var contrSanatRes = document.getElementById('contrSanat');
       var contrPensieRes = document.getElementById('contrPensie');
       var valImpRes = document.getElementById('valImp');
-      var venitNetRes = document.getElementById('venitNet');
+      var restPlatRes = document.getElementById('restPlat');
 
       // Formulas
 
-      venitBrut = parseInt(salBrut) + parseInt(valBonus);
-      contrSanat = (parseInt(salBrut) + parseInt(valBonus)) * 0.1;
-      contrPensie = (parseInt(salBrut) + parseInt(valBonus)) * 0.25;
-      valImp = (parseInt(salBrut) + parseInt(valBonus) - parseInt(contrSanat) - parseInt(contrPensie)) * 0.1;
-      venitNet = parseInt(salBrut) + parseInt(valBonus) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(valImp);
+      venitBrut = parseInt(salTarif) + parseInt(valBonus);
+      contrSanat = (parseInt(salTarif) + parseInt(valBonus)) * 0.1;
+      contrPensie = (parseInt(salTarif) + parseInt(valBonus)) * 0.25;
+      valImp = (parseInt(salTarif) + parseInt(valBonus) - parseInt(contrSanat) - parseInt(contrPensie)) * 0.1;
+      restPlat = parseInt(salTarif) + parseInt(valBonus) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(valImp);
 
       // Display
 
@@ -44,7 +44,7 @@
       contrSanatRes.innerHTML = parseInt(contrSanat).toFixed(0);
       contrPensieRes.innerHTML = parseInt(contrPensie).toFixed(0);
       valImpRes.innerHTML = parseInt(valImp).toFixed(0);
-      venitNetRes.innerHTML = parseInt(venitNet).toFixed(0);
+      restPlatRes.innerHTML = parseInt(restPlat).toFixed(0);
 
     }
 
@@ -55,14 +55,14 @@
 <body>
 
   <form action="">
-    Salariu brut: <input type="text" id="salBrut" value="4250" style="width: 31px"><br />
+    Salariu brut: <input type="text" id="salTarif" value="4250" style="width: 31px"><br />
     Bonus: <input type="text" id="valBonus" value="1500" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="restPlatCalc()"><br />
     <b>Total venituri brute: <span id="venitBrut"></span></b><br />
     Contribuție sănătate: <span id="contrSanat"></span><br />
     Contribuție pensie: <span id="contrPensie"></span><br />
     Impozit: <span id="valImp"></span><br />
-    <b>Salariu net: <span id="venitNet"></span></b><br />
+    <b>Salariu net: <span id="restPlat"></span></b><br />
   </form>
 
 </body>
