@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+
+  <script>
+
+    function restPlatCalc() {
+
+      // Inputs
+
+      salBrut = document.getElementById("salBrut").value;
+      valBonus = document.getElementById("valBonus").value;
+
+      // Vars
+
+      var contrSanat;
+      var contrPensie;
+      var valImp;
+      var valNet;
+
+      // Results
+
+      var contrSanatRes = document.getElementById('contrSanat');
+      var contrPensieRes = document.getElementById('contrPensie');
+      var valImpRes = document.getElementById('valImp');
+      var valNetRes = document.getElementById('valNet');
+
+      // Formulas
+
+      contrSanat = (parseInt(salBrut) + parseInt(valBonus)) * 0.1;
+      contrPensie = (parseInt(salBrut) + parseInt(valBonus)) * 0.25;
+      valImp = (parseInt(salBrut) + parseInt(valBonus) - parseInt(contrSanat) - parseInt(contrPensie)) * 0.1;
+      valNet = parseInt(salBrut) + parseInt(valBonus) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(valImp);
+
+      // Display
+
+      contrSanatRes.innerHTML = parseInt(contrSanat).toFixed(0);
+      contrPensieRes.innerHTML = parseInt(contrPensie).toFixed(0);
+      valImpRes.innerHTML = parseInt(valImp).toFixed(0);
+      valNetRes.innerHTML = parseInt(valNet).toFixed(0);
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+  <form action="">
+    Salariu brut: <input type="text" id="salBrut" value="4250" style="width: 31px"><br />
+    Bonus: <input type="text" id="valBonus" value="1500" style="width: 31px"> <input type="button" id="sub"
+      value="Submit" onclick="restPlatCalc()"><br />
+    Sănătate: <span id="contrSanat"></span><br />
+    Pensie: <span id="contrPensie"></span><br />
+    Impozit: <span id="valImp"></span><br />
+    <b>Salariu net: <span id="valNet"></span></b><br />
+  </form>
+
+</body>
+
+</html>
