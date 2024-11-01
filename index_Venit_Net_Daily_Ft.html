@@ -90,8 +90,8 @@
             valVenitNetPerOra = parseFloat(valVenitNet) / parseFloat(nrOre);
             procVenitNetPerOra = parseFloat(valVenitNetPerOra) / parseFloat(valTotIncasPerOra) * 100;
             procVenitNetPerOraDisplay = parseFloat(procVenitNetPerOra).toFixed(2) + '%';
-            valTotIncasPerNorma = parseFloat(valTotIncas) / parseFloat(nrOre) * 208;
-            valVenitNetPerNorma = parseFloat(valTotIncas) / parseFloat(nrOre) * 208 - (parseFloat(valComis) + parseFloat(valTaxaOper)) / parseFloat(nrOre) * 208 - (parseFloat(valComb) + parseFloat(valTaxe)) / parseFloat(nrOre) * 208 - parseFloat(pretCont) - parseFloat(valPensie) * parseFloat(nrOreNorma);
+            valTotIncasPerNorma = parseFloat(valTotIncas) / parseFloat(nrOre) * parseFloat(nrOreNorma);
+            valVenitNetPerNorma = parseFloat(valTotIncas) / parseFloat(nrOre) * parseFloat(nrOreNorma) - (parseFloat(valComis) + parseFloat(valTaxaOper)) / parseFloat(nrOre) * parseFloat(nrOreNorma) - (parseFloat(valComb) + parseFloat(valTaxe)) / parseFloat(nrOre) * parseFloat(nrOreNorma) - parseFloat(pretCont) - parseFloat(valPensie) * parseFloat(nrOreNorma);
             procVenitNetPerNorma = parseFloat(valVenitNetPerNorma) / (valTotIncasPerNorma) * 100;
             procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
 
