@@ -13,6 +13,7 @@
 
       salTarif = document.getElementById("salTarif").value;
       valBonus = document.getElementById("valBonus").value;
+      valTich = document.getElementById("valTich").value;
 
       // Vars
 
@@ -33,7 +34,7 @@
       // Formulas
 
       venitBrut = parseInt(salTarif) + parseInt(valBonus);
-      contrSanat = (parseInt(salTarif) + parseInt(valBonus)) * 0.1;
+      contrSanat = (parseInt(salTarif) + parseInt(valBonus) + parseInt(valTich)) * 0.1;
       contrPensie = (parseInt(salTarif) + parseInt(valBonus)) * 0.25;
       valImp = (parseInt(salTarif) + parseInt(valBonus) - parseInt(contrSanat) - parseInt(contrPensie)) * 0.1;
       restPlat = parseInt(salTarif) + parseInt(valBonus) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(valImp);
@@ -56,7 +57,8 @@
 
   <form action="">
     Salariu brut: <input type="text" id="salTarif" value="4250" style="width: 31px"><br />
-    Bonus: <input type="text" id="valBonus" value="1500" style="width: 31px"> <input type="button" id="sub"
+    Bonus: <input type="text" id="valBonus" value="1500" style="width: 31px"><br />
+    Tichete masă: <input type="text" id="valTich" value="660" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="restPlatCalc()"><br />
     <b>Total venituri brute: <span id="venitBrut"></span></b><br />
     Contribuție sănătate: <span id="contrSanat"></span><br />
