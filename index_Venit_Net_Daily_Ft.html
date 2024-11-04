@@ -91,11 +91,11 @@
       valVenitNet = parseFloat(valRestPlat) + parseFloat(tipsCash) + parseFloat(incasCash) - parseFloat(valComb) - parseFloat(valCont) - parseFloat(valTaxe);
       valVenitNetPensie = parseFloat(valVenitNet) - parseFloat(valPensie);
       valTotIncasPerOra = parseFloat(valTotIncas) / parseFloat(nrOre);
-      valVenitNetPerOra = parseFloat(valVenitNet) / parseFloat(nrOre);
+      valVenitNetPerOra = parseFloat(valVenitNetPensie) / parseFloat(nrOre);
       procVenitNetPerOra = parseFloat(valVenitNetPerOra) / parseFloat(valTotIncasPerOra) * 100;
       procVenitNetPerOraDisplay = parseFloat(procVenitNetPerOra).toFixed(2) + '%';
-      valTotIncasPerNorma = parseFloat(valTotIncasPerOra) * 176;
-      valVenitNetPerNorma = parseFloat(valVenitNetPerOra) * 176;
+      valTotIncasPerNorma = parseFloat(valTotIncasPerOra) * parseFloat(nrOreNorma);
+      valVenitNetPerNorma = parseFloat(valVenitNetPerOra) * parseFloat(nrOreNorma);
       procVenitNetPerNorma = parseFloat(valVenitNetPerNorma) / (valTotIncasPerNorma) * 100;
       procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
 

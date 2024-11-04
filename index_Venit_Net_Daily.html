@@ -25,6 +25,7 @@
 
       // Vars
 
+      var nrOreNorma;
       var valVenitApp;
       var tipsCashDisplay;
       var valBonusDisplay;
@@ -71,6 +72,7 @@
 
       // Formulas
 
+      nrOreNorma = 176;
       valVenitApp = parseFloat(venitAgent) + parseFloat(tipsCard);
       tipsCashDisplay = tipsCash;
       valBonusDisplay = valBonus;
@@ -86,8 +88,8 @@
       valVenitNetPerOra = parseFloat(valVenitNet) / parseFloat(nrOre);
       procVenitNetPerOra = parseFloat(valVenitNetPerOra) / parseFloat(valTotIncasPerOra) * 100;
       procVenitNetPerOraDisplay = parseFloat(procVenitNetPerOra).toFixed(2) + '%';
-      valTotIncasPerNorma = parseFloat(valTotIncasPerOra) * 176;
-      valVenitNetPerNorma = parseFloat(valVenitNetPerOra) * 176;
+      valTotIncasPerNorma = parseFloat(valTotIncasPerOra) * parseFloat(nrOreNorma);
+      valVenitNetPerNorma = parseFloat(valVenitNetPerOra) * parseFloat(nrOreNorma);
       procVenitNetPerNorma = parseFloat(valVenitNetPerNorma) / (valTotIncasPerNorma) * 100;
       procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
 
