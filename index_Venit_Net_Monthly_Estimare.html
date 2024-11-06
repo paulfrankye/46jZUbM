@@ -87,8 +87,8 @@
 
       // Formulas
 
-      if (venitAsigurat == 4050) {
-        venitAsiguratCalc = (4050 - 300);
+      if (venitAsigurat <= 4050) {
+        venitAsiguratCalc = (parseFloat(venitAsigurat) - 300);
       }
       else {
         venitAsiguratCalc = parseFloat(venitAsigurat);
