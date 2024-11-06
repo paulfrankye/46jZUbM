@@ -46,18 +46,23 @@
         salMedEcon = 7567;
         if (salBrut <= 3300) {
           salBrutCalc = parseFloat(salBrut) - 300;
-        } else {
+        }
+        else {
           salBrutCalc = parseFloat(salBrut);
         }
-      } else {
+      }
+      else {
         if (nrAn == 2025) {
           salMedEcon = 8597;
           if (salBrut <= 4050) {
             salBrutCalc = parseFloat(salBrut) - 300;
-          } else {
-            salMedEcon = 0;
+          }
+          else {
             salBrutCalc = parseFloat(salBrut);
           }
+        }
+        else {
+          salMedEcon = 0;
         }
       }
       nrPctPerAn = parseFloat(salBrutCalc) / parseFloat(salMedEcon);
@@ -65,15 +70,21 @@
       nrPctContr = parseFloat(nrPctPerAn) * parseFloat(nrAniContr);
       if (nrAniContr <= 25) {
         nrPctStab = 0;
-      } else {
+      }
+      else {
         if (nrAniContr > 25 && nrAniContr <= 30) {
           nrPctStab = (nrAniContr - 25) * 0.5;
-        } else {
+        }
+        else {
           if (nrAniContr > 30 && nrAniContr <= 35) {
             nrPctStab = parseFloat(5 * 0.5) + (nrAniContr - 30) * 0.75;
-          } else {
+          }
+          else {
             if (nrAniContr > 35) {
               nrPctStab = parseFloat(5 * 0.5) + parseFloat(5 * 0.75) + (nrAniContr - 35) * 1;
+            }
+            else {
+              nrPctStab = 0;
             }
           }
         }
