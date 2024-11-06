@@ -51,10 +51,20 @@
           salMedEcon = 0;
         }
       }
-      if (salBrut == 4050) {
-        salBrutCalc = parseFloat(salBrut) - 300;
+      if (nrAn == 2024) {
+        if (salBrut <= 3300) {
+          salBrutCalc = parseFloat(salBrut) - 300;
+        } else {
+          salBrutCalc = parseFloat(salBrut);
+        }
       } else {
-        salBrutCalc = parseFloat(salBrut);
+        if (nrAn == 2025) {
+          if (salBrut <= 4050) {
+            salBrutCalc = parseFloat(salBrut) - 300;
+          } else {
+            salBrutCalc = parseFloat(salBrut);
+          }
+        }
       }
       nrPctPerAn = parseFloat(salBrutCalc) / parseFloat(salMedEcon);
       nrAniContr = parseFloat(valTo) - parseFloat(valFrom);
