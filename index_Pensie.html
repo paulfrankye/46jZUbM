@@ -44,14 +44,6 @@
 
       if (nrAn == 2024) {
         salMedEcon = 7567;
-      } else {
-        if (nrAn == 2025) {
-          salMedEcon = 8597;
-        } else {
-          salMedEcon = 0;
-        }
-      }
-      if (nrAn == 2024) {
         if (salBrut <= 3300) {
           salBrutCalc = parseFloat(salBrut) - 300;
         } else {
@@ -59,9 +51,11 @@
         }
       } else {
         if (nrAn == 2025) {
+          salMedEcon = 8597;
           if (salBrut <= 4050) {
             salBrutCalc = parseFloat(salBrut) - 300;
           } else {
+            salMedEcon = 0;
             salBrutCalc = parseFloat(salBrut);
           }
         }
