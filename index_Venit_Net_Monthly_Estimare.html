@@ -89,7 +89,8 @@
 
       if (venitAsigurat == 4050) {
         venitAsiguratCalc = (4050 - 300);
-      } else {
+      }
+      else {
         venitAsiguratCalc = venitAsigurat;
       }
       venitAgentie = parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(venitAgentiePerComanda);
@@ -109,12 +110,15 @@
       if (selPensie === 'Da') {
         if (venitImpozabil >= 4050) {
           contrPensie = (4050 - 300) * 0.25;
-        } else {
+        }
+        else {
           contrPensie = 0;
         }
-      } else if (selPensie === 'Nu') {
+      }
+      else if (selPensie === 'Nu') {
         contrPensie = 0;
-      } else {
+      }
+      else {
         contrPensie = 0;
       }
       contrSanatate = parseFloat(venitImpozabil) * 0.1;
@@ -131,13 +135,16 @@
       nrLuni = (4050 * 12) / venitImpozabil;
       if (nrLuni <= 0) {
         nrLuniDisplay = 0;
-      } else {
+      }
+      else {
         if (nrLuni > 0 && nrLuni <= 12) {
           nrLuniDisplay = nrLuni;
-        } else {
+        }
+        else {
           if (nrLuni > 12) {
             nrLuniDisplay = 12;
-          } else {
+          }
+          else {
             nrLuniDisplay = 0;
           }
         }
