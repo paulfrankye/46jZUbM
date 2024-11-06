@@ -57,6 +57,7 @@
       var venitNet;
       var dedBaza;
       var dedSupl;
+      var venitImpPrecalc;
       var venitImp;
       var valImp;
       var restPlat;
@@ -460,7 +461,12 @@
         }
       }
       dedSupl = 0;
-      venitImp = parseInt(venitBrut) + parseInt(valTich) - parseInt(contrSanat) - parseInt(contrPens) - parseInt(dedBaza) - parseInt(dedSupl);
+      venitImpPrecalc = parseInt(venitBrut) + parseInt(valTich) - parseInt(contrSanat) - parseInt(contrPens) - parseInt(dedBaza) - parseInt(dedSupl);
+      if (venitImpPrecalc >= 0) {
+        venitImp = venitImpPrecalc;
+      } else {
+        venitImp = 0
+      }
       valImp = venitImp * 0.1;
       restPlat = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPens) - parseInt(valImp);
 
