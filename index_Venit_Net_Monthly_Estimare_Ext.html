@@ -24,7 +24,7 @@
 
       // Vars
 
-
+      var nrOreNorma;
       var venitAsiguratCalc;
       var venitAgentie;
       var bacsisCard;
@@ -94,6 +94,7 @@
 
       // Formulas
 
+      nrOreNorma = 176;
       if (venitAsigurat <= 4050) {
         venitAsiguratCalc = (parseFloat(venitAsigurat) - 300);
       }
@@ -139,8 +140,8 @@
       venitNetPerOra = parseFloat(venitNet) / parseFloat(orePerLuna);
       procVenitNetPerOra = parseFloat(venitNetPerOra) / parseFloat(totalIncasariPerOra) * 100;
       procVenitNetPerOraDisplay = parseFloat(procVenitNetPerOra).toFixed(2) + '%';
-      totalIncasariPerNorma = parseFloat(totalIncasariPerOra) * 176;
-      venitNetPerNorma = parseFloat(venitNetPerOra) * 176;
+      totalIncasariPerNorma = parseFloat(totalIncasariPerOra) * parseFloat(nrOreNorma);
+      venitNetPerNorma = parseFloat(venitNetPerOra) * parseFloat(nrOreNorma);
       procVenitNetPerNorma = parseFloat(venitNetPerNorma) / (totalIncasariPerNorma) * 100;
       procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
       nrLuni = (4050 * 12) / venitImpozabil;
