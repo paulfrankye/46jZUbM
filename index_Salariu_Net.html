@@ -24,6 +24,7 @@
       var contrSanat;
       var contrPensie;
       var dedBaza;
+      var venitImp;
       var valImp;
       var restPlat;
 
@@ -210,16 +211,16 @@
         bazaPensie = parseFloat(venitBrut) - 300;
         contrSanat = parseFloat(bazaSanat) * 0.1;
         contrPensie = parseFloat(bazaPensie) * 0.25;
-        bazaImp = parseFloat(venitBrut) - 300 + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza);
+        venitImp = parseFloat(venitBrut) - 300 + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza);
       }
       else {
         bazaSanat = parseFloat(venitBrut) + parseFloat(valTich);
         bazaPensie = parseFloat(venitBrut);
         contrSanat = parseFloat(bazaSanat) * 0.1;
         contrPensie = parseFloat(bazaPensie) * 0.25;
-        bazaImp = parseFloat(venitBrut) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza);
+        venitImp = parseFloat(venitBrut) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza);
       }
-      valImp = parseFloat(bazaImp) * 0.1;
+      valImp = parseFloat(venitImp) * 0.1;
       restPlat = parseFloat(salTarif) + parseFloat(valBonus) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(valImp);
 
       // Display
