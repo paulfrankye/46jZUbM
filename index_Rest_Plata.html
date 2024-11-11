@@ -52,8 +52,10 @@
       var nrTich;
       var valTich;
       var venitBrut;
+      var bazaSanat;
+      var bazaPensie;
       var contrSanat;
-      var contrPens;
+      var contrPensie;
       var venitNet;
       var dedBaza;
       var dedSupl;
@@ -85,7 +87,7 @@
       var valTichRes = document.getElementById('valTich');
       var venitBrutRes = document.getElementById('venitBrut');
       var contrSanatRes = document.getElementById('contrSanat');
-      var contrPensRes = document.getElementById('contrPens');
+      var contrPensieRes = document.getElementById('contrPensie');
       var venitNetRes = document.getElementById('venitNet');
       var dedBazaRes = document.getElementById('dedBaza');
       var dedSuplRes = document.getElementById('dedSupl');
@@ -292,9 +294,11 @@
       nrTich = parseInt(zileLucrInp);
       valTich = parseInt(nrTich) * 30;
       venitBrut = (parseInt(oreLucrRon) + parseInt(zileCoRon) + parseInt(oreSuplRon100) + parseInt(oreSuplRon75) + parseInt(oreSarbLegRon) + parseInt(oreWeRon) + parseInt(oreNoapteRon) + parseInt(valBonusInp) + parseInt(decElectr));
-      contrSanat = (parseInt(venitBrut) + parseInt(valTich)) * 0.1;
-      contrPens = parseInt(venitBrut) * 0.25;
-      venitNet = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPens);
+      bazaSanat = parseInt(venitBrut) + parseInt(valTich);
+      bazaPensie = parseInt(venitBrut);
+      contrSanat = parseInt(bazaSanat) * 0.1;
+      contrPensie = parseInt(bazaPensie) * 0.25;
+      venitNet = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPensie);
       if ((parseInt(venitBrut) + parseInt(valTich)) <= parseInt(salMin)) {
         dedBaza = (parseInt(salMin) * 0.2);
       } else {
@@ -461,14 +465,14 @@
         }
       }
       dedSupl = 0;
-      venitImpPrecalc = parseInt(venitBrut) + parseInt(valTich) - parseInt(contrSanat) - parseInt(contrPens) - parseInt(dedBaza) - parseInt(dedSupl);
+      venitImpPrecalc = parseInt(venitBrut) + parseInt(valTich) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(dedBaza) - parseInt(dedSupl);
       if (venitImpPrecalc >= 0) {
-        venitImp = venitImpPrecalc;
+        venitImp = parseInt(venitImpPrecalc);
       } else {
         venitImp = 0;
       }
-      valImp = venitImp * 0.1;
-      restPlat = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPens) - parseInt(valImp);
+      valImp = parseInt(venitImp) * 0.1;
+      restPlat = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(valImp);
 
       // Display
 
@@ -492,7 +496,7 @@
       valTichRes.innerHTML = Math.trunc(valTich);
       venitBrutRes.innerHTML = Math.trunc(venitBrut);
       contrSanatRes.innerHTML = Math.trunc(contrSanat);
-      contrPensRes.innerHTML = Math.trunc(contrPens);
+      contrPensieRes.innerHTML = Math.trunc(contrPensie);
       venitNetRes.innerHTML = Math.trunc(venitNet);
       dedBazaRes.innerHTML = Math.trunc(dedBaza);
       dedSuplRes.innerHTML = Math.trunc(dedSupl);
@@ -649,7 +653,7 @@
     Valoare Tichete Masă: <span id="valTich"></span><br />
     <b>Total Venituri Brute: <span id="venitBrut"></span></b><br />
     Contribuție Sănătate (10%): <span id="contrSanat"></span><br />
-    Contribuție Pensie (25%): <span id="contrPens"></span><br />
+    Contribuție Pensie (25%): <span id="contrPensie"></span><br />
     <b>Venit Net: <span id="venitNet"></span></b><br />
     Deducere de Bază: <span id="dedBaza"></span><br />
     Deducere Supl. de Bază: <span id="dedSupl"></span><br />
