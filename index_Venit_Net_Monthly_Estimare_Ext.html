@@ -42,6 +42,7 @@
       var valCombustibil;
       var valContabilitate;
       var valPensieDisplay;
+      var venitImpozabilPrecalc;
       var venitImpozabil;
       var contrPensie;
       var contrSanatate;
@@ -55,9 +56,6 @@
       var venitNetPerNorma;
       var procVenitNetPerNorma;
       var procVenitNetPerNormaDisplay;
-      var nrLuni;
-      var nrLuniDisplay;
-      var venitNetMediu;
 
       // Results
 
@@ -88,18 +86,21 @@
       var totalIncasariPerNormaRes = document.getElementById('totalIncasariPerNorma');
       var venitNetPerNormaRes = document.getElementById('venitNetPerNorma');
       var procVenitNetPerNormaDisplayRes = document.getElementById('procVenitNetPerNormaDisplay');
-      var nrLuniRes = document.getElementById('nrLuni');
-      var nrLuniDisplayRes = document.getElementById('nrLuniDisplay');
-      var venitNetMediuRes = document.getElementById('venitNetMediu');
 
       // Formulas
 
       nrOreNorma = 176;
-      if (venitAsigurat <= 4050) {
+      if (venitAsigurat > 4050) {
+        venitAsiguratCalc = parseFloat(venitAsigurat);
+      }
+      else if ((venitAsigurat >= 300) && (venitAsigurat <= 4050)) {
         venitAsiguratCalc = (parseFloat(venitAsigurat) - 300);
       }
+      else if (venitAsigurat < 300) {
+        venitAsiguratCalc = 0;
+      }
       else {
-        venitAsiguratCalc = parseFloat(venitAsigurat);
+        venitAsiguratCalc = 0;
       }
       venitAgentie = parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(venitAgentiePerComanda);
       bacsisCard = 0;
@@ -118,7 +119,13 @@
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
       valContabilitate = 119;
       valPensieDisplay = parseFloat(venitAsiguratCalc) * 0.25;
-      venitImpozabil = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - parseFloat(valPensieDisplay);
+      venitImpozabilPrecalc = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - parseFloat(valPensieDisplay);
+      if (venitImpozabilPrecalc >= 0) {
+        venitImpozabil = parseFloat(venitImpozabilPrecalc);
+      }
+      else {
+        venitImpozabil = 0;
+      }
       if (selPensie === 'Da') {
         if (venitImpozabil >= 4050) {
           contrPensie = (4050 - 300) * 0.25;
@@ -144,24 +151,6 @@
       venitNetPerNorma = parseFloat(venitNetPerOra) * parseFloat(nrOreNorma);
       procVenitNetPerNorma = parseFloat(venitNetPerNorma) / (totalIncasariPerNorma) * 100;
       procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
-      nrLuni = (4050 * 12) / venitImpozabil;
-      if (nrLuni <= 0) {
-        nrLuniDisplay = 0;
-      }
-      else {
-        if (nrLuni > 0 && nrLuni <= 12) {
-          nrLuniDisplay = nrLuni;
-        }
-        else {
-          if (nrLuni > 12) {
-            nrLuniDisplay = 12;
-          }
-          else {
-            nrLuniDisplay = 0;
-          }
-        }
-      }
-      venitNetMediu = (parseFloat(venitNet) * parseFloat(nrLuniDisplay) / 12);
 
       // Display
 
@@ -192,8 +181,6 @@
       totalIncasariPerNormaRes.innerHTML = parseFloat(totalIncasariPerNorma).toFixed(0);
       venitNetPerNormaRes.innerHTML = parseFloat(venitNetPerNorma).toFixed(0);
       procVenitNetPerNormaDisplayRes.innerHTML = procVenitNetPerNormaDisplay;
-      nrLuniDisplayRes.innerHTML = Math.trunc(nrLuniDisplay);
-      venitNetMediuRes.innerHTML = parseFloat(venitNetMediu).toFixed(0);
 
     }
 
@@ -207,7 +194,7 @@
     Venit agenție per comandă: <input type="text" id="venitAgentiePerComanda" value="14.825" style="width: 31px"><br />
     Bacșiș cash per comandă: <input type="text" id="bacsisCashPerComanda" value="1.50" style="width: 31px"><br />
     Bonus: <input type="text" id="valBonus" value="0" style="width: 31px"><br />
-    Venit asigurat: <input type="text" id="venitAsigurat" value="4050" style="width: 31px"><br />
+    Venit asigurat: <input type="text" id="venitAsigurat" value="" style="width: 31px"><br />
     Pensie: <select id="selPensie">
       <option value="Da">Da</option>
       <option value="Nu" selected>Nu</option>
@@ -245,8 +232,6 @@
     Total încasări (Brut) per normă: <span id="totalIncasariPerNorma"></span><br />
     Venit net per normă: <span id="venitNetPerNorma"></span><br />
     Procentaj: <span id="procVenitNetPerNormaDisplay"></span><br /><br />
-    <!-- Luni: <span id="nrLuniDisplay"></span><br />
-    Venit net: <span id="venitNetMediu"></span><br /><br /> -->
   </form>
 
 </body>
