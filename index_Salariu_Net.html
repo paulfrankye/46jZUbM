@@ -19,6 +19,8 @@
 
       var salMin;
       var venitBrut;
+      var venitBrutEur;
+      var venitBrutEurDisplay;
       var venitBrutInclTich;
       var venitBrutInclTichEur;
       var venitBrutInclTichEurDisplay;
@@ -30,6 +32,8 @@
       var venitImp;
       var valImp;
       var restPlat;
+      var restPlatEur;
+      var restPlatEurDisplay;
       var restPlatInclTich;
       var restPlatInclTichEur;
       var restPlatInclTichEurDisplay;
@@ -37,6 +41,7 @@
       // Results
 
       var venitBrutRes = document.getElementById('venitBrut');
+      var venitBrutEurDisplayRes = document.getElementById('venitBrutEurDisplay');
       var venitBrutInclTichRes = document.getElementById('venitBrutInclTich');
       var venitBrutInclTichEurDisplayRes = document.getElementById('venitBrutInclTichEurDisplay');
       var contrSanatRes = document.getElementById('contrSanat');
@@ -44,6 +49,7 @@
       var dedBazaRes = document.getElementById('dedBaza');
       var valImpRes = document.getElementById('valImp');
       var restPlatRes = document.getElementById('restPlat');
+      var restPlatEurDisplayRes = document.getElementById('restPlatEurDisplay');
       var restPlatInclTichRes = document.getElementById('restPlatInclTich');
       var restPlatInclTichEurDisplayRes = document.getElementById('restPlatInclTichEurDisplay');
 
@@ -52,6 +58,8 @@
       salMin = 4050;
       cursEur = 5;
       venitBrut = parseFloat(salTarif) + parseFloat(valBonus);
+      venitBrutEur = Math.trunc(parseFloat(venitBrut) / parseFloat(cursEur));
+      venitBrutEurDisplay = '(' + venitBrutEur + ' EUR)';
       venitBrutInclTich = parseFloat(venitBrut) + parseFloat(valTich);
       venitBrutInclTichEur = Math.trunc(parseFloat(venitBrutInclTich) / parseFloat(cursEur));
       venitBrutInclTichEurDisplay = '(' + venitBrutInclTichEur + ' EUR)';
@@ -236,6 +244,8 @@
       }
       valImp = parseFloat(venitImp) * 0.1;
       restPlat = parseFloat(salTarif) + parseFloat(valBonus) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(valImp);
+      restPlatEur = Math.trunc(parseFloat(restPlat) / parseFloat(cursEur));
+      restPlatEurDisplay = '(' + restPlatEur + ' EUR)';
       restPlatInclTich = parseFloat(restPlat) + parseFloat(valTich);
       restPlatInclTichEur = Math.trunc(parseFloat(restPlatInclTich) / parseFloat(cursEur));
       restPlatInclTichEurDisplay = '(' + restPlatInclTichEur + ' EUR)';
@@ -243,6 +253,7 @@
       // Display
 
       venitBrutRes.innerHTML = parseFloat(venitBrut).toFixed(0);
+      venitBrutEurDisplayRes.innerHTML = venitBrutEurDisplay.toString();
       venitBrutInclTichRes.innerHTML = parseFloat(venitBrutInclTich).toFixed(0);
       venitBrutInclTichEurDisplayRes.innerHTML = venitBrutInclTichEurDisplay.toString();
       contrSanatRes.innerHTML = parseFloat(contrSanat).toFixed(0);
@@ -250,6 +261,7 @@
       dedBazaRes.innerHTML = parseFloat(dedBaza).toFixed(0);
       valImpRes.innerHTML = parseFloat(valImp).toFixed(0);
       restPlatRes.innerHTML = parseFloat(restPlat).toFixed(0);
+      restPlatEurDisplayRes.innerHTML = restPlatEurDisplay.toString();
       restPlatInclTichRes.innerHTML = parseFloat(restPlatInclTich).toFixed(0);
       restPlatInclTichEurDisplayRes.innerHTML = restPlatInclTichEurDisplay.toString();
 
@@ -266,14 +278,14 @@
     Bonus: <input type="text" id="valBonus" value="1500" style="width: 31px"><br />
     Tichete masă: <input type="text" id="valTich" value="660" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="restPlatCalc()"><br />
-    <b>Total venituri brute: <span id="venitBrut"></span></b><br />
+    <b>Total venituri brute: <span id="venitBrut"></span> <span id="venitBrutEurDisplay"></span></b><br />
     <b>Total venituri brute (incl. Tichete masă): <span id="venitBrutInclTich"></span> <span
         id="venitBrutInclTichEurDisplay"></span></b><br />
     Contribuție sănătate: <span id="contrSanat"></span><br />
     Contribuție pensie: <span id="contrPensie"></span><br />
     Deducere de baza: <span id="dedBaza"></span><br />
     Impozit: <span id="valImp"></span><br />
-    <b>Salariu net: <span id="restPlat"></span></b><br />
+    <b>Salariu net: <span id="restPlat"></span> <span id="restPlatEurDisplay"></span></b><br />
     <b>Salariu net (incl. Tichete masă): <span id="restPlatInclTich"></span> <span
         id="restPlatInclTichEurDisplay"></span></b><br />
   </form>
