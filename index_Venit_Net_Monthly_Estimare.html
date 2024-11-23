@@ -89,11 +89,14 @@
       // Formulas
 
       nrOreNorma = 176;
-      if (venitAsigurat <= 4050) {
+      if (venitAsigurat > 4050) {
+        venitAsiguratCalc = parseFloat(venitAsigurat);
+      }
+      else if ((venitAsigurat >= 300) && (venitAsigurat <= 4050)) {
         venitAsiguratCalc = (parseFloat(venitAsigurat) - 300);
       }
       else {
-        venitAsiguratCalc = parseFloat(venitAsigurat);
+        venitAsiguratCalc = 0;
       }
       venitAgentie = parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(venitAgentiePerComanda);
       bacsisCard = 0;
