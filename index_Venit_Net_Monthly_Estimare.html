@@ -33,10 +33,12 @@
       var bacsisCash;
       var valBonusDisplay;
       var totalIncasari;
+      var procComision;
       var valComision;
       var valTaxaOper;
       var restPlata;
       var valCombustibil;
+      var pretContabilitate;
       var valContabilitate;
       var valPensieDisplay;
       var venitImpozabil;
@@ -52,9 +54,6 @@
       var venitNetPerNorma;
       var procVenitNetPerNorma;
       var procVenitNetPerNormaDisplay;
-      var nrLuni;
-      var nrLuniDisplay;
-      var venitNetMediu;
 
       // Results
 
@@ -82,9 +81,6 @@
       var totalIncasariPerNormaRes = document.getElementById('totalIncasariPerNorma');
       var venitNetPerNormaRes = document.getElementById('venitNetPerNorma');
       var procVenitNetPerNormaDisplayRes = document.getElementById('procVenitNetPerNormaDisplay');
-      var nrLuniRes = document.getElementById('nrLuni');
-      var nrLuniDisplayRes = document.getElementById('nrLuniDisplay');
-      var venitNetMediuRes = document.getElementById('venitNetMediu');
 
       // Formulas
 
@@ -105,11 +101,13 @@
       bacsisCash = parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(bacsisCashPerComanda);
       valBonusDisplay = parseFloat(valBonus);
       totalIncasari = parseFloat(venitApp) + parseFloat(valBonus) + (bacsisCash);
-      valComision = parseFloat(venitAgentie) * 0.10;
+      procComision = 10;
+      valComision = parseFloat(venitAgentie) * parseFloat(procComision) / 100;
       valTaxaOper = (parseFloat(venitAgentie) + parseFloat(valBonus)) * (0.0149 * 1.19);
       restPlata = parseFloat(venitAgentie) + parseFloat(bacsisCard) - parseFloat(incasariCash) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
-      valContabilitate = 119;
+      pretContabilitate = 119;
+      valContabilitate = parseFloat(pretContabilitate);
       valPensieDisplay = parseFloat(venitAsiguratCalc) * 0.25;
       venitImpozabil = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - parseFloat(valPensieDisplay);
       if (selPensie === 'Da') {
@@ -137,24 +135,6 @@
       venitNetPerNorma = parseFloat(venitNetPerOra) * parseFloat(nrOreNorma);
       procVenitNetPerNorma = parseFloat(venitNetPerNorma) / (totalIncasariPerNorma) * 100;
       procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
-      nrLuni = (4050 * 12) / venitImpozabil;
-      if (nrLuni <= 0) {
-        nrLuniDisplay = 0;
-      }
-      else {
-        if (nrLuni > 0 && nrLuni <= 12) {
-          nrLuniDisplay = nrLuni;
-        }
-        else {
-          if (nrLuni > 12) {
-            nrLuniDisplay = 12;
-          }
-          else {
-            nrLuniDisplay = 0;
-          }
-        }
-      }
-      venitNetMediu = (parseFloat(venitNet) * parseFloat(nrLuniDisplay) / 12);
 
       // Display
 
@@ -182,8 +162,6 @@
       totalIncasariPerNormaRes.innerHTML = parseFloat(totalIncasariPerNorma).toFixed(0);
       venitNetPerNormaRes.innerHTML = parseFloat(venitNetPerNorma).toFixed(0);
       procVenitNetPerNormaDisplayRes.innerHTML = procVenitNetPerNormaDisplay;
-      nrLuniDisplayRes.innerHTML = Math.trunc(nrLuniDisplay);
-      venitNetMediuRes.innerHTML = parseFloat(venitNetMediu).toFixed(0);
 
     }
 
@@ -243,8 +221,6 @@
     Total încasări per normă: <span id="totalIncasariPerNorma"></span><br />
     Venit net per normă: <span id="venitNetPerNorma"></span><br />
     Procentaj: <span id="procVenitNetPerNormaDisplay"></span><br /><br />
-    <!-- Luni: <span id="nrLuniDisplay"></span><br />
-    Venit net: <span id="venitNetMediu"></span><br /><br /> -->
   </form>
 
 </body>

@@ -21,6 +21,8 @@
       orePerLuna = document.getElementById("orePerLuna").value;
       consumCombustibil = document.getElementById("consumCombustibil").value;
       pretCombustibil = document.getElementById("pretCombustibil").value;
+      procComision = document.getElementById("procComision").value;
+      pretContabilitate = document.getElementById("pretContabilitate").value;
 
       // Vars
 
@@ -109,12 +111,12 @@
       valBonusDisplay2 = parseFloat(valBonusDisplay);
       totalApp = parseFloat(venitApp) + parseFloat(valBonus);
       totalIncasariBrut = parseFloat(venitApp) + parseFloat(valBonus) + (bacsisCash);
-      valComision = parseFloat(venitAgentie) * 0.09;
+      valComision = parseFloat(venitAgentie) * parseFloat(procComision) / 100;
       valTaxaOper = (parseFloat(venitAgentie) + parseFloat(valBonus)) * (0.0149 * 1.19);
       restPlata = parseFloat(venitAgentie) + parseFloat(bacsisCard) - parseFloat(incasariCash) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOper);
       totalIncasariNet = bacsisCash + restPlata;
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
-      valContabilitate = 119;
+      valContabilitate = parseFloat(pretContabilitate);
       valPensieDisplay = parseFloat(venitAsiguratCalc) * 0.25;
       venitImpozabilPrecalc = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - parseFloat(valPensieDisplay);
       if (venitImpozabilPrecalc >= 0) {
@@ -200,7 +202,9 @@
     Km per comandă: <input type="text" id="kmPerComanda" value="7" style="width: 31px"><br />
     Ore per lună: <input type="text" id="orePerLuna" value="176" style="width: 31px"><br />
     Consum combustibil: <input type="text" id="consumCombustibil" value="8.00" style="width: 31px"><br />
-    Preț combustibil: <input type="text" id="pretCombustibil" value="7.26" style="width: 31px"> <input type="button"
+    Preț combustibil: <input type="text" id="pretCombustibil" value="7.26" style="width: 31px"><br />
+    Comision: <input type="text" id="procComision" value="10" style="width: 31px"><br />
+    Contabilitate: <input type="text" id="pretContabilitate" value="119" style="width: 31px"> <input type="button"
       id="sub" value="Submit" onclick="venitNetCalc()"><br />
     Venit agenție: <span id="venitAgentie"></span><br />
     Bacșiș card: <span id="bacsisCard"></span><br />
