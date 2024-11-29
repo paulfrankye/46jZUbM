@@ -54,6 +54,9 @@
       var venitNetPerNorma;
       var procVenitNetPerNorma;
       var procVenitNetPerNormaDisplay;
+      var venitNetPerZi;
+      var procVenitNetPerZi;
+      var procVenitNetPerZiDisplay;
 
       // Results
 
@@ -81,6 +84,9 @@
       var totalIncasariPerNormaRes = document.getElementById('totalIncasariPerNorma');
       var venitNetPerNormaRes = document.getElementById('venitNetPerNorma');
       var procVenitNetPerNormaDisplayRes = document.getElementById('procVenitNetPerNormaDisplay');
+      var totalIncasariPerZiRes = document.getElementById('totalIncasariPerZi');
+      var venitNetPerZiRes = document.getElementById('venitNetPerZi');
+      var procVenitNetPerZiDisplayRes = document.getElementById('procVenitNetPerZiDisplay');
 
       // Formulas
 
@@ -135,6 +141,10 @@
       venitNetPerNorma = parseFloat(venitNetPerOra) * parseFloat(nrOreNorma);
       procVenitNetPerNorma = parseFloat(venitNetPerNorma) / (totalIncasariPerNorma) * 100;
       procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
+      totalIncasariPerZi = parseFloat(totalIncasariPerOra) * 8;
+      venitNetPerZi = parseFloat(venitNetPerOra) * 8;
+      procVenitNetPerZi = parseFloat(venitNetPerZi) / (totalIncasariPerZi) * 100;
+      procVenitNetPerZiDisplay = parseFloat(procVenitNetPerZi).toFixed(2) + '%';
 
       // Display
 
@@ -162,6 +172,9 @@
       totalIncasariPerNormaRes.innerHTML = parseFloat(totalIncasariPerNorma).toFixed(0);
       venitNetPerNormaRes.innerHTML = parseFloat(venitNetPerNorma).toFixed(0);
       procVenitNetPerNormaDisplayRes.innerHTML = procVenitNetPerNormaDisplay;
+      totalIncasariPerZiRes.innerHTML = parseFloat(totalIncasariPerZi).toFixed(0);
+      venitNetPerZiRes.innerHTML = parseFloat(venitNetPerZi).toFixed(0);
+      procVenitNetPerZiDisplayRes.innerHTML = procVenitNetPerZiDisplay;
 
     }
 
@@ -172,7 +185,7 @@
 <body>
 
   <form action="">
-    Venit agenție per comandă: <input type="text" id="venitAgentiePerComanda" value="14.75" style="width: 31px"><br />
+    Venit agenție per comandă: <input type="text" id="venitAgentiePerComanda" value="13.50" style="width: 31px"><br />
     Bacșiș cash per comandă: <input type="text" id="bacsisCashPerComanda" value="1.50" style="width: 31px"><br />
     Bonus: <select id="valBonus">
       <option value="0">0</option>
@@ -219,6 +232,9 @@
     Total încasări per normă: <span id="totalIncasariPerNorma"></span><br />
     Venit net per normă: <span id="venitNetPerNorma"></span><br />
     Procentaj: <span id="procVenitNetPerNormaDisplay"></span><br /><br />
+    Total încasări per zi: <span id="totalIncasariPerZi"></span><br />
+    Venit net per zi: <span id="venitNetPerZi"></span><br />
+    Procentaj: <span id="procVenitNetPerZiDisplay"></span><br /><br />
   </form>
 
 </body>
