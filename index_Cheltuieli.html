@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+
+  <script>
+
+    function valCheltuileiPerPersCalc() {
+
+      // Inputs
+
+      chiriePerLuna = document.getElementById("chiriePerLuna").value;
+      alimentePerLuna = document.getElementById("alimentePerLuna").value;
+      electricaPerLuna = document.getElementById("electricaPerLuna").value;
+      engiePerLuna = document.getElementById("engiePerLuna").value;
+      digiPerLuna = document.getElementById("digiPerLuna").value;
+      intretinerePerLuna = document.getElementById("intretinerePerLuna").value;
+      nrPers = document.getElementById("nrPers").value;
+
+      // Vars
+
+      var valCheltuileiPerPers;
+
+      // Results
+
+      var valCheltuileiPerPersRes = document.getElementById('valCheltuileiPerPers');
+
+      // Formulas
+
+      valCheltuileiPerPers = (parseFloat(chiriePerLuna) + parseFloat(electricaPerLuna) + parseFloat(engiePerLuna) + parseFloat(digiPerLuna) + parseFloat(intretinerePerLuna)) / parseFloat(nrPers) + parseFloat(alimentePerLuna);
+
+      // Display
+
+      valCheltuileiPerPersRes.innerHTML = parseFloat(valCheltuileiPerPers).toFixed(0);
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+  <form action="">
+    <b>Chirie</b><br />
+    Per lună: <input type="text" id="chiriePerLuna" value="1500" style="width: 31px"><br />
+    <b>Alimente</b><br />
+    Per lună: <input type="text" id="alimentePerLuna" value="1500" style="width: 31px"><br />
+    <b>Facturi</b><br />
+    Electrica: <input type="text" id="electricaPerLuna" value="40" style="width: 31px"><br />
+    Engie: <input type="text" id="engiePerLuna" value="150" style="width: 31px"><br />
+    Digi: <input type="text" id="digiPerLuna" value="60" style="width: 31px"><br />
+    Întreținere: <input type="text" id="intretinerePerLuna" value="230" style="width: 31px"><br />
+    <b>Persoane</b><br />
+    Nr persoane: <input type="text" id="nrPers" value="1" style="width: 31px"> <input type="button" id="sub"
+      value="Submit" onclick="valCheltuileiPerPersCalc()"><br />
+    <b>Chetuieli</b><br />
+    Per persoană: <span id="valCheltuileiPerPers"></span><br />
+  </form>
+
+</body>
+
+</html>
