@@ -21,6 +21,8 @@
       orePerLuna = document.getElementById("orePerLuna").value;
       consumCombustibil = document.getElementById("consumCombustibil").value;
       pretCombustibil = document.getElementById("pretCombustibil").value;
+      procComision = document.getElementById("procComision").value;
+      pretContabilitate = document.getElementById("pretContabilitate").value;
 
       // Vars
 
@@ -33,12 +35,10 @@
       var bacsisCash;
       var valBonusDisplay;
       var totalIncasari;
-      var procComision;
       var valComision;
       var valTaxaOper;
       var restPlata;
       var valCombustibil;
-      var pretContabilitate;
       var valContabilitate;
       var valPensieDisplay;
       var venitImpozabil;
@@ -101,12 +101,10 @@
       bacsisCash = parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(bacsisCashPerComanda);
       valBonusDisplay = parseFloat(valBonus);
       totalIncasari = parseFloat(venitApp) + parseFloat(valBonus) + (bacsisCash);
-      procComision = 10;
       valComision = parseFloat(venitAgentie) * parseFloat(procComision) / 100;
       valTaxaOper = (parseFloat(venitAgentie) + parseFloat(valBonus)) * (0.0149 * 1.19);
       restPlata = parseFloat(venitAgentie) + parseFloat(bacsisCard) - parseFloat(incasariCash) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
-      pretContabilitate = 119;
       valContabilitate = parseFloat(pretContabilitate);
       valPensieDisplay = parseFloat(venitAsiguratCalc) * 0.25;
       venitImpozabil = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - parseFloat(valPensieDisplay);
@@ -191,12 +189,20 @@
     Ore per lună: <select id="orePerLuna">
       <option value="88">88</option>
       <option value="176" selected>176</option>
+      <option value="192">192</option>
       <option value="208">208</option>
       <option value="264">264</option>
     </select><br />
     Consum combustibil: <input type="text" id="consumCombustibil" value="8.00" style="width: 31px"><br />
-    Preț combustibil: <input type="text" id="pretCombustibil" value="7.26" style="width: 31px"> <input type="button"
-      id="sub" value="Submit" onclick="venitNetCalc()"><br />
+    Preț combustibil: <input type="text" id="pretCombustibil" value="7.26" style="width: 31px"><br />
+    Comision: <select id="procComision">
+      <option value="9">9</option>
+      <option value="10" selected>10</option>
+    </select><br />
+    Contabilitate: <select id="pretContabilitate">
+      <option value="119">119</option>
+      <option value="240">250</option>
+    </select> <input type="button" id="sub" value="Submit" onclick="venitNetCalc()"><br />
     Venit agenție: <span id="venitAgentie"></span><br />
     Bacșiș card: <span id="bacsisCard"></span><br />
     Încasări cash: <span id="incasariCash"></span><br />
