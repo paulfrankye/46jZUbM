@@ -87,8 +87,8 @@
       valRestPlat = parseFloat(venitAgent) + parseFloat(tipsCard) - parseFloat(incasCash) + parseFloat(valBonus) - parseFloat(valComis) - parseFloat(valTaxaOper);
       valComb = parseFloat(valKm) / 100 * parseFloat(procCons) * parseFloat(pretComb);
       valCont = parseFloat(pretCont) / parseFloat(orePerLuna) * parseFloat(nrOre);
-      valTaxe = (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1 + (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont) - ((parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1)) * 0.1;
       valPensie = (4050 - 300) * 0.25 / parseFloat(orePerLuna) * parseFloat(nrOre);
+      valTaxe = (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont) - parseFloat(valPensie)) * 0.1 + (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont) - parseFloat(valPensie) - ((parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont) - parseFloat(valPensie)) * 0.1)) * 0.1;
       valVenitNet = parseFloat(valRestPlat) + parseFloat(tipsCash) + parseFloat(incasCash) - parseFloat(valComb) - parseFloat(valCont) - parseFloat(valTaxe);
       valVenitNetPensie = parseFloat(valVenitNet) - parseFloat(valPensie);
       valTotIncasPerOra = parseFloat(valTotIncas) / parseFloat(nrOre);
@@ -131,7 +131,7 @@
 <body>
 
   <form action="">
-    Ore per lună: <input type="number" id="orePerLuna" value="208" style="width: 31px"><br />
+    Ore per lună: <input type="number" id="orePerLuna" value="192" style="width: 31px"><br />
     Ore: <input type="number" id="nrOre" value="" style="width: 31px"><br />
     Venit agenție: <input type="number" id="venitAgent" value="" style="width: 31px"><br />
     Bacșiș card: <input type="number" id="tipsCard" value="" style="width: 31px"><br />
