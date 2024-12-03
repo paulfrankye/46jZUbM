@@ -91,7 +91,15 @@
       }
       nrPctNecontr = 0;
       nrPctTotal = parseFloat(nrPctContr) + parseFloat(nrPctStab) + parseFloat(nrPctNecontr);
-      valPctRef = 2032 / 25;
+      if (nrAn == 2024) {
+        valPctRef = 2032 / 25;
+      }
+      else if (nrAn == 2025) {
+        valPctRef = 91;
+      }
+      else {
+        valPctRef = 0;
+      }
       valPens = parseFloat(nrPctTotal) * parseFloat(valPctRef);
 
       // Display
