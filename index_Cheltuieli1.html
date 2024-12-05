@@ -50,8 +50,65 @@
       valRestPerZiRes.innerHTML = parseFloat(valRestPerZi).toFixed(0);
 
     }
-
+    function valPredefSykesTazz3() {
+      document.getElementById('venitPerLuna').value = 5217;
+      document.getElementById('chiriePerLuna').value = 0;
+      document.getElementById('alimentePerLuna').value = 1300;
+      document.getElementById('electricaPerLuna').value = 60;
+      document.getElementById('engiePerLuna').value = 500;
+      document.getElementById('digiPerLuna').value = 60;
+      document.getElementById('vodafonePerLuna').value = 30;
+      document.getElementById('intretinerePerLuna').value = 75;
+      document.getElementById('nrPers').value = 3;
+    }
+    function valPredefTazz3() {
+      document.getElementById('venitPerLuna').value = 2470;
+      document.getElementById('chiriePerLuna').value = 0;
+      document.getElementById('alimentePerLuna').value = 850;
+      document.getElementById('electricaPerLuna').value = 60;
+      document.getElementById('engiePerLuna').value = 500;
+      document.getElementById('digiPerLuna').value = 60;
+      document.getElementById('vodafonePerLuna').value = 30;
+      document.getElementById('intretinerePerLuna').value = 75;
+      document.getElementById('nrPers').value = 3;
+    }
+    function valPredefSykesTazz1() {
+      document.getElementById('venitPerLuna').value = 5217;
+      document.getElementById('chiriePerLuna').value = 1500;
+      document.getElementById('alimentePerLuna').value = 1500;
+      document.getElementById('electricaPerLuna').value = 40;
+      document.getElementById('engiePerLuna').value = 350;
+      document.getElementById('digiPerLuna').value = 60;
+      document.getElementById('vodafonePerLuna').value = 30;
+      document.getElementById('intretinerePerLuna').value = 230;
+      document.getElementById('nrPers').value = 1;
+    }
+    function valPredefSykes1() {
+      document.getElementById('venitPerLuna').value = 3890;
+      document.getElementById('chiriePerLuna').value = 1500;
+      document.getElementById('alimentePerLuna').value = 1500;
+      document.getElementById('electricaPerLuna').value = 40;
+      document.getElementById('engiePerLuna').value = 350;
+      document.getElementById('digiPerLuna').value = 60;
+      document.getElementById('vodafonePerLuna').value = 30;
+      document.getElementById('intretinerePerLuna').value = 230;
+      document.getElementById('nrPers').value = 1;
+    }
   </script>
+
+  <style>
+    .buttonLink {
+      display: inline;
+      padding: 0;
+      border: 0;
+      font-family: 'Times New Roman', serif;
+      text-decoration: underline;
+      cursor: pointer;
+      background: transparent;
+      color: blue;
+      font-size: 16px;
+    }
+  </style>
 
 </head>
 
@@ -79,8 +136,16 @@
     Per lună: <span id="valRestPerLuna"></span><br />
     Per săptămână: <span id="valRestPerSapt"></span><br />
     Per zi: <span id="valRestPerZi"></span><br />
+    <b>Venit</b><br />
+    <input id="" type="button" class="buttonLink" onclick="valPredefSykesTazz3(this.value);valCheltuileiPerPersCalc()"
+      value="Sykes & Tazz, 3 persoane"><br />
+    <input id="" type="button" class="buttonLink" onclick="valPredefTazz3(this.value);valCheltuileiPerPersCalc()"
+      value="Tazz, 3 persoane"><br />
+    <input id="" type="button" class="buttonLink" onclick="valPredefSykesTazz1(this.value);valCheltuileiPerPersCalc()"
+      value="Sykes & Tazz, 1 persoană"><br />
+    <input id="" type="button" class="buttonLink" onclick="valPredefSykes1(this.value);valCheltuileiPerPersCalc()"
+      value="Sykes, 1 persoană"><br />
   </form>
-
 </body>
 
 </html>
