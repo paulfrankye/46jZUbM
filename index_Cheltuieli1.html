@@ -123,23 +123,23 @@
 
 </head>
 
-<body>
+<body onload="drawStuff(valPredef)">
 
   <form action="">
     <b>Venit</b><br />
-    Per lună: <input type="text" id="venitPerLuna" value="5217" style="width: 31px"><br />
+    Per lună: <input type="text" id="venitPerLuna" value="" style="width: 31px"><br />
     <b>Chirie</b><br />
-    Per lună: <input type="text" id="chiriePerLuna" value="0" style="width: 31px"><br />
+    Per lună: <input type="text" id="chiriePerLuna" value="" style="width: 31px"><br />
     <b>Alimente</b><br />
-    Per lună: <input type="text" id="alimentePerLuna" value="1300" style="width: 31px"><br />
+    Per lună: <input type="text" id="alimentePerLuna" value="" style="width: 31px"><br />
     <b>Facturi</b><br />
-    Electrica: <input type="text" id="electricaPerLuna" value="60" style="width: 31px"><br />
-    Engie: <input type="text" id="engiePerLuna" value="500" style="width: 31px"><br />
-    Digi: <input type="text" id="digiPerLuna" value="60" style="width: 31px"><br />
-    Vodafone: <input type="text" id="vodafonePerLuna" value="30" style="width: 31px"><br />
-    Întreținere: <input type="text" id="intretinerePerLuna" value="75" style="width: 31px"><br />
+    Electrica: <input type="text" id="electricaPerLuna" value="" style="width: 31px"><br />
+    Engie: <input type="text" id="engiePerLuna" value="" style="width: 31px"><br />
+    Digi: <input type="text" id="digiPerLuna" value="" style="width: 31px"><br />
+    Vodafone: <input type="text" id="vodafonePerLuna" value="" style="width: 31px"><br />
+    Întreținere: <input type="text" id="intretinerePerLuna" value="" style="width: 31px"><br />
     <b>Persoane</b><br />
-    Nr persoane: <input type="text" id="nrPers" value="3" style="width: 31px"> <input type="button" id="sub"
+    Nr persoane: <input type="text" id="nrPers" value="" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="valCheltuileiPerPersCalc()"><br />
     <b>Chetuieli</b><br />
     Per persoană: <span id="valCheltuileiPerPers"></span><br />
@@ -149,7 +149,7 @@
     Per zi: <span id="valRestPerZi"></span><br />
     <b>Venit</b><br />
     <select id="valPredef" onchange="drawStuff(valPredef)">
-      <option value="1">Sykes & Tazz, 3 persoane</option>
+      <option value="1" selected>Sykes & Tazz, 3 persoane</option>
       <option value="2">Tazz, 3 persoane</option>
       <option value="3">Sykes & Tazz, 1 persoană</option>
       <option value="4">Sykes, 1 persoană</option>
