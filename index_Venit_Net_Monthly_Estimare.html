@@ -40,7 +40,7 @@
       var restPlata;
       var valCombustibil;
       var valContabilitate;
-      var valPensieDisplay;
+      var valPensie;
       var venitImpozabil;
       var contrPensie;
       var contrSanatate;
@@ -69,7 +69,7 @@
       var restPlataRes = document.getElementById('restPlata');
       var valCombustibilRes = document.getElementById('valCombustibil');
       var valContabilitateRes = document.getElementById('valContabilitate');
-      var valPensieDisplayRes = document.getElementById('valPensieDisplay');
+      var valPensieRes = document.getElementById('valPensie');
       var venitImpozabilRes = document.getElementById('venitImpozabil');
       var contrPensieRes = document.getElementById('contrPensie');
       var contrSanatateRes = document.getElementById('contrSanatate');
@@ -106,8 +106,8 @@
       restPlata = parseFloat(venitAgentie) + parseFloat(bacsisCard) - parseFloat(incasariCash) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate);
-      valPensieDisplay = parseFloat(venitAsiguratCalc) * 0.25;
-      venitImpozabil = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - parseFloat(valPensieDisplay);
+      valPensie = parseFloat(venitAsiguratCalc) * 0.25;
+      venitImpozabil = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - parseFloat(valPensie);
       if (selPensie === 'Da') {
         if (venitImpozabil >= 4050) {
           contrPensie = (4050 - 300) * 0.25;
@@ -124,7 +124,7 @@
       }
       contrSanatate = parseFloat(venitImpozabil) * 0.1;
       valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensie) - parseFloat(contrSanatate)) * 0.1;
-      venitNet = parseFloat(restPlata) + parseFloat(incasariCash) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit) - parseFloat(valPensieDisplay);
+      venitNet = parseFloat(restPlata) + parseFloat(incasariCash) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit) - parseFloat(valPensie);
       totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(orePerLuna);
       venitNetPerOra = parseFloat(venitNet) / parseFloat(orePerLuna);
       procVenitNetPerOra = parseFloat(venitNetPerOra) / parseFloat(totalIncasariPerOra) * 100;
@@ -148,7 +148,7 @@
       restPlataRes.innerHTML = parseFloat(restPlata).toFixed(0);
       valCombustibilRes.innerHTML = parseFloat(valCombustibil).toFixed(0);
       valContabilitateRes.innerHTML = parseFloat(valContabilitate).toFixed(0);
-      valPensieDisplayRes.innerHTML = parseFloat(valPensieDisplay).toFixed(0);
+      valPensieRes.innerHTML = parseFloat(valPensie).toFixed(0);
       venitImpozabilRes.innerHTML = parseFloat(venitImpozabil).toFixed(0);
       contrPensieRes.innerHTML = parseFloat(contrPensie).toFixed(0);
       contrSanatateRes.innerHTML = parseFloat(contrSanatate).toFixed(0);
@@ -215,7 +215,7 @@
     <b>Rest plată: <span id="restPlata"></span></b><br />
     Combustibil: <span id="valCombustibil"></span><br />
     Contabilitate: <span id="valContabilitate"></span><br />
-    Pensie: <span id="valPensieDisplay"></span><br />
+    Pensie: <span id="valPensie"></span><br />
     <b>Venit impozabil: <span id="venitImpozabil"></span></b><br />
     Pensie: <span id="contrPensie"></span><br />
     Sănătate: <span id="contrSanatate"></span><br />
