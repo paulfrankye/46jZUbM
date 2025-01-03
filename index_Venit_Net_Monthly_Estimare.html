@@ -170,8 +170,17 @@
 <body>
 
   <form action="">
-    Venit agenție per comandă: <input type="text" id="venitAgentiePerComanda" value="15.00" style="width: 31px"><br />
-    Bacșiș cash per comandă: <input type="text" id="bacsisCashPerComanda" value="1.50" style="width: 31px"><br />
+    Venit agenție per comandă: <select id="venitAgentiePerComanda">
+      <option value="12.50">12.50</option>
+      <option value="15.00" selected>15.00</option>
+      <option value="17.50">17.50</option>
+      <option value="20.00">20.00</option>
+    </select><br />
+    Bacșiș cash per comandă: <select id="bacsisCashPerComanda">
+      <option value="0">0</option>
+      <option value="1.50" selected>1.50</option>
+      <option value="3.00">3.00</option>
+    </select><br />
     Bonus: <select id="valBonus">
       <option value="0">0</option>
       <option value="1750">1750</option>
