@@ -11,8 +11,8 @@
 
       // Inputs
 
-      venitAgentiePerComanda = document.getElementById("venitAgentiePerComanda").value;
-      bacsisCashPerComanda = document.getElementById("bacsisCashPerComanda").value;
+      venitAgentiePerOra = document.getElementById("venitAgentiePerOra").value;
+      bacsisCashPerOra = document.getElementById("bacsisCashPerOra").value;
       valBonus = document.getElementById("valBonus").value;
       venitAsigurat = document.getElementById("venitAsigurat").value;
       selPensie = document.getElementById("selPensie").value;
@@ -94,11 +94,11 @@
       else {
         venitAsiguratCalc = 0;
       }
-      venitAgentie = parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(venitAgentiePerComanda);
+      venitAgentie = parseFloat(orePerLuna) * parseFloat(venitAgentiePerOra);
       bacsisCard = 0;
       incasariCash = 0;
       venitApp = parseFloat(venitAgentie) + parseFloat(bacsisCard);
-      bacsisCash = parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(bacsisCashPerComanda);
+      bacsisCash = parseFloat(orePerLuna) * parseFloat(bacsisCashPerOra);
       valBonusDisplay = parseFloat(valBonus);
       totalIncasari = parseFloat(venitApp) + parseFloat(valBonus) + (bacsisCash);
       valComision = parseFloat(venitAgentie) * parseFloat(procComision) / 100;
@@ -170,16 +170,27 @@
 <body>
 
   <form action="">
-    Venit agenție per comandă: <select id="venitAgentiePerComanda">
-      <option value="12.50">12.50</option>
-      <option value="15.00" selected>15.00</option>
-      <option value="17.50">17.50</option>
-      <option value="20.00">20.00</option>
+    Ore per lună: <select id="orePerLuna">
+      <option value="32">32</option>
+      <option value="40">40</option>
+      <option value="88">88</option>
+      <option value="176" selected>176</option>
+      <option value="192">192</option>
+      <option value="208">208</option>
+      <option value="264">264</option>
     </select><br />
-    Bacșiș cash per comandă: <select id="bacsisCashPerComanda">
+    Venit agenție per oră: <select id="venitAgentiePerOra">
+      <option value="25.00">25.00</option>
+      <option value="30.00" selected>30.00</option>
+      <option value="35.00">35.00</option>
+      <option value="40.00">40.00</option>
+    </select><br />
+    Bacșiș cash per oră: <select id="bacsisCashPerOra">
       <option value="0">0</option>
-      <option value="1.50" selected>1.50</option>
-      <option value="3.00">3.00</option>
+      <option value="1.50">1.50</option>
+      <option value="3.00" selected>3.00</option>
+      <option value="4.50">4.50</option>
+      <option value="6.00">6.00</option>
     </select><br />
     Bonus: <select id="valBonus">
       <option value="0">0</option>
@@ -195,14 +206,6 @@
     </select><br />
     Comenzi per oră: <input type="text" id="comenziPerOra" value="2" style="width: 31px"><br />
     Km per comandă: <input type="text" id="kmPerComanda" value="7" style="width: 31px"><br />
-    Ore per lună: <select id="orePerLuna">
-      <option value="32">32</option>
-      <option value="88">88</option>
-      <option value="176" selected>176</option>
-      <option value="192">192</option>
-      <option value="208">208</option>
-      <option value="264">264</option>
-    </select><br />
     Consum combustibil: <input type="text" id="consumCombustibil" value="7.88" style="width: 31px"><br />
     Preț combustibil: <input type="text" id="pretCombustibil" value="7.42" style="width: 31px"><br />
     Comision: <select id="procComision">
