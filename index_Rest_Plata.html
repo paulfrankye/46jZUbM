@@ -11,127 +11,55 @@
 
       // Inputs
 
-      nrLun = document.getElementById("nrLun").value;
-      nrAn = document.getElementById("nrAn").value;
-      zileLucrInp = document.getElementById("zileLucrInp").value;
-      zileSarbLeg = document.getElementById("zileSarbLeg").value;
-      zileWe = document.getElementById("zileWe").value;
-      zileCoSel = document.getElementById("zileCoSel").value;
-      zileNoapte = document.getElementById("zileNoapte").value;
-      salTarif = document.getElementById("salTarif").value;
-      valBonusInp = document.getElementById("valBonusInp").value;
+      nrLunVar = Number(document.getElementById('nrLunSel').value);
+      nrAnVar = Number(document.getElementById('nrAnSel').value);
+      zileLucrVar = Number(document.getElementById('zileLucrSel').value);
+      zileSarbLegVar = Number(document.getElementById('zileSarbLegSel').value);
+      zileWeVar = Number(document.getElementById('zileWeSel').value);
+      zileCoVar = Number(document.getElementById('zileCoSel').value);
+      zileNoapteVar = Number(document.getElementById('zileNoapteSel').value);
+      salTarifVar = Number(document.getElementById('salTarifInp').value);
+      valBonusVar = Number(document.getElementById('valBonusInp').value);
 
       // Vars
 
-      var nrLun;
-      var nrAn;
-      var zileLucr;
-      var zileLucrInp;
-      var zileSarbLeg;
-      var zileCoSel;
-      var zileWe;
-      var zileNoapte;
-      var salTarif;
-      var valBonusInp;
-      var oreLucr;
-      var oreLucrRon;
-      var oreSupl100;
-      var oreSuplRon100;
-      var oreSupl75;
-      var oreSuplRon75;
-      var oreSarbLeg;
-      var oreSarbLegRon;
-      var zileCo;
-      var zileCoRon;
-      var oreWe;
-      var oreWeRon;
-      var oreNoapte;
-      var oreNoapteRon;
-      var valBonus;
-      var decElectr;
-      var nrTich;
-      var valTich;
-      var venitBrut;
-      var bazaSanat;
-      var bazaPensie;
-      var contrSanat;
-      var contrPensie;
-      var venitNet;
-      var dedBaza;
-      var dedSupl;
-      var venitImpPrecalc;
-      var venitImp;
-      var valImp;
-      var restPlat;
-      var salMin;
-
-      // Results
-
-      var oreLucrRes = document.getElementById('oreLucr');
-      var oreLucrRonRes = document.getElementById('oreLucrRon');
-      var oreSupl100Res = document.getElementById('oreSupl100');
-      var oreSuplRon100Res = document.getElementById('oreSuplRon100');
-      var oreSupl75Res = document.getElementById('oreSupl75');
-      var oreSuplRon75Res = document.getElementById('oreSuplRon75');
-      var oreSarbLegRes = document.getElementById('oreSarbLeg');
-      var oreSarbLegRonRes = document.getElementById('oreSarbLegRon');
-      var zileCoRes = document.getElementById('zileCo');
-      var zileCoRonRes = document.getElementById('zileCoRon');
-      var oreWeRes = document.getElementById('oreWe');
-      var oreWeRonRes = document.getElementById('oreWeRon');
-      var oreNoapteRes = document.getElementById('oreNoapte');
-      var oreNoapteRonRes = document.getElementById('oreNoapteRon');
-      var valBonusRes = document.getElementById('valBonus');
-      var decElectrRes = document.getElementById('decElectr');
-      var nrTichRes = document.getElementById('nrTich');
-      var valTichRes = document.getElementById('valTich');
-      var venitBrutRes = document.getElementById('venitBrut');
-      var contrSanatRes = document.getElementById('contrSanat');
-      var contrPensieRes = document.getElementById('contrPensie');
-      var venitNetRes = document.getElementById('venitNet');
-      var dedBazaRes = document.getElementById('dedBaza');
-      var dedSuplRes = document.getElementById('dedSupl');
-      var venitImpRes = document.getElementById('venitImp');
-      var valImpRes = document.getElementById('valImp');
-      var restPlatRes = document.getElementById('restPlat');
-
       // Ifs
 
-      if (nrAn == 2024) {
-        if (nrLun == 1) {
+      if (nrAnVar === 2024) {
+        if (nrLunVar === 1) {
           zileLucr = 20;
         } else {
-          if (nrLun == 2) {
+          if (nrLunVar === 2) {
             zileLucr = 21;
           } else {
-            if (nrLun == 3) {
+            if (nrLunVar === 3) {
               zileLucr = 21;
             } else {
-              if (nrLun == 4) {
+              if (nrLunVar === 4) {
                 zileLucr = 22;
               } else {
-                if (nrLun == 5) {
+                if (nrLunVar === 5) {
                   zileLucr = 20;
                 } else {
-                  if (nrLun == 6) {
+                  if (nrLunVar === 6) {
                     zileLucr = 19;
                   } else {
-                    if (nrLun == 7) {
+                    if (nrLunVar === 7) {
                       zileLucr = 23;
                     } else {
-                      if (nrLun == 8) {
+                      if (nrLunVar === 8) {
                         zileLucr = 21;
                       } else {
-                        if (nrLun == 9) {
+                        if (nrLunVar === 9) {
                           zileLucr = 21;
                         } else {
-                          if (nrLun == 10) {
+                          if (nrLunVar === 10) {
                             zileLucr = 23;
                           } else {
-                            if (nrLun == 11) {
+                            if (nrLunVar === 11) {
                               zileLucr = 21;
                             } else {
-                              if (nrLun == 12) {
+                              if (nrLunVar === 12) {
                                 zileLucr = 20;
                               }
                             }
@@ -146,41 +74,41 @@
           }
         }
       } else {
-        if (nrAn == 2025) {
-          if (nrLun == 1) {
+        if (nrAnVar === 2025) {
+          if (nrLunVar === 1) {
             zileLucr = 18;
           } else {
-            if (nrLun == 2) {
+            if (nrLunVar === 2) {
               zileLucr = 20;
             } else {
-              if (nrLun == 3) {
+              if (nrLunVar === 3) {
                 zileLucr = 21;
               } else {
-                if (nrLun == 4) {
+                if (nrLunVar === 4) {
                   zileLucr = 20;
                 } else {
-                  if (nrLun == 5) {
+                  if (nrLunVar === 5) {
                     zileLucr = 21;
                   } else {
-                    if (nrLun == 6) {
+                    if (nrLunVar === 6) {
                       zileLucr = 20;
                     } else {
-                      if (nrLun == 7) {
+                      if (nrLunVar === 7) {
                         zileLucr = 23;
                       } else {
-                        if (nrLun == 8) {
+                        if (nrLunVar === 8) {
                           zileLucr = 20;
                         } else {
-                          if (nrLun == 9) {
+                          if (nrLunVar === 9) {
                             zileLucr = 22;
                           } else {
-                            if (nrLun == 10) {
+                            if (nrLunVar === 10) {
                               zileLucr = 23;
                             } else {
-                              if (nrLun == 11) {
+                              if (nrLunVar === 11) {
                                 zileLucr = 20;
                               } else {
-                                if (nrLun == 12) {
+                                if (nrLunVar === 12) {
                                   zileLucr = 20;
                                 }
                               }
@@ -196,7 +124,7 @@
           }
         }
       }
-      if (nrAn == 2024) {
+      if (nrAnVar === 2024) {
         if (nrLun < 7) {
           salMin = 3300;
         } else {
@@ -205,7 +133,7 @@
           }
         }
       } else {
-        if (nrAn == 2025) {
+        if (nrAnVar === 2025) {
           salMin = 4050;
         } else {
           salMin = 0;
@@ -214,63 +142,63 @@
 
       // Formulas
 
-      oreLucr = parseInt(zileLucrInp) * 8;
-      oreLucrRon = parseInt(oreLucr) * (parseInt(salTarif) / parseInt(zileLucr) / 8);
-      oreSupl100 = parseInt(zileSarbLeg) * 8;
-      oreSuplRon100 = parseInt(zileSarbLeg) * (parseInt(salTarif) / parseInt(zileLucr));
-      oreSupl75 = parseInt(zileSarbLeg) * 8;
-      oreSuplRon75 = parseInt(zileSarbLeg) * (parseInt(salTarif) / parseInt(zileLucr)) * 0.75;
-      oreSarbLeg = parseInt(zileSarbLeg) * 8;
-      oreSarbLegRon = parseInt(zileSarbLeg) * (parseInt(salTarif) / parseInt(zileLucr));
-      zileCo = parseInt(zileCoSel);
-      zileCoRon = parseInt(zileCoSel) * (parseInt(salTarif) / parseInt(zileLucr));
-      oreWe = parseInt(zileWe) * 8;
-      oreWeRon = parseInt(zileWe) * (parseInt(salTarif) / parseInt(zileLucr)) * 0.1;
+      oreLucr = parseInt(zileLucrVar) * 8;
+      oreLucrRon = parseInt(oreLucr) * (parseInt(salTarifVar) / parseInt(zileLucr) / 8);
+      oreSupl100 = parseInt(zileSarbLegVar) * 8;
+      oreSuplRon100 = parseInt(zileSarbLegVar) * (parseInt(salTarifVar) / parseInt(zileLucr));
+      oreSupl75 = parseInt(zileSarbLegVar) * 8;
+      oreSuplRon75 = parseInt(zileSarbLegVar) * (parseInt(salTarifVar) / parseInt(zileLucr)) * 0.75;
+      oreSarbLeg = parseInt(zileSarbLegVar) * 8;
+      oreSarbLegRon = parseInt(zileSarbLegVar) * (parseInt(salTarifVar) / parseInt(zileLucr));
+      zileCo = parseInt(zileCoVar);
+      zileCoRon = parseInt(zileCoVar) * (parseInt(salTarifVar) / parseInt(zileLucr));
+      oreWe = parseInt(zileWeVar) * 8;
+      oreWeRon = parseInt(zileWeVar) * (parseInt(salTarifVar) / parseInt(zileLucr)) * 0.1;
       turaNoapte = 22;
-      if (turaNoapte == 15) {
-        oreNoapte = parseInt(zileNoapte) * 1;
+      if (turaNoapte === 15) {
+        oreNoapte = parseInt(zileNoapteVar) * 1;
       } else {
-        if (turaNoapte == 16) {
-          oreNoapte = parseInt(zileNoapte) * 2;
+        if (turaNoapte === 16) {
+          oreNoapte = parseInt(zileNoapteVar) * 2;
         } else {
-          if (turaNoapte == 17) {
-            oreNoapte = parseInt(zileNoapte) * 3;
+          if (turaNoapte === 17) {
+            oreNoapte = parseInt(zileNoapteVar) * 3;
           } else {
-            if (turaNoapte == 18) {
-              oreNoapte = parseInt(zileNoapte) * 4;
+            if (turaNoapte === 18) {
+              oreNoapte = parseInt(zileNoapteVar) * 4;
             } else {
-              if (turaNoapte == 19) {
-                oreNoapte = parseInt(zileNoapte) * 5;
+              if (turaNoapte === 19) {
+                oreNoapte = parseInt(zileNoapteVar) * 5;
               } else {
-                if (turaNoapte == 20) {
-                  oreNoapte = parseInt(zileNoapte) * 6;
+                if (turaNoapte === 20) {
+                  oreNoapte = parseInt(zileNoapteVar) * 6;
                 } else {
-                  if (turaNoapte == 21) {
-                    oreNoapte = parseInt(zileNoapte) * 7;
+                  if (turaNoapte === 21) {
+                    oreNoapte = parseInt(zileNoapteVar) * 7;
                   } else {
-                    if (turaNoapte == 22) {
-                      oreNoapte = parseInt(zileNoapte) * 8;
+                    if (turaNoapte === 22) {
+                      oreNoapte = parseInt(zileNoapteVar) * 8;
                     } else {
-                      if (turaNoapte == 23) {
-                        oreNoapte = parseInt(zileNoapte) * 7;
+                      if (turaNoapte === 23) {
+                        oreNoapte = parseInt(zileNoapteVar) * 7;
                       } else {
-                        if (turaNoapte == 0) {
-                          oreNoapte = parseInt(zileNoapte) * 6;
+                        if (turaNoapte === 0) {
+                          oreNoapte = parseInt(zileNoapteVar) * 6;
                         } else {
-                          if (turaNoapte == 1) {
-                            oreNoapte = parseInt(zileNoapte) * 5;
+                          if (turaNoapte === 1) {
+                            oreNoapte = parseInt(zileNoapteVar) * 5;
                           } else {
-                            if (turaNoapte == 2) {
-                              oreNoapte = parseInt(zileNoapte) * 4;
+                            if (turaNoapte === 2) {
+                              oreNoapte = parseInt(zileNoapteVar) * 4;
                             } else {
-                              if (turaNoapte == 3) {
-                                oreNoapte = parseInt(zileNoapte) * 3;
+                              if (turaNoapte === 3) {
+                                oreNoapte = parseInt(zileNoapteVar) * 3;
                               } else {
-                                if (turaNoapte == 4) {
-                                  oreNoapte = parseInt(zileNoapte) * 2;
+                                if (turaNoapte === 4) {
+                                  oreNoapte = parseInt(zileNoapteVar) * 2;
                                 } else {
-                                  if (turaNoapte == 5) {
-                                    oreNoapte = parseInt(zileNoapte) * 1;
+                                  if (turaNoapte === 5) {
+                                    oreNoapte = parseInt(zileNoapteVar) * 1;
                                   } else {
                                     oreNoapte = 0;
                                   }
@@ -288,12 +216,12 @@
           }
         }
       }
-      oreNoapteRon = parseInt(oreNoapte) * (parseInt(salTarif) / parseInt(zileLucr) / 8) * 0.25;
-      valBonus = parseInt(valBonusInp);
+      oreNoapteRon = parseInt(oreNoapte) * (parseInt(salTarifVar) / parseInt(zileLucr) / 8) * 0.25;
+      valBonus = parseInt(valBonusVar);
       decElectr = 40;
-      nrTich = parseInt(zileLucrInp);
+      nrTich = parseInt(zileLucrVar);
       valTich = parseInt(nrTich) * 30;
-      venitBrut = (parseInt(oreLucrRon) + parseInt(zileCoRon) + parseInt(oreSuplRon100) + parseInt(oreSuplRon75) + parseInt(oreSarbLegRon) + parseInt(oreWeRon) + parseInt(oreNoapteRon) + parseInt(valBonusInp) + parseInt(decElectr));
+      venitBrut = (parseInt(oreLucrRon) + parseInt(zileCoRon) + parseInt(oreSuplRon100) + parseInt(oreSuplRon75) + parseInt(oreSarbLegRon) + parseInt(oreWeRon) + parseInt(oreNoapteRon) + parseInt(valBonusVar) + parseInt(decElectr));
       bazaSanat = parseInt(venitBrut) + parseInt(valTich);
       bazaPensie = parseInt(venitBrut);
       contrSanat = parseInt(bazaSanat) * 0.1;
@@ -474,6 +402,36 @@
       valImp = parseInt(venitImp) * 0.1;
       restPlat = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(valImp);
 
+      // Results
+
+      var oreLucrRes = document.getElementById('oreLucrDisp');
+      var oreLucrRonRes = document.getElementById('oreLucrRonDisp');
+      var oreSupl100Res = document.getElementById('oreSupl100Disp');
+      var oreSuplRon100Res = document.getElementById('oreSuplRon100Disp');
+      var oreSupl75Res = document.getElementById('oreSupl75Disp');
+      var oreSuplRon75Res = document.getElementById('oreSuplRon75Disp');
+      var oreSarbLegRes = document.getElementById('oreSarbLegDisp');
+      var oreSarbLegRonRes = document.getElementById('oreSarbLegRonDisp');
+      var zileCoRes = document.getElementById('zileCoDisp');
+      var zileCoRonRes = document.getElementById('zileCoRonDisp');
+      var oreWeRes = document.getElementById('oreWeDisp');
+      var oreWeRonRes = document.getElementById('oreWeRonDisp');
+      var oreNoapteRes = document.getElementById('oreNoapteDisp');
+      var oreNoapteRonRes = document.getElementById('oreNoapteRonDisp');
+      var valBonusRes = document.getElementById('valBonusDisp');
+      var decElectrRes = document.getElementById('decElectrDisp');
+      var nrTichRes = document.getElementById('nrTichDisp');
+      var valTichRes = document.getElementById('valTichDisp');
+      var venitBrutRes = document.getElementById('venitBrutDisp');
+      var contrSanatRes = document.getElementById('contrSanatDisp');
+      var contrPensieRes = document.getElementById('contrPensieDisp');
+      var venitNetRes = document.getElementById('venitNetDisp');
+      var dedBazaRes = document.getElementById('dedBazaDisp');
+      var dedSuplRes = document.getElementById('dedSuplDisp');
+      var venitImpRes = document.getElementById('venitImpDisp');
+      var valImpRes = document.getElementById('valImpDisp');
+      var restPlatRes = document.getElementById('restPlatDisp');
+
       // Display
 
       oreLucrRes.innerHTML = Math.trunc(oreLucr);
@@ -513,7 +471,7 @@
 <body>
 
   <form action="">
-    Luna: <select id="nrLun">
+    Luna: <select id="nrLunSel">
       <option value="1">Ian</option>
       <option value="2">Feb</option>
       <option value="3">Mar</option>
@@ -527,11 +485,11 @@
       <option value="11">Nov</option>
       <option value="12">Dec</option>
     </select><br />
-    Anul: <select id="nrAn">
+    Anul: <select id="nrAnSel">
       <option value="2024">2024</option>
       <option value="2025" selected>2025</option>
     </select><br />
-    Zile lucrate: <select id="zileLucrInp">
+    Zile lucrate: <select id="zileLucrSel">
       <option value="0">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -557,7 +515,7 @@
       <option value="22">22</option>
       <option value="23">23</option>
     </select><br />
-    Zile sarbatori legale: <select id="zileSarbLeg">
+    Zile sarbatori legale: <select id="zileSarbLegSel">
       <option value="0">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -591,7 +549,7 @@
       <option value="22">22</option>
       <option value="23">23</option>
     </select><br />
-    Zile weekend: <select id="zileWe">
+    Zile weekend: <select id="zileWeSel">
       <option value="0">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -604,7 +562,7 @@
       <option value="9">9</option>
       <option value="10">10</option>
     </select><br />
-    Zile noapte: <select id="zileNoapte">
+    Zile noapte: <select id="zileNoapteSel">
       <option value="0">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -630,36 +588,36 @@
       <option value="22">22</option>
       <option value="23">23</option>
     </select><br />
-    Salariu tarifar: <input type="text" id="salTarif" value="4100" style="width: 31px"><br />
+    Salariu tarifar: <input type="text" id="salTarifInp" value="4100" style="width: 31px"><br />
     Bonus: <input type="text" id="valBonusInp" value="750" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="restPlatCalc()"><br />
-    Ore lucrate - Ore: <span id="oreLucr"></span><br />
-    Ore lucrate - RON: <span id="oreLucrRon"></span><br />
-    Ore Suplimentare 100% - Ore: <span id="oreSupl100"></span><br />
-    Ore Suplimentare 100% - RON: <span id="oreSuplRon100"></span><br />
-    Ore Suplimentare 75% - Ore: <span id="oreSupl75"></span><br />
-    Ore Suplimentare 75% - RON: <span id="oreSuplRon75"></span><br />
-    Ore Sarbatoare Legala - Ore: <span id="oreSarbLeg"></span><br />
-    Ore Sarbatoare Legala - RON: <span id="oreSarbLegRon"></span><br />
-    Concediu de Odihnă - Zile: <span id="zileCo"></span><br />
-    Concediu de Odihnă - RON: <span id="zileCoRon"></span><br />
-    Ore Weekend - Ore: <span id="oreWe"></span><br />
-    Ore Weekend - RON: <span id="oreWeRon"></span><br />
-    Ore Noapte - Ore: <span id="oreNoapte"></span><br />
-    Ore Noapte - RON: <span id="oreNoapteRon"></span><br />
-    Bonus Operațional: <span id="valBonus"></span><br />
-    Decont Electricitate: <span id="decElectr"></span><br />
-    Număr Tichete Masă: <span id="nrTich"></span><br />
-    Valoare Tichete Masă: <span id="valTich"></span><br />
-    <b>Total Venituri Brute: <span id="venitBrut"></span></b><br />
-    Contribuție Sănătate (10%): <span id="contrSanat"></span><br />
-    Contribuție Pensie (25%): <span id="contrPensie"></span><br />
-    <b>Venit Net: <span id="venitNet"></span></b><br />
-    Deducere de Bază: <span id="dedBaza"></span><br />
-    Deducere Supl. de Bază: <span id="dedSupl"></span><br />
-    <b>Venit Impozabil: <span id="venitImp"></span></b><br />
-    Impozit: <span id="valImp"></span><br />
-    <b>Rest Plata: <span id="restPlat"></b></span><br />
+    Ore lucrate - Ore: <span id="oreLucrDisp"></span><br />
+    Ore lucrate - RON: <span id="oreLucrRonDisp"></span><br />
+    Ore Suplimentare 100% - Ore: <span id="oreSupl100Disp"></span><br />
+    Ore Suplimentare 100% - RON: <span id="oreSuplRon100Disp"></span><br />
+    Ore Suplimentare 75% - Ore: <span id="oreSupl75Disp"></span><br />
+    Ore Suplimentare 75% - RON: <span id="oreSuplRon75Disp"></span><br />
+    Ore Sarbatoare Legala - Ore: <span id="oreSarbLegDisp"></span><br />
+    Ore Sarbatoare Legala - RON: <span id="oreSarbLegRonDisp"></span><br />
+    Concediu de Odihnă - Zile: <span id="zileCoDisp"></span><br />
+    Concediu de Odihnă - RON: <span id="zileCoRonDisp"></span><br />
+    Ore Weekend - Ore: <span id="oreWeDisp"></span><br />
+    Ore Weekend - RON: <span id="oreWeRonDisp"></span><br />
+    Ore Noapte - Ore: <span id="oreNoapteDisp"></span><br />
+    Ore Noapte - RON: <span id="oreNoapteRonDisp"></span><br />
+    Bonus Operațional: <span id="valBonusDisp"></span><br />
+    Decont Electricitate: <span id="decElectrDisp"></span><br />
+    Număr Tichete Masă: <span id="nrTichDisp"></span><br />
+    Valoare Tichete Masă: <span id="valTichDisp"></span><br />
+    <b>Total Venituri Brute: <span id="venitBrutDisp"></span></b><br />
+    Contribuție Sănătate (10%): <span id="contrSanatDisp"></span><br />
+    Contribuție Pensie (25%): <span id="contrPensieDisp"></span><br />
+    <b>Venit Net: <span id="venitNetDisp"></span></b><br />
+    Deducere de Bază: <span id="dedBazaDisp"></span><br />
+    Deducere Supl. de Bază: <span id="dedSuplDisp"></span><br />
+    <b>Venit Impozabil: <span id="venitImpDisp"></span></b><br />
+    Impozit: <span id="valImpDisp"></span><br />
+    <b>Rest Plata: <span id="restPlatDisp"></b></span><br />
   </form>
 
 </body>
