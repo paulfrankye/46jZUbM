@@ -78,12 +78,12 @@
 
       nrOreNorma = 176;
       valVenitApp = parseFloat(venitAgent) + parseFloat(tipsCard);
-      tipsCashDisplay = tipsCash;
-      valBonusDisplay = valBonus;
-      valTotIncas = parseFloat(venitAgent) + parseFloat(tipsCard) + parseFloat(tipsCash) + parseFloat(valBonus);
+      tipsCashDisplay = parseFloat(tipsCash);
+      valBonusDisplay = parseFloat(valBonusCastig) + parseFloat(valBonus);
+      valTotIncas = parseFloat(venitAgent) + parseFloat(tipsCard) + parseFloat(tipsCash) + parseFloat(valBonusCastig) + parseFloat(valBonus);
       valComis = parseFloat(venitAgent) * parseFloat(procComis) / 100;
-      valTaxaOper = (parseFloat(venitAgent) + parseFloat(valBonus)) * 0.0149 * 1.19;
-      valRestPlat = parseFloat(venitAgent) + parseFloat(tipsCard) - parseFloat(incasCash) + parseFloat(valBonus) - parseFloat(valComis) - parseFloat(valTaxaOper);
+      valTaxaOper = (parseFloat(venitAgent) + parseFloat(valBonusCastig) + parseFloat(valBonus)) * 0.0149 * 1.19;
+      valRestPlat = parseFloat(venitAgent) + parseFloat(tipsCard) - parseFloat(incasCash) + parseFloat(valBonusCastig) + parseFloat(valBonus) - parseFloat(valComis) - parseFloat(valTaxaOper);
       valComb = parseFloat(valKm) / 100 * parseFloat(procCons) * parseFloat(pretComb);
       valCont = parseFloat(pretCont) / parseFloat(orePerLuna) * parseFloat(nrOre);
       valTaxe = (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1 + (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont) - ((parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1)) * 0.1;
@@ -130,17 +130,18 @@
 <body>
 
   <form action="">
-    Ore per lună: <input type="number" id="orePerLuna" value="208" style="width: 31px"><br />
+    Ore per lună: <input type="number" id="orePerLuna" value="176" style="width: 31px"><br />
     Ore: <input type="number" id="nrOre" value="" style="width: 31px"><br />
     Venit agenție: <input type="number" id="venitAgent" value="" style="width: 31px"><br />
     Bacșiș card: <input type="number" id="tipsCard" value="" style="width: 31px"><br />
     Încasări cash: <input type="number" id="incasCash" value="" style="width: 31px"><br />
+    Bonus câștig: <input type="number" id="valBonusCastig" value="" style="width: 31px"><br />
     Bonus: <input type="number" id="valBonus" value="" style="width: 31px"><br />
     Bacșiș cash: <input type="number" id="tipsCash" value="" style="width: 31px"><br />
     Kilometri: <input type="number" id="valKm" value="" style=" width: 31px"><br />
-    Consum: <input type="number" id="procCons" value="8.00" style="width: 31px"><br />
-    Preț: <input type="number" id="pretComb" value="7.26" style=" width: 31px"><br />
-    Comision: <input type="number" id="procComis" value="9" style="width: 31px"><br />
+    Consum: <input type="number" id="procCons" value="7.88" style="width: 31px"><br />
+    Preț: <input type="number" id="pretComb" value="7.42" style=" width: 31px"><br />
+    Comision: <input type="number" id="procComis" value="14" style="width: 31px"><br />
     Contabilitate: <input type="number" id="pretCont" value="119" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="valVenitNetCalc()"><br />
     <b>Venit aplicație: <span id="valVenitApp"></span></b><br />
