@@ -14,6 +14,7 @@
       valVenitAgent = document.getElementById("valVenitAgent").value;
       valTips = document.getElementById("valTips").value;
       valIncasCash = document.getElementById("valIncasCash").value;
+      valBonusCastig = document.getElementById("valBonusCastig").value;
       valBonus = document.getElementById("valBonus").value;
       valCIM = document.getElementById("valCIM").value;
       valSelfPay = document.getElementById("valSelfPay").value;
@@ -34,9 +35,9 @@
 
       // Formulas
 
-      valComision = parseFloat(valVenitAgent) * 0.09;
-      valTaxaOperat = (parseFloat(valVenitAgent) + parseFloat(valBonus)) * 0.0149 * 1.19;
-      valTotPlata = parseFloat(valVenitAgent) + parseFloat(valTips) - parseFloat(valIncasCash) + parseFloat(valBonus) - parseFloat(valCIM) - parseFloat(valSelfPay) - parseFloat(valTaxaActivare) - parseFloat(valRestPlata) - parseFloat(valComision) - parseFloat(valTaxaOperat);
+      valComision = parseFloat(valVenitAgent) * 0.14;
+      valTaxaOperat = (parseFloat(valVenitAgent) + parseFloat(valBonusCastig) + parseFloat(valBonus)) * 0.0149 * 1.19;
+      valTotPlata = parseFloat(valVenitAgent) + parseFloat(valTips) - parseFloat(valIncasCash) + parseFloat(valBonusCastig) + parseFloat(valBonus) - parseFloat(valCIM) - parseFloat(valSelfPay) - parseFloat(valTaxaActivare) - parseFloat(valRestPlata) - parseFloat(valComision) - parseFloat(valTaxaOperat);
 
       // Display
 
@@ -55,7 +56,8 @@
   <form action="">
     Venit agenție: <input type="text" id="valVenitAgent" value="" style="width: 31px"><br />
     Tips: <input type="text" id="valTips" value="" style="width: 31px"><br />
-    Incasări cash: <input type="text" id="valIncasCash" value="" style="width: 31px"><br />
+    Incasări cash: <input type="text" id="valIncasCash" value="0" style="width: 31px"><br />
+    Bonus câștig: <input type="text" id="valBonusCastig" value="0" style="width: 31px"><br />
     Bonus: <input type="text" id="valBonus" value="0" style="width: 31px"><br />
     CIM: <input type="text" id="valCIM" value="0" style="width: 31px"><br />
     SelfPay: <input type="text" id="valSelfPay" value="0" style="width: 31px"><br />
