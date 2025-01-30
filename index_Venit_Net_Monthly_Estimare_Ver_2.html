@@ -49,6 +49,7 @@
       var contrPensie;
       var contrSanatate;
       var valImpozit;
+      var venitNetPrecalc;
       var venitNet;
       var totalIncasariPerOra;
       var venitNetPerOra;
@@ -141,7 +142,12 @@
       }
       contrSanatate = parseFloat(venitImpozabil) * 0.1;
       valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensie) - parseFloat(contrSanatate)) * 0.1;
-      venitNet = parseFloat(restPlata) + parseFloat(incasariCash) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit) - parseFloat(valPensie);
+      venitNetPrecalc = parseFloat(restPlata) + parseFloat(incasariCash) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit) - parseFloat(valPensie);
+      if (venitNetPrecalc >= 0) {
+        venitNet = parseFloat(venitNetPrecalc);
+      } else {
+        venitNet = 0;
+      }
       totalIncasariPerOra = parseFloat(totalIncasariBrut) / parseFloat(orePerLuna);
       venitNetPerOra = parseFloat(venitNet) / parseFloat(orePerLuna);
       procVenitNetPerOra = parseFloat(venitNetPerOra) / parseFloat(totalIncasariPerOra) * 100;
