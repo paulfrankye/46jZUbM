@@ -11,18 +11,18 @@
 
       // Inputs
 
-      venitAgentiePerOra = document.getElementById("venitAgentiePerOra").value;
-      bacsisCashPerOra = document.getElementById("bacsisCashPerOra").value;
-      valBonus = document.getElementById("valBonus").value;
-      venitAsigurat = document.getElementById("venitAsigurat").value;
-      selPensie = document.getElementById("selPensie").value;
-      comenziPerOra = document.getElementById("comenziPerOra").value;
-      kmPerComanda = document.getElementById("kmPerComanda").value;
-      orePerLuna = document.getElementById("orePerLuna").value;
-      consumCombustibil = document.getElementById("consumCombustibil").value;
-      pretCombustibil = document.getElementById("pretCombustibil").value;
-      procComision = document.getElementById("procComision").value;
-      pretContabilitate = document.getElementById("pretContabilitate").value;
+      venitAgentiePerOra = Number(document.getElementById("venitAgentiePerOra").value);
+      bacsisCashPerOra = Number(document.getElementById("bacsisCashPerOra").value);
+      valBonus = Number(document.getElementById("valBonus").value);
+      venitAsigurat = Number(document.getElementById("venitAsigurat").value);
+      selPensie = Number(document.getElementById("selPensie").value);
+      comenziPerOra = Number(document.getElementById("comenziPerOra").value);
+      kmPerComanda = Number(document.getElementById("kmPerComanda").value);
+      orePerLuna = Number(document.getElementById("orePerLuna").value);
+      consumCombustibil = Number(document.getElementById("consumCombustibil").value);
+      pretCombustibil = Number(document.getElementById("pretCombustibil").value);
+      procComision = Number(document.getElementById("procComision").value);
+      pretContabilitate = Number(document.getElementById("pretContabilitate").value);
 
       // Vars
 
@@ -196,22 +196,33 @@
 <body>
 
   <form action="">
-    Ore per lună: <input type="text" id="orePerLuna" value="32" style="width: 31px"><br />
-    Venit agenție per oră: <input type="text" id="venitAgentiePerOra" value="35.00" style="width: 31px"><br />
-    Bacșiș cash per oră: <input type="text" id="bacsisCashPerOra" value="3.00" style="width: 31px"><br />
-    Bonus: <input type="text" id="valBonus" value="0" style="width: 31px"><br />
-    Venit asigurat pt pensie: <input type="text" id="venitAsigurat" value="0" style="width: 31px"><br />
+    Ore per lună: <input type="number" id="orePerLuna" value="32" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Venit agenție per oră: <input type="number" id="venitAgentiePerOra" value="35.00" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Bacșiș cash per oră: <input type="number" id="bacsisCashPerOra" value="3.00" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Bonus: <input type="number" id="valBonus" value="0" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Venit asigurat pt pensie: <input type="number" id="venitAsigurat" value="0" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
     Depășire prag pt pensie: <select id="selPensie">
       <option value="Da">Da</option>
       <option value="Nu" selected>Nu</option>
     </select><br />
-    Comenzi per oră: <input type="text" id="comenziPerOra" value="2" style="width: 31px"><br />
-    Km per comandă: <input type="text" id="kmPerComanda" value="7" style="width: 31px"><br />
-    Consum combustibil: <input type="text" id="consumCombustibil" value="7.88" style="width: 31px"><br />
-    Preț combustibil: <input type="text" id="pretCombustibil" value="7.42" style="width: 31px"><br />
-    Comision: <input type="text" id="procComision" value="14" style="width: 31px"><br />
-    Contabilitate: <input type="text" id="pretContabilitate" value="119" style="width: 31px"> <input type="button"
-      id="sub" value="Submit" onclick="venitNetCalc()"><br />
+    Comenzi per oră: <input type="number" id="comenziPerOra" min="0" value="2" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Km per comandă: <input type="number" id="kmPerComanda" min="0" value="7" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Consum combustibil: <input type="number" id="consumCombustibil" min="0" value="7.88" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Preț combustibil: <input type="number" id="pretCombustibil" min="0" value="7.42" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Comision: <input type="number" id="procComision" min="0" value="14" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Contabilitate: <input type="number" id="pretContabilitate" min="0" value="119" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"> <input type="button" id="sub" value="Submit"
+      onclick="venitNetCalc()"><br />
     Venit agenție: <span id="venitAgentie"></span><br />
     Bacșiș card: <span id="bacsisCard"></span><br />
     Încasări cash: <span id="incasariCash"></span><br />
