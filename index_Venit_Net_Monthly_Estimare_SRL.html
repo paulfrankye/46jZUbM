@@ -111,7 +111,7 @@
       valContabilitate = parseFloat(pretContabilitate);
       venitImp = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
       impVenitImp = parseFloat(venitImp) * 0.16;
-      venitNetBfTax = parseFloat(restPlata) + parseFloat(incasariCash) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(impVenitImp);
+      venitNetBfTax = parseFloat(restPlata) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(impVenitImp);
       impVenitNet = parseFloat(venitNetBfTax) * 0.1;
       pragSanat = (4050 * 6) / 12;
       if (venitNetBfTax >= parseFloat(pragSanat)) {
@@ -120,7 +120,7 @@
         contrSanat = 0;
       }
       valPensie = parseFloat(venitAsiguratCalc) * 0.25;
-      venitNetAfTax = parseFloat(venitNetBfTax) - parseFloat(impVenitNet) - parseFloat(contrSanat) - parseFloat(valPensie);
+      venitNetAfTax = parseFloat(venitNetBfTax) + parseFloat(incasariCash) + parseFloat(bacsisCash) - parseFloat(impVenitNet) - parseFloat(contrSanat) - parseFloat(valPensie);
       totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(orePerLuna);
       venitNetPerOra = parseFloat(venitNetAfTax) / parseFloat(orePerLuna);
       procVenitNetPerOra = parseFloat(venitNetPerOra) / parseFloat(totalIncasariPerOra) * 100;
