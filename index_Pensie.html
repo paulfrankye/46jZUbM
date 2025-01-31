@@ -11,10 +11,10 @@
 
       // Inputs
 
-      nrAn = document.getElementById("nrAn").value;
-      salBrut = document.getElementById("salBrut").value;
-      valFrom = document.getElementById("valFrom").value;
-      valTo = document.getElementById("valTo").value;
+      nrAn = Number(document.getElementById('nrAn').value);
+      salBrut = Number(document.getElementById('salBrut').value);
+      valFrom = Number(document.getElementById('valFrom').value);
+      valTo = Number(document.getElementById('valTo').value);
 
       // Vars
 
@@ -44,7 +44,7 @@
 
       // Formulas
 
-      if (nrAn == 2024) {
+      if (nrAn === 2024) {
         salMedEcon = 7567;
         if (salBrut <= 3300) {
           salBrutCalc = parseFloat(salBrut) - 300;
@@ -54,7 +54,7 @@
         }
       }
       else {
-        if (nrAn == 2025) {
+        if (nrAn === 2025) {
           salMedEcon = 8597;
           if (salBrut <= 4050) {
             salBrutCalc = parseFloat(salBrut) - 300;
@@ -93,10 +93,10 @@
       }
       nrPctNecontr = 0;
       nrPctTotal = parseFloat(nrPctContr) + parseFloat(nrPctStab) + parseFloat(nrPctNecontr);
-      if (nrAn == 2024) {
+      if (nrAn === 2024) {
         valPctRef = 2032 / 25;
       }
-      else if (nrAn == 2025) {
+      else if (nrAn === 2025) {
         valPctRef = 91;
       }
       else {
