@@ -11,18 +11,18 @@
 
       // Inputs
 
-      venitAgentiePerOra = Number(document.getElementById("venitAgentiePerOra").value);
-      bacsisCashPerOra = Number(document.getElementById("bacsisCashPerOra").value);
-      valBonus = Number(document.getElementById("valBonus").value);
-      venitAsigurat = Number(document.getElementById("venitAsigurat").value);
-      selPensie = Number(document.getElementById("selPensie").value);
-      comenziPerOra = Number(document.getElementById("comenziPerOra").value);
-      kmPerComanda = Number(document.getElementById("kmPerComanda").value);
-      orePerLuna = Number(document.getElementById("orePerLuna").value);
-      consumCombustibil = Number(document.getElementById("consumCombustibil").value);
-      pretCombustibil = Number(document.getElementById("pretCombustibil").value);
-      procComision = Number(document.getElementById("procComision").value);
-      pretContabilitate = Number(document.getElementById("pretContabilitate").value);
+      venitAgentiePerOra = Number(document.getElementById('venitAgentiePerOra').value);
+      bacsisCashPerOra = Number(document.getElementById('bacsisCashPerOra').value);
+      valBonus = Number(document.getElementById('valBonus').value);
+      venitAsigurat = Number(document.getElementById('venitAsigurat').value);
+      selPensie = Number(document.getElementById('selPensie').value);
+      comenziPerOra = Number(document.getElementById('comenziPerOra').value);
+      kmPerComanda = Number(document.getElementById('kmPerComanda').value);
+      orePerLuna = Number(document.getElementById('orePerLuna').value);
+      consumCombustibil = Number(document.getElementById('consumCombustibil').value);
+      pretCombustibil = Number(document.getElementById('pretCombustibil').value);
+      procComision = Number(document.getElementById('procComision').value);
+      pretContabilitate = Number(document.getElementById('pretContabilitate').value);
 
       // Vars
 
@@ -115,7 +115,7 @@
       } else {
         venitImpozabil = 0;
       }
-      if (selPensie === 'Da') {
+      if (selPensie === 1) {
         if (venitImpozabil >= 4050) {
           contrPensie = (4050 - 300) * 0.25;
         }
@@ -123,7 +123,7 @@
           contrPensie = 0;
         }
       }
-      else if (selPensie === 'Nu') {
+      else if (selPensie === 0) {
         contrPensie = 0;
       }
       else {
@@ -213,8 +213,8 @@
       <option value="4050" selected>4050</option>
     </select><br />
     Depășire prag pt pensie: <select id="selPensie">
-      <option value="Da">Da</option>
-      <option value="Nu" selected>Nu</option>
+      <option value="1">Da</option>
+      <option value="0" selected>Nu</option>
     </select><br />
     Comenzi per oră: <input type="number" id="comenziPerOra" min="0" value="2" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
