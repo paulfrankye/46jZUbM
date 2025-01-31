@@ -134,10 +134,10 @@
       <option value="2024">2024</option>
       <option value="2025" selected>2025</option>
     </select><br />
-    Salariu brut: <input type="text" id="salBrut" value="4050" style="width: 31px"><br />
-    De la: <input type="text" id="valFrom" value="19" style="width: 16px"><br />
-    Pana la: <input type="text" id="valTo" value="65" style="width: 16px"> <input type="button" id="sub" value="Submit"
-      onclick="restPlatCalc()"><br />
+    Salariu brut: <input type="text" id="salBrut" min="0" value="4050" style="width: 31px"><br />
+    De la: <input type="text" id="valFrom" min="16" max="65" value="19" style="width: 16px"><br />
+    Pana la: <input type="text" id="valTo" min="16" max="65" value="65" style="width: 16px"> <input type="button"
+      id="sub" value="Submit" onclick="restPlatCalc()"><br />
     Nr puncte per an: <span id="nrPctPerAn"></span><br />
     Nr ani de contributivitate: <span id="nrAniContr"></span><br />
     Nr puncte de contributivitate: <span id="nrPctContr"></span><br />
