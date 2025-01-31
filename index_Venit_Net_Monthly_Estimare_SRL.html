@@ -46,7 +46,6 @@
       var impVenitNet;
       var pragSanat;
       var contrSanat;
-      var valPensie;
       var venitNetAfTax;
       var totalIncasariPerOra;
       var venitNetPerOra;
@@ -76,7 +75,6 @@
       var venitNetBfTaxRes = document.getElementById('venitNetBfTax');
       var impVenitNetRes = document.getElementById('impVenitNet');
       var contrSanatRes = document.getElementById('contrSanat');
-      var valPensieRes = document.getElementById('valPensie');
       var venitNetAfTaxRes = document.getElementById('venitNetAfTax');
       var totalIncasariPerOraRes = document.getElementById('totalIncasariPerOra');
       var venitNetPerOraRes = document.getElementById('venitNetPerOra');
@@ -119,8 +117,7 @@
       } else {
         contrSanat = 0;
       }
-      valPensie = parseFloat(venitAsiguratCalc) * 0.25;
-      venitNetAfTax = parseFloat(venitNetBfTax) + parseFloat(incasariCash) + parseFloat(bacsisCash) - parseFloat(impVenitNet) - parseFloat(contrSanat) - parseFloat(valPensie);
+      venitNetAfTax = parseFloat(venitNetBfTax) + parseFloat(incasariCash) + parseFloat(bacsisCash) - parseFloat(impVenitNet) - parseFloat(contrSanat);
       totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(orePerLuna);
       venitNetPerOra = parseFloat(venitNetAfTax) / parseFloat(orePerLuna);
       procVenitNetPerOra = parseFloat(venitNetPerOra) / parseFloat(totalIncasariPerOra) * 100;
@@ -149,7 +146,6 @@
       venitNetBfTaxRes.innerHTML = parseFloat(venitNetBfTax).toFixed(0);
       impVenitNetRes.innerHTML = parseFloat(impVenitNet).toFixed(0);
       contrSanatRes.innerHTML = parseFloat(contrSanat).toFixed(0);
-      valPensieRes.innerHTML = parseFloat(valPensie).toFixed(0);
       venitNetAfTaxRes.innerHTML = parseFloat(venitNetAfTax).toFixed(0);
       totalIncasariPerOraRes.innerHTML = parseFloat(totalIncasariPerOra).toFixed(2);
       venitNetPerOraRes.innerHTML = parseFloat(venitNetPerOra).toFixed(2);
@@ -204,8 +200,8 @@
       <option value="1750">1750</option>
     </select><br />
     Venit asigurat pt pensie: <select id="venitAsigurat">
-      <option value="0">0</option>
-      <option value="4050">4050</option>
+      <option value="0">–</option>
+      <option value="0">–</option>
     </select><br />
     Depășire prag pt pensie: <select id="selPensie">
       <option value="1">–</option>
@@ -245,7 +241,6 @@
     <b>Venit net, înainte de taxe: <span id="venitNetBfTax"></span></b><br />
     Impozit, pe venit net: <span id="impVenitNet"></span><br />
     Sănătate: <span id="contrSanat"></span><br />
-    Pensie: <span id="valPensie"></span><br />
     <b>Venit net, după taxe: <span id="venitNetAfTax"></span></b><br /><br />
     Total încasări per oră: <span id="totalIncasariPerOra"></span><br />
     Venit net per oră: <span id="venitNetPerOra"></span><br />
