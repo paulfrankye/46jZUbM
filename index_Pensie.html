@@ -28,6 +28,7 @@
       var nrPctTotal;
       var valPctRef;
       var valPens;
+      var randPoz;
 
       // Results
 
@@ -39,6 +40,7 @@
       var nrPctTotalRes = document.getElementById('nrPctTotal');
       var valPctRefRes = document.getElementById('valPctRef');
       var valPensRes = document.getElementById('valPens');
+      // var randPozRes = document.getElementById('randPoz');
 
       // Formulas
 
@@ -101,6 +103,8 @@
         valPctRef = 0;
       }
       valPens = parseFloat(nrPctTotal) * parseFloat(valPctRef);
+      randPoz = 65 + (parseFloat(salBrutCalc) * 0.25 * 12 * parseFloat(nrAniContr)) / (parseFloat(valPens) * 12);
+      console.log('Randament pozitiv: ' + Math.trunc(randPoz));
 
       // Display
 
@@ -112,6 +116,7 @@
       nrPctTotalRes.innerHTML = parseFloat(nrPctTotal).toFixed(2);
       valPctRefRes.innerHTML = parseFloat(valPctRef).toFixed(2);
       valPensRes.innerHTML = Math.trunc(valPens);
+      // randPozRes.innerHTML = Math.trunc(randPoz);
 
     }
 
