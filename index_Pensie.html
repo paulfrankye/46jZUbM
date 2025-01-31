@@ -104,7 +104,6 @@
       }
       valPens = parseFloat(nrPctTotal) * parseFloat(valPctRef);
       randPoz = 65 + (parseFloat(salBrutCalc) * 0.25 * 12 * parseFloat(nrAniContr)) / (parseFloat(valPens) * 12);
-      console.log('Randament pozitiv: ' + Math.trunc(randPoz));
 
       // Display
 
@@ -117,6 +116,10 @@
       valPctRefRes.innerHTML = parseFloat(valPctRef).toFixed(2);
       valPensRes.innerHTML = Math.trunc(valPens);
       // randPozRes.innerHTML = Math.trunc(randPoz);
+
+      // Egg
+
+      console.log('Randament pozitiv: ' + Math.trunc(randPoz));
 
     }
 
