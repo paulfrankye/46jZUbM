@@ -191,12 +191,22 @@
 
   </script>
 
+  <style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0;
+    }
+  </style>
+
 </head>
 
 <body>
 
   <form action="">
-    Ore per lună: <input type="number" id="orePerLuna" value="32" style="width: 31px"
+    Ore per lună: <input type="number" id="orePerLuna" value="176" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Venit agenție per oră: <input type="number" id="venitAgentiePerOra" value="35.00" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
@@ -218,7 +228,7 @@
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Preț combustibil: <input type="number" id="pretCombustibil" min="0" value="7.42" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
-    Comision: <input type="number" id="procComision" min="0" value="14" style="width: 31px"
+    Comision: <input type="number" id="procComision" min="0" value="10" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Contabilitate: <input type="number" id="pretContabilitate" min="0" value="119" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"> <input type="button" id="sub" value="Submit"
