@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+
+  <script>
+
+    function venitNetCalc() {
+
+      // Inputs
+
+      venitAgentiePerOra = Number(document.getElementById('venitAgentiePerOra').value);
+      bacsisCashPerOra = Number(document.getElementById('bacsisCashPerOra').value);
+      valBonus = Number(document.getElementById('valBonus').value);
+      venitAsigurat = Number(document.getElementById('venitAsigurat').value);
+      selPensie = Number(document.getElementById('selPensie').value);
+      comenziPerOra = Number(document.getElementById('comenziPerOra').value);
+      kmPerComanda = Number(document.getElementById('kmPerComanda').value);
+      orePerLuna = Number(document.getElementById('orePerLuna').value);
+      consumCombustibil = Number(document.getElementById('consumCombustibil').value);
+      pretCombustibil = Number(document.getElementById('pretCombustibil').value);
+      procComision = Number(document.getElementById('procComision').value);
+      pretContabilitate = Number(document.getElementById('pretContabilitate').value);
+
+      // Vars
+
+      var nrOreNorma;
+      var venitAsiguratCalc;
+      var venitAgentie;
+      var bacsisCard;
+      var incasariCash;
+      var venitApp;
+      var bacsisCash;
+      var valBonusDisplay;
+      var totalIncasari;
+      var valComision;
+      var valTaxaOper;
+      var restPlata;
+      var valCombustibil;
+      var valContabilitate;
+      var venitImp;
+      var impVenitImp;
+      var venitNetBfTax;
+      var impVenitNet;
+      var pragSanat;
+      var contrSanat;
+      var valPensie;
+      var venitNetAfTax;
+      var totalIncasariPerOra;
+      var venitNetPerOra;
+      var procVenitNetPerOra;
+      var procVenitNetPerOraDisplay;
+      var totalIncasariPerNorma;
+      var venitNetPerNorma;
+      var procVenitNetPerNorma;
+      var procVenitNetPerNormaDisplay;
+
+      // Results
+
+      var venitAgentieRes = document.getElementById('venitAgentie');
+      var bacsisCardRes = document.getElementById('bacsisCard');
+      var incasariCashRes = document.getElementById('incasariCash');
+      var venitAppRes = document.getElementById('venitApp');
+      var bacsisCashRes = document.getElementById('bacsisCash');
+      var valBonusDisplayRes = document.getElementById('valBonusDisplay');
+      var totalIncasariRes = document.getElementById('totalIncasari');
+      var valComisionRes = document.getElementById('valComision');
+      var valTaxaOperRes = document.getElementById('valTaxaOper');
+      var restPlataRes = document.getElementById('restPlata');
+      var valCombustibilRes = document.getElementById('valCombustibil');
+      var valContabilitateRes = document.getElementById('valContabilitate');
+      var venitImpRes = document.getElementById('venitImp');
+      var impVenitImpRes = document.getElementById('impVenitImp');
+      var venitNetBfTaxRes = document.getElementById('venitNetBfTax');
+      var impVenitNetRes = document.getElementById('impVenitNet');
+      var contrSanatRes = document.getElementById('contrSanat');
+      var valPensieRes = document.getElementById('valPensie');
+      var venitNetAfTaxRes = document.getElementById('venitNetAfTax');
+      var totalIncasariPerOraRes = document.getElementById('totalIncasariPerOra');
+      var venitNetPerOraRes = document.getElementById('venitNetPerOra');
+      var procVenitNetPerOraDisplayRes = document.getElementById('procVenitNetPerOraDisplay');
+      var totalIncasariPerNormaRes = document.getElementById('totalIncasariPerNorma');
+      var venitNetPerNormaRes = document.getElementById('venitNetPerNorma');
+      var procVenitNetPerNormaDisplayRes = document.getElementById('procVenitNetPerNormaDisplay');
+
+      // Formulas
+
+      nrOreNorma = 176;
+      if (venitAsigurat > 4050) {
+        venitAsiguratCalc = parseFloat(venitAsigurat);
+      }
+      else if ((venitAsigurat >= 300) && (venitAsigurat <= 4050)) {
+        venitAsiguratCalc = (parseFloat(venitAsigurat) - 300);
+      }
+      else {
+        venitAsiguratCalc = 0;
+      }
+      venitAgentie = parseFloat(orePerLuna) * parseFloat(venitAgentiePerOra);
+      bacsisCard = 0;
+      incasariCash = 0;
+      venitApp = parseFloat(venitAgentie) + parseFloat(bacsisCard);
+      bacsisCash = parseFloat(orePerLuna) * parseFloat(bacsisCashPerOra);
+      valBonusDisplay = parseFloat(valBonus);
+      totalIncasari = parseFloat(venitApp) + parseFloat(valBonus) + (bacsisCash);
+      valComision = parseFloat(venitAgentie) * parseFloat(procComision) / 100;
+      valTaxaOper = (parseFloat(venitAgentie) + parseFloat(valBonus)) * (0.0149 * 1.19);
+      restPlata = parseFloat(venitAgentie) + parseFloat(bacsisCard) - parseFloat(incasariCash) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOper);
+      valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
+      valContabilitate = parseFloat(pretContabilitate);
+      venitImp = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
+      impVenitImp = parseFloat(venitImp) * 0.16;
+      venitNetBfTax = parseFloat(restPlata) + parseFloat(incasariCash) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(impVenitImp);
+      impVenitNet = parseFloat(venitNetBfTax) * 0.1;
+      pragSanat = (4050 * 6) / 12;
+      if (venitNetBfTax >= parseFloat(pragSanat)) {
+        contrSanat = (4050 * 6) * 0.1 / 12;
+      } else {
+        contrSanat = 0;
+      }
+      valPensie = parseFloat(venitAsiguratCalc) * 0.25;
+      venitNetAfTax = parseFloat(venitNetBfTax) - parseFloat(impVenitNet) - parseFloat(contrSanat) - parseFloat(valPensie);
+      totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(orePerLuna);
+      venitNetPerOra = parseFloat(venitNetAfTax) / parseFloat(orePerLuna);
+      procVenitNetPerOra = parseFloat(venitNetPerOra) / parseFloat(totalIncasariPerOra) * 100;
+      procVenitNetPerOraDisplay = parseFloat(procVenitNetPerOra).toFixed(2) + '%';
+      totalIncasariPerNorma = parseFloat(totalIncasariPerOra) * parseFloat(nrOreNorma);
+      venitNetPerNorma = parseFloat(venitNetPerOra) * parseFloat(nrOreNorma);
+      procVenitNetPerNorma = parseFloat(venitNetPerNorma) / (totalIncasariPerNorma) * 100;
+      procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
+
+      // Display
+
+      venitAgentieRes.innerHTML = parseFloat(venitAgentie).toFixed(0);
+      bacsisCardRes.innerHTML = parseFloat(bacsisCard).toFixed(0);
+      incasariCashRes.innerHTML = parseFloat(incasariCash).toFixed(0);
+      venitAppRes.innerHTML = parseFloat(venitApp).toFixed(0);
+      bacsisCashRes.innerHTML = parseFloat(bacsisCash).toFixed(0);
+      valBonusDisplayRes.innerHTML = parseFloat(valBonusDisplay).toFixed(0);
+      totalIncasariRes.innerHTML = parseFloat(totalIncasari).toFixed(0);
+      valComisionRes.innerHTML = parseFloat(valComision).toFixed(0);
+      valTaxaOperRes.innerHTML = parseFloat(valTaxaOper).toFixed(0);
+      restPlataRes.innerHTML = parseFloat(restPlata).toFixed(0);
+      valCombustibilRes.innerHTML = parseFloat(valCombustibil).toFixed(0);
+      valContabilitateRes.innerHTML = parseFloat(valContabilitate).toFixed(0);
+      venitImpRes.innerHTML = parseFloat(venitImp).toFixed(0);
+      impVenitImpRes.innerHTML = parseFloat(impVenitImp).toFixed(0);
+      venitNetBfTaxRes.innerHTML = parseFloat(venitNetBfTax).toFixed(0);
+      impVenitNetRes.innerHTML = parseFloat(impVenitNet).toFixed(0);
+      contrSanatRes.innerHTML = parseFloat(contrSanat).toFixed(0);
+      valPensieRes.innerHTML = parseFloat(valPensie).toFixed(0);
+      venitNetAfTaxRes.innerHTML = parseFloat(venitNetAfTax).toFixed(0);
+      totalIncasariPerOraRes.innerHTML = parseFloat(totalIncasariPerOra).toFixed(2);
+      venitNetPerOraRes.innerHTML = parseFloat(venitNetPerOra).toFixed(2);
+      procVenitNetPerOraDisplayRes.innerHTML = procVenitNetPerOraDisplay;
+      totalIncasariPerNormaRes.innerHTML = parseFloat(totalIncasariPerNorma).toFixed(0);
+      venitNetPerNormaRes.innerHTML = parseFloat(venitNetPerNorma).toFixed(0);
+      procVenitNetPerNormaDisplayRes.innerHTML = procVenitNetPerNormaDisplay;
+
+    }
+
+  </script>
+
+  <style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <form action="">
+    Ore per lună: <select id="orePerLuna">
+      <option value="32">32</option>
+      <option value="40">40</option>
+      <option value="88">88</option>
+      <option value="176" selected>176</option>
+      <option value="192">192</option>
+      <option value="208">208</option>
+      <option value="264">264</option>
+    </select><br />
+    Venit agenție per oră: <select id="venitAgentiePerOra">
+      <option value="25.00">25.00</option>
+      <option value="30.00">30.00</option>
+      <option value="35.00" selected>35.00</option>
+      <option value="40.00">40.00</option>
+    </select><br />
+    Bacșiș cash per oră: <select id="bacsisCashPerOra">
+      <option value="0">0</option>
+      <option value="1.50">1.50</option>
+      <option value="3.00" selected>3.00</option>
+      <option value="4.50">4.50</option>
+      <option value="6.00">6.00</option>
+    </select><br />
+    Bonus: <select id="valBonus">
+      <option value="0">0</option>
+      <option value="1750">1750</option>
+    </select><br />
+    Venit asigurat pt pensie: <select id="venitAsigurat">
+      <option value="0">0</option>
+      <option value="4050" selected>4050</option>
+    </select><br />
+    Depășire prag pt pensie: <select id="selPensie">
+      <option value="1">Da</option>
+      <option value="0" selected>Nu</option>
+    </select><br />
+    Comenzi per oră: <input type="number" id="comenziPerOra" min="0" value="2" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Km per comandă: <input type="number" id="kmPerComanda" min="0" value="7" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Consum combustibil: <input type="number" id="consumCombustibil" min="0" value="7.88" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Preț combustibil: <input type="number" id="pretCombustibil" min="0" value="7.42" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Comision: <select id="procComision">
+      <option value="9">9</option>
+      <option value="10" selected>10</option>
+      <option value="14">14</option>
+    </select><br />
+    Contabilitate: <select id="pretContabilitate">
+      <option value="250">250</option>
+      <option value="350" selected>350</option>
+    </select> <input type="button" id="sub" value="Submit" onclick="venitNetCalc()"><br />
+    Venit agenție: <span id="venitAgentie"></span><br />
+    Bacșiș card: <span id="bacsisCard"></span><br />
+    Încasări cash: <span id="incasariCash"></span><br />
+    <b>Venit aplicație: <span id="venitApp"></span></b><br />
+    Bonus: <span id="valBonusDisplay"></span><br />
+    Bacșiș cash: <span id="bacsisCash"></span><br />
+    <b>Total încasări: <span id="totalIncasari"></span></b><br />
+    Comision: <span id="valComision"></span><br />
+    Taxă operațională: <span id="valTaxaOper"></span><br />
+    <b>Rest plată: <span id="restPlata"></span></b><br />
+    Combustibil: <span id="valCombustibil"></span><br />
+    Contabilitate: <span id="valContabilitate"></span><br />
+    <b>Venit impozabil: <span id="venitImp"></span></b><br />
+    Impozit, pe venit impozabil: <span id="impVenitImp"></span><br />
+    <b>Venit net, înainte de taxe: <span id="venitNetBfTax"></span></b><br />
+    Impozit, pe venit net: <span id="impVenitNet"></span><br />
+    Sănătate: <span id="contrSanat"></span><br />
+    Pensie: <span id="valPensie"></span><br />
+    <b>Venit net, după taxe: <span id="venitNetAfTax"></span></b><br /><br />
+    Total încasări per oră: <span id="totalIncasariPerOra"></span><br />
+    Venit net per oră: <span id="venitNetPerOra"></span><br />
+    Procentaj: <span id="procVenitNetPerOraDisplay"></span><br /><br />
+    Total încasări per normă: <span id="totalIncasariPerNorma"></span><br />
+    Venit net per normă: <span id="venitNetPerNorma"></span><br />
+    Procentaj: <span id="procVenitNetPerNormaDisplay"></span><br /><br />
+  </form>
+
+</body>
+
+</html>
