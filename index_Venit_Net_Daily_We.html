@@ -83,7 +83,7 @@
       valTaxaOper = (parseFloat(venitAgent) + parseFloat(valBonusCastig) + parseFloat(valBonus)) * 0.0149 * 1.19;
       valRestPlat = parseFloat(venitAgent) + parseFloat(tipsCard) - parseFloat(incasCash) + parseFloat(valBonusCastig) + parseFloat(valBonus) - parseFloat(valComis) - parseFloat(valTaxaOper);
       valComb = parseFloat(valKm) / 100 * parseFloat(procCons) * parseFloat(pretComb);
-      valCont = parseFloat(pretCont) / (parseFloat(orePerLuna) / 8);
+      valCont = parseFloat(pretCont) / parseFloat(orePerLuna) * parseFloat(nrOre);
       valTaxe = (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1 + (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont) - ((parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1)) * 0.1;
       valVenitNet = parseFloat(valRestPlat) + parseFloat(tipsCash) + parseFloat(incasCash) - parseFloat(valComb) - parseFloat(valCont) - parseFloat(valTaxe);
       valTotIncasPerOra = parseFloat(valTotIncas) / parseFloat(nrOre);
