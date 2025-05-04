@@ -14,8 +14,6 @@
       venitAgentiePerOra = Number(document.getElementById('venitAgentiePerOra').value);
       bacsisCashPerOra = Number(document.getElementById('bacsisCashPerOra').value);
       valBonus = Number(document.getElementById('valBonus').value);
-      venitAsigurat = Number(document.getElementById('venitAsigurat').value);
-      selPensie = Number(document.getElementById('selPensie').value);
       comenziPerOra = Number(document.getElementById('comenziPerOra').value);
       kmPerComanda = Number(document.getElementById('kmPerComanda').value);
       orePerLuna = Number(document.getElementById('orePerLuna').value);
@@ -27,7 +25,6 @@
       // Vars
 
       var nrOreNorma;
-      var venitAsiguratCalc;
       var venitAgentie;
       var bacsisCard;
       var incasariCash;
@@ -86,15 +83,6 @@
       // Formulas
 
       nrOreNorma = 176;
-      if (venitAsigurat > 4050) {
-        venitAsiguratCalc = parseFloat(venitAsigurat);
-      }
-      else if ((venitAsigurat >= 300) && (venitAsigurat <= 4050)) {
-        venitAsiguratCalc = (parseFloat(venitAsigurat) - 300);
-      }
-      else {
-        venitAsiguratCalc = 0;
-      }
       venitAgentie = parseFloat(orePerLuna) * parseFloat(venitAgentiePerOra);
       bacsisCard = 0;
       incasariCash = 0;
@@ -183,29 +171,27 @@
       <option value="264">264</option>
     </select><br />
     Venit agenție per oră: <select id="venitAgentiePerOra">
+      <option value="0">0</option>
       <option value="25.00">25.00</option>
+      <option value="27.50">27.50</option>
       <option value="30.00" selected>30.00</option>
+      <option value="32.50">32.50</option>
       <option value="35.00">35.00</option>
+      <option value="37.50">37.50</option>
       <option value="40.00">40.00</option>
     </select><br />
     Bacșiș cash per oră: <select id="bacsisCashPerOra">
       <option value="0">0</option>
       <option value="2.50">2.50</option>
-      <option value="5.00" selected>5.00</option>
-      <option value="7.50">7.50</option>
-      <option value="10.00">10.00</option>
+      <option value="3.00" selected>3.00</option>
+      <option value="3.50">3.50</option>
+      <option value="4.00">4.00</option>
+      <option value="4.50">4.50</option>
+      <option value="5.00">5.00</option>
     </select><br />
     Bonus: <select id="valBonus">
       <option value="0">0</option>
       <option value="1750">1750</option>
-    </select><br />
-    Venit asigurat pt pensie: <select id="venitAsigurat">
-      <option value="0">–</option>
-      <option value="0">–</option>
-    </select><br />
-    Depășire prag pt pensie: <select id="selPensie">
-      <option value="1">–</option>
-      <option value="0" selected>–</option>
     </select><br />
     Comenzi per oră: <input type="number" id="comenziPerOra" min="0" value="2" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
