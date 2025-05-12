@@ -232,14 +232,22 @@
       <option value="1">Da</option>
       <option value="0" selected>Nu</option>
     </select><br />
-    Comenzi per oră: <input type="number" id="comenziPerOra" min="0" value="2" style="width: 31px"
-      oninput="if (this.value < 0) { this.value = 0 }"><br />
-    Km per comandă: <input type="number" id="kmPerComanda" min="0" value="7" style="width: 31px"
-      oninput="if (this.value < 0) { this.value = 0 }"><br />
-    Consum combustibil: <input type="number" id="consumCombustibil" min="0" value="7.24" style="width: 31px"
-      oninput="if (this.value < 0) { this.value = 0 }"><br />
-    Preț combustibil: <input type="number" id="pretCombustibil" min="0" value="7.08" style="width: 31px"
-      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Comenzi per oră: <select id="comenziPerOra">
+      <option value="0">0</option>
+      <option value="2" selected>2.00</option>
+    </select><br />
+    Km per comandă: <select id="kmPerComanda">
+      <option value="0">0</option>
+      <option value="7" selected>7.00</option>
+    </select><br />
+    Consum combustibil: <select id="consumCombustibil">
+      <option value="0">0</option>
+      <option value="7" selected>7.00</option>
+    </select><br />
+    Preț combustibil: <select id="pretCombustibil">
+      <option value="0">0</option>
+      <option value="7" selected>7.00</option>
+    </select><br />
     Comision: <select id="procComision">
       <option value="9" selected>9</option>
       <option value="10">10</option>
