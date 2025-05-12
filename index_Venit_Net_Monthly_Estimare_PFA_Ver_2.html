@@ -216,10 +216,8 @@
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Venit asigurat pt pensie: <input type="number" id="venitAsigurat" value="0" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
-    Depășire prag pt pensie: <select id="selPensie">
-      <option value="1">Da</option>
-      <option value="0" selected>Nu</option>
-    </select><br />
+    Depășire prag pt pensie: <input type="number" id="selPensie" value="" style=" width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }" placeholder="Nu" disabled><br />
     Comenzi per oră: <input type="number" id="comenziPerOra" min="0" value="2" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Km per comandă: <input type="number" id="kmPerComanda" min="0" value="7" style="width: 31px"
