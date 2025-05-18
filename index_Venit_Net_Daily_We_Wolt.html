@@ -33,7 +33,7 @@
       var tipsCardDisplay;
       var tipsCashDisplay;
       var valBonusDisplay;
-      var venitAgentieDisplay;
+      var venitAgentie;
       var valTotIncas;
       var valComis;
       var valTaxaOper;
@@ -58,7 +58,7 @@
       var tipsCardDisplayRes = document.getElementById('tipsCardDisplay');
       var tipsCashDisplayRes = document.getElementById('tipsCashDisplay');
       var valBonusDisplayRes = document.getElementById('valBonusDisplay');
-      var venitAgentieDisplayRes = document.getElementById('venitAgentieDisplay');
+      var venitAgentieRes = document.getElementById('venitAgentie');
       var valTotIncasRes = document.getElementById('valTotIncas');
       var valComisRes = document.getElementById('valComis');
       var valTaxaOperRes = document.getElementById('valTaxaOper');
@@ -88,7 +88,6 @@
       valBonusDisplay = parseFloat(valBonus);
       valTotIncas = parseFloat(venitAplicatie) + parseFloat(tipsCash) + parseFloat(valBonus);
       venitAgentie = parseFloat(venitAplicatie) - parseFloat(valBonusCastig) - parseFloat(tipsCard);
-      venitAgentieDisplay = parseFloat(venitAgentie);
       valComis = parseFloat(venitAgentie) * parseFloat(procComis) / 100;
       valTaxaOper = (parseFloat(venitAplicatie) + parseFloat(valBonusCastig) + parseFloat(valBonus)) * 0.0149 * 1.19;
       valRestPlat = parseFloat(venitAplicatie) + parseFloat(valBonus) - parseFloat(valComis);
@@ -112,7 +111,7 @@
       // tipsCardDisplayRes.innerHTML = parseFloat(tipsCardDisplay).toFixed(2);
       // tipsCashDisplayRes.innerHTML = parseFloat(tipsCashDisplay).toFixed(2);
       // valBonusDisplayRes.innerHTML = parseFloat(valBonusDisplay).toFixed(2);
-      venitAgentieDisplayRes.innerHTML = parseFloat(venitAgentieDisplay).toFixed(2);
+      venitAgentieRes.innerHTML = parseFloat(venitAgentie).toFixed(2);
       valTotIncasRes.innerHTML = parseFloat(valTotIncas).toFixed(2);
       valComisRes.innerHTML = parseFloat(valComis).toFixed(2);
       // valTaxaOperRes.innerHTML = parseFloat(valTaxaOper).toFixed(2);
@@ -165,7 +164,7 @@
     <!-- Bacșiș card: <span id="tipsCardDisplay"></span><br /> -->
     <!-- Bonus: <span id="valBonusDisplay"></span><br /> -->
     <!-- Bacșiș cash: <span id="tipsCashDisplay"></span><br /> -->
-    Venit agentie: <span id="venitAgentieDisplay"></span><br />
+    Venit agentie: <span id="venitAgentie"></span><br />
     <b>Total încasări: <span id="valTotIncas"></b><br />
     Comision: <span id="valComis"></span><br />
     <b>Rest plată: <span id="valRestPlat"></span></b><br />
