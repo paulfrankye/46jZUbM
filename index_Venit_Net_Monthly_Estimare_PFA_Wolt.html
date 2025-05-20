@@ -11,7 +11,7 @@
 
       // Inputs
 
-      venitAplicatiePerOra = Number(document.getElementById('venitAplicatiePerOra').value);
+      venitFaraBacsisPerOra = Number(document.getElementById('venitFaraBacsisPerOra').value);
       bacsisCashPerOra = Number(document.getElementById('bacsisCashPerOra').value);
       valBonus = Number(document.getElementById('valBonus').value);
       venitAsigurat = Number(document.getElementById('venitAsigurat').value);
@@ -28,15 +28,11 @@
 
       var nrOreNorma;
       var venitAsiguratCalc;
-      var venitAplicatie;
-      var bacsisCard;
-      var incasariCash;
-      var venitApp;
+      var venitFaraBacsis;
       var bacsisCash;
       var valBonusDisplay;
       var totalIncasari;
       var valComision;
-      var valTaxaOper;
       var restPlata;
       var valCombustibil;
       var valContabilitate;
@@ -59,15 +55,11 @@
 
       // Results
 
-      var venitAplicatieRes = document.getElementById('venitAplicatie');
-      var bacsisCardRes = document.getElementById('bacsisCard');
-      var incasariCashRes = document.getElementById('incasariCash');
-      var venitAppRes = document.getElementById('venitApp');
+      var venitFaraBacsisRes = document.getElementById('venitFaraBacsis');
       var bacsisCashRes = document.getElementById('bacsisCash');
       var valBonusDisplayRes = document.getElementById('valBonusDisplay');
       var totalIncasariRes = document.getElementById('totalIncasari');
       var valComisionRes = document.getElementById('valComision');
-      var valTaxaOperRes = document.getElementById('valTaxaOper');
       var restPlataRes = document.getElementById('restPlata');
       var valCombustibilRes = document.getElementById('valCombustibil');
       var valContabilitateRes = document.getElementById('valContabilitate');
@@ -96,16 +88,12 @@
       else {
         venitAsiguratCalc = 0;
       }
-      venitAplicatie = parseFloat(orePerLuna) * parseFloat(venitAplicatiePerOra);
-      bacsisCard = 0;
-      incasariCash = 0;
-      // venitAplicatie = parseFloat(venitAplicatie) + parseFloat(bacsisCard);
+      venitFaraBacsis = parseFloat(orePerLuna) * parseFloat(venitFaraBacsisPerOra);
       bacsisCash = parseFloat(orePerLuna) * parseFloat(bacsisCashPerOra);
       valBonusDisplay = parseFloat(valBonus);
-      totalIncasari = parseFloat(venitAplicatie) + parseFloat(valBonus) + (bacsisCash);
-      valComision = parseFloat(venitAplicatie) * 0.8 * parseFloat(procComision) / 100;
-      valTaxaOper = (parseFloat(venitAplicatie) + parseFloat(valBonus)) * (0.0149 * 1.19);
-      restPlata = parseFloat(venitAplicatie) + parseFloat(bacsisCard) - parseFloat(incasariCash) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOper);
+      totalIncasari = parseFloat(venitFaraBacsis) + parseFloat(valBonus) + (bacsisCash);
+      valComision = parseFloat(venitFaraBacsis) * parseFloat(procComision) / 100;
+      restPlata = parseFloat(venitFaraBacsis) + parseFloat(valBonus) - parseFloat(valComision);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate);
       valPensie = parseFloat(venitAsiguratCalc) * 0.25;
@@ -131,7 +119,7 @@
       }
       contrSanatate = parseFloat(venitImpozabil) * 0.1;
       valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensie) - parseFloat(contrSanatate)) * 0.1;
-      venitNetPrecalc = parseFloat(restPlata) + parseFloat(incasariCash) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit) - parseFloat(valPensie);
+      venitNetPrecalc = parseFloat(restPlata) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit) - parseFloat(valPensie);
       if (venitNetPrecalc >= 0) {
         venitNet = parseFloat(venitNetPrecalc);
       } else {
@@ -148,10 +136,7 @@
 
       // Display
 
-      venitAplicatieRes.innerHTML = parseFloat(venitAplicatie).toFixed(0);
-      // bacsisCardRes.innerHTML = parseFloat(bacsisCard).toFixed(0);
-      // incasariCashRes.innerHTML = parseFloat(incasariCash).toFixed(0);
-      // venitAppRes.innerHTML = parseFloat(venitApp).toFixed(0);
+      venitFaraBacsisRes.innerHTML = parseFloat(venitFaraBacsis).toFixed(0);
       bacsisCashRes.innerHTML = parseFloat(bacsisCash).toFixed(0);
       valBonusDisplayRes.innerHTML = parseFloat(valBonusDisplay).toFixed(0);
       totalIncasariRes.innerHTML = parseFloat(totalIncasari).toFixed(0);
@@ -202,7 +187,7 @@
       <option value="208">208</option>
       <option value="264">264</option>
     </select><br />
-    Venit aplicație per oră: <select id="venitAplicatiePerOra">
+    Venit fără bacșiș per oră: <select id="venitFaraBacsisPerOra">
       <option value="0">0</option>
       <option value="25.00">25.00</option>
       <option value="27.50">27.50</option>
@@ -294,10 +279,10 @@
       <option value="0">0</option>
       <option value="119" selected>119</option>
     </select> <input type="button" id="sub" value="Submit" onclick="venitNetCalc()"><br />
-    Venit aplicație: <span id="venitAplicatie"></span><br />
+    Venit fără bacșiș: <span id="venitFaraBacsis"></span><br />
     Bacșiș cash: <span id="bacsisCash"></span><br />
     Bonus: <span id="valBonusDisplay"></span><br />
-    <b>Venit total: <span id="totalIncasari"></span></b><br />
+    <b>Total încasări: <span id="totalIncasari"></span></b><br />
     Comision: <span id="valComision"></span><br />
     <b>Rest plată: <span id="restPlata"></span></b><br />
     Combustibil: <span id="valCombustibil"></span><br />
