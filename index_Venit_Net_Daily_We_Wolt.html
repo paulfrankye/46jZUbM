@@ -12,12 +12,10 @@
       // Inputs
 
       nrOre = document.getElementById("nrOre").value;
-      venitAplicatie = document.getElementById("venitAplicatie").value;
+      venitFaraBacsis = document.getElementById("venitFaraBacsis").value;
       tipsCard = document.getElementById("tipsCard").value;
-      // incasCash = document.getElementById("incasCash").value;
-      tipsCash = document.getElementById("tipsCash").value;
-      valBonusCastig = document.getElementById("valBonusCastig").value;
       valBonus = document.getElementById("valBonus").value;
+      tipsCash = document.getElementById("tipsCash").value;
       valKm = document.getElementById("valKm").value;
       procCons = document.getElementById("procCons").value;
       pretComb = document.getElementById("pretComb").value;
@@ -26,17 +24,9 @@
       orePerLuna = document.getElementById("orePerLuna").value;
 
       // Vars
-
       var nrOreNorma;
-      var venitAplicatieDisplay;
-      var valBonusCastigDisplay;
-      var tipsCardDisplay;
-      var tipsCashDisplay;
-      var valBonusDisplay;
-      var venitAgentie;
       var valTotIncas;
       var valComis;
-      var valTaxaOper;
       var valRestPlat;
       var valComb;
       var valTaxe;
@@ -53,15 +43,8 @@
 
       // Results
 
-      var venitAplicatieDisplayRes = document.getElementById('venitAplicatieDisplay');
-      var valBonusCastigDisplayRes = document.getElementById('valBonusCastigDisplay');
-      var tipsCardDisplayRes = document.getElementById('tipsCardDisplay');
-      var tipsCashDisplayRes = document.getElementById('tipsCashDisplay');
-      var valBonusDisplayRes = document.getElementById('valBonusDisplay');
-      var venitAgentieRes = document.getElementById('venitAgentie');
       var valTotIncasRes = document.getElementById('valTotIncas');
       var valComisRes = document.getElementById('valComis');
-      var valTaxaOperRes = document.getElementById('valTaxaOper');
       var valRestPlatRes = document.getElementById('valRestPlat');
       var valCombRes = document.getElementById('valComb');
       var valTaxeRes = document.getElementById('valTaxe');
@@ -81,16 +64,9 @@
       // Formulas
 
       nrOreNorma = 176;
-      venitAplicatieDisplay = parseFloat(venitAplicatie);
-      valBonusCastigDisplay = parseFloat(valBonusCastig);
-      tipsCardDisplay = parseFloat(tipsCard);
-      tipsCashDisplay = parseFloat(tipsCash);
-      valBonusDisplay = parseFloat(valBonus);
-      valTotIncas = parseFloat(venitAplicatie) + parseFloat(tipsCash) + parseFloat(valBonus);
-      venitAgentie = parseFloat(venitAplicatie) - parseFloat(valBonusCastig) - parseFloat(tipsCard);
-      valComis = parseFloat(venitAgentie) * parseFloat(procComis) / 100;
-      valTaxaOper = (parseFloat(venitAplicatie) + parseFloat(valBonusCastig) + parseFloat(valBonus)) * 0.0149 * 1.19;
-      valRestPlat = parseFloat(venitAplicatie) + parseFloat(valBonus) - parseFloat(valComis);
+      valTotIncas = parseFloat(venitFaraBacsis) + parseFloat(tipsCard) + parseFloat(valBonus) + parseFloat(tipsCash);
+      valComis = parseFloat(venitFaraBacsis) * parseFloat(procComis) / 100;
+      valRestPlat = parseFloat(venitFaraBacsis) + parseFloat(valBonus) - parseFloat(valComis);
       valComb = parseFloat(valKm) / 100 * parseFloat(procCons) * parseFloat(pretComb);
       valCont = parseFloat(pretCont) / parseFloat(orePerLuna) * parseFloat(nrOre);
       valTaxe = (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1 + (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont) - ((parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1)) * 0.1;
@@ -106,15 +82,8 @@
 
       // Display
 
-      // venitAplicatieDisplayRes.innerHTML = parseFloat(venitAplicatieDisplay).toFixed(2);
-      // valBonusCastigDisplayRes.innerHTML = parseFloat(valBonusCastigDisplay).toFixed(2);
-      // tipsCardDisplayRes.innerHTML = parseFloat(tipsCardDisplay).toFixed(2);
-      // tipsCashDisplayRes.innerHTML = parseFloat(tipsCashDisplay).toFixed(2);
-      // valBonusDisplayRes.innerHTML = parseFloat(valBonusDisplay).toFixed(2);
-      venitAgentieRes.innerHTML = parseFloat(venitAgentie).toFixed(2);
       valTotIncasRes.innerHTML = parseFloat(valTotIncas).toFixed(2);
       valComisRes.innerHTML = parseFloat(valComis).toFixed(2);
-      // valTaxaOperRes.innerHTML = parseFloat(valTaxaOper).toFixed(2);
       valRestPlatRes.innerHTML = parseFloat(valRestPlat).toFixed(2);
       valCombRes.innerHTML = parseFloat(valComb).toFixed(2);
       valTaxeRes.innerHTML = parseFloat(valTaxe).toFixed(2);
@@ -148,8 +117,7 @@
   <form action="">
     Ore per lună: <input type="number" id="orePerLuna" value="108" style="width: 31px"><br />
     Ore: <input type="number" id="nrOre" value="" style="width: 31px"><br />
-    Venit aplicație: <input type="number" id="venitAplicatie" value="" style="width: 31px"><br />
-    Ore programate: <input type="number" id="valBonusCastig" value="" style="width: 31px"><br />
+    Venit fără bacșiș: <input type="number" id="venitFaraBacsis" value="" style="width: 31px"><br />
     Bacșiș card: <input type="number" id="tipsCard" value="" style="width: 31px"><br />
     Bonus: <input type="number" id="valBonus" value="" style="width: 31px"><br />
     Bacșiș cash: <input type="number" id="tipsCash" value="" style="width: 31px"><br />
@@ -159,12 +127,6 @@
     Comision: <input type="number" id="procComis" value="14" style="width: 31px"><br />
     Contabilitate: <input type="number" id="pretCont" value="119" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="valVenitNetCalc()"><br />
-    <!-- Venit aplicație: <span id="venitAplicatieDisplay"></span><br /> -->
-    <!-- Ore progamate: <span id="valBonusCastigDisplay"></span><br /> -->
-    <!-- Bacșiș card: <span id="tipsCardDisplay"></span><br /> -->
-    <!-- Bonus: <span id="valBonusDisplay"></span><br /> -->
-    <!-- Bacșiș cash: <span id="tipsCashDisplay"></span><br /> -->
-    Venit agentie: <span id="venitAgentie"></span><br />
     <b>Total încasări: <span id="valTotIncas"></b><br />
     Comision: <span id="valComis"></span><br />
     <b>Rest plată: <span id="valRestPlat"></span></b><br />
