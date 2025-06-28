@@ -32,6 +32,7 @@
       var valBonusDisplay;
       var totalIncasari;
       var valComision;
+      var valTaxaOper;
       var restPlata;
       var valCombustibil;
       var valContabilitate;
@@ -60,6 +61,7 @@
       var valBonusDisplayRes = document.getElementById('valBonusDisplay');
       var totalIncasariRes = document.getElementById('totalIncasari');
       var valComisionRes = document.getElementById('valComision');
+      var valTaxaOperRes = document.getElementById('valTaxaOper');
       var restPlataRes = document.getElementById('restPlata');
       var valCombustibilRes = document.getElementById('valCombustibil');
       var valContabilitateRes = document.getElementById('valContabilitate');
@@ -84,7 +86,8 @@
       valBonusDisplay = parseFloat(valBonus);
       totalIncasari = parseFloat(venitFaraBacsis) + parseFloat(valBonus) + (bacsisCash);
       valComision = parseFloat(venitFaraBacsis) * parseFloat(procComision) / 100;
-      restPlata = parseFloat(venitFaraBacsis) + parseFloat(valBonus) - parseFloat(valComision);
+      valTaxaOper = parseFloat(venitFaraBacsis) * 0.0149 * 1.19;
+      restPlata = parseFloat(venitFaraBacsis) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate);
       valPensie = parseFloat(venitAsigurat) * 0.25;
@@ -133,6 +136,7 @@
       valBonusDisplayRes.innerHTML = parseFloat(valBonusDisplay).toFixed(0);
       totalIncasariRes.innerHTML = parseFloat(totalIncasari).toFixed(0);
       valComisionRes.innerHTML = parseFloat(valComision).toFixed(0);
+      valTaxaOperRes.innerHTML = parseFloat(valTaxaOper).toFixed(0);
       restPlataRes.innerHTML = parseFloat(restPlata).toFixed(0);
       valCombustibilRes.innerHTML = parseFloat(valCombustibil).toFixed(0);
       valContabilitateRes.innerHTML = parseFloat(valContabilitate).toFixed(0);
@@ -198,6 +202,7 @@
     Bonus: <span id="valBonusDisplay"></span><br />
     <b>Total încasări: <span id="totalIncasari"></span></b><br />
     Comision: <span id="valComision"></span><br />
+    Taxă operațională: <span id="valTaxaOper"></span><br />
     <b>Rest plată: <span id="restPlata"></span></b><br />
     Combustibil: <span id="valCombustibil"></span><br />
     Contabilitate: <span id="valContabilitate"></span><br />
