@@ -69,7 +69,7 @@
       valTotIncas = parseFloat(venitFaraBacsis) + parseFloat(tipsCard) + parseFloat(valBonus) + parseFloat(tipsCash);
       valComis = parseFloat(venitFaraBacsis) * parseFloat(procComis) / 100;
       valTaxaOper = parseFloat(venitFaraBacsis) * 0.0149 * 1.19;
-      valRestPlat = parseFloat(venitFaraBacsis) + parseFloat(valBonus) - parseFloat(valComis) - parseFloat(valTaxaOper);
+      valRestPlat = parseFloat(venitFaraBacsis) + parseFloat(tipsCard) + parseFloat(valBonus) - parseFloat(valComis) - parseFloat(valTaxaOper);
       valComb = parseFloat(valKm) / 100 * parseFloat(procCons) * parseFloat(pretComb);
       valCont = parseFloat(pretCont) / parseFloat(orePerLuna) * parseFloat(nrOre);
       valTaxe = (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1 + (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont) - ((parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1)) * 0.1;
@@ -87,7 +87,7 @@
 
       valTotIncasRes.innerHTML = parseFloat(valTotIncas).toFixed(2);
       valComisRes.innerHTML = parseFloat(valComis).toFixed(2);
-      valTaxaOper.innerHTML = parseFloat(valTaxaOper).toFixed(2);
+      valTaxaOperRes.innerHTML = parseFloat(valTaxaOper).toFixed(2);
       valRestPlatRes.innerHTML = parseFloat(valRestPlat).toFixed(2);
       valCombRes.innerHTML = parseFloat(valComb).toFixed(2);
       valTaxeRes.innerHTML = parseFloat(valTaxe).toFixed(2);
