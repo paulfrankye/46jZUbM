@@ -21,7 +21,7 @@
       pretComb = document.getElementById("pretComb").value;
       procComis = document.getElementById("procComis").value;
       pretCont = document.getElementById("pretCont").value;
-      orePerLuna = document.getElementById("orePerLuna").value;
+      nrOrePerLuna = document.getElementById("nrOrePerLuna").value;
 
       // Vars
       var nrOreNorma;
@@ -41,6 +41,10 @@
       var valVenitNetPerNorma;
       var procVenitNetPerNorma;
       var procVenitNetPerNormaDisplay;
+      var valTotIncasPerNormaPropr;
+      var valVenitNetPerNormaPropr;
+      var procVenitNetPerNormaPropr;
+      var procVenitNetPerNormaProprDisplay;
 
       // Results
 
@@ -58,6 +62,9 @@
       var valTotIncasPerNormaRes = document.getElementById('valTotIncasPerNorma');
       var valVenitNetPerNormaRes = document.getElementById('valVenitNetPerNorma');
       var procVenitNetPerNormaDisplayRes = document.getElementById('procVenitNetPerNormaDisplay');
+      var valTotIncasPerNormaProprRes = document.getElementById('valTotIncasPerNormaPropr');
+      var valVenitNetPerNormaProprRes = document.getElementById('valVenitNetPerNormaPropr');
+      var procVenitNetPerNormaDisplayProprRes = document.getElementById('procVenitNetPerNormaProprDisplay');
 
       // Value
 
@@ -71,7 +78,7 @@
       valTaxaOper = parseFloat(venitFaraBacsis) * 0.0149 * 1.19;
       valRestPlat = parseFloat(venitFaraBacsis) + parseFloat(tipsCard) + parseFloat(valBonus) - parseFloat(valComis) - parseFloat(valTaxaOper);
       valComb = parseFloat(valKm) / 100 * parseFloat(procCons) * parseFloat(pretComb);
-      valCont = parseFloat(pretCont) / parseFloat(orePerLuna) * parseFloat(nrOre);
+      valCont = parseFloat(pretCont) / parseFloat(nrOrePerLuna) * parseFloat(nrOre);
       valTaxe = (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1 + (parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont) - ((parseFloat(valRestPlat) - parseFloat(valComb) * 0.5 - parseFloat(valCont)) * 0.1)) * 0.1;
       valVenitNet = parseFloat(valRestPlat) + parseFloat(tipsCash) - parseFloat(valComb) - parseFloat(valCont) - parseFloat(valTaxe);
       valTotIncasPerOra = parseFloat(valTotIncas) / parseFloat(nrOre);
@@ -82,6 +89,10 @@
       valVenitNetPerNorma = parseFloat(valVenitNetPerOra) * parseFloat(nrOreNorma);
       procVenitNetPerNorma = parseFloat(valVenitNetPerNorma) / (valTotIncasPerNorma) * 100;
       procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
+      valTotIncasPerNormaPropr = parseFloat(valTotIncasPerOra) * parseFloat(nrOrePerLuna);
+      valVenitNetPerNormaPropr = parseFloat(valVenitNetPerOra) * parseFloat(nrOrePerLuna);
+      procVenitNetPerNormaPropr = parseFloat(valVenitNetPerNorma) / (valTotIncasPerNorma) * 100;
+      procVenitNetPerNormaProprDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
 
       // Display
 
@@ -99,6 +110,9 @@
       valTotIncasPerNormaRes.innerHTML = parseFloat(valTotIncasPerNorma).toFixed(0);
       valVenitNetPerNormaRes.innerHTML = parseFloat(valVenitNetPerNorma).toFixed(0);
       procVenitNetPerNormaDisplayRes.innerHTML = procVenitNetPerNormaDisplay;
+      valTotIncasPerNormaProprRes.innerHTML = parseFloat(valTotIncasPerNormaPropr).toFixed(0);
+      valVenitNetPerNormaProprRes.innerHTML = parseFloat(valVenitNetPerNormaPropr).toFixed(0);
+      procVenitNetPerNormaDisplayProprRes.innerHTML = procVenitNetPerNormaProprDisplay;
 
     }
 
@@ -119,7 +133,7 @@
 <body>
 
   <form action="">
-    Ore per lună: <input type="number" id="orePerLuna" value="96" style="width: 31px"><br />
+    Ore per lună: <input type="number" id="nrOrePerLuna" value="96" style="width: 31px"><br />
     Ore: <input type="number" id="nrOre" value="" style="width: 31px"><br />
     Venit fără bacșiș: <input type="number" id="venitFaraBacsis" value="" style="width: 31px"><br />
     Bacșiș card: <input type="number" id="tipsCard" value="" style="width: 31px"><br />
@@ -145,6 +159,9 @@
     Total încasări per normă: <span id="valTotIncasPerNorma"></span><br />
     Venit net per normă: <span id="valVenitNetPerNorma"></span><br />
     Procentaj: <span id="procVenitNetPerNormaDisplay"></span><br /><br />
+    Total încasări per normă proprie: <span id="valTotIncasPerNormaPropr"></span><br />
+    Venit net per normă proprie: <span id="valVenitNetPerNormaPropr"></span><br />
+    Procentaj: <span id="procVenitNetPerNormaProprDisplay"></span><br /><br />
   </form>
 
 </body>
