@@ -11,6 +11,7 @@
 
       // Inputs
 
+      nrOrePerLuna = document.getElementById("nrOrePerLuna").value;
       nrOre = document.getElementById("nrOre").value;
       venitFaraBacsis = document.getElementById("venitFaraBacsis").value;
       tipsCard = document.getElementById("tipsCard").value;
@@ -21,9 +22,9 @@
       pretComb = document.getElementById("pretComb").value;
       procComis = document.getElementById("procComis").value;
       pretCont = document.getElementById("pretCont").value;
-      nrOrePerLuna = document.getElementById("nrOrePerLuna").value;
 
       // Vars
+
       var nrOreNorma;
       var valTotIncas;
       var valComis;
@@ -64,7 +65,7 @@
       var procVenitNetPerNormaDisplayRes = document.getElementById('procVenitNetPerNormaDisplay');
       var valTotIncasPerNormaProprRes = document.getElementById('valTotIncasPerNormaPropr');
       var valVenitNetPerNormaProprRes = document.getElementById('valVenitNetPerNormaPropr');
-      var procVenitNetPerNormaDisplayProprRes = document.getElementById('procVenitNetPerNormaProprDisplay');
+      var procVenitNetPerNormaProprDisplayRes = document.getElementById('procVenitNetPerNormaProprDisplay');
 
       // Value
 
@@ -91,8 +92,8 @@
       procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
       valTotIncasPerNormaPropr = parseFloat(valTotIncasPerOra) * parseFloat(nrOrePerLuna);
       valVenitNetPerNormaPropr = parseFloat(valVenitNetPerOra) * parseFloat(nrOrePerLuna);
-      procVenitNetPerNormaPropr = parseFloat(valVenitNetPerNorma) / (valTotIncasPerNorma) * 100;
-      procVenitNetPerNormaProprDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
+      procVenitNetPerNormaPropr = parseFloat(valVenitNetPerNormaPropr) / (valTotIncasPerNormaPropr) * 100;
+      procVenitNetPerNormaProprDisplay = parseFloat(procVenitNetPerNormaPropr).toFixed(2) + '%';
 
       // Display
 
@@ -112,7 +113,7 @@
       procVenitNetPerNormaDisplayRes.innerHTML = procVenitNetPerNormaDisplay;
       valTotIncasPerNormaProprRes.innerHTML = parseFloat(valTotIncasPerNormaPropr).toFixed(0);
       valVenitNetPerNormaProprRes.innerHTML = parseFloat(valVenitNetPerNormaPropr).toFixed(0);
-      procVenitNetPerNormaDisplayProprRes.innerHTML = procVenitNetPerNormaProprDisplay;
+      procVenitNetPerNormaProprDisplayRes.innerHTML = procVenitNetPerNormaProprDisplay;
 
     }
 
