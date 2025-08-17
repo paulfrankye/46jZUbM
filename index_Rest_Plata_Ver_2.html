@@ -235,6 +235,19 @@
       nrTich = parseInt(zileLucrInp);
       valTich = parseInt(nrTich) * parseInt(valTichInp);
       venitBrut = (parseInt(oreLucrRon) + parseInt(zileCoRon) + parseInt(oreSuplRon100) + parseInt(oreSuplRon75) + parseInt(oreSarbLegRon) + parseInt(oreWeRon) + parseInt(oreNoapteRon) + parseInt(valBonusInp) + parseInt(decElectr));
+      if (parseFloat(venitBrut) <= parseFloat(salMin)) {
+        bazaSanat = parseFloat(venitBrut) - 300 + parseFloat(valTich);
+        bazaPensie = parseFloat(venitBrut) - 300;
+        contrSanat = parseFloat(bazaSanat) * 0.1;
+        contrPensie = parseFloat(bazaPensie) * 0.25;
+      }
+      else {
+        bazaSanat = parseFloat(venitBrut) + parseFloat(valTich);
+        bazaPensie = parseFloat(venitBrut);
+        contrSanat = parseFloat(bazaSanat) * 0.1;
+        contrPensie = parseFloat(bazaPensie) * 0.25;
+      }
+      venitNet = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPensie);
       if ((parseInt(venitBrut) + parseInt(valTich)) <= parseInt(salMin)) {
         dedBaza = (parseInt(salMin) * 0.2);
       } else {
@@ -401,31 +414,12 @@
         }
       }
       dedSupl = 0;
-      if (parseFloat(venitBrut) <= parseFloat(salMin)) {
-        bazaSanat = parseFloat(venitBrut) - 300 + parseFloat(valTich);
-        bazaPensie = parseFloat(venitBrut) - 300;
-        contrSanat = parseFloat(bazaSanat) * 0.1;
-        contrPensie = parseFloat(bazaPensie) * 0.25;
-        venitImpPrecalc = parseInt(venitBrut) - 300 + parseInt(valTich) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(dedBaza) - parseInt(dedSupl);
-        if (venitImpPrecalc >= 0) {
-          venitImp = parseInt(venitImpPrecalc);
-        } else {
-          venitImp = 0;
-        }
+      venitImpPrecalc = parseInt(venitBrut) - 300 + parseInt(valTich) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(dedBaza) - parseInt(dedSupl);
+      if (venitImpPrecalc >= 0) {
+        venitImp = parseInt(venitImpPrecalc);
+      } else {
+        venitImp = 0;
       }
-      else {
-        bazaSanat = parseFloat(venitBrut) + parseFloat(valTich);
-        bazaPensie = parseFloat(venitBrut);
-        contrSanat = parseFloat(bazaSanat) * 0.1;
-        contrPensie = parseFloat(bazaPensie) * 0.25;
-        venitImpPrecalc = parseInt(venitBrut) - 300 + parseInt(valTich) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(dedBaza) - parseInt(dedSupl);
-        if (venitImpPrecalc >= 0) {
-          venitImp = parseInt(venitImpPrecalc);
-        } else {
-          venitImp = 0;
-        }
-      }
-      venitNet = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPensie);
       valImp = parseInt(venitImp) * 0.1;
       restPlat = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(valImp);
 
