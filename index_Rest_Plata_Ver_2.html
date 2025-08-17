@@ -238,7 +238,7 @@
       bazaSanat = parseInt(venitBrut) + parseInt(valTich);
       bazaPensie = parseInt(venitBrut);
       contrSanat = parseInt(bazaSanat) * 0.1;
-      contrPensie = parsein(bazaPensie) * 0.25;
+      contrPensie = parseInt(bazaPensie) * 0.25;
       venitNet = parseInt(venitBrut) - parseInt(contrSanat) - parseInt(contrPensie);
       if ((parseInt(venitBrut) + parseInt(valTich)) <= parseInt(salMin)) {
         dedBaza = (parseInt(salMin) * 0.2);
