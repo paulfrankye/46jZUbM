@@ -26,6 +26,7 @@
       // Vars
 
       var nrOreNorma;
+      var venitAplicatie;
       var totalIncasari;
       var valComision;
       var valTaxaOper;
@@ -49,6 +50,7 @@
 
       // Results
 
+      var venitAplicatieRes = document.getElementById('venitAplicatie');
       var totalIncasariRes = document.getElementById('totalIncasari');
       var valComisionRes = document.getElementById('valComision');
       var valTaxaOperRes = document.getElementById('valTaxaOper');
@@ -74,8 +76,9 @@
       // Formulas
 
       nrOreNorma = 176;
+      venitAplicatie = parseFloat(venitFaraBacsis) + parseFloat(tipsCard) + parseFloat(valBonus);
       totalIncasari = parseFloat(venitFaraBacsis) + parseFloat(tipsCard) + parseFloat(valBonus) + parseFloat(tipsCash);
-      valComision = parseFloat(venitFaraBacsis) * parseFloat(procComision) / 100;
+      valComision = (parseFloat(venitFaraBacsis) + parseFloat(valBonus)) * parseFloat(procComision) / 100;
       valTaxaOper = parseFloat(venitFaraBacsis) * 0.0149 * 1.21;
       restPlata = parseFloat(venitFaraBacsis) + parseFloat(tipsCard) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = parseFloat(nrKm) / 100 * parseFloat(procConsum) * parseFloat(pretCombustibil);
@@ -97,6 +100,7 @@
 
       // Display
 
+      venitAplicatieRes.innerHTML = parseFloat(venitAplicatie).toFixed(2);
       totalIncasariRes.innerHTML = parseFloat(totalIncasari).toFixed(2);
       valComisionRes.innerHTML = parseFloat(valComision).toFixed(2);
       valTaxaOperRes.innerHTML = parseFloat(valTaxaOper).toFixed(2);
@@ -146,7 +150,8 @@
     Comision: <input type="number" id="procComision" value="14" style="width: 31px"><br />
     Contabilitate: <input type="number" id="pretContabilitate" value="121" style="width: 31px"> <input type="button"
       id="sub" value="Submit" onclick="venitNetCalc()"><br />
-    <b>Total încasări: <span id="totalIncasari"></b><br />
+    Venit aplicație: <span id="venitAplicatie"></span><br />
+    <b>Total încasări: <span id="totalIncasari"></span></b><br />
     Comision: <span id="valComision"></span><br />
     Taxă operațională: <span id="valTaxaOper"></span><br />
     <b>Rest plată: <span id="restPlata"></span></b><br />
