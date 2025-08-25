@@ -27,6 +27,7 @@
       // Vars
 
       var nrOreNorma;
+      var salMin;
       var venitFaraBacsis;
       var tipsCash;
       var valBonusDisplay;
@@ -81,6 +82,7 @@
       // Formulas
 
       nrOreNorma = 176;
+      salMin = 4322;
       venitFaraBacsis = parseFloat(nrOrePerLuna) * parseFloat(venitFaraBacsisPerOra);
       tipsCash = parseFloat(nrOrePerLuna) * parseFloat(tipsCashPerOra);
       valBonusDisplay = parseFloat(valBonus);
@@ -99,18 +101,18 @@
         venitImpozabil = 0;
       }
       if (selPensie === 1) {
-        if (venitImpozabil >= 4050) {
-          contrPensie = (4050 * 0.25) + parseFloat(valPensie);
+        if (venitImpozabil >= salMin) {
+          contrPensie = parseFloat(salMin) * 0.25 + parseFloat(valPensie);
         }
         else {
           contrPensie = 0;
         }
       }
       else if (selPensie === 0) {
-        contrPensie = 0 + parseFloat(valPensie);
+        contrPensie = parseFloat(valPensie);
       }
       else {
-        contrPensie = 0 + parseFloat(valPensie);
+        contrPensie = parseFloat(valPensie);
       }
       contrSanatate = parseFloat(venitImpozabil) * 0.1;
       valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensie) - parseFloat(contrSanatate)) * 0.1;
@@ -216,7 +218,7 @@
     </select><br />
     Venit asigurat pt pensie: <select id="venitAsigurat">
       <option value="0">0</option>
-      <option value="4050">4050</option>
+      <option value="4322">4322</option>
     </select><br />
     Depășire prag pt pensie: <select id="selPensie">
       <option value="1">Da</option>
