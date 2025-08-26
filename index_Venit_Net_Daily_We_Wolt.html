@@ -15,7 +15,6 @@
       nrOre = document.getElementById("nrOre").value;
       venitFaraBacsis = document.getElementById("venitFaraBacsis").value;
       tipsCard = document.getElementById("tipsCard").value;
-      valBonus = document.getElementById("valBonus").value;
       tipsCash = document.getElementById("tipsCash").value;
       nrKm = document.getElementById("nrKm").value;
       procConsum = document.getElementById("procConsum").value;
@@ -76,11 +75,11 @@
       // Formulas
 
       nrOreNorma = 176;
-      venitAplicatie = parseFloat(venitFaraBacsis) + parseFloat(tipsCard) + parseFloat(valBonus);
-      totalIncasari = parseFloat(venitFaraBacsis) + parseFloat(tipsCard) + parseFloat(valBonus) + parseFloat(tipsCash);
-      valComision = (parseFloat(venitFaraBacsis) + parseFloat(valBonus)) * parseFloat(procComision) / 100;
+      venitAplicatie = parseFloat(venitFaraBacsis) + parseFloat(tipsCard);
+      totalIncasari = parseFloat(venitFaraBacsis) + parseFloat(tipsCard) + parseFloat(tipsCash);
+      valComision = parseFloat(venitFaraBacsis) * parseFloat(procComision) / 100;
       valTaxaOper = parseFloat(venitFaraBacsis) * 0.0149 * 1.21;
-      restPlata = parseFloat(venitFaraBacsis) + parseFloat(tipsCard) + parseFloat(valBonus) - parseFloat(valComision) - parseFloat(valTaxaOper);
+      restPlata = parseFloat(venitFaraBacsis) + parseFloat(tipsCard) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = parseFloat(nrKm) / 100 * parseFloat(procConsum) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate) / parseFloat(nrOrePerLuna) * parseFloat(nrOre);
       valTaxe = (parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate)) * 0.1 + (parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate) - ((parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate)) * 0.1)) * 0.1;
@@ -142,7 +141,7 @@
     Ore: <input type="number" id="nrOre" value="" style="width: 31px"><br />
     Venit fără bacșiș: <input type="number" id="venitFaraBacsis" value="" style="width: 31px"><br />
     Bacșiș card: <input type="number" id="tipsCard" value="" style="width: 31px"><br />
-    Bonus: <input type="number" id="valBonus" value="" style="width: 31px"><br />
+    Bonus: <input type="number" id="valBonus" value="" style="width: 31px" disabled><br />
     Bacșiș cash: <input type="number" id="tipsCash" value="" style="width: 31px"><br />
     Kilometri: <input type="number" id="nrKm" value="" style=" width: 31px"><br />
     Consum: <input type="number" id="procConsum" value="7.00" style="width: 31px"><br />
