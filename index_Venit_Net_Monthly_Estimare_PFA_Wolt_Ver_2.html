@@ -38,7 +38,6 @@
       var valCombustibil;
       var valContabilitate;
       var valPensie;
-      var valPensieDisplay;
       var venitImpozabilPrecalc;
       var venitImpozabil;
       var contrPensie;
@@ -66,7 +65,6 @@
       var restPlataRes = document.getElementById('restPlata');
       var valCombustibilRes = document.getElementById('valCombustibil');
       var valContabilitateRes = document.getElementById('valContabilitate');
-      var valPensieDisplayRes = document.getElementById('valPensieDisplay');
       var venitImpozabilRes = document.getElementById('venitImpozabil');
       var contrPensieRes = document.getElementById('contrPensie');
       var contrSanatateRes = document.getElementById('contrSanatate');
@@ -93,7 +91,6 @@
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate);
       valPensie = parseFloat(venitAsigurat) * 0.25;
-      valPensieDisplay = 0;
       venitImpozabilPrecalc = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
       if (venitImpozabilPrecalc >= 0) {
         venitImpozabil = parseFloat(venitImpozabilPrecalc);
@@ -142,7 +139,6 @@
       restPlataRes.innerHTML = parseFloat(restPlata).toFixed(0);
       valCombustibilRes.innerHTML = parseFloat(valCombustibil).toFixed(0);
       valContabilitateRes.innerHTML = parseFloat(valContabilitate).toFixed(0);
-      valPensieDisplayRes.innerHTML = parseFloat(valPensieDisplay).toFixed(0);
       venitImpozabilRes.innerHTML = parseFloat(venitImpozabil).toFixed(0);
       contrPensieRes.innerHTML = parseFloat(contrPensie).toFixed(0);
       contrSanatateRes.innerHTML = parseFloat(contrSanatate).toFixed(0);
@@ -176,7 +172,7 @@
   <form action="">
     Ore per lună: <input type="number" id="orePerLuna" value="" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
-    Venit fără bacșiș per oră: <input type="number" id="venitFaraBacsisPerOra" value="32.50" style="width: 31px"
+    Venit fără bacșiș per oră: <input type="number" id="venitFaraBacsisPerOra" value="37.50" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Bacșiș cash per oră: <input type="number" id="bacsisCashPerOra" value="3.00" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
@@ -194,7 +190,7 @@
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Preț combustibil: <input type="number" id="pretCombustibil" min="0" value="7.50" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
-    Comision: <input type="number" id="procComision" min="0" value="14" style="width: 31px"
+    Comision: <input type="number" id="procComision" min="0" value="9" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Contabilitate: <input type="number" id="pretContabilitate" min="0" value="121" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"> <input type="button" id="sub" value="Submit"
@@ -208,7 +204,6 @@
     <b>Rest plată: <span id="restPlata"></span></b><br />
     Combustibil: <span id="valCombustibil"></span><br />
     Contabilitate: <span id="valContabilitate"></span><br />
-    Pensie: <span id="valPensieDisplay"></span><br />
     <b>Venit impozabil: <span id="venitImpozabil"></span></b><br />
     Pensie: <span id="contrPensie"></span><br />
     Sănătate: <span id="contrSanatate"></span><br />
