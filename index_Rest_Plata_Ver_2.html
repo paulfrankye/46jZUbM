@@ -414,7 +414,7 @@
         }
       }
       dedSupl = 0;
-      venitImpPrecalc = parseInt(venitBrut) - 300 + parseInt(valTich) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(dedBaza) - parseInt(dedSupl);
+      venitImpPrecalc = parseInt(venitBrut) + parseInt(valTich) - parseInt(contrSanat) - parseInt(contrPensie) - parseInt(dedBaza) - parseInt(dedSupl);
       if (venitImpPrecalc >= 0) {
         venitImp = parseInt(venitImpPrecalc);
       } else {
