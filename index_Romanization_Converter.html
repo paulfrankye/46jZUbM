@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<title>Romanization Converter</title>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+<link rel="shortcut icon" type="sdweb/image/x-icon" href="sdlogo_icon.png">
+<script src="https://survey.gov.lk/RomanizationConverter/script.js"></script>
+<style>
+	#romanizeddiv {
+
+		display: none;
+
+	}
+
+	.dropbtn {
+		background-color: #4CAF50;
+		color: white;
+		padding: 16px;
+		font-size: 16px;
+		border: none;
+	}
+
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #fff;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+	}
+
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown-content a:hover {
+		background-color: #ddd;
+	}
+
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+
+	.dropdown:hover .dropbtn {
+		background-color: #3e8e41;
+	}
+</style>
+<script>
+	function changelanguagesin() {
+		var x = document.getElementById("sinhaladiv").style.display = "none";
+		var y = document.getElementById("romanizeddiv").style.display = "block";
+	}
+
+	function changelanguageroman() {
+		var x = document.getElementById("sinhaladiv").style.display = "block";;
+		var y = document.getElementById("romanizeddiv").style.display = "none";;
+	}
+
+	function clearitem() {
+		var x = document.getElementById("inputName1").value = '';
+		var y = document.getElementById("outputName1").value = '';
+		var z = document.getElementById("inputName2").value = '';
+		var a = document.getElementById("outputName2").value = '';
+	}
+
+	function myFunctioncopy1() {
+		var copyText1 = document.getElementById("outputName1");
+		copyText1.select();
+		copyText1.setSelectionRange(0, 99999)
+		document.execCommand("copy");
+		//alert("Copied the text: " + copyText1.value);
+	}
+
+	function myFunctioncopy2() {
+		var copyText2 = document.getElementById("outputName2");
+		copyText2.select();
+		copyText2.setSelectionRange(0, 99999)
+		document.execCommand("copy");
+		//alert("Copied the text: " + copyText2.value);
+	}
+
+</script>
+
+<body onload="changelanguagesin()">
+
+
+
+	<div id='sinhaladiv'>
+		<table align='center' border='0'>
+			<tr>
+				<td><b>Sinhala Script:</b>
+					<div class="dropdown">
+						<span><img src='dropdown.png' width='20px' height='auto' /></span>
+						<div class="dropdown-content">
+							<a>
+								<div onclick='changelanguagesin()'>Roman Script</div>
+							</a>
+						</div>
+					</div>
+				</td>
+				<td></td>
+
+				<td><b>Roman Script:</b></td>
+			</tr>
+
+			<tr>
+				<td width="300"><textarea id="inputName1" type="text" placeholder="Type Sinhala name"
+						oninput="sinroamTranslatorS(this.value)" onkeyup="sinroamTranslatorS(this.value)"
+						style='resize: none;' rows="5" cols="50"></textarea></td>
+				<td width="54"><img src='images.png' width='80px' height='auto' title='Change Language'
+						onclick='changelanguagesin()' /></td>
+				<td width="300"><textarea rows="5" cols="50" style='resize: none;' id="outputName1" readonly></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td><button onclick='clearitem()'>Clear</button></td>
+				<td></td>
+				<td><button onclick='myFunctioncopy1()'>Copy</button></td>
+			</tr>
+		</table>
+	</div>
+
+
+
+
+
+	<div id='romanizeddiv'>
+		<table border='0'>
+			<tr>
+				<td><b>Roman Script:</b>
+					<div class="dropdown">
+						<div class="dropdown-content">
+							<a>
+								<div onclick='changelanguageroman()'>Sinhala Script</div>
+							</a>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td width="300"><textarea id="inputName2" type="text" placeholder="Type Romanized name"
+						oninput="this.value = this.value.toLowerCase();sinroamTranslator(this.value)"
+						onkeyup="sinroamTranslator(this.value)" style='resize: none;' rows="5" cols="50"></textarea>
+				</td>
+				</td>
+			</tr>
+			<tr>
+				<td><button onclick='clearitem()'>Clear</button></td>
+			</tr>
+			<tr>
+				<td><b>Sinhala Script:</b></td>
+			</tr>
+			<tr>
+				<td width="300"><textarea style='resize: none;' rows="5" cols="50" id="outputName2" readonly></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td><button onclick='myFunctioncopy2()'>Copy</button></td </tr>
+		</table>
+	</div>
+
+
+</body>
+
+</html>
