@@ -89,67 +89,46 @@
 
 </script>
 
-<body onload="changelanguagesin()">
-
-
+<body onload='changelanguagesin()'>
 
 	<div id='sinhaladiv'>
-		<table align='center' border='0'>
+		<table border='0'>
 			<tr>
-				<td><b>Sinhala Script:</b>
-					<div class="dropdown">
-						<span><img src='dropdown.png' width='20px' height='auto' /></span>
-						<div class="dropdown-content">
-							<a>
-								<div onclick='changelanguagesin()'>Roman Script</div>
-							</a>
-						</div>
-					</div>
-				</td>
-				<td></td>
-
-				<td><b>Roman Script:</b></td>
+				<td><b>Sinhala Script:</b></td>
 			</tr>
-
 			<tr>
 				<td width="300"><textarea id="inputName1" type="text" placeholder="Type Sinhala name"
 						oninput="sinroamTranslatorS(this.value)" onkeyup="sinroamTranslatorS(this.value)"
 						style='resize: none;' rows="5" cols="50"></textarea></td>
-				<td width="54"><img src='images.png' width='80px' height='auto' title='Change Language'
-						onclick='changelanguagesin()' /></td>
+			</tr>
+			<tr>
+				<td><button onclick='clearitem()'>Clear</button></td>
+			<tr>
+				<td><b>Roman Script:</b></td>
+			</tr>
+			<tr>
 				<td width="300"><textarea rows="5" cols="50" style='resize: none;' id="outputName1" readonly></textarea>
 				</td>
 			</tr>
 			<tr>
-				<td><button onclick='clearitem()'>Clear</button></td>
-				<td></td>
 				<td><button onclick='myFunctioncopy1()'>Copy</button></td>
+			</tr>
+			<tr>
+				<td width="54"><img src='https://survey.gov.lk/RomanizationConverter/images.png' width='80px'
+						height='auto' title='Change Language' onclick='changelanguagesin()' /></td>
 			</tr>
 		</table>
 	</div>
 
-
-
-
-
 	<div id='romanizeddiv'>
 		<table border='0'>
 			<tr>
-				<td><b>Roman Script:</b>
-					<div class="dropdown">
-						<div class="dropdown-content">
-							<a>
-								<div onclick='changelanguageroman()'>Sinhala Script</div>
-							</a>
-						</div>
-					</div>
-				</td>
+				<td><b>Roman Script:</b></td>
 			</tr>
 			<tr>
 				<td width="300"><textarea id="inputName2" type="text" placeholder="Type Romanized name"
 						oninput="this.value = this.value.toLowerCase();sinroamTranslator(this.value)"
 						onkeyup="sinroamTranslator(this.value)" style='resize: none;' rows="5" cols="50"></textarea>
-				</td>
 				</td>
 			</tr>
 			<tr>
@@ -163,10 +142,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td><button onclick='myFunctioncopy2()'>Copy</button></td </tr>
+				<td><button onclick='myFunctioncopy2()'>Copy</button></td>
+			</tr>
+			<tr>
+				<td width="54"><img src='https://survey.gov.lk/RomanizationConverter/images.png' width='80px'
+						height='auto' title='Change Language' onclick='changelanguageroman()' /></td>
+			</tr>
 		</table>
 	</div>
-
 
 </body>
 
