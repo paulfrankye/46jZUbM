@@ -87,6 +87,25 @@
 		//alert("Copied the text: " + copyText2.value);
 	}
 
+	async function pasteFromClipboard1() {
+		try {
+			const text = await navigator.clipboard.readText();
+			document.getElementById("inputName1").value = text;
+		} catch (err) {
+			alert("Unable to read clipboard. Please allow clipboard permissions.");
+			console.error(err);
+		}
+	}
+
+	async function pasteFromClipboard2() {
+		try {
+			const text = await navigator.clipboard.readText();
+			document.getElementById("inputName2").value = text;
+		} catch (err) {
+			alert("Unable to read clipboard. Please allow clipboard permissions.");
+			console.error(err);
+		}
+	}	
 </script>
 
 <body onload='changelanguagesin()'>
@@ -100,9 +119,10 @@
 				<td width="300"><textarea id="inputName1" type="text" placeholder="Type Sinhala name"
 						oninput="sinroamTranslatorS(this.value)" onkeyup="sinroamTranslatorS(this.value)"
 						style='resize: none;' rows="5" cols="50"></textarea></td>
+
 			</tr>
 			<tr>
-				<td><button onclick='clearitem()'>Clear</button></td>
+				<td><button onclick='pasteFromClipboard1()'>Paste</button></td>
 			<tr>
 				<td><b>Roman Script:</b></td>
 			</tr>
@@ -132,7 +152,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td><button onclick='clearitem()'>Clear</button></td>
+				<td><button onclick='pasteFromClipboard2()'>Paste</button></td>
 			</tr>
 			<tr>
 				<td><b>Sinhala Script:</b></td>
