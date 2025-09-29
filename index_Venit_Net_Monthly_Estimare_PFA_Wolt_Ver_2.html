@@ -12,7 +12,7 @@
       // Inputs
 
       venitFaraBacsisPerOra = Number(document.getElementById('venitFaraBacsisPerOra').value);
-      bacsisCashPerOra = Number(document.getElementById('bacsisCashPerOra').value);
+      tipsCashPerOra = Number(document.getElementById('tipsCashPerOra').value);
       venitAsigurat = Number(document.getElementById('venitAsigurat').value);
       selPensie = Number(document.getElementById('selPensie').value);
       comenziPerOra = Number(document.getElementById('comenziPerOra').value);
@@ -28,7 +28,7 @@
       var nrOreNorma;
       var salMin;
       var venitFaraBacsis;
-      var bacsisCash;
+      var tipsCash;
       var totalIncasari;
       var valComision;
       var valTaxaOper;
@@ -55,7 +55,7 @@
       // Results
 
       var venitFaraBacsisRes = document.getElementById('venitFaraBacsis');
-      var bacsisCashRes = document.getElementById('bacsisCash');
+      var tipsCashRes = document.getElementById('tipsCash');
       var totalIncasariRes = document.getElementById('totalIncasari');
       var valComisionRes = document.getElementById('valComision');
       var valTaxaOperRes = document.getElementById('valTaxaOper');
@@ -79,8 +79,8 @@
       nrOreNorma = 176;
       salMin = 4322;
       venitFaraBacsis = parseFloat(orePerLuna) * parseFloat(venitFaraBacsisPerOra);
-      bacsisCash = parseFloat(orePerLuna) * parseFloat(bacsisCashPerOra);
-      totalIncasari = parseFloat(venitFaraBacsis) + (bacsisCash);
+      tipsCash = parseFloat(orePerLuna) * parseFloat(tipsCashPerOra);
+      totalIncasari = parseFloat(venitFaraBacsis) + (tipsCash);
       valComision = parseFloat(venitFaraBacsis) * parseFloat(procComision) / 100;
       valTaxaOper = parseFloat(venitFaraBacsis) * 0.0149 * 1.21;
       restPlata = parseFloat(venitFaraBacsis) - parseFloat(valComision) - parseFloat(valTaxaOper);
@@ -109,7 +109,7 @@
       }
       contrSanatate = parseFloat(venitImpozabil) * 0.1;
       valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensie) - parseFloat(contrSanatate)) * 0.1;
-      venitNetPrecalc = parseFloat(restPlata) + parseFloat(bacsisCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit);
+      venitNetPrecalc = parseFloat(restPlata) + parseFloat(tipsCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit);
       if (venitNetPrecalc >= 0) {
         venitNet = parseFloat(venitNetPrecalc);
       } else {
@@ -127,7 +127,7 @@
       // Display
 
       venitFaraBacsisRes.innerHTML = parseFloat(venitFaraBacsis).toFixed(0);
-      bacsisCashRes.innerHTML = parseFloat(bacsisCash).toFixed(0);
+      tipsCashRes.innerHTML = parseFloat(tipsCash).toFixed(0);
       totalIncasariRes.innerHTML = parseFloat(totalIncasari).toFixed(0);
       valComisionRes.innerHTML = parseFloat(valComision).toFixed(0);
       valTaxaOperRes.innerHTML = parseFloat(valTaxaOper).toFixed(0);
@@ -169,7 +169,7 @@
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Venit fără bacșiș per oră: <input type="number" id="venitFaraBacsisPerOra" value="30.00" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
-    Bacșiș cash per oră: <input type="number" id="bacsisCashPerOra" value="3.00" style="width: 31px"
+    Bacșiș cash per oră: <input type="number" id="tipsCashPerOra" value="3.00" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Venit asigurat pt pensie: <input type="number" id="venitAsigurat" value="0" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
@@ -189,7 +189,7 @@
       oninput="if (this.value < 0) { this.value = 0 }"> <input type="button" id="sub" value="Submit"
       onclick="venitNetCalc()"><br />
     Venit fără bacșiș: <span id="venitFaraBacsis"></span><br />
-    Bacșiș cash: <span id="bacsisCash"></span><br />
+    Bacșiș cash: <span id="tipsCash"></span><br />
     <b>Total încasări: <span id="totalIncasari"></span></b><br />
     Comision: <span id="valComision"></span><br />
     Taxă operațională: <span id="valTaxaOper"></span><br />
