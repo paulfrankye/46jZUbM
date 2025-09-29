@@ -18,7 +18,7 @@
       comenziPerOra = Number(document.getElementById('comenziPerOra').value);
       kmPerComanda = Number(document.getElementById('kmPerComanda').value);
       orePerLuna = Number(document.getElementById('orePerLuna').value);
-      consumCombustibil = Number(document.getElementById('consumCombustibil').value);
+      procConsum = Number(document.getElementById('procConsum').value);
       pretCombustibil = Number(document.getElementById('pretCombustibil').value);
       procComision = Number(document.getElementById('procComision').value);
       pretContabilitate = Number(document.getElementById('pretContabilitate').value);
@@ -84,7 +84,7 @@
       valComision = parseFloat(venitFaraBacsis) * parseFloat(procComision) / 100;
       valTaxaOper = parseFloat(venitFaraBacsis) * 0.0149 * 1.21;
       restPlata = parseFloat(venitFaraBacsis) - parseFloat(valComision) - parseFloat(valTaxaOper);
-      valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(consumCombustibil) * parseFloat(pretCombustibil);
+      valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(procConsum) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate);
       valPensie = parseFloat(venitAsigurat) * 0.25;
       venitImpozabilPrecalc = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
@@ -179,7 +179,7 @@
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Km per comandă: <input type="number" id="kmPerComanda" min="0" value="6.50" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
-    Consum combustibil: <input type="number" id="consumCombustibil" min="0" value="7.00" style="width: 31px"
+    Consum combustibil: <input type="number" id="procConsum" min="0" value="7.00" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Preț combustibil: <input type="number" id="pretCombustibil" min="0" value="7.75" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
