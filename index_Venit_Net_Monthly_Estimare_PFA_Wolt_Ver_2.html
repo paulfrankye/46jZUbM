@@ -25,7 +25,7 @@
 
       // Vars
 
-      var nrOreNorma;
+      var oreNorma;
       var salMin;
       var venitFaraBacsis;
       var tipsCash;
@@ -76,7 +76,7 @@
 
       // Formulas
 
-      nrOreNorma = 176;
+      oreNorma = 176;
       salMin = 4322;
       venitFaraBacsis = parseFloat(orePerLuna) * parseFloat(venitFaraBacsisPerOra);
       tipsCash = parseFloat(orePerLuna) * parseFloat(tipsCashPerOra);
@@ -119,8 +119,8 @@
       venitNetPerOra = parseFloat(venitNet) / parseFloat(orePerLuna);
       procVenitNetPerOra = parseFloat(venitNetPerOra) / parseFloat(totalIncasariPerOra) * 100;
       procVenitNetPerOraDisplay = parseFloat(procVenitNetPerOra).toFixed(2) + '%';
-      totalIncasariPerNorma = parseFloat(totalIncasariPerOra) * parseFloat(nrOreNorma);
-      venitNetPerNorma = parseFloat(venitNetPerOra) * parseFloat(nrOreNorma);
+      totalIncasariPerNorma = parseFloat(totalIncasariPerOra) * parseFloat(oreNorma);
+      venitNetPerNorma = parseFloat(venitNetPerOra) * parseFloat(oreNorma);
       procVenitNetPerNorma = parseFloat(venitNetPerNorma) / (totalIncasariPerNorma) * 100;
       procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
 

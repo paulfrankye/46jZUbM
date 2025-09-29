@@ -11,7 +11,7 @@
 
       // Inputs
 
-      nrOrePerLuna = Number(document.getElementById('nrOrePerLuna').value);
+      orePerLuna = Number(document.getElementById('orePerLuna').value);
       venitFaraBacsisPerOra = Number(document.getElementById('venitFaraBacsisPerOra').value);
       tipsCashPerOra = Number(document.getElementById('tipsCashPerOra').value);
       venitAsigurat = Number(document.getElementById('venitAsigurat').value);
@@ -25,7 +25,7 @@
 
       // Vars
 
-      var nrOreNorma;
+      var oreNorma;
       var salMin;
       var venitFaraBacsis;
       var tipsCash;
@@ -76,15 +76,15 @@
 
       // Formulas
 
-      nrOreNorma = 176;
+      oreNorma = 176;
       salMin = 4322;
-      venitFaraBacsis = parseFloat(nrOrePerLuna) * parseFloat(venitFaraBacsisPerOra);
-      tipsCash = parseFloat(nrOrePerLuna) * parseFloat(tipsCashPerOra);
+      venitFaraBacsis = parseFloat(orePerLuna) * parseFloat(venitFaraBacsisPerOra);
+      tipsCash = parseFloat(orePerLuna) * parseFloat(tipsCashPerOra);
       totalIncasari = parseFloat(venitFaraBacsis) + (tipsCash);
       valComision = parseFloat(venitFaraBacsis) * parseFloat(procComision) / 100;
       valTaxaOper = parseFloat(venitFaraBacsis) * 0.0149 * 1.21;
       restPlata = parseFloat(venitFaraBacsis) - parseFloat(valComision) - parseFloat(valTaxaOper);
-      valCombustibil = (parseFloat(comenziPerOra) * parseFloat(nrOrePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(procConsum) * parseFloat(pretCombustibil);
+      valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(procConsum) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate);
       valPensie = parseFloat(venitAsigurat) * 0.25;
       venitImpozabilPrecalc = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
@@ -115,12 +115,12 @@
       } else {
         venitNet = 0;
       }
-      totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(nrOrePerLuna);
-      venitNetPerOra = parseFloat(venitNet) / parseFloat(nrOrePerLuna);
+      totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(orePerLuna);
+      venitNetPerOra = parseFloat(venitNet) / parseFloat(orePerLuna);
       procVenitNetPerOra = parseFloat(venitNetPerOra) / parseFloat(totalIncasariPerOra) * 100;
       procVenitNetPerOraDisplay = parseFloat(procVenitNetPerOra).toFixed(2) + '%';
-      totalIncasariPerNorma = parseFloat(totalIncasariPerOra) * parseFloat(nrOreNorma);
-      venitNetPerNorma = parseFloat(venitNetPerOra) * parseFloat(nrOreNorma);
+      totalIncasariPerNorma = parseFloat(totalIncasariPerOra) * parseFloat(oreNorma);
+      venitNetPerNorma = parseFloat(venitNetPerOra) * parseFloat(oreNorma);
       procVenitNetPerNorma = parseFloat(venitNetPerNorma) / (totalIncasariPerNorma) * 100;
       procVenitNetPerNormaDisplay = parseFloat(procVenitNetPerNorma).toFixed(2) + '%';
 
@@ -165,7 +165,7 @@
 <body>
 
   <form action="">
-    Ore per lună: <select id="nrOrePerLuna">
+    Ore per lună: <select id="orePerLuna">
       <option value="32">32</option>
       <option value="40">40</option>
       <option value="48">48</option>
