@@ -249,7 +249,12 @@
         contrPensie = parseFloat(bazaPensie) * 0.25;
         venitImp = parseFloat(venitBrut) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza) - parseFloat(dedSupl);
       }
-      valImp = parseFloat(venitImp) * 0.1;
+      if (parseFloat(venitImp) <= 0) {
+        valImp = 0;
+      }
+      else {
+        valImp = parseFloat(venitImp) * 0.1;
+      }
       restPlat = parseFloat(salTarif) + parseFloat(valBonus) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(valImp);
       restPlatEur = Math.trunc(parseFloat(restPlat) / parseFloat(cursEur));
       restPlatEurDisplay = '(' + restPlatEur + ' EUR)';
