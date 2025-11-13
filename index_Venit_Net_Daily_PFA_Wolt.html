@@ -46,6 +46,7 @@
       var venitNetPerNormaPropr;
       var procVenitNetPerNormaPropr;
       var procVenitNetPerNormaProprDisplay;
+      var venitAplicatiePerOra;
 
       // Results
 
@@ -67,6 +68,7 @@
       var totalIncasariPerNormaProprRes = document.getElementById('totalIncasariPerNormaPropr');
       var venitNetPerNormaProprRes = document.getElementById('venitNetPerNormaPropr');
       var procVenitNetPerNormaProprDisplayRes = document.getElementById('procVenitNetPerNormaProprDisplay');
+      var venitAplicatiePerOraRes = document.getElementById('venitAplicatiePerOra');
 
       // Values
 
@@ -96,6 +98,7 @@
       venitNetPerNormaPropr = parseFloat(venitNetPerOra) * parseFloat(nrOrePerLuna);
       procVenitNetPerNormaPropr = parseFloat(venitNetPerNormaPropr) / (totalIncasariPerNormaPropr) * 100;
       procVenitNetPerNormaProprDisplay = parseFloat(procVenitNetPerNormaPropr).toFixed(2) + '%';
+      venitAplicatiePerOra = parseFloat(venitAplicatie) / parseFloat(nrOre);
 
       // Display
 
@@ -117,6 +120,7 @@
       totalIncasariPerNormaProprRes.innerHTML = parseFloat(totalIncasariPerNormaPropr).toFixed(0);
       venitNetPerNormaProprRes.innerHTML = parseFloat(venitNetPerNormaPropr).toFixed(0);
       procVenitNetPerNormaProprDisplayRes.innerHTML = procVenitNetPerNormaProprDisplay;
+      venitAplicatiePerOraRes.innerHTML = parseFloat(venitAplicatiePerOra).toFixed(2);
 
     }
 
@@ -167,6 +171,7 @@
     Total încasări per normă proprie: <span id="totalIncasariPerNormaPropr"></span><br />
     Venit net per normă proprie: <span id="venitNetPerNormaPropr"></span><br />
     Procentaj: <span id="procVenitNetPerNormaProprDisplay"></span><br /><br />
+    Venit (estimare) per oră: <span id="venitAplicatiePerOra"></span><br /><br />
   </form>
 
 </body>
