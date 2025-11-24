@@ -29,6 +29,7 @@
       var contrSanat;
       var contrPensie;
       var dedBaza;
+      var dedSupl;
       var venitImp;
       var valImp;
       var restPlat;
@@ -47,6 +48,7 @@
       var contrSanatRes = document.getElementById('contrSanat');
       var contrPensieRes = document.getElementById('contrPensie');
       var dedBazaRes = document.getElementById('dedBaza');
+      var dedSuplRes = document.getElementById('dedSupl');
       var valImpRes = document.getElementById('valImp');
       var restPlatRes = document.getElementById('restPlat');
       var restPlatEurDisplayRes = document.getElementById('restPlatEurDisplay');
@@ -228,6 +230,11 @@
           }
         }
       }
+      if ((parseFloat(venitBrut) + parseFloat(valTich)) <= parseFloat(salMin) + 2000) {
+        dedSupl = 0;
+      } else {
+        dedSupl = 0;
+      }
       if (parseFloat(venitBrut) <= parseFloat(salMin)) {
         bazaSanat = parseFloat(venitBrut) - 300 + parseFloat(valTich);
         bazaPensie = parseFloat(venitBrut) - 300;
@@ -264,6 +271,7 @@
       contrSanatRes.innerHTML = parseFloat(contrSanat).toFixed(0);
       contrPensieRes.innerHTML = parseFloat(contrPensie).toFixed(0);
       dedBazaRes.innerHTML = parseFloat(dedBaza).toFixed(0);
+      dedSuplRes.innerHTML = parseFloat(dedSupl).toFixed(0);
       valImpRes.innerHTML = parseFloat(valImp).toFixed(0);
       restPlatRes.innerHTML = parseFloat(restPlat).toFixed(0);
       restPlatEurDisplayRes.innerHTML = restPlatEurDisplay.toString();
@@ -288,7 +296,8 @@
         id="venitBrutInclTichEurDisplay"></span></b><br />
     Contribuție sănătate: <span id="contrSanat"></span><br />
     Contribuție pensie: <span id="contrPensie"></span><br />
-    Deducere de baza: <span id="dedBaza"></span><br />
+    Deducere de bază: <span id="dedBaza"></span><br />
+    Deducere suplimentară: <span id="dedSupl"></span><br />
     Impozit: <span id="valImp"></span><br />
     <b>Salariu net: <span id="restPlat"></span> <span id="restPlatEurDisplay"></span></b><br />
     <b>Salariu net (incl. Tichete masă): <span id="restPlatInclTich"></span> <span
