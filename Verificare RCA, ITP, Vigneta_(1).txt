@@ -5,3 +5,5 @@ Verificare RCA: https://www.aida.info.ro/ro/polite-rca
 Verificare ITP: https://prog.rarom.ro/rarpol/
 
 RAR Auto Pass: https://rar-autopass.ro/
+
+Broker RCA: https://my.ottobroker.ro/calculator/rca
