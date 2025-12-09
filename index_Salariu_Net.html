@@ -21,9 +21,9 @@
       var venitBrut;
       var venitBrutEur;
       var venitBrutEurDisplay;
-      var venitBrutInclTich;
-      var venitBrutInclTichEur;
-      var venitBrutInclTichEurDisplay;
+      var venitBrutTich;
+      var venitBrutTichEur;
+      var venitBrutTichEurDisplay;
       var faraTaxe;
       var bazaSanat;
       var bazaPensie;
@@ -36,16 +36,16 @@
       var restPlat;
       var restPlatEur;
       var restPlatEurDisplay;
-      var restPlatInclTich;
-      var restPlatInclTichEur;
-      var restPlatInclTichEurDisplay;
+      var restPlatTich;
+      var restPlatTichEur;
+      var restPlatTichEurDisplay;
 
       // Results
 
       var venitBrutRes = document.getElementById('venitBrut');
       var venitBrutEurDisplayRes = document.getElementById('venitBrutEurDisplay');
-      var venitBrutInclTichRes = document.getElementById('venitBrutInclTich');
-      var venitBrutInclTichEurDisplayRes = document.getElementById('venitBrutInclTichEurDisplay');
+      var venitBrutTichRes = document.getElementById('venitBrutTich');
+      var venitBrutTichEurDisplayRes = document.getElementById('venitBrutTichEurDisplay');
       var contrSanatRes = document.getElementById('contrSanat');
       var contrPensieRes = document.getElementById('contrPensie');
       var dedBazaRes = document.getElementById('dedBaza');
@@ -53,8 +53,8 @@
       var valImpRes = document.getElementById('valImp');
       var restPlatRes = document.getElementById('restPlat');
       var restPlatEurDisplayRes = document.getElementById('restPlatEurDisplay');
-      var restPlatInclTichRes = document.getElementById('restPlatInclTich');
-      var restPlatInclTichEurDisplayRes = document.getElementById('restPlatInclTichEurDisplay');
+      var restPlatTichRes = document.getElementById('restPlatTich');
+      var restPlatTichEurDisplayRes = document.getElementById('restPlatTichEurDisplay');
 
       // Formulas
 
@@ -64,130 +64,130 @@
       venitBrut = parseFloat(salTarif) + parseFloat(valBonus);
       venitBrutEur = Math.trunc(parseFloat(venitBrut) / parseFloat(cursEur));
       venitBrutEurDisplay = '(' + venitBrutEur + ' EUR)';
-      venitBrutInclTich = parseFloat(venitBrut) + parseFloat(valTich);
-      venitBrutInclTichEur = Math.trunc(parseFloat(venitBrutInclTich) / parseFloat(cursEur));
-      venitBrutInclTichEurDisplay = '(' + venitBrutInclTichEur + ' EUR)';
-      if ((parseFloat(venitBrut) + parseFloat(valTich)) <= parseFloat(salMin)) {
+      venitBrutTich = parseFloat(venitBrut) + parseFloat(valTich);
+      venitBrutTichEur = Math.trunc(parseFloat(venitBrutTich) / parseFloat(cursEur));
+      venitBrutTichEurDisplay = '(' + venitBrutTichEur + ' EUR)';
+      if ((parseInt(venitBrutTich)) <= parseFloat(salMin)) {
         dedBaza = (parseFloat(salMin) * 0.2);
       } else {
-        if ((parseFloat(salMin) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 50))) {
+        if ((parseFloat(salMin) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 50))) {
           dedBaza = (parseFloat(salMin) * 0.195);
         } else {
-          if (((parseFloat(salMin) + 50) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 100))) {
+          if (((parseFloat(salMin) + 50) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 100))) {
             dedBaza = (parseFloat(salMin) * 0.19);
           } else {
-            if (((parseFloat(salMin) + 100) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 150))) {
+            if (((parseFloat(salMin) + 100) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 150))) {
               dedBaza = (parseFloat(salMin) * 0.185);
             } else {
-              if (((parseFloat(salMin) + 150) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 200))) {
+              if (((parseFloat(salMin) + 150) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 200))) {
                 dedBaza = (parseFloat(salMin) * 0.18);
               } else {
-                if (((parseFloat(salMin) + 200) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 250))) {
+                if (((parseFloat(salMin) + 200) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 250))) {
                   dedBaza = (parseFloat(salMin) * 0.175);
                 } else {
-                  if (((parseFloat(salMin) + 250) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 300))) {
+                  if (((parseFloat(salMin) + 250) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 300))) {
                     dedBaza = (parseFloat(salMin) * 0.17);
                   } else {
-                    if (((parseFloat(salMin) + 300) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 350))) {
+                    if (((parseFloat(salMin) + 300) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 350))) {
                       dedBaza = (parseFloat(salMin) * 0.165);
                     } else {
-                      if (((parseFloat(salMin) + 350) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 400))) {
+                      if (((parseFloat(salMin) + 350) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 400))) {
                         dedBaza = (parseFloat(salMin) * 0.16);
                       } else {
-                        if (((parseFloat(salMin) + 400) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 450))) {
+                        if (((parseFloat(salMin) + 400) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 450))) {
                           dedBaza = (parseFloat(salMin) * 0.155);
                         } else {
-                          if (((parseFloat(salMin) + 450) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 500))) {
+                          if (((parseFloat(salMin) + 450) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 500))) {
                             dedBaza = (parseFloat(salMin) * 0.15);
                           } else {
-                            if (((parseFloat(salMin) + 500) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 550))) {
+                            if (((parseFloat(salMin) + 500) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 550))) {
                               dedBaza = (parseFloat(salMin) * 0.145);
                             } else {
-                              if (((parseFloat(salMin) + 550) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 600))) {
+                              if (((parseFloat(salMin) + 550) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 600))) {
                                 dedBaza = (parseFloat(salMin) * 0.14);
                               } else {
-                                if (((parseFloat(salMin) + 600) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 650))) {
+                                if (((parseFloat(salMin) + 600) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 650))) {
                                   dedBaza = (parseFloat(salMin) * 0.135);
                                 } else {
-                                  if (((parseFloat(salMin) + 650) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 700))) {
+                                  if (((parseFloat(salMin) + 650) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 700))) {
                                     dedBaza = (parseFloat(salMin) * 0.13);
                                   } else {
-                                    if (((parseFloat(salMin) + 700) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 750))) {
+                                    if (((parseFloat(salMin) + 700) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 750))) {
                                       dedBaza = (parseFloat(salMin) * 0.125);
                                     } else {
-                                      if (((parseFloat(salMin) + 750) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 800))) {
+                                      if (((parseFloat(salMin) + 750) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 800))) {
                                         dedBaza = (parseFloat(salMin) * 0.12);
                                       } else {
-                                        if (((parseFloat(salMin) + 800) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 850))) {
+                                        if (((parseFloat(salMin) + 800) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 850))) {
                                           dedBaza = (parseFloat(salMin) * 0.115);
                                         } else {
-                                          if (((parseFloat(salMin) + 850) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 900))) {
+                                          if (((parseFloat(salMin) + 850) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 900))) {
                                             dedBaza = (parseFloat(salMin) * 0.11);
                                           } else {
-                                            if (((parseFloat(salMin) + 900) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 950))) {
+                                            if (((parseFloat(salMin) + 900) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 950))) {
                                               dedBaza = (parseFloat(salMin) * 0.105);
                                             } else {
-                                              if (((parseFloat(salMin) + 950) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1000))) {
+                                              if (((parseFloat(salMin) + 950) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1000))) {
                                                 dedBaza = (parseFloat(salMin) * 0.1);
                                               } else {
-                                                if (((parseFloat(salMin) + 1000) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1050))) {
+                                                if (((parseFloat(salMin) + 1000) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1050))) {
                                                   dedBaza = (parseFloat(salMin) * 0.095);
                                                 } else {
-                                                  if (((parseFloat(salMin) + 1050) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1100))) {
+                                                  if (((parseFloat(salMin) + 1050) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1100))) {
                                                     dedBaza = (parseFloat(salMin) * 0.09);
                                                   } else {
-                                                    if (((parseFloat(salMin) + 1100) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1150))) {
+                                                    if (((parseFloat(salMin) + 1100) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1150))) {
                                                       dedBaza = (parseFloat(salMin) * 0.085);
                                                     } else {
-                                                      if (((parseFloat(salMin) + 1150) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1200))) {
+                                                      if (((parseFloat(salMin) + 1150) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1200))) {
                                                         dedBaza = (parseFloat(salMin) * 0.08);
                                                       } else {
-                                                        if (((parseFloat(salMin) + 1200) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1250))) {
+                                                        if (((parseFloat(salMin) + 1200) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1250))) {
                                                           dedBaza = (parseFloat(salMin) * 0.075);
                                                         } else {
-                                                          if (((parseFloat(salMin) + 1250) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1300))) {
+                                                          if (((parseFloat(salMin) + 1250) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1300))) {
                                                             dedBaza = (parseFloat(salMin) * 0.07);
                                                           } else {
-                                                            if (((parseFloat(salMin) + 1300) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1350))) {
+                                                            if (((parseFloat(salMin) + 1300) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1350))) {
                                                               dedBaza = (parseFloat(salMin) * 0.065);
                                                             } else {
-                                                              if (((parseFloat(salMin) + 1350) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1400))) {
+                                                              if (((parseFloat(salMin) + 1350) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1400))) {
                                                                 dedBaza = (parseFloat(salMin) * 0.06);
                                                               } else {
-                                                                if (((parseFloat(salMin) + 1400) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1450))) {
+                                                                if (((parseFloat(salMin) + 1400) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1450))) {
                                                                   dedBaza = (parseFloat(salMin) * 0.055);
                                                                 } else {
-                                                                  if (((parseFloat(salMin) + 1450) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1500))) {
+                                                                  if (((parseFloat(salMin) + 1450) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1500))) {
                                                                     dedBaza = (parseFloat(salMin) * 0.05);
                                                                   } else {
-                                                                    if (((parseFloat(salMin) + 1500) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1550))) {
+                                                                    if (((parseFloat(salMin) + 1500) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1550))) {
                                                                       dedBaza = (parseFloat(salMin) * 0.045);
                                                                     } else {
-                                                                      if (((parseFloat(salMin) + 1550) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1600))) {
+                                                                      if (((parseFloat(salMin) + 1550) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1600))) {
                                                                         dedBaza = (parseFloat(salMin) * 0.04);
                                                                       } else {
-                                                                        if (((parseFloat(salMin) + 1600) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1650))) {
+                                                                        if (((parseFloat(salMin) + 1600) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1650))) {
                                                                           dedBaza = (parseFloat(salMin) * 0.035);
                                                                         } else {
-                                                                          if (((parseFloat(salMin) + 1650) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1700))) {
+                                                                          if (((parseFloat(salMin) + 1650) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1700))) {
                                                                             dedBaza = (parseFloat(salMin) * 0.03);
                                                                           } else {
-                                                                            if (((parseFloat(salMin) + 1700) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1750))) {
+                                                                            if (((parseFloat(salMin) + 1700) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1750))) {
                                                                               dedBaza = (parseFloat(salMin) * 0.025);
                                                                             } else {
-                                                                              if (((parseFloat(salMin) + 1750) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1800))) {
+                                                                              if (((parseFloat(salMin) + 1750) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1800))) {
                                                                                 dedBaza = (parseFloat(salMin) * 0.02);
                                                                               } else {
-                                                                                if (((parseFloat(salMin) + 1800) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1850))) {
+                                                                                if (((parseFloat(salMin) + 1800) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1850))) {
                                                                                   dedBaza = (parseFloat(salMin) * 0.015);
                                                                                 } else {
-                                                                                  if (((parseFloat(salMin) + 1850) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1900))) {
+                                                                                  if (((parseFloat(salMin) + 1850) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1900))) {
                                                                                     dedBaza = (parseFloat(salMin) * 0.01);
                                                                                   } else {
-                                                                                    if (((parseFloat(salMin) + 1900) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 1950))) {
+                                                                                    if (((parseFloat(salMin) + 1900) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 1950))) {
                                                                                       dedBaza = (parseFloat(salMin) * 0.005);
                                                                                     } else {
-                                                                                      if (((parseFloat(salMin) + 1950) < (parseFloat(venitBrut) + parseFloat(valTich))) && ((parseFloat(venitBrut) + parseFloat(valTich)) <= (parseFloat(salMin) + 2000))) {
+                                                                                      if (((parseFloat(salMin) + 1950) < (parseInt(venitBrutTich))) && ((parseInt(venitBrutTich)) <= (parseFloat(salMin) + 2000))) {
                                                                                         dedBaza = (parseFloat(salMin) * 0);
                                                                                       } else {
                                                                                         dedBaza = 0;
@@ -232,7 +232,7 @@
           }
         }
       }
-      if ((parseFloat(venitBrut) + parseFloat(valTich)) <= parseFloat(salMin) + 2000) {
+      if ((parseInt(venitBrutTich)) <= parseFloat(salMin) + 2000) {
         dedSupl = 0;
       } else {
         dedSupl = 0;
@@ -245,11 +245,11 @@
         venitImp = parseFloat(venitBrut) - parseFloat(faraTaxe) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza) - parseFloat(dedSupl);
       }
       else {
-        bazaSanat = parseFloat(venitBrut) + parseFloat(valTich);
+        bazaSanat = parseInt(venitBrutTich);
         bazaPensie = parseFloat(venitBrut);
         contrSanat = parseFloat(bazaSanat) * 0.1;
         contrPensie = parseFloat(bazaPensie) * 0.25;
-        venitImp = parseFloat(venitBrut) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza) - parseFloat(dedSupl);
+        venitImp = parseInt(venitBrutTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza) - parseFloat(dedSupl);
       }
       if (parseFloat(venitImp) <= 0) {
         valImp = 0;
@@ -260,16 +260,16 @@
       restPlat = parseFloat(salTarif) + parseFloat(valBonus) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(valImp);
       restPlatEur = Math.trunc(parseFloat(restPlat) / parseFloat(cursEur));
       restPlatEurDisplay = '(' + restPlatEur + ' EUR)';
-      restPlatInclTich = parseFloat(restPlat) + parseFloat(valTich);
-      restPlatInclTichEur = Math.trunc(parseFloat(restPlatInclTich) / parseFloat(cursEur));
-      restPlatInclTichEurDisplay = '(' + restPlatInclTichEur + ' EUR)';
+      restPlatTich = parseFloat(restPlat) + parseFloat(valTich);
+      restPlatTichEur = Math.trunc(parseFloat(restPlatTich) / parseFloat(cursEur));
+      restPlatTichEurDisplay = '(' + restPlatTichEur + ' EUR)';
 
       // Display
 
       venitBrutRes.innerHTML = parseFloat(venitBrut).toFixed(0);
       venitBrutEurDisplayRes.innerHTML = venitBrutEurDisplay.toString();
-      venitBrutInclTichRes.innerHTML = parseFloat(venitBrutInclTich).toFixed(0);
-      venitBrutInclTichEurDisplayRes.innerHTML = venitBrutInclTichEurDisplay.toString();
+      venitBrutTichRes.innerHTML = parseFloat(venitBrutTich).toFixed(0);
+      venitBrutTichEurDisplayRes.innerHTML = venitBrutTichEurDisplay.toString();
       contrSanatRes.innerHTML = parseFloat(contrSanat).toFixed(0);
       contrPensieRes.innerHTML = parseFloat(contrPensie).toFixed(0);
       dedBazaRes.innerHTML = parseFloat(dedBaza).toFixed(0);
@@ -277,8 +277,8 @@
       valImpRes.innerHTML = parseFloat(valImp).toFixed(0);
       restPlatRes.innerHTML = parseFloat(restPlat).toFixed(0);
       restPlatEurDisplayRes.innerHTML = restPlatEurDisplay.toString();
-      restPlatInclTichRes.innerHTML = parseFloat(restPlatInclTich).toFixed(0);
-      restPlatInclTichEurDisplayRes.innerHTML = restPlatInclTichEurDisplay.toString();
+      restPlatTichRes.innerHTML = parseFloat(restPlatTich).toFixed(0);
+      restPlatTichEurDisplayRes.innerHTML = restPlatTichEurDisplay.toString();
 
     }
 
@@ -294,16 +294,16 @@
     Tichete masă: <input type="text" id="valTich" value="0" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="restPlatCalc()"><br />
     <b>Total venituri brute: <span id="venitBrut"></span> <span id="venitBrutEurDisplay"></span></b><br />
-    <b>Total venituri brute (incl. Tichete masă): <span id="venitBrutInclTich"></span> <span
-        id="venitBrutInclTichEurDisplay"></span></b><br />
+    <b>Total venituri brute (incl. Tichete masă): <span id="venitBrutTich"></span> <span
+        id="venitBrutTichEurDisplay"></span></b><br />
     Contribuție sănătate: <span id="contrSanat"></span><br />
     Contribuție pensie: <span id="contrPensie"></span><br />
     Deducere de bază: <span id="dedBaza"></span><br />
     Deducere suplimentară: <span id="dedSupl"></span><br />
     Impozit: <span id="valImp"></span><br />
     <b>Salariu net: <span id="restPlat"></span> <span id="restPlatEurDisplay"></span></b><br />
-    <b>Salariu net (incl. Tichete masă): <span id="restPlatInclTich"></span> <span
-        id="restPlatInclTichEurDisplay"></span></b><br />
+    <b>Salariu net (incl. Tichete masă): <span id="restPlatTich"></span> <span
+        id="restPlatTichEurDisplay"></span></b><br />
   </form><br />
 
   <a href="index_Salariu_Net_Config_Pre_2018.html">index_Salariu_Net_Config_Pre_2018.html</a><br />
