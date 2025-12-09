@@ -242,14 +242,14 @@
         bazaPensie = parseFloat(venitBrut) - parseFloat(faraTaxe);
         contrSanat = parseFloat(bazaSanat) * 0.1;
         contrPensie = parseFloat(bazaPensie) * 0.25;
-        venitImp = parseFloat(venitBrut) - parseFloat(faraTaxe) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza);
+        venitImp = parseFloat(venitBrut) - parseFloat(faraTaxe) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza) - parseFloat(dedSupl);
       }
       else {
         bazaSanat = parseFloat(venitBrut) + parseFloat(valTich);
         bazaPensie = parseFloat(venitBrut);
         contrSanat = parseFloat(bazaSanat) * 0.1;
         contrPensie = parseFloat(bazaPensie) * 0.25;
-        venitImp = parseFloat(venitBrut) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza);
+        venitImp = parseFloat(venitBrut) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza) - parseFloat(dedSupl);
       }
       if (parseFloat(venitImp) <= 0) {
         valImp = 0;
