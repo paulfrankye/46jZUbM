@@ -11,13 +11,13 @@
 
       // Inputs
 
+      salMin = Number(document.getElementById('salMin').value);
       salTarif = Number(document.getElementById('salTarif').value);
       valBonus = Number(document.getElementById('valBonus').value);
       valTich = Number(document.getElementById('valTich').value);
 
       // Vars
 
-      var salMin;
       var venitBrut;
       var venitBrutEur;
       var venitBrutEurDisplay;
@@ -58,7 +58,6 @@
 
       // Formulas
 
-      salMin = 4050;
       faraTaxe = 300;
       cursEur = 5;
       venitBrut = parseFloat(salTarif) + parseFloat(valBonus);
@@ -289,6 +288,7 @@
 <body>
 
   <form action="">
+    Salariu minim: <input type="text" id="salMin" value="4050" style="width: 31px" disabled><br />
     Salariu brut: <input type="text" id="salTarif" value="4050" style="width: 31px"><br />
     Bonus: <input type="text" id="valBonus" value="0" style="width: 31px"><br />
     Tichete masă: <input type="text" id="valTich" value="0" style="width: 31px"> <input type="button" id="sub"
