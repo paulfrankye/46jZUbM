@@ -1,3 +1,3 @@
 <?php
-echo file_get_contents("data.txt");
+echo file_get_contents("nume.txt");
 ?>
