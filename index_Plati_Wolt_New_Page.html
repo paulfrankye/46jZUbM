@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+
+  <script>
+
+    fetch("load.php")
+      .then(r => r.text())
+      .then(text => {
+        const items = text.split("\n");
+        const sel = document.getElementById("valCurier");
+
+        items.forEach(i => {
+          const o = document.createElement("valCurier");
+          o.textContent = i.trim();
+          o.value = i.trim();
+          sel.appendChild(o);
+        });
+      });
+
+    function valRestPlataCalc() {
+
+      // Inputs
+
+      valDataFact = document.getElementById("valDataFact").value;
+      valCurier = document.getElementById("valCurier").value;
+      valVenitAgent = document.getElementById("valVenitAgent").value;
+      valBonusCastig = document.getElementById("valBonusCastig").value;
+      valBonus = document.getElementById("valBonus").value;
+      valTips = document.getElementById("valTips").value;
+      valCim = document.getElementById("valCim").value;
+      valSelfPay = document.getElementById("valSelfPay").value;
+      valAdaosuri = document.getElementById("valAdaosuri").value;
+      valDeduceri = document.getElementById("valDeduceri").value;
+
+      // Vars
+
+      var valDataFact;
+      var valDataFactDisplay;
+      var valDela;
+      var valLa;
+      var valCurierDisplay;
+      var valVenitAgentDisplay;
+      var valBonusCastigDisplay;
+      var valBonusDisplay;
+      var valTipsDisplay;
+      var valCimDisplay;
+      var valSelfPayDisplay;
+      var valAdaosuriDisplay
+      var valDeduceriDisplay;
+      var valVenitFaraBacsis;
+      var valComision;
+      var valTaxaOperat;
+      var valRestPlata;
+
+      // Results
+
+      var valComisionRes = document.getElementById('valComision');
+      var valTaxaOperatRes = document.getElementById('valTaxaOperat');
+      var valRestPlataRes = document.getElementById('valRestPlata');
+
+      // Formulas
+
+      if (valDataFact == 0) {
+        valDataFactDisplay = '01.01.2026';
+        valDela = '23.12.2025';
+        valLa = '31.12.2025';
+      } else if (valDataFact == 1) {
+        valDataFactDisplay = '08.01.2026';
+        valDela = '01.01.2026';
+        valLa = '07.01.2026';
+      } else if (valDataFact == 2) {
+        valDataFactDisplay = '16.01.2026';
+        valDela = '08.01.2026';
+        valLa = '15.01.2026';
+      } else if (valDataFact == 2) {
+        valDataFactDisplay = '16.01.2026';
+        valDela = '08.01.2026';
+        valLa = '15.01.2026';
+      } else if (valDataFact == 3) {
+        valDataFactDisplay = '23.01.2026';
+        valDela = '16.01.2026';
+        valLa = '22.01.2026';
+      } else if (valDataFact == 4) {
+        valDataFactDisplay = '01.02.2026';
+        valDela = '23.01.2026';
+        valLa = '31.01.2026';
+      } else {
+      }
+      valCurierDisplay = valCurier;
+      valVenitAgentDisplay = parseFloat(valVenitAgent);
+      valBonusCastigDisplay = parseFloat(valBonusCastig);
+      valBonusDisplay = parseFloat(valBonus);
+      valTipsDisplay = parseFloat(valTips);
+      valCimDisplay = parseFloat(valCim);
+      valSelfPayDisplay = parseFloat(valSelfPay);
+      valAdaosuriDisplay = parseFloat(valAdaosuri);
+      valDeduceriDisplay = parseFloat(valDeduceri);
+      valVenitFaraBacsis = parseFloat(valVenitAgent) + parseFloat(valBonusCastig) + parseFloat(valBonus);
+      valComision = parseFloat(valVenitFaraBacsis) * 0.14;
+      valTaxaOperat = parseFloat(valVenitFaraBacsis) * 0.0149 * 1.21;
+      valRestPlata = parseFloat(valVenitFaraBacsis) + parseFloat(valTips) - parseFloat(valComision) -
+        parseFloat(valTaxaOperat) - parseFloat(valCim) - parseFloat(valSelfPay) + parseFloat(valAdaosuri) -
+        parseFloat(valDeduceri);
+
+      // Display
+
+      // open a new blank tab/window
+      let win = window.open("", "_blank");
+
+      // write HTML directly into the new window
+      win.document.write(`
+  <html>
+
+  <head>
+    <title>Plăți Wolt ${valDataFactDisplay}</title>
+  </head>
+
+<body>
+  De la: ${valDela}<br />
+  La: ${valLa}<br />
+  <b>Curier: ${valCurierDisplay}</b><br /><br />
+  Venit livrări: ${valVenitAgentDisplay.toFixed(2)}<br />
+  Venit garantat: ${valBonusCastigDisplay.toFixed(2)}<br />
+  Bonus: ${valBonusDisplay.toFixed(2)}<br />
+  Bacșiș: ${valTipsDisplay.toFixed(2)}<br />
+  Comision: ${valComision.toFixed(2)}<br />
+  Taxa operațională: ${valTaxaOperat.toFixed(2)}<br />
+  CIM: ${valCimDisplay.toFixed(2)}<br />
+  Balanță cash: ${valSelfPayDisplay.toFixed(2)}<br />
+  Adaosuri: ${valAdaosuriDisplay.toFixed(2)}<br />
+  Deduceri: ${valDeduceriDisplay.toFixed(2)}<br />
+  <b>Rest plată: ${valRestPlata.toFixed(2)}</b><br />
+</body>
+
+</html>
+`);
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <form action="">
+    Dată: <select id="valDataFact">
+      <option value="0">01.01.2026</option>
+      <option value="1">08.01.2026</option>
+      <option value="2">16.01.2026</option>
+      <option value="3">23.01.2026</option>
+      <option value="4">01.02.2026</option>
+    </select><br />
+    Curier: <select id="valCurier"></select><br /><br />
+    Venit livrări: <input type="text" id="valVenitAgent" value="" style="width: 31px"><br />
+    Venit garantat: <input type="text" id="valBonusCastig" value="" style="width: 31px"><br />
+    Bonus: <input type="text" id="valBonus" value="" style="width: 31px"><br />
+    Bacșiș: <input type="text" id="valTips" value="" style="width: 31px"><br />
+    CIM: <input type="text" id="valCim" value="0" style="width: 31px"><br />
+    Balanță cash: <input type="text" id="valSelfPay" value="0" style="width: 31px"><br />
+    Adaosuri: <input type="text" id="valAdaosuri" value="0" style="width: 31px"><br />
+    Deduceri: <input type="text" id="valDeduceri" value="0" style="width: 31px"> <input type="button" id="sub"
+      value="Submit" onclick="valRestPlataCalc()"><br />
+    <!-- Comision: <span id="valComision"></span><br />
+    Taxa operațională: <span id="valTaxaOperat"></span><br />
+    <b>Rest plată: <span id="valRestPlata"></span></b><br /> -->
+  </form>
+
+</body>
+
+</html>
