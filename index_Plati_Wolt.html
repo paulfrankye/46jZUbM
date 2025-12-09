@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+
+  <script>
+
+    function valRestPlataCalc() {
+
+      // Inputs
+
+      valVenitAgent = document.getElementById("valVenitAgent").value;
+      valBonusCastig = document.getElementById("valBonusCastig").value;
+      valBonus = document.getElementById("valBonus").value;
+      valTips = document.getElementById("valTips").value;
+      valCIM = document.getElementById("valCIM").value;
+      valSelfPay = document.getElementById("valSelfPay").value;
+      valAdaosuri = document.getElementById("valAdaosuri").value;
+      valDeduceri = document.getElementById("valDeduceri").value;
+
+      // Vars
+
+      var valVenitFaraBacsis;
+      var valComision;
+      var valTaxaOperat;
+      var valRestPlata;
+
+      // Results
+
+      var valComisionRes = document.getElementById('valComision');
+      var valTaxaOperatRes = document.getElementById('valTaxaOperat');
+      var valRestPlataRes = document.getElementById('valRestPlata');
+
+      // Formulas
+
+      valVenitFaraBacsis = parseFloat(valVenitAgent) + parseFloat(valBonusCastig) + parseFloat(valBonus);
+      valComision = parseFloat(valVenitFaraBacsis) * 0.14;
+      valTaxaOperat = parseFloat(valVenitFaraBacsis) * 0.0149 * 1.21;
+      valRestPlata = parseFloat(valVenitFaraBacsis) + parseFloat(valTips) - parseFloat(valComision) - parseFloat(valTaxaOperat) - parseFloat(valCIM) - parseFloat(valSelfPay) + parseFloat(valAdaosuri) - parseFloat(valDeduceri);
+
+      // Display
+
+      valComisionRes.innerHTML = parseFloat(valComision).toFixed(2);
+      valTaxaOperatRes.innerHTML = parseFloat(valTaxaOperat).toFixed(2);
+      valRestPlataRes.innerHTML = parseFloat(valRestPlata).toFixed(2);
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+  <form action="">
+    Venit livrări: <input type="text" id="valVenitAgent" value="799.79" style="width: 31px"><br />
+    Venit garantat: <input type="text" id="valBonusCastig" value="0" style="width: 31px"><br />
+    Bonus: <input type="text" id="valBonus" value="100" style="width: 31px"><br />
+    Bacșiș: <input type="text" id="valTips" value="42" style="width: 31px"><br />
+    CIM: <input type="text" id="valCIM" value="0" style="width: 31px"><br />
+    Balanță cash: <input type="text" id="valSelfPay" value="0" style="width: 31px"><br />
+    Adaosuri: <input type="text" id="valAdaosuri" value="0" style="width: 31px"><br />
+    Deduceri: <input type="text" id="valDeduceri" value="0" style="width: 31px"> <input type="button" id="sub"
+      value="Submit" onclick="valRestPlataCalc()"><br />
+    Comision: <span id="valComision"></span><br />
+    Taxa operațională: <span id="valTaxaOperat"></span><br />
+    <b>Rest plată: <span id="valRestPlata"></span></b><br />
+  </form>
+
+</body>
+
+</html>
