@@ -24,6 +24,7 @@
       var venitBrutInclTich;
       var venitBrutInclTichEur;
       var venitBrutInclTichEurDisplay;
+      var faraTaxe;
       var bazaSanat;
       var bazaPensie;
       var contrSanat;
@@ -58,6 +59,7 @@
       // Formulas
 
       salMin = 4050;
+      faraTaxe = 300;
       cursEur = 5;
       venitBrut = parseFloat(salTarif) + parseFloat(valBonus);
       venitBrutEur = Math.trunc(parseFloat(venitBrut) / parseFloat(cursEur));
@@ -236,11 +238,11 @@
         dedSupl = 0;
       }
       if (parseFloat(venitBrut) <= parseFloat(salMin)) {
-        bazaSanat = parseFloat(venitBrut) - 300 + parseFloat(valTich);
-        bazaPensie = parseFloat(venitBrut) - 300;
+        bazaSanat = parseFloat(venitBrut) - parseFloat(faraTaxe) + parseFloat(valTich);
+        bazaPensie = parseFloat(venitBrut) - parseFloat(faraTaxe);
         contrSanat = parseFloat(bazaSanat) * 0.1;
         contrPensie = parseFloat(bazaPensie) * 0.25;
-        venitImp = parseFloat(venitBrut) - 300 + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza);
+        venitImp = parseFloat(venitBrut) - parseFloat(faraTaxe) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza);
       }
       else {
         bazaSanat = parseFloat(venitBrut) + parseFloat(valTich);
@@ -302,7 +304,11 @@
     <b>Salariu net: <span id="restPlat"></span> <span id="restPlatEurDisplay"></span></b><br />
     <b>Salariu net (incl. Tichete masă): <span id="restPlatInclTich"></span> <span
         id="restPlatInclTichEurDisplay"></span></b><br />
-  </form>
+  </form><br />
+
+  <a href="index_Salariu_Net_Config_Pre_2018.html">index_Salariu_Net_Config_Pre_2018.html</a><br />
+  <a href="index_Salariu_Net_Config_Post 2018_Pre_2023.html">index_Salariu_Net_Config_Post 2018_Pre_2023.html</a><br />
+  <a href="index_Salariu_Net_Config_Post_2023.html">index_Salariu_Net_Config_Post_2023.html</a><br />
 
 </body>
 
