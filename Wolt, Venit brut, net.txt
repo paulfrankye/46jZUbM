@@ -1,4 +1,4 @@
-"Per oră, brut"	"Per oră, net"	"Per zi, brut"	"Per zi, net"	"Per săptămână, brut"	"Per săptămână, net"	"Per lună, brut"	"Per lună, net"
+_
 27,5	15	200	120	1000	600	4500	2500
 30	16,75	225	135	1125	650	5000	2800
 32,5	18,5	250	150	1250	700	5500	3100
