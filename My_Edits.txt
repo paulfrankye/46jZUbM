@@ -1,3 +1,10 @@
+Strada Carpatilor 24
+Strada Mircea Cel Batran 41, 52-56
+Strada Drezinei, Strada Anghel Saligny, Strada Dacia, Strada Pavilioanele CFR, Strada Ceaferistilor
+Strada Fanionului, Strada Florilor, Strada Profoesor Bogdan Alexandru, Strada Harmanului, Strada Pavilioanele CFR
+Strada Calea Bucuresti 101
+Strada Lebedei 21
+Strada Mihail Kogalniceanu 11-13
 Strada Carpatilor - Strada Calea Bucuresti - Strada Zorilor
 Strada Nucului 33
 Strada Dealul Spirii 27
@@ -9,8 +16,8 @@ Strada Ion Luca Caragiale, Strada Ovidiu, Strada Ion Creanga, Strada Iasomiei, S
 Strada Zizinului 59-67, Strada Alexandru Vlahuță 1-1A
 Strada Ioan Popasu 50
 Strada Carpatilor 24
-Strada Avram Iancu 52-54, Strada Nicopole 44-46, Strada Bisericii Romana 111-113
-Strada Nicopole 56, Strada Bisericii Romana 115
+Strada Avram Iancu 52-54, Strada Nicopole 44-46, Strada Bisericii Romane 111-113
+Strada Nicopole 56, Strada Bisericii Romane 115
 Strada Liviu Cornel Babes 6-12
 Strada Neptun 12
 Strada Orizontului 2-6
