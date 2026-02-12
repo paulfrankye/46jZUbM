@@ -52,7 +52,7 @@
       }
       valTaxe = parseFloat(impVenitImp) + parseFloat(impVenitNet) + parseFloat(contrSanat)
       venitNetAfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar) - parseFloat(valTaxe) + parseFloat(incasCashVar);
-      procVenitNet = parseFloat(venitNetAfTax) / parseFloat(venitBrutVar) * 100;
+      procVenitNet = parseFloat(venitNetAfTax) / (parseFloat(venitBrutVar) + parseFloat(incasCashVar)) * 100;
       procVenitNetDisplay = parseFloat(procVenitNet).toFixed(2) + '%';
 
       // Display
