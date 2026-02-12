@@ -5,13 +5,104 @@
 
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
 
+  <script>
+
+    function venitNetCalc() {
+
+      // Inputs
+
+      venitBrutVar = Number(document.getElementById('venitBrut').value);
+      cheltAutoVar = Number(document.getElementById('cheltAuto').value);
+      cheltAlteleVar = Number(document.getElementById('cheltAltele').value);
+      incasCashVar = Number(document.getElementById('incasCash').value);
+
+      // Vars
+
+      var venitImp;
+      var venitNetBfTax;
+      var impVenitImp;
+      var impVenitNet;
+      var contrSanat;
+      var valTaxe;
+      var venitNetAfTax;
+      var procVenitNet;
+      var procVenitNetDisplay;
+
+      // Results
+
+      var venitImpRes = document.getElementById('venitImp');
+      var venitNetBfTaxRes = document.getElementById('venitNetBfTax');
+      var impVenitImpRes = document.getElementById('impVenitImp');
+      var impVenitNetRes = document.getElementById('impVenitNet');
+      var contrSanatRes = document.getElementById('contrSanat');
+      var venitNetAfTaxRes = document.getElementById('venitNetAfTax');
+      var procVenitNetDisplayRes = document.getElementById('procVenitNet');
+
+      // Formulas
+
+      venitImp = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) * 0.5 - parseFloat(cheltAlteleVar);
+      venitNetBfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar);
+      impVenitImp = parseFloat(venitImp) * 0.16;
+      impVenitNet = parseFloat(venitNetBfTax) * 0.10;
+      pragSanat = 4050 * 6 / 12;
+      if (venitNetBfTax >= parseFloat(pragSanat)) {
+        contrSanat = 4050 * 6 * 0.1 / 12;
+      } else {
+        contrSanat = 0;
+      }
+      valTaxe = parseFloat(impVenitImp) + parseFloat(impVenitNet) + parseFloat(contrSanat)
+      venitNetAfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar) - parseFloat(valTaxe) + parseFloat(incasCashVar);
+      procVenitNet = parseFloat(venitNetAfTax) / (parseFloat(venitBrutVar) + parseFloat(incasCashVar)) * 100;
+      procVenitNetDisplay = parseFloat(procVenitNet).toFixed(2) + '%';
+
+      // Display
+
+      venitImpRes.innerHTML = Math.trunc(venitImp);
+      venitNetBfTaxRes.innerHTML = Math.trunc(venitNetBfTax);
+      impVenitImpRes.innerHTML = Math.trunc(impVenitImp);
+      impVenitNetRes.innerHTML = Math.trunc(impVenitNet);
+      contrSanatRes.innerHTML = Math.trunc(contrSanat);
+      venitNetAfTaxRes.innerHTML = Math.trunc(venitNetAfTax);
+      procVenitNetDisplayRes.innerHTML = procVenitNetDisplay;
+
+    }
+
+  </script>
+
+  <style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0;
+    }
+  </style>
+
 </head>
 
 <body>
 
-  <a href="index_Taxe_SRL_Monthly_(Sub_Prag_Sanat).html">index_Taxe_SRL_Monthly_(Sub_Prag_Sanat).html</a><br />
-  <a href="index_Taxe_SRL_Monthly_(Peste_Prag_Sanat).html">index_Taxe_SRL_Monthly_(Peste_Prag_Sanat).html</a><br />
-
+  <form action="">
+    Venit brut: <input type="number" id="venitBrut" value="" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Cheltuieli, auto: <input type="number" id="cheltAuto" value="" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Cheltuieli, altele: <input type="number" id="cheltAltele" value="" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"><br />
+    Încasări, cash: <input type="number" id="incasCash" value="" style="width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }"> <input type="button" id="sub" value="Submit"
+      onclick="venitNetCalc()"><br />
+    <b>Venit impozabil: <span id="venitImp"></span></b><br />
+    Impozit, pe venit impozabil: <span id="impVenitImp"></span><br />
+    <b>Venit net, înainte de taxe: <span id="venitNetBfTax"></span></b><br />
+    Impozit, pe venit net: <span id="impVenitNet"></span><br />
+    Sănătate: <span id="contrSanat"></span><br />
+    <b>Venit net, după taxe: <span id="venitNetAfTax"></span></b><br />
+    Procentaj: <span id="procVenitNet"></span><br /><br />
+    <a href="index_Taxe_SRL_Monthly_(Sub_Prag_Sanat).html">index_Taxe_SRL_Monthly_(Sub_Prag_Sanat).html</a><br />
+    <a href="index_Taxe_SRL_Monthly_(Peste_Prag_Sanat).html">index_Taxe_SRL_Monthly_(Peste_Prag_Sanat).html</a><br />
+  </form>
 
 </body>
 
