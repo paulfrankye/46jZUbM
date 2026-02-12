@@ -22,6 +22,8 @@
       var venitNetBfTax;
       var impVenitImp;
       var impVenitNet;
+      var salMin;
+      var pragSanat;
       var contrSanat;
       var valTaxe;
       var venitNetAfTax;
@@ -44,9 +46,10 @@
       venitNetBfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar);
       impVenitImp = parseFloat(venitImp) * 0.16;
       impVenitNet = parseFloat(venitNetBfTax) * 0.10;
-      pragSanat = 4050 * 6 / 12;
+      salMin = 4050;
+      pragSanat = parseFloat(salMin) * 6 / 12;
       if (venitNetBfTax >= parseFloat(pragSanat)) {
-        contrSanat = 4050 * 6 * 0.1 / 12;
+        contrSanat = parseFloat(salMin) * 6 * 0.1 / 12;
       } else {
         contrSanat = 0;
       }
