@@ -14,6 +14,8 @@
       orePerLuna = Number(document.getElementById('orePerLuna').value);
       venitAgentiePerOra = Number(document.getElementById('venitAgentiePerOra').value);
       bacsisCashPerOra = Number(document.getElementById('bacsisCashPerOra').value);
+      venitAsigurat = Number(document.getElementById('venitAsigurat').value);
+      selPensie = Number(document.getElementById('selPensie').value);
       comenziPerOra = Number(document.getElementById('comenziPerOra').value);
       kmPerComanda = Number(document.getElementById('kmPerComanda').value);
       procConsum = Number(document.getElementById('procConsum').value);
@@ -37,6 +39,7 @@
       var impVenitImp;
       var venitNetBfTax;
       var impVenitNet;
+      var contrPensie;
       var pragSanat;
       var contrSanat;
       var venitNetAfTax;
@@ -63,6 +66,7 @@
       var impVenitImpRes = document.getElementById('impVenitImp');
       var venitNetBfTaxRes = document.getElementById('venitNetBfTax');
       var impVenitNetRes = document.getElementById('impVenitNet');
+      var contrPensieRes = document.getElementById('contrPensie');
       var contrSanatRes = document.getElementById('contrSanat');
       var venitNetAfTaxRes = document.getElementById('venitNetAfTax');
       var totalIncasariPerOraRes = document.getElementById('totalIncasariPerOra');
@@ -87,14 +91,29 @@
       venitImp = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
       impVenitImp = parseFloat(venitImp) * 0.16;
       venitNetBfTax = parseFloat(restPlata) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(impVenitImp);
-      impVenitNet = parseFloat(venitNetBfTax) * 0.1;
-      pragSanat = (parseFloat(salMin) * 6) / 12;
-      if (venitNetBfTax >= parseFloat(pragSanat)) {
-        contrSanat = (parseFloat(salMin) * 6) * 0.1 / 12;
-      } else {
-        contrSanat = 0;
+      impVenitNet = parseFloat(venitNetBfTax) * 0.16;
+      valPensie = parseFloat(venitAsigurat) * 0.25;
+      if (selPensie === 1) {
+        if (venitNetBfTax >= salMin) {
+          contrPensie = parseFloat(salMin) * 0.25 + parseFloat(valPensie);
+        }
+        else {
+          contrPensie = parseFloat(salMin) * 0.25 + parseFloat(valPensie);
+        }
       }
-      venitNetAfTax = parseFloat(venitNetBfTax) + parseFloat(bacsisCash) - parseFloat(impVenitNet) - parseFloat(contrSanat);
+      else if (selPensie === 0) {
+        contrPensie = parseFloat(valPensie);
+      }
+      else {
+        contrPensie = parseFloat(valPensie);
+      }
+      pragSanat = parseFloat(salMin) * 6 / 12;
+      if (venitNetBfTax >= parseFloat(pragSanat)) {
+        contrSanat = parseFloat(salMin) * 6 / 12 * 0.1;
+      } else {
+        contrSanat = parseFloat(salMin) * 6 / 12 * 0.1;
+      }
+      venitNetAfTax = parseFloat(venitNetBfTax) + parseFloat(bacsisCash) - parseFloat(impVenitNet) - parseFloat(contrPensie) - parseFloat(contrSanat);
       totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(orePerLuna);
       venitNetPerOra = parseFloat(venitNetAfTax) / parseFloat(orePerLuna);
       procVenitNetPerOra = parseFloat(venitNetPerOra) / parseFloat(totalIncasariPerOra) * 100;
@@ -118,6 +137,7 @@
       impVenitImpRes.innerHTML = parseFloat(impVenitImp).toFixed(0);
       venitNetBfTaxRes.innerHTML = parseFloat(venitNetBfTax).toFixed(0);
       impVenitNetRes.innerHTML = parseFloat(impVenitNet).toFixed(0);
+      contrPensieRes.innerHTML = parseFloat(contrPensie).toFixed(0);
       contrSanatRes.innerHTML = parseFloat(contrSanat).toFixed(0);
       venitNetAfTaxRes.innerHTML = parseFloat(venitNetAfTax).toFixed(0);
       totalIncasariPerOraRes.innerHTML = parseFloat(totalIncasariPerOra).toFixed(2);
@@ -149,7 +169,11 @@
     Ore per lună: <select id="orePerLuna">
       <option value="32">32</option>
       <option value="40">40</option>
+      <option value="48">48</option>
+      <option value="60">60</option>
       <option value="88">88</option>
+      <option value="144">144</option>
+      <option value="160">160</option>
       <option value="176" selected>176</option>
       <option value="192">192</option>
       <option value="208">208</option>
@@ -164,39 +188,175 @@
       <option value="35">35.00</option>
       <option value="37.5">37.50</option>
       <option value="40">40.00</option>
+      <option value="42.5">42.50</option>
+      <option value="45">45.00</option>
+      <option value="47.5">47.50</option>
+      <option value="50">50.00</option>
     </select><br />
     Bacșiș cash per oră: <select id="bacsisCashPerOra">
       <option value="0">0</option>
-      <option value="2.5">2.50</option>
-      <option value="3" selected>3.00</option>
-      <option value="3.5">3.50</option>
+      <option value="0.25">0.25</option>
+      <option value="0.50">0.50</option>
+      <option value="0.75">0.75</option>
+      <option value="1">1.00</option>
+      <option value="1.25">0.25</option>
+      <option value="1.50">1.50</option>
+      <option value="1.75">1.75</option>
+      <option value="2">2.00</option>
+      <option value="2.25">2.25</option>
+      <option value="2.50">2.50</option>
+      <option value="2.75">2.75</option>
+      <option value="3">3.00</option>
+      <option value="3.25">3.25</option>
+      <option value="3.50" selected>3.50</option>
+      <option value="3.75">3.75</option>
       <option value="4">4.00</option>
-      <option value="4.5">4.50</option>
+      <option value="4.25">4.25</option>
+      <option value="4.50">4.50</option>
+      <option value="4.75">4.75</option>
       <option value="5">5.00</option>
     </select><br />
-    Venit asigurat pt pensie: <select id="venitAsigurat" disabled>
-      <option value="0">0</option>
-      <option value="4322">4322</option>
+    Venit asigurat pt pensie: <select id="venitAsigurat">
+      <option value="0" selected>0</option>
+      <option value="4050">4050</option>
+      <option value="4325">4325</option>
     </select><br />
-    Depășire prag pt pensie: <select id="selPensie" disabled>
+    Depășire prag pt pensie: <select id="selPensie">
       <option value="1">Da</option>
       <option value="0" selected>Nu</option>
     </select><br />
     Comenzi per oră: <select id="comenziPerOra">
       <option value="0">0</option>
+      <option value="0.25">0.25</option>
+      <option value="0.5">0.50</option>
+      <option value="0.75">0.75</option>
+      <option value="1">1.00</option>
+      <option value="1.25">1.25</option>
+      <option value="1.5">1.50</option>
+      <option value="1.75">1.75</option>
       <option value="2" selected>2.00</option>
+      <option value="2.25">2.25</option>
+      <option value="2.5">2.50</option>
+      <option value="2.75">2.75</option>
+      <option value="3">3.00</option>
+      <option value="3.25">3.25</option>
+      <option value="3.5">3.50</option>
+      <option value="3.75">3.75</option>
+      <option value="4">4.00</option>
+      <option value="4.25">4.25</option>
+      <option value="4.5">4.50</option>
+      <option value="4.75">4.75</option>
+      <option value="5">5.00</option>
     </select><br />
     Km per comandă: <select id="kmPerComanda">
       <option value="0">0</option>
+      <option value="5">5.00</option>
+      <option value="5.25">5.25</option>
+      <option value="5.5">5.50</option>
+      <option value="5.75">5.75</option>
+      <option value="6">6.00</option>
+      <option value="6.25">6.25</option>
       <option value="6.5" selected>6.50</option>
+      <option value="6.75">6.75</option>
+      <option value="7">7.00</option>
+      <option value="7.25">7.25</option>
+      <option value="7.5">7.50</option>
+      <option value="7.75">7.75</option>
+      <option value="8">8.00</option>
+      <option value="8.25">8.25</option>
+      <option value="8.5">8.50</option>
+      <option value="8.75">8.75</option>
+      <option value="9">9.00</option>
+      <option value="9.25">9.25</option>
+      <option value="9.5">9.50</option>
+      <option value="9.75">9.75</option>
+      <option value="10">10.00</option>
     </select><br />
     Consum combustibil: <select id="procConsum">
       <option value="0">0</option>
-      <option value="7" selected>7.00</option>
+      <option value="0.25">0.25</option>
+      <option value="0.50">0.50</option>
+      <option value="0.75">0.75</option>
+      <option value="1">1.00</option>
+      <option value="1.25">1.25</option>
+      <option value="1.5">1.50</option>
+      <option value="1.75">1.75</option>
+      <option value="2">2.00</option>
+      <option value="2.25">2.25</option>
+      <option value="2.5">2.50</option>
+      <option value="2.75">2.75</option>
+      <option value="3">3.00</option>
+      <option value="3.25">3.25</option>
+      <option value="3.5">3.50</option>
+      <option value="3.75">3.75</option>
+      <option value="4">4.00</option>
+      <option value="4.25">4.25</option>
+      <option value="4.5">4.50</option>
+      <option value="4.75">4.75</option>
+      <option value="5">5.00</option>
+      <option value="5.25">5.25</option>
+      <option value="5.5">5.50</option>
+      <option value="5.75">5.75</option>
+      <option value="6">6.00</option>
+      <option value="6.25">6.25</option>
+      <option value="6.5">6.50</option>
+      <option value="6.75">6.75</option>
+      <option value="7">7.00</option>
+      <option value="7.25" selected>7.25</option>
+      <option value="7.5">7.50</option>
+      <option value="7.75">7.75</option>
+      <option value="8">8.00</option>
+      <option value="8.25">8.25</option>
+      <option value="8.5">8.50</option>
+      <option value="8.75">8.75</option>
+      <option value="9">9.00</option>
+      <option value="9.25">9.25</option>
+      <option value="9.5">9.50</option>
+      <option value="9.75">9.75</option>
+      <option value="10">10.00</option>
     </select><br />
     Preț combustibil: <select id="pretCombustibil">
       <option value="0">0</option>
-      <option value="7.75" selected>7.75</option>
+      <option value="0.25">0.25</option>
+      <option value="0.5">0.50</option>
+      <option value="0.75">0.75</option>
+      <option value="1">1.00</option>
+      <option value="1.25">1.25</option>
+      <option value="1.5">1.50</option>
+      <option value="1.75">1.75</option>
+      <option value="2">2.00</option>
+      <option value="2.25">2.25</option>
+      <option value="2.5">2.50</option>
+      <option value="2.75">2.75</option>
+      <option value="3">3.00</option>
+      <option value="3.25">3.25</option>
+      <option value="3.5">3.50</option>
+      <option value="3.75">3.75</option>
+      <option value="4">4.00</option>
+      <option value="4.25">4.25</option>
+      <option value="4.5">4.50</option>
+      <option value="4.75">4.75</option>
+      <option value="5">5.00</option>
+      <option value="5.25">5.25</option>
+      <option value="5.5">5.50</option>
+      <option value="5.75">5.75</option>
+      <option value="6">6.00</option>
+      <option value="6.25">6.25</option>
+      <option value="6.5">6.50</option>
+      <option value="6.75">6.75</option>
+      <option value="7">7.00</option>
+      <option value="7.25">7.25</option>
+      <option value="7.5">7.50</option>
+      <option value="7.75">7.75</option>
+      <option value="8" selected>8.00</option>
+      <option value="8.25">8.25</option>
+      <option value="8.5">8.50</option>
+      <option value="8.75">8.75</option>
+      <option value="9">9.00</option>
+      <option value="9.25">9.25</option>
+      <option value="9.5">9.50</option>
+      <option value="9.75">9.75</option>
+      <option value="10">10.00</option>
     </select><br />
     Comision: <select id="procComision">
       <option value="9" selected>9</option>
@@ -216,12 +376,13 @@
     <b>Rest plată: <span id="restPlata"></span></b><br />
     Combustibil: <span id="valCombustibil"></span><br />
     Contabilitate: <span id="valContabilitate"></span><br />
-    <b>Venit impozabil: <span id="venitImp"></span></b><br />
-    Impozit, pe venit impozabil: <span id="impVenitImp"></span><br />
-    <b>Venit net, înainte de taxe: <span id="venitNetBfTax"></span></b><br />
-    Impozit, pe venit net: <span id="impVenitNet"></span><br />
+    <b>Profit brut: <span id="venitImp"></span></b><br />
+    Impozit, pe profit brut: <span id="impVenitImp"></span><br />
+    <b>Profit net, înainte de taxe: <span id="venitNetBfTax"></span></b><br />
+    Pensie: <span id="contrPensie"></span><br />
     Sănătate: <span id="contrSanat"></span><br />
-    <b>Venit net, după taxe: <span id="venitNetAfTax"></span></b><br /><br />
+    Impozit, pe profit net: <span id="impVenitNet"></span><br />
+    <b>Profit net, după taxe: <span id="venitNetAfTax"></span></b><br /><br />
     Total încasări per oră: <span id="totalIncasariPerOra"></span><br />
     Venit net per oră: <span id="venitNetPerOra"></span><br />
     Procentaj: <span id="procVenitNetPerOraDisplay"></span><br /><br />
