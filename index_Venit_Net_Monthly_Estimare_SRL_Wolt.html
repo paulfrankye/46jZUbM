@@ -35,14 +35,14 @@
       var restPlata;
       var valCombustibil;
       var valContabilitate;
-      var venitImp;
-      var impVenitImp;
-      var venitNetBfTax;
-      var impVenitNet;
+      var profitBrut;
+      var impProfitBrut;
+      var profitNetBfTax;
+      var impProfitNet;
       var contrPensie;
       var pragSanat;
       var contrSanat;
-      var venitNetAfTax;
+      var profitNetAfTax;
       var totalIncasariPerOra;
       var venitNetPerOra;
       var procVenitNetPerOra;
@@ -62,13 +62,13 @@
       var restPlataRes = document.getElementById('restPlata');
       var valCombustibilRes = document.getElementById('valCombustibil');
       var valContabilitateRes = document.getElementById('valContabilitate');
-      var venitImpRes = document.getElementById('venitImp');
-      var impVenitImpRes = document.getElementById('impVenitImp');
-      var venitNetBfTaxRes = document.getElementById('venitNetBfTax');
-      var impVenitNetRes = document.getElementById('impVenitNet');
+      var profitBrutRes = document.getElementById('profitBrut');
+      var impProfitBrutRes = document.getElementById('impProfitBrut');
+      var profitNetBfTaxRes = document.getElementById('profitNetBfTax');
+      var impProfitNetRes = document.getElementById('impProfitNet');
       var contrPensieRes = document.getElementById('contrPensie');
       var contrSanatRes = document.getElementById('contrSanat');
-      var venitNetAfTaxRes = document.getElementById('venitNetAfTax');
+      var profitNetAfTaxRes = document.getElementById('profitNetAfTax');
       var totalIncasariPerOraRes = document.getElementById('totalIncasariPerOra');
       var venitNetPerOraRes = document.getElementById('venitNetPerOra');
       var procVenitNetPerOraDisplayRes = document.getElementById('procVenitNetPerOraDisplay');
@@ -88,13 +88,13 @@
       restPlata = parseFloat(venitAgentie) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(procConsum) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate);
-      venitImp = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
-      impVenitImp = parseFloat(venitImp) * 0.16;
-      venitNetBfTax = parseFloat(restPlata) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(impVenitImp);
-      impVenitNet = parseFloat(venitNetBfTax) * 0.16;
+      profitBrut = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
+      impProfitBrut = parseFloat(profitBrut) * 0.16;
+      profitNetBfTax = parseFloat(restPlata) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(impProfitBrut);
+      impProfitNet = parseFloat(profitNetBfTax) * 0.16;
       valPensie = parseFloat(venitAsigurat) * 0.25;
       if (selPensie === 1) {
-        if (venitNetBfTax >= salMin) {
+        if (profitNetBfTax >= salMin) {
           contrPensie = parseFloat(salMin) * 0.25 + parseFloat(valPensie);
         }
         else {
@@ -108,14 +108,14 @@
         contrPensie = parseFloat(valPensie);
       }
       pragSanat = parseFloat(salMin) * 6 / 12;
-      if (venitNetBfTax >= parseFloat(pragSanat)) {
+      if (profitNetBfTax >= parseFloat(pragSanat)) {
         contrSanat = parseFloat(salMin) * 6 / 12 * 0.1;
       } else {
         contrSanat = parseFloat(salMin) * 6 / 12 * 0.1;
       }
-      venitNetAfTax = parseFloat(venitNetBfTax) + parseFloat(bacsisCash) - parseFloat(impVenitNet) - parseFloat(contrPensie) - parseFloat(contrSanat);
+      profitNetAfTax = parseFloat(profitNetBfTax) + parseFloat(bacsisCash) - parseFloat(impProfitNet) - parseFloat(contrPensie) - parseFloat(contrSanat);
       totalIncasariPerOra = parseFloat(totalIncasari) / parseFloat(orePerLuna);
-      venitNetPerOra = parseFloat(venitNetAfTax) / parseFloat(orePerLuna);
+      venitNetPerOra = parseFloat(profitNetAfTax) / parseFloat(orePerLuna);
       procVenitNetPerOra = parseFloat(venitNetPerOra) / parseFloat(totalIncasariPerOra) * 100;
       procVenitNetPerOraDisplay = parseFloat(procVenitNetPerOra).toFixed(2) + '%';
       totalIncasariPerNorma = parseFloat(totalIncasariPerOra) * parseFloat(oreNorma);
@@ -133,13 +133,13 @@
       restPlataRes.innerHTML = parseFloat(restPlata).toFixed(0);
       valCombustibilRes.innerHTML = parseFloat(valCombustibil).toFixed(0);
       valContabilitateRes.innerHTML = parseFloat(valContabilitate).toFixed(0);
-      venitImpRes.innerHTML = parseFloat(venitImp).toFixed(0);
-      impVenitImpRes.innerHTML = parseFloat(impVenitImp).toFixed(0);
-      venitNetBfTaxRes.innerHTML = parseFloat(venitNetBfTax).toFixed(0);
-      impVenitNetRes.innerHTML = parseFloat(impVenitNet).toFixed(0);
+      profitBrutRes.innerHTML = parseFloat(profitBrut).toFixed(0);
+      impProfitBrutRes.innerHTML = parseFloat(impProfitBrut).toFixed(0);
+      profitNetBfTax.innerHTML = parseFloat(profitNetBfTax).toFixed(0);
+      impProfitNetRes.innerHTML = parseFloat(impProfitNet).toFixed(0);
       contrPensieRes.innerHTML = parseFloat(contrPensie).toFixed(0);
       contrSanatRes.innerHTML = parseFloat(contrSanat).toFixed(0);
-      venitNetAfTaxRes.innerHTML = parseFloat(venitNetAfTax).toFixed(0);
+      profitNetAfTaxRes.innerHTML = parseFloat(profitNetAfTax).toFixed(0);
       totalIncasariPerOraRes.innerHTML = parseFloat(totalIncasariPerOra).toFixed(2);
       venitNetPerOraRes.innerHTML = parseFloat(venitNetPerOra).toFixed(2);
       procVenitNetPerOraDisplayRes.innerHTML = procVenitNetPerOraDisplay;
@@ -376,13 +376,13 @@
     <b>Rest plată: <span id="restPlata"></span></b><br />
     Combustibil: <span id="valCombustibil"></span><br />
     Contabilitate: <span id="valContabilitate"></span><br />
-    <b>Profit brut: <span id="venitImp"></span></b><br />
-    Impozit, pe profit brut: <span id="impVenitImp"></span><br />
-    <b>Profit net, înainte de taxe: <span id="venitNetBfTax"></span></b><br />
+    <b>Profit brut: <span id="profitBrut"></span></b><br />
+    Impozit, pe profit brut: <span id="impProfitBrut"></span><br />
+    <b>Profit net, înainte de taxe: <span id="profitNetBfTax"></span></b><br />
     Pensie: <span id="contrPensie"></span><br />
     Sănătate: <span id="contrSanat"></span><br />
-    Impozit, pe profit net: <span id="impVenitNet"></span><br />
-    <b>Profit net, după taxe: <span id="venitNetAfTax"></span></b><br /><br />
+    Impozit, pe profit net: <span id="impProfitNet"></span><br />
+    <b>Profit net, după taxe: <span id="profitNetAfTax"></span></b><br /><br />
     Total încasări per oră: <span id="totalIncasariPerOra"></span><br />
     Venit net per oră: <span id="venitNetPerOra"></span><br />
     Procentaj: <span id="procVenitNetPerOraDisplay"></span><br /><br />
