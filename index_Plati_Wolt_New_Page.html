@@ -15,6 +15,7 @@
       valBonusCastig = Number(document.getElementById('valBonusCastig').value);
       valBonus = Number(document.getElementById('valBonus').value);
       valTips = Number(document.getElementById('valTips').value);
+      valTranzMan = Number(document.getElementById('valTranzMan').value);
       valCim = Number(document.getElementById('valCim').value);
       valSelfPay = Number(document.getElementById('valSelfPay').value);
       valAdaosuri = Number(document.getElementById('valAdaosuri').value);
@@ -51,7 +52,7 @@
       valSelfPayDisplay = parseFloat(valSelfPay);
       valAdaosuriDisplay = parseFloat(valAdaosuri);
       valDeduceriDisplay = parseFloat(valDeduceri);
-      valVenitFaraBacsis = parseFloat(valVenitAgent) + parseFloat(valBonusCastig) + parseFloat(valBonus);
+      valVenitFaraBacsis = parseFloat(valVenitAgent) + parseFloat(valBonusCastig) + parseFloat(valBonus) + parseFloat(valTranzMan);
       valComision = parseFloat(valVenitFaraBacsis) * 0.14;
       valTaxaOperat = parseFloat(valVenitFaraBacsis) * 0.0149 * 1.21;
       valRestPlata = parseFloat(valVenitFaraBacsis) + parseFloat(valTips) - parseFloat(valComision) -
@@ -77,6 +78,7 @@
   Venit garantat: ${valBonusCastigDisplay.toFixed(2)}<br />
   Bonus: ${valBonusDisplay.toFixed(2)}<br />
   Bacșiș: ${valTipsDisplay.toFixed(2)}<br />
+  Tranzacții manuale: ${valTranzMan.toFixed(2)}<br />
   Comision: ${valComision.toFixed(2)}<br />
   Taxă operațională: ${valTaxaOperat.toFixed(2)}<br />
   CIM: ${valCimDisplay.toFixed(2)}<br />
@@ -110,6 +112,7 @@
     Venit garantat: <input type="number" id="valBonusCastig" value="" style="width: 31px"><br />
     Bonus: <input type="number" id="valBonus" value="" style="width: 31px"><br />
     Bacșiș: <input type="number" id="valTips" value="" style="width: 31px"><br />
+    Tranzacții manuale: <input type="number" id="valTranzMan" value="" style="width: 31px"><br />
     CIM: <input type="number" id="valCim" value="0" style="width: 31px"><br />
     Balanță cash: <input type="number" id="valSelfPay" value="0" style="width: 31px"><br />
     Adaosuri: <input type="number" id="valAdaosuri" value="0" style="width: 31px"><br />

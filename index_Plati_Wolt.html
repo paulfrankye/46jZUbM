@@ -15,6 +15,7 @@
       valBonusCastig = Number(document.getElementById('valBonusCastig').value);
       valBonus = Number(document.getElementById('valBonus').value);
       valTips = Number(document.getElementById('valTips').value);
+      valTranzMan = Number(document.getElementById('valTranzMan').value);
       valCIM = Number(document.getElementById('valCIM').value);
       valSelfPay = Number(document.getElementById('valSelfPay').value);
       valAdaosuri = Number(document.getElementById('valAdaosuri').value);
@@ -35,7 +36,7 @@
 
       // Formulas
 
-      valVenitFaraBacsis = parseFloat(valVenitAgent) + parseFloat(valBonusCastig) + parseFloat(valBonus);
+      valVenitFaraBacsis = parseFloat(valVenitAgent) + parseFloat(valBonusCastig) + parseFloat(valBonus) + parseFloat(valTranzMan);
       valComision = parseFloat(valVenitFaraBacsis) * 0.14;
       valTaxaOperat = parseFloat(valVenitFaraBacsis) * 0.0149 * 1.21;
       valRestPlata = parseFloat(valVenitFaraBacsis) + parseFloat(valTips) - parseFloat(valComision) - parseFloat(valTaxaOperat) - parseFloat(valCIM) - parseFloat(valSelfPay) + parseFloat(valAdaosuri) - parseFloat(valDeduceri);
@@ -69,6 +70,7 @@
     Venit garantat: <input type="number" id="valBonusCastig" value="" style="width: 31px"><br />
     Bonus: <input type="number" id="valBonus" value="" style="width: 31px"><br />
     Bacșiș: <input type="number" id="valTips" value="" style="width: 31px"><br />
+    Tranzacții manuale: <input type="number" id="valTranzMan" value="" style="width: 31px"><br />
     CIM: <input type="number" id="valCIM" value="0" style="width: 31px"><br />
     Balanță cash: <input type="number" id="valSelfPay" value="0" style="width: 31px"><br />
     Adaosuri: <input type="number" id="valAdaosuri" value="0" style="width: 31px"><br />
