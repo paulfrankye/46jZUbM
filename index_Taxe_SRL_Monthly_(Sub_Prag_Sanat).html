@@ -7,66 +7,61 @@
 
   <script>
 
-    function venitNetCalc() {
+    function profitNetCalc() {
 
       // Inputs
 
       venitBrutVar = Number(document.getElementById('venitBrut').value);
       cheltAutoVar = Number(document.getElementById('cheltAuto').value);
       cheltAlteleVar = Number(document.getElementById('cheltAltele').value);
-      incasCashVar = Number(document.getElementById('incasCash').value);
 
       // Vars
 
-      var venitImp;
-      var venitNetBfTax;
-      var impVenitImp;
-      var impVenitNet;
+      var profitBrut;
+      var profitNetBfTax;
+      var impProfitBrut;
+      var impProfitNet;
       var salMin;
       var pragSanat;
       var contrSanat;
       var valTaxe;
-      var venitNetAfTax;
-      var procVenitNet;
-      var procVenitNetDisplay;
+      var profitNetAfTax;
 
       // Results
 
-      var venitImpRes = document.getElementById('venitImp');
-      var venitNetBfTaxRes = document.getElementById('venitNetBfTax');
-      var impVenitImpRes = document.getElementById('impVenitImp');
-      var impVenitNetRes = document.getElementById('impVenitNet');
+      var profitBrutRes = document.getElementById('profitBrut');
+      var profitNetBfTaxRes = document.getElementById('profitNetBfTax');
+      var impProfitBrutRes = document.getElementById('impProfitBrut');
+      var impProfitNetRes = document.getElementById('impProfitNet');
       var contrSanatRes = document.getElementById('contrSanat');
-      var venitNetAfTaxRes = document.getElementById('venitNetAfTax');
-      var procVenitNetDisplayRes = document.getElementById('procVenitNet');
+      var valTaxeRes = document.getElementById('valTaxe');
+      var profitNetAfTaxRes = document.getElementById('profitNetAfTax');
 
       // Formulas
 
-      venitImp = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) * 0.5 - parseFloat(cheltAlteleVar);
-      venitNetBfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar);
-      impVenitImp = parseFloat(venitImp) * 0.16;
-      impVenitNet = parseFloat(venitNetBfTax) * 0.10;
+      profitBrut = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) * 0.5 - parseFloat(cheltAlteleVar);
+      profitNetBfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar);
+      impProfitBrut = parseFloat(profitBrut) * 0.16;
+      impProfitNet = parseFloat(profitNetBfTax) * 0.10;
       salMin = 4050;
       pragSanat = parseFloat(salMin) * 6 / 12;
-      if (venitNetBfTax >= parseFloat(pragSanat)) {
+      if (profitNetBfTax >= parseFloat(pragSanat)) {
         contrSanat = 0;
       } else {
         contrSanat = 0;
       }
-      valTaxe = parseFloat(impVenitImp) + parseFloat(impVenitNet) + parseFloat(contrSanat)
-      venitNetAfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar) - parseFloat(valTaxe) + parseFloat(incasCashVar);
-      procVenitNet = parseFloat(venitNetAfTax) / (parseFloat(venitBrutVar) + parseFloat(incasCashVar)) * 100;
-      procVenitNetDisplay = parseFloat(procVenitNet).toFixed(2) + '%';
+      valTaxe = parseFloat(impProfitBrut) + parseFloat(impProfitNet) + parseFloat(contrSanat)
+      profitNetAfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar) - parseFloat(valTaxe);
 
       // Display
 
-      venitImpRes.innerHTML = Math.trunc(venitImp);
-      venitNetBfTaxRes.innerHTML = Math.trunc(venitNetBfTax);
-      impVenitImpRes.innerHTML = Math.trunc(impVenitImp);
-      impVenitNetRes.innerHTML = Math.trunc(impVenitNet);
+      profitBrutRes.innerHTML = Math.trunc(profitBrut);
+      profitNetBfTaxRes.innerHTML = Math.trunc(profitNetBfTax);
+      impProfitBrutRes.innerHTML = Math.trunc(impProfitBrut);
+      impProfitNetRes.innerHTML = Math.trunc(impProfitNet);
       contrSanatRes.innerHTML = Math.trunc(contrSanat);
-      venitNetAfTaxRes.innerHTML = Math.trunc(venitNetAfTax);
-      procVenitNetDisplayRes.innerHTML = procVenitNetDisplay;
+      valTaxeRes.innerHTML = Math.trunc(valTaxe);
+      profitNetAfTaxRes.innerHTML = Math.trunc(profitNetAfTax);
 
     }
 
@@ -92,17 +87,17 @@
     Cheltuieli, auto: <input type="number" id="cheltAuto" value="" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Cheltuieli, altele: <input type="number" id="cheltAltele" value="" style="width: 31px"
-      oninput="if (this.value < 0) { this.value = 0 }"><br />
-    Încasări, cash: <input type="number" id="incasCash" value="" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"> <input type="button" id="sub" value="Submit"
-      onclick="venitNetCalc()"><br />
-    <b>Venit impozabil: <span id="venitImp"></span></b><br />
-    Impozit, pe venit impozabil: <span id="impVenitImp"></span><br />
-    <b>Venit net, înainte de taxe: <span id="venitNetBfTax"></span></b><br />
-    Impozit, pe venit net: <span id="impVenitNet"></span><br />
+      onclick="profitNetCalc()"><br />
+    <b>Profit brut: <span id="profitBrut"></span></b><br />
+    Impozit, pe profit brut: <span id="impProfitBrut"></span><br />
+    <b>Profit net, înainte de taxe: <span id="profitNetBfTax"></span></b><br />
+    Impozit, pe profit net: <span id="impProfitNet"></span><br />
     Sănătate: <span id="contrSanat"></span><br />
-    <b>Venit net, după taxe: <span id="venitNetAfTax"></span></b><br />
-    Procentaj: <span id="procVenitNet"></span><br />
+    <b>Profit net, după taxe: <span id="profitNetAfTax"></span></b><br />
+    Taxe: <span id="valTaxe"></span><br /><br />
+    <a href="index_Taxe_SRL_Monthly_(Sub_Prag_Sanat).html">index_Taxe_SRL_Monthly_(Sub_Prag_Sanat).html</a><br />
+    <a href="index_Taxe_SRL_Monthly_(Peste_Prag_Sanat).html">index_Taxe_SRL_Monthly_(Peste_Prag_Sanat).html</a><br />
   </form>
 
 </body>
