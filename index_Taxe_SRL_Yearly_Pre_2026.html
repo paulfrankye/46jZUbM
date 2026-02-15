@@ -46,7 +46,7 @@
       profitBrut = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) * 0.5 - parseFloat(cheltAlteleVar);
       impProfitBrut = parseFloat(profitBrut) * 0.16;
       profitNetBfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar) - parseFloat(impProfitBrut);
-      impProfitNet = parseFloat(profitNetBfTax) * 0.16;
+      impProfitNet = parseFloat(profitNetBfTax) * 0.1;
       pragSanat = parseFloat(salMin) * 6;
       if (parseFloat(profitNetBfTax) >= parseFloat(pragSanat)) {
         contrSanat = parseFloat(profitNetBfTax) * 0.1;
@@ -103,7 +103,6 @@
     <b>Profit net, după taxe: <span id="profitNetAfTax"></span></b><br />
     Taxe: <span id="valTaxe"></span><br />
     Procentaj: <span id="procTaxeDisplay"></span><br /><br />
-    <a href="index_Taxe_SRL_Yearly_Pre_2026.html">index_Taxe_SRL_Yearly_Pre_2026.html</a><br />
   </form>
 
 </body>
