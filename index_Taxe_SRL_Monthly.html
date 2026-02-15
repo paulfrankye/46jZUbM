@@ -26,6 +26,8 @@
       var contrSanat;
       var valTaxe;
       var profitNetAfTax;
+      var procTaxe;
+      var procTaxeDisplay;
 
       // Results
 
@@ -36,6 +38,7 @@
       var contrSanatRes = document.getElementById('contrSanat');
       var valTaxeRes = document.getElementById('valTaxe');
       var profitNetAfTaxRes = document.getElementById('profitNetAfTax');
+      var procTaxeDisplayRes = document.getElementById('procTaxeDisplay');
 
       // Formulas
 
@@ -52,6 +55,8 @@
       }
       valTaxe = parseFloat(impProfitBrut) + parseFloat(impProfitNet) + parseFloat(contrSanat);
       profitNetAfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar) - parseFloat(valTaxe);
+      procTaxe = parseFloat(valTaxe) / parseFloat(venitBrutVar) * 100;
+      procTaxeDisplay = parseFloat(procTaxe).toFixed(2) + '%';
 
       // Display
 
@@ -62,6 +67,7 @@
       contrSanatRes.innerHTML = Math.trunc(contrSanat);
       valTaxeRes.innerHTML = Math.trunc(valTaxe);
       profitNetAfTaxRes.innerHTML = Math.trunc(profitNetAfTax);
+      procTaxeDisplayRes.innerHTML = procTaxeDisplay;
 
     }
 
@@ -95,7 +101,8 @@
     Impozit, pe profit net: <span id="impProfitNet"></span><br />
     Sănătate: <span id="contrSanat"></span><br />
     <b>Profit net, după taxe: <span id="profitNetAfTax"></span></b><br />
-    Taxe: <span id="valTaxe"></span><br /><br />
+    Taxe: <span id="valTaxe"></span><br />
+    Procentaj: <span id="procTaxeDisplay"></span><br /><br />
     <a href="index_Taxe_SRL_Monthly_(Sub_Prag_Sanat).html">index_Taxe_SRL_Monthly_(Sub_Prag_Sanat).html</a><br />
     <a href="index_Taxe_SRL_Monthly_(Peste_Prag_Sanat).html">index_Taxe_SRL_Monthly_(Peste_Prag_Sanat).html</a><br />
   </form>
