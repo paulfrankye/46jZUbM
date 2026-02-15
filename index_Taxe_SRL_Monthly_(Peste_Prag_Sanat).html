@@ -43,7 +43,7 @@
       profitBrut = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) * 0.5 - parseFloat(cheltAlteleVar);
       impProfitBrut = parseFloat(profitBrut) * 0.16;
       profitNetBfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar) - parseFloat(impProfitBrut);
-      impProfitNet = parseFloat(profitNetBfTax) * 0.10;
+      impProfitNet = parseFloat(profitNetBfTax) * 0.16;
       pragSanat = parseFloat(salMin) * 6 / 12;
       if (profitNetBfTax >= parseFloat(pragSanat)) {
         contrSanat = parseFloat(profitNetBfTax) * 0.1;
