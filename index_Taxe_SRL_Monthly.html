@@ -40,8 +40,8 @@
       // Formulas
 
       profitBrut = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) * 0.5 - parseFloat(cheltAlteleVar);
-      profitNetBfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar);
       impProfitBrut = parseFloat(profitBrut) * 0.16;
+      profitNetBfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar) - parseFloat(impProfitBrut);
       impProfitNet = parseFloat(profitNetBfTax) * 0.10;
       salMin = 4050;
       pragSanat = parseFloat(salMin) * 6 / 12;
