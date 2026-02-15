@@ -47,9 +47,9 @@
       impProfitBrut = parseFloat(profitBrut) * 0.16;
       profitNetBfTax = parseFloat(venitBrutVar) - parseFloat(cheltAutoVar) - parseFloat(cheltAlteleVar) - parseFloat(impProfitBrut);
       impProfitNet = parseFloat(profitNetBfTax) * 0.16;
-      pragSanat = parseFloat(salMin) * 6 / 12;
+      pragSanat = parseFloat(salMin) * 6;
       if (parseFloat(profitNetBfTax) >= parseFloat(pragSanat)) {
-        contrSanat = 0;
+        contrSanat = parseFloat(profitNetBfTax) * 0.1;
       } else {
         contrSanat = 0;
       }
@@ -103,6 +103,8 @@
     <b>Profit net, după taxe: <span id="profitNetAfTax"></span></b><br />
     Taxe: <span id="valTaxe"></span><br />
     Procentaj: <span id="procTaxeDisplay"></span><br /><br />
+    <a href="index_Taxe_SRL_Monthly_(Sub_Prag_Sanat).html">index_Taxe_SRL_Monthly_(Sub_Prag_Sanat).html</a><br />
+    <a href="index_Taxe_SRL_Monthly_(Peste_Prag_Sanat).html">index_Taxe_SRL_Monthly_(Peste_Prag_Sanat).html</a><br />
   </form>
 
 </body>
