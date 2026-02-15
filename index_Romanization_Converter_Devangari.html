@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<title>Romanization Converter</title>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+<link rel="shortcut icon" type="sdweb/image/x-icon" href="sdlogo_icon.png">
+<script src="https://survey.gov.lk/RomanizationConverter/script.js"></script>
+<style>
+	#sinhaladiv {
+
+		display: none;
+
+	}
+
+	.dropbtn {
+		background-color: #4CAF50;
+		color: white;
+		padding: 16px;
+		font-size: 16px;
+		border: none;
+	}
+
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #fff;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+	}
+
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown-content a:hover {
+		background-color: #ddd;
+	}
+
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+
+	.dropdown:hover .dropbtn {
+		background-color: #3e8e41;
+	}
+
+	#htmlEncode1 {
+
+		display: none;
+
+	}
+
+	#convertNow1 {
+
+		display: none;
+
+	}
+</style>
+<script>
+	function changelanguagesin() {
+		var x = document.getElementById("sinhaladiv").style.display = "none";
+		var y = document.getElementById("romanizeddiv").style.display = "block";
+	}
+
+	function changelanguageroman() {
+		var x = document.getElementById("sinhaladiv").style.display = "block";;
+		var y = document.getElementById("romanizeddiv").style.display = "none";;
+	}
+
+	function clearitem() {
+		var x = document.getElementById("input").value = '';
+		var y = document.getElementById("output").value = '';
+		var z = document.getElementById("input").value = '';
+		var a = document.getElementById("output	").value = '';
+	}
+
+	function myFunctioncopy1() {
+		var copyText1 = document.getElementById("output1");
+		copyText1.select();
+		copyText1.setSelectionRange(0, 99999)
+		document.execCommand("copy");
+		//alert("Copied the text: " + copyText1.value);
+	}
+
+	function myFunctioncopy2() {
+		var copyText2 = document.getElementById("output");
+		copyText2.select();
+		copyText2.setSelectionRange(0, 99999)
+		document.execCommand("copy");
+		//alert("Copied the text: " + copyText2.value);
+	}
+
+</script>
+
+<body>
+	<script src="devanagari.js"></script>
+	<form name="Form1">
+		<div id='romanizeddiv'>
+			<table border='0'>
+				<tr>
+					<td><b>Roman Script:</b></td>
+				</tr>
+				<tr>
+					<td width="300">
+						<textarea name="ascii" type="text" style='resize: none;' rows="5" cols="50"
+							onkeyup="javascript:convert();"></textarea>
+					</td>
+
+				</tr>
+				<tr>
+					<td><button onclick='clearitem()'>Clear</button></td>
+				<tr>
+					<td><b>Devanagari Script:</b></td>
+				</tr>
+				<tr>
+					<td width="300"><textarea rows="5" cols="50" style='resize: none;' name="unicode" id="output1"
+							readonly></textarea>
+						<span id="htmlEncode1">
+							<select onchange="javascript:convert();" name="htmlEncode">
+								<option value="false" selected="selected">Readable Unicode </option>
+								<option value="true">HTML Encoded Unicode</option>
+							</select>
+						</span><span id="convertNow1">
+							<input disabled
+								onclick="javascript:translate(Form1.ascii, Form1.unicode, eval(Form1.htmlEncode.value), Form1.smartConverter_.checked);"
+								value="Convert" name="convertNow" type="hidden">
+							<input onclick="javascript:smartConverter(Form1.smartConverter_.checked);convert();"
+								checked="checked" name="smartConverter_" value="ON" type="checkbox">
+							Smart Converter</span>
+					</td>
+				</tr>
+				<tr>
+					<td><button onclick='myFunctioncopy1()'>Copy</button></td>
+				</tr>
+				<tr>
+					<td width="54"><img src='https://survey.gov.lk/RomanizationConverter/images.png' width='80px'
+							height='auto' title='Change Language' onclick='changelanguageroman()' /></td>
+				</tr>
+			</table>
+		</div>
+	</form>
+
+	<script
+		language="javascript"> function selectAll(txtbox) { if (txtbox.createTextRange)  /*IE*/ { t = txtbox.createTextRange(); if (t.select) t.select(); if (t.execCommand) t.execCommand('copy'); } if (txtbox.setSelectionRange) /*Mozilla*/ { txtbox.setSelectionRange(0, txtbox.value.length); } else if (txtbox.createTextRange) /*Opera 8*/ { var r = txtbox.createTextRange(); r.select(); } if (txtbox.focus) txtbox.focus(); } var liveConverstion; function clearInput() { if (Form1.ascii.value.length < 30 || confirm("Are you sure you want to clear what you typed?")) { Form1.ascii.value = ""; Form1.unicode.value = ""; Form1.ascii.focus(); } } function convertLive(flag) { if (flag) { if (Form1.ascii.value.length > 10) { alert("The text is too large for live conversion."); Form1.convertItLive[1].checked = true; return convertLive(false); } Form1.convertNow.disabled = true; translate(Form1.ascii, Form1.unicode, eval(Form1.htmlEncode.value), Form1.smartConverter_.checked); liveConversion = true; } else { Form1.convertNow.disabled = false; liveConversion = false; } } function convert() { if (liveConversion == true && Form1.ascii.value.length <= 1500) { translate(Form1.ascii, Form1.unicode, eval(Form1.htmlEncode.value), Form1.smartConverter_.checked); } else if (liveConversion == true && Form1.ascii.value.length > 1500) convertLive(true); } smartConverter(true); translate(Form1.ascii, Form1.unicode, eval(Form1.htmlEncode.value), Form1.smartConverter_.checked); Form1.ascii.focus(); convertLive(true); </script>
+
+	<div id='sinhaladiv'>
+		<table border='0'>
+			<tr>
+				<td><b>Devanagari Script:</b></td>
+			</tr>
+			<tr>
+				<td width="300"><textarea id="input" type="text" style='resize: none;' rows="5" cols="50"></textarea>
+					<div id="separate"></div>
+					<div id="combine"></div>
+					<div id="btninput"></div>
+				</td>
+
+			</tr>
+			<tr>
+				<td><button onclick='clearitem()'>Clear</button></td>
+			<tr>
+				<td><b>Roman Script:</b></td>
+			</tr>
+			<tr>
+				<td width="300"><textarea rows="5" cols="50" style='resize: none;' id="output" readonly></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td><button onclick='myFunctioncopy2()'>Copy</button></td>
+			</tr>
+			<tr>
+				<td width="54"><img src='https://survey.gov.lk/RomanizationConverter/images.png' width='80px'
+						height='auto' title='Change Language' onclick='changelanguagesin()' /></td>
+			</tr>
+		</table>
+	</div>
+
+	<script>
+		(function () { indexOf = function (e, n) { var m = e.length; for (var l = 0; l < m; l++) { if (e[l] == n) { return l } } return -1 }; document.getElementById("btninput").onclick = function (l) { b() }; document.getElementById("input").onkeyup = function (l) { b() }; document.getElementById("separate").onclick = function (l) { k(); b() }; document.getElementById("combine").onclick = function (l) { a(); b() }; function d(e) { if (e == 9 || e == 10 || e == 13 || e == 32) { return true } return false } function k() { var m = document.getElementById("input").value; var p = m.length; if (p < 2) { return } var o = m.charCodeAt(0); var q = m.charAt(0); var e, n; for (var l = 1; l < p; l++) { if (d(o) == false && d(m.charCodeAt(l)) == false) { e = m.charCodeAt(l - 1); n = m.charCodeAt(l); if (e < 56320 && 55295 < e && n < 57344 && 56319 < n) { } else { q += " " } } o = m.charCodeAt(l); q += m.charAt(l) } document.getElementById("input").value = q } function a() { var e = document.getElementById("input").value; document.getElementById("input").value = e.replace(/\u0020/g, "") } function b() { var m = document.getElementById("input").value; m = j.normalize(m); var n = m.length; if (n == 0) { document.getElementById("output").value = ""; document.getElementById("reading").innerHTML = ""; return } var o = j.convert(m); j.customize(o); document.getElementById("output").value = o.join(""); var e = ""; for (var l = 0; l < n; l++) { e += "<rb>" + o[l] + "</rb><rp>(</rp><rt>" + m.charAt(l) + "</rt><rp>)</rp> " } document.getElementById("reading").innerHTML = "<ruby>" + e + "</ruby>" } var j = { mapping: { "ळ": "ḷa", "ᳶ": "ḫa", "ऱ": "ṟa", "ऴ": "ḻa", "य़": "ẏa", "ᳵ": "ẖa", "ं": "ṁ", "ऩ": "ṉa", "अ": "a", "आ": "ā", "ा": "ā", "इ": "i", "ि": "i", "ई": "ī", "ी": "ī", "उ": "u", "ु": "u", "ऊ": "ū", "ू": "ū", "े": "ē", "ए": "ē", "ै": "ai", "ऐ": "ai", "ओ": "ō", "ो": "ō", "औ": "au", "ौ": "au", "ृ": "r̥", "ऋ": "r̥", "ॠ": "r̥̄", "ॄ": "r̥̄", "ॢ": "l̥", "ऌ": "l̥", "ॡ": "l̥̄", "ॣ": "l̥̄", "अं": "ṁ", "अः": "ḥ", "ः": "ḥ", "ँ": "m̐", "अँ": "m̐", "ऽ": "’", "क": "ka", "ख": "kha", "ग": "ga", "घ": "gha", "ङ": "ṅa", "च": "ca", "छ": "cha", "ज": "ja", "झ": "jha", "ञ": "ña", "ट": "ṭa", "ठ": "ṭha", "ड": "ḍa", "ढ": "ḍha", "ण": "ṇa", "त": "ta", "थ": "tha", "द": "da", "ध": "dha", "न": "na", "प": "pa", "फ": "pha", "ब": "ba", "भ": "bha", "म": "ma", "य": "ya", "र": "ra", "ल": "la", "व": "va", "श": "śa", "ष": "ṣa", "स": "sa", "ह": "ha", "क्ष": "kṣa", "त्र": "tra", "ज्ञ": "jña", "श्र": "śra", "क़": "qa", "ख़": "k͟ha", "ग़": "ġa", "ज़": "za", "फ़": "fa", "ड़": "ṛa", "ढ़": "ṛh", "०": "0", "१": "1", "२": "2", "३": "3", "४": "4", "५": "5", "६": "6", "७": "7", "८": "8", "९": "9", "।": ".", "॥": ".", "॰": ".", "ऍ": "ê", "ॲ": "ê", "ॅ": "ê", "ॉ": "ô", "ऑ": "ô", "ॆ": "e", "ऎ": "e", "ऒ": "o", }, convert: function (o) { var m = o.length; if (m == 0) { return "" } var n = []; var e; for (var l = 0; l < m; l++) { e = o.charAt(l); if (this.mapping[e]) { n.push(this.mapping[e]) } else { n.push(e) } } return n }, customize: function (e) { }, normalize: function (e) { return e } }; j.normalize = function (l) { var e = l.replace(/\u0915\u093c/g, "\u0958"); e = e.replace(/\u0916\u093c/g, "\u0959"); e = e.replace(/\u0917\u093c/g, "\u095a"); e = e.replace(/\u091c\u093c/g, "\u095b"); e = e.replace(/\u092b\u093c/g, "\u095e"); e = e.replace(/\u0921\u093c/g, "\u095c"); e = e.replace(/\u0922\u093c/g, "\u095d"); e = e.replace(/\u0933\u093c/g, "\u0934"); e = e.replace(/\u092f\u093c/g, "\u095f"); e = e.replace(/\u0930\u093c/g, "\u0931"); e = e.replace(/\u0928\u093c/g, "\u0929"); e = e.replace(/\u25cc\u0902/g, "\u093a"); return e }; j.customize = function (m) { var l = m.length; for (var e = 0; e < l; e++) { if (m[e] == "\u1e41" && (e + 1) < l) { switch (m[e + 1]) { case "ka": case "kha": case "ga": case "gha": case "\u1e45a": m[e] = "\u1e45"; break; case "ca": case "cha": case "ja": case "jha": case "\u00f1a": m[e] = "\u00f1"; break; case "\u1e6da": case "\u1e6dha": case "\u1e0da": case "\u1e0dha": case "\u1e47a": m[e] = "\u1e47"; break; case "ta": case "tha": case "da": case "dha": case "na": m[e] = "n"; break; case "pa": case "pha": case "ba": case "bha": case "ma": m[e] = "m"; break } } if (e > 0 && /.+a$/.test(m[e - 1])) { if (m[e] == "\u094d") { m[e - 1] = m[e - 1].replace("a", ""); m[e] = "" } else { if (/^(\u0101|\u0069|\u012b|\u0075|\u016b|\u0113|\u0061\u0069|\u014d|\u0061\u0075|\u0072\u0325|\u0072\u0325\u0304|\u006c\u0325|\u006c\u0325\u0304|\u1e41|\u1e25|\u006d\u0310|\u2019)$/i.test(m[e])) { m[e - 1] = m[e - 1].replace("a", "") } } } } }; var h = false; try { var f = "item"; localStorage.setItem(f, f); localStorage.removeItem(f); h = true } catch (c) { } var g = false; try { var i = JSON.parse(JSON.stringify({ item: "item" })); if (i.item == "item") { g = true } } catch (c) { } })();
+	</script>
+
+</body>
+
+</html>
