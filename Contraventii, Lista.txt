@@ -2,9 +2,9 @@ Oprirea interzisă - Clasa I (Art. 99, alin. 2; Art. 108, alin. 1, lit. a, pct. 
 
 Staționarea interzisă - Clasa II (Art. 100, alin. 2; Art. 108, alin. 1, lit. b, pct. 7) - Puncte amenda - De la 4 la 5 pct. (400 RON)
 
-Mers cu 60 km/h - Clasa I (Art. 99, alin. 2; Art. 108, alin. 1, lit. a, pct. 4) - Puncte amenda - De la 2 la 3 pct. (200 RON)
+Mersul cu 60 km/h - Clasa I (Art. 99, alin. 2; Art. 108, alin. 1, lit. a, pct. 4) - Puncte amenda - De la 2 la 3 pct. (200 RON)
 
-Mers cu 70 km/h - Clasa II (Art. 100, alin. 2; Art. 108, alin. 1, lit. b, pct. 2) - Puncte amenda - De la 4 la 5 pct. (400 RON)
+Mersul cu 70 km/h - Clasa II (Art. 100, alin. 2; Art. 108, alin. 1, lit. b, pct. 2) - Puncte amenda - De la 4 la 5 pct. (400 RON)
 
 Mersul înapoi prin intersecție - Clasa I (Art. 99, alin. 2; Art. 108, alin. 1, lit. a, pct. 6) - Puncte amenda - De la 2 la 3 pct. (200 RON)
 
@@ -18,9 +18,9 @@ Neacordare de prioritate - Clasa III (Art. 101, alin. 3, pct. f) - Puncte amenda
 
 Alcoolemie sub pragul de 0,40 mg/l in aerul expirat - Clasa IV (Art. 102, alin. 3, pct. a; Art. 88, alin. 5 și 6; Art. 336, alin. 1 din Legea 286/2009) - Puncte amenda - De la 9 la 20 pct. (900 RON) - Suspendare permis - 90 zile
 
-Banda rezervata mijloace de transport în comun - Clasa III (Art. 101, alin. 1, pct. 6) - Puncte amenda - De la 6 la 8 pct. (600 RON)
+Bandă rezervată mijloace de transport în comun - Clasa III (Art. 101, alin. 1, pct. 6) - Puncte amenda - De la 6 la 8 pct. (600 RON)
 
-Faza lungă - Clasa I (Art. 99, alin. 2; Art. 108, alin. 1, pct. a) - Puncte amenda - De la 2 la 3 pct. (200 RON)
+Mersul cu fază lungă - Clasa I (Art. 99, alin. 2; Art. 108, alin. 1, pct. a) - Puncte amenda - De la 2 la 3 pct. (200 RON)
 
 Trusă medicala - Clasa II (Art. 100, alin. 1, pct. 13) - Puncte amenda - De la 4 la 5 pct. (400 RON)
 
@@ -28,9 +28,9 @@ Mersul înapoi, Întoarcerea, Schimbarea benzii, Schimbarea direcției de mers -
 
 Mersul pe sens opus - Clasa III (Art. 101, alin. 3, pct. d) - Puncte amenda - De la 6 la 8 pct. (600 RON) - Suspendare permis - 60 zile
 
-Nedeclararea accidentului - Clasa II (Art. 79, alin. 1, lit. b; Art. 100, alin. 3, lit. g) - Puncte amendă - De la 4 la 5 pct. (400 RON) - Suspendare permis - 30 zile
+Nedeclararea accidentului în termen de 24 ore - Clasa II (Art. 79, alin. 1, lit. b; Art. 100, alin. 3, lit. g) - Puncte amendă - De la 4 la 5 pct. (400 RON) - Suspendare permis - 30 zile
 
-Necomunicarea persoanei - Clasa V (Art. 102, alin. 1, pct. 14) - Puncte amendă - De la 21 la 100 pct. (2100 RON)
+Necomunicarea persoanei care a condus vehiculul - Clasa V (Art. 102, alin. 1, pct. 14) - Puncte amendă - De la 21 la 100 pct. (2100 RON)
 
 Nepăstrarea distanței (Vehicul precedent) - Clasa II (Art. 108, alin. 1, lit. b, pct. 4; Art. 100, alin. 2) - Puncte amendă - De la 4 la 5 pct. (400 RON)
 
@@ -39,3 +39,5 @@ Nepăstrarea distanței (Sens opus) - Clasa III (Art. 101, alin. 1, pct. 5) - Pu
 Trecere la semafor pe culoarea galbenă - Clasa I (Art. 99, alin. 1, pct. 15) - Puncte amendă - De la 2 la 3 pct. (200 RON)
 
 Conducere cu plăcuțele cu numărul de înmatriculare murdare - Clasa I (Art. 99, alin. 1, pct. 16) - Puncte amendă - De la 2 la 3 pct. (200 RON)
+
+Depășirea interzisă - Clasa III (Art. 101, alin. 3, lit. g) - Puncte amendă - De la 6 la 8 pct. (600 RON) - Suspendare permis - 60 zile
