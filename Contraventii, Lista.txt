@@ -16,11 +16,11 @@ Utilizare telefon mobil în timpul mersului - Clasa III (Art. 101, alin. 1, pct.
 
 Neacordare de prioritate - Clasa III (Art. 101, alin. 3, pct. f) - Puncte amenda - De la 6 la 8 pct. (600 RON) - Suspendare permis - 60 zile
 
-Alcoolemie sub pragul de 0,40 mg/l in aerul expirat - Clasa IV (Art. 102, alin. 3, pct. a; Art. 88, alin. 5 și 6; Art. 336, alin. 1 din Legea 286/2009) - Puncte amenda - De la 9 la 20 pct. (900 RON) - Suspendare permis - 90 zile
+Alcoolemie sub pragul de 0,40 mg/l in aerul expirat - Clasa IV (Art. 102, alin. 3, lit. a; Art. 88, alin. 5 și 6; Art. 336, alin. 1 din Legea 286/2009) - Puncte amenda - De la 9 la 20 pct. (900 RON) - Suspendare permis - 90 zile
 
 Bandă rezervată mijloace de transport în comun - Clasa III (Art. 101, alin. 1, pct. 6) - Puncte amenda - De la 6 la 8 pct. (600 RON)
 
-Mersul cu fază lungă la întâlnirea cu alt vehicul - Clasa I (Art. 99, alin. 2; Art. 108, alin. 1, pct. a) - Puncte amenda - De la 2 la 3 pct. (200 RON)
+Mersul cu fază lungă la întâlnirea cu alt vehicul - Clasa I (Art. 99, alin. 2; Art. 108, alin. 1, lit. a, pct. 9) - Puncte amenda - De la 2 la 3 pct. (200 RON)
 
 Trusă medicală lipsă sau neomologată - Clasa II (Art. 100, alin. 1, pct. 13) - Puncte amenda - De la 4 la 5 pct. (400 RON)
 
@@ -43,3 +43,7 @@ Conducere cu plăcuțele cu numărul de înmatriculare murdare - Clasa I (Art. 9
 Depășirea interzisă - Clasa III (Art. 101, alin. 3, lit. g) - Puncte amendă - De la 6 la 8 pct. (600 RON) - Suspendare permis - 60 zile
 
 Conducere cu geamurile murdare sau acoperite cu zăpadă - Clasa III (Art. 101, alin. 1, pct. 21) - Puncte amendă - De la 6 la 8 pct. (600 RON)
+
+Conducere fără a deține asigurare de răspundere civilă - Art. 37, alin. 9 din Legea 132/2017 (500 RON) - Reținere certificat înmatriculare, reținere plăcuțe înmatriculare
+
+Conducere fără a deține inspecție tehnică periodică valabilă - Clasa IV (Art. 102, alin. 1, pct. 1) - Puncte amendă - De la 9 la 20 pct. (900 RON) - Reținere certificat înmatriculare
