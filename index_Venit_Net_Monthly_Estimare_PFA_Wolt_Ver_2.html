@@ -39,6 +39,7 @@
       var venitImpozabilPrecalc;
       var venitImpozabil;
       var contrPensie;
+      var contrPensieImp;
       var contrSanatate;
       var valImpozit;
       var venitNetPrecalc;
@@ -97,7 +98,8 @@
       if (selPensie === 1) {
         if (venitImpozabil >= salMin) {
           contrPensie = parseFloat(salMin) * 0.25 + parseFloat(valPensie);
-          valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensie) - parseFloat(contrSanatate)) * 0.1;
+          contrPensieImp = parseFloat(salMin) * 0.25;
+          valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensieImp) - parseFloat(contrSanatate)) * 0.1;
         }
         else {
           contrPensie = parseFloat(valPensie);
@@ -109,7 +111,7 @@
       }
       else {
         contrPensie = parseFloat(valPensie);
-        valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensie) - parseFloat(contrSanatate)) * 0.1;
+        valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrSanatate)) * 0.1;
       }
       venitNetPrecalc = parseFloat(restPlata) + parseFloat(tipsCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit);
       if (venitNetPrecalc >= 0) {
