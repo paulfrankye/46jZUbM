@@ -82,7 +82,7 @@
       tipsCash = parseFloat(orePerLuna) * parseFloat(tipsCashPerOra);
       totalIncasari = parseFloat(venitFaraBacsis) + (tipsCash);
       valComision = parseFloat(venitFaraBacsis) * parseFloat(procComision) / 100;
-      valTaxaOper = parseFloat(venitFaraBacsis) * 0.0149 * 1.21;
+      valTaxaOper = parseFloat(venitFaraBacsis) * 0.0149;
       restPlata = parseFloat(venitFaraBacsis) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(procConsum) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate);
@@ -93,9 +93,11 @@
       } else {
         venitImpozabil = 0;
       }
+      contrSanatate = parseFloat(venitImpozabil) * 0.1;
       if (selPensie === 1) {
         if (venitImpozabil >= salMin) {
           contrPensie = parseFloat(salMin) * 0.25 + parseFloat(valPensie);
+          valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensie) - parseFloat(contrSanatate)) * 0.1;
         }
         else {
           contrPensie = parseFloat(valPensie);
@@ -103,12 +105,12 @@
       }
       else if (selPensie === 0) {
         contrPensie = parseFloat(valPensie);
+        valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrSanatate)) * 0.1;
       }
       else {
         contrPensie = parseFloat(valPensie);
+        valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensie) - parseFloat(contrSanatate)) * 0.1;
       }
-      contrSanatate = parseFloat(venitImpozabil) * 0.1;
-      valImpozit = (parseFloat(venitImpozabil) - parseFloat(contrPensie) - parseFloat(contrSanatate)) * 0.1;
       venitNetPrecalc = parseFloat(restPlata) + parseFloat(tipsCash) - parseFloat(valCombustibil) - parseFloat(valContabilitate) - parseFloat(contrPensie) - parseFloat(contrSanatate) - parseFloat(valImpozit);
       if (venitNetPrecalc >= 0) {
         venitNet = parseFloat(venitNetPrecalc);
@@ -173,8 +175,8 @@
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Venit asigurat pt pensie: <input type="number" id="venitAsigurat" value="0" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
-    Depășire prag pt pensie: <input type="number" id="selPensie" value="" style=" width: 31px"
-      oninput="if (this.value < 0) { this.value = 0 }" placeholder="Nu" disabled><br />
+    Depășire prag pt pensie: <input type="number" id="selPensie" value="0" style=" width: 31px"
+      oninput="if (this.value < 0) { this.value = 0 }" disabled><br />
     Comenzi per oră: <input type="number" id="comenziPerOra" min="0" value="2.00" style="width: 31px"
       oninput="if (this.value < 0) { this.value = 0 }"><br />
     Km per comandă: <input type="number" id="kmPerComanda" min="0" value="6.50" style="width: 31px"
