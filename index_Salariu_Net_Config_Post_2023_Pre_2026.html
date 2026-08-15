@@ -59,8 +59,8 @@
 
       // Formulas
 
-      faraTaxe = 0;
-      cursEur = 5;
+      faraTaxe = 300;
+      cursEur = 5, 25;
       venitBrut = parseFloat(salTarif) + parseFloat(valBonus);
       venitBrutEur = Math.trunc(parseFloat(venitBrut) / parseFloat(cursEur));
       venitBrutEurDisplay = '(' + venitBrutEur + ' EUR)';
@@ -240,15 +240,15 @@
       if (parseFloat(venitBrut) <= parseFloat(salMin)) {
         bazaSanat = parseFloat(venitBrut) - parseFloat(faraTaxe) + parseFloat(valTich);
         bazaPensie = parseFloat(venitBrut) - parseFloat(faraTaxe);
-        contrSanat = parseFloat(bazaSanat) * 0.055;
-        contrPensie = parseFloat(bazaPensie) * 0.105;
+        contrSanat = parseFloat(bazaSanat) * 0.1;
+        contrPensie = parseFloat(bazaPensie) * 0.25;
         venitImp = parseFloat(venitBrut) - parseFloat(faraTaxe) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza) - parseFloat(dedSupl);
       }
       else {
         bazaSanat = parseFloat(venitBrutTich);
         bazaPensie = parseFloat(venitBrut);
-        contrSanat = parseFloat(bazaSanat) * 0.055;
-        contrPensie = parseFloat(bazaPensie) * 0.105;
+        contrSanat = parseFloat(bazaSanat) * 0.1;
+        contrPensie = parseFloat(bazaPensie) * 0.25;
         venitImp = parseFloat(venitBrutTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza) - parseFloat(dedSupl);
       }
       if (parseFloat(venitImp) <= 0) {
