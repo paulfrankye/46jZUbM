@@ -58,8 +58,8 @@
 
       // Formulas
 
-      faraTaxe = 300;
-      cursEur = 5;
+      faraTaxe = 200;
+      cursEur = 5.25;
       venitBrut = parseFloat(salTarif) + parseFloat(valBonus);
       venitBrutEur = Math.trunc(parseFloat(venitBrut) / parseFloat(cursEur));
       venitBrutEurDisplay = '(' + venitBrutEur + ' EUR)';
@@ -288,8 +288,8 @@
 <body>
 
   <form action="">
-    Salariu minim: <input type="text" id="salMin" value="4050" style="width: 31px" disabled><br />
-    Salariu brut: <input type="text" id="salTarif" value="4050" style="width: 31px"><br />
+    Salariu minim: <input type="text" id="salMin" value="4325" style="width: 31px" disabled><br />
+    Salariu brut: <input type="text" id="salTarif" value="4325" style="width: 31px"><br />
     Bonus: <input type="text" id="valBonus" value="0" style="width: 31px"><br />
     Tichete masă: <input type="text" id="valTich" value="0" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="restPlatCalc()"><br />
@@ -309,7 +309,6 @@
   <a href="index_Salariu_Net_Config_Pre_2018.html">index_Salariu_Net_Config_Pre_2018.html</a><br />
   <a href="index_Salariu_Net_Config_Post_2018_Pre_2023.html">index_Salariu_Net_Config_Post 2018_Pre_2023.html</a><br />
   <a href="index_Salariu_Net_Config_Post_2023.html">index_Salariu_Net_Config_Post_2023.html</a><br />
-  <a href="index_Salariu_Net_Config_Post_2026_07.html">index_Salariu_Net_Config_Post_2026_07.html</a><br />
 
 </body>
 
