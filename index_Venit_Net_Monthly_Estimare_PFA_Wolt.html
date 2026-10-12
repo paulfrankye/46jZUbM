@@ -82,7 +82,7 @@
       tipsCash = parseFloat(orePerLuna) * parseFloat(tipsCashPerOra);
       totalIncasari = parseFloat(venitFaraBacsis) + (tipsCash);
       valComision = parseFloat(venitFaraBacsis) * parseFloat(procComision) / 100;
-      valTaxaOper = parseFloat(venitFaraBacsis) * 0.0149 * 1.21;
+      valTaxaOper = parseFloat(venitFaraBacsis) * 0.0149;
       restPlata = parseFloat(venitFaraBacsis) - parseFloat(valComision) - parseFloat(valTaxaOper);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(procConsum) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate);
@@ -179,13 +179,14 @@
       <option value="184">184</option>
       <option value="192">192</option>
       <option value="208">208</option>
+      <option value="212">212</option>
       <option value="264">264</option>
     </select><br />
     Venit fără bacșiș per oră: <select id="venitFaraBacsisPerOra">
       <option value="0">0</option>
-      <option value="25">25.00</option>
+      <option value="25" selected>25.00</option>
       <option value="27.5">27.50</option>
-      <option value="30" selected>30.00</option>
+      <option value="30">30.00</option>
       <option value="32.5">32.50</option>
       <option value="35">35.00</option>
       <option value="37.5">37.50</option>
@@ -208,9 +209,9 @@
       <option value="2.25">2.25</option>
       <option value="2.50">2.50</option>
       <option value="2.75">2.75</option>
-      <option value="3">3.00</option>
+      <option value="3" selected>3.00</option>
       <option value="3.25">3.25</option>
-      <option value="3.50" selected>3.50</option>
+      <option value="3.50">3.50</option>
       <option value="3.75">3.75</option>
       <option value="4">4.00</option>
       <option value="4.25">4.25</option>
@@ -235,8 +236,8 @@
       <option value="1">1.00</option>
       <option value="1.25">1.25</option>
       <option value="1.5">1.50</option>
-      <option value="1.75">1.75</option>
-      <option value="2" selected>2.00</option>
+      <option value="1.75" selected>1.75</option>
+      <option value="2">2.00</option>
       <option value="2.25">2.25</option>
       <option value="2.5">2.50</option>
       <option value="2.75">2.75</option>
@@ -356,9 +357,19 @@
       <option value="8.75">8.75</option>
       <option value="9">9.00</option>
       <option value="9.25">9.25</option>
-      <option value="9.5" selected>9.50</option>
+      <option value="9.5">9.50</option>
       <option value="9.75">9.75</option>
       <option value="10">10.00</option>
+      <option value="10.25">10.25</option>
+      <option value="10.5">10.50</option>
+      <option value="10.75">10.75</option>
+      <option value="11" selected>11.00</option>
+      <option value="11.25">11.25</option>
+      <option value="11.5">11.50</option>
+      <option value="11.75">11.75</option>
+      <option value="12">12.00</option>
+      <option value="12.25">12.25</option>
+      <option value="12.5">12.50</option>
     </select><br />
     Comision: <select id="procComision">
       <option value="9">9</option>
@@ -369,7 +380,7 @@
     Contabilitate: <select id="pretContabilitate">
       <option value="0">0</option>
       <option value="121" selected>121</option>
-      <option value="153">153</option>
+      <option value="139">139</option>
     </select> <input type="button" id="sub" value="Submit" onclick="venitNetCalc()"><br />
     Venit fără bacșiș: <span id="venitFaraBacsis"></span><br />
     Bacșiș cash: <span id="tipsCash"></span><br />
