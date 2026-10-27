@@ -20,7 +20,7 @@
       kmPerComanda = Number(document.getElementById('kmPerComanda').value);
       procConsum = Number(document.getElementById('procConsum').value);
       pretCombustibil = Number(document.getElementById('pretCombustibil').value);
-      procComision = Number(document.getElementById('procComision').value);
+      procComisionChildFleet = Number(document.getElementById('procComisionChildFleet').value);
       pretContabilitate = Number(document.getElementById('pretContabilitate').value);
 
       // Vars
@@ -30,7 +30,8 @@
       var venitAgentie;
       var bacsisCash;
       var totalIncasari;
-      var valComision;
+      var valComisionParentFleet;
+      var valComisionChildFleet;
       var valTaxaOper;
       var restPlata;
       var valCombustibil;
@@ -57,7 +58,8 @@
       var venitAgentieRes = document.getElementById('venitAgentie');
       var bacsisCashRes = document.getElementById('bacsisCash');
       var totalIncasariRes = document.getElementById('totalIncasari');
-      var valComisionRes = document.getElementById('valComision');
+      var valComisionParentFleetRes = document.getElementById('valComisionParentFleet');
+      var valComisionChildFleetRes = document.getElementById('valComisionChildFleet');
       var valTaxaOperRes = document.getElementById('valTaxaOper');
       var restPlataRes = document.getElementById('restPlata');
       var valCombustibilRes = document.getElementById('valCombustibil');
@@ -83,9 +85,11 @@
       venitAgentie = parseFloat(orePerLuna) * parseFloat(venitAgentiePerOra);
       bacsisCash = parseFloat(orePerLuna) * parseFloat(bacsisCashPerOra);
       totalIncasari = parseFloat(venitAgentie) + (bacsisCash);
-      valComision = parseFloat(venitAgentie) * parseFloat(procComision) / 100;
-      valTaxaOper = parseFloat(venitAgentie) * (0.0149 * 1.21);
-      restPlata = parseFloat(venitAgentie) - parseFloat(valComision) - parseFloat(valTaxaOper);
+      procComisionParentFleet = 2;
+      valComisionParentFleet = parseFloat(venitAgentie) * parseFloat(procComisionParentFleet) / 100;
+      valComisionChildFleet = parseFloat(venitAgentie) * parseFloat(procComisionChildFleet) / 100;
+      valTaxaOper = parseFloat(venitAgentie) * 0.0149;
+      restPlata = parseFloat(venitAgentie) - parseFloat(valComisionParentFleet) - parseFloat(valComisionChildFleet) - parseFloat(valTaxaOper);
       valCombustibil = (parseFloat(comenziPerOra) * parseFloat(orePerLuna) * parseFloat(kmPerComanda)) / 100 * parseFloat(procConsum) * parseFloat(pretCombustibil);
       valContabilitate = parseFloat(pretContabilitate);
       profitBrut = parseFloat(restPlata) - parseFloat(valCombustibil) * 0.5 - parseFloat(valContabilitate);
@@ -128,7 +132,8 @@
       venitAgentieRes.innerHTML = parseFloat(venitAgentie).toFixed(0);
       bacsisCashRes.innerHTML = parseFloat(bacsisCash).toFixed(0);
       totalIncasariRes.innerHTML = parseFloat(totalIncasari).toFixed(0);
-      valComisionRes.innerHTML = parseFloat(valComision).toFixed(0);
+      valComisionParentFleetRes.innerHTML = parseFloat(valComisionParentFleet).toFixed(0);
+      valComisionChildFleetRes.innerHTML = parseFloat(valComisionChildFleet).toFixed(0);
       valTaxaOperRes.innerHTML = parseFloat(valTaxaOper).toFixed(0);
       restPlataRes.innerHTML = parseFloat(restPlata).toFixed(0);
       valCombustibilRes.innerHTML = parseFloat(valCombustibil).toFixed(0);
@@ -181,9 +186,9 @@
     </select><br />
     Venit fără bacșiș per oră: <select id="venitAgentiePerOra">
       <option value="0">0</option>
-      <option value="25">25.00</option>
+      <option value="25" selected>25.00</option>
       <option value="27.5">27.50</option>
-      <option value="30" selected>30.00</option>
+      <option value="30">30.00</option>
       <option value="32.5">32.50</option>
       <option value="35">35.00</option>
       <option value="37.5">37.50</option>
@@ -206,9 +211,9 @@
       <option value="2.25">2.25</option>
       <option value="2.50">2.50</option>
       <option value="2.75">2.75</option>
-      <option value="3">3.00</option>
+      <option value="3" selected>3.00</option>
       <option value="3.25">3.25</option>
-      <option value="3.50" selected>3.50</option>
+      <option value="3.50">3.50</option>
       <option value="3.75">3.75</option>
       <option value="4">4.00</option>
       <option value="4.25">4.25</option>
@@ -233,8 +238,8 @@
       <option value="1">1.00</option>
       <option value="1.25">1.25</option>
       <option value="1.5">1.50</option>
-      <option value="1.75">1.75</option>
-      <option value="2" selected>2.00</option>
+      <option value="1.75" selected>1.75</option>
+      <option value="2">2.00</option>
       <option value="2.25">2.25</option>
       <option value="2.5">2.50</option>
       <option value="2.75">2.75</option>
@@ -354,24 +359,45 @@
       <option value="8.75">8.75</option>
       <option value="9">9.00</option>
       <option value="9.25">9.25</option>
-      <option value="9.5" selected>9.50</option>
+      <option value="9.5">9.50</option>
       <option value="9.75">9.75</option>
       <option value="10">10.00</option>
+      <option value="10.25">10.25</option>
+      <option value="10.5">10.50</option>
+      <option value="10.75">10.75</option>
+      <option value="11" selected>11.00</option>
+      <option value="11.25">11.25</option>
+      <option value="11.5">11.50</option>
+      <option value="11.75">11.75</option>
+      <option value="12">12.00</option>
+      <option value="12.25">12.25</option>
+      <option value="12.5">12.50</option>
+      <option value="12.75">12.75</option>
+      <option value="13">13.00</option>
+      <option value="13.25">13.25</option>
+      <option value="13.5">13.50</option>
+      <option value="13.75">13.75</option>
+      <option value="14">14.00</option>
+      <option value="14.25">14.25</option>
+      <option value="14.5">14.50</option>
+      <option value="14.75">14.75</option>
+      <option value="15">15.00</option>
     </select><br />
-    Comision: <select id="procComision">
+    Comision: <select id="procComisionChildFleet">
       <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="12" selected>12</option>
+      <option value="10" selected>10</option>
+      <option value="12">12</option>
       <option value="14">14</option>
     </select><br />
     Contabilitate: <select id="pretContabilitate">
       <option value="0">0</option>
-      <option value="350" selected>350</option>
+      <option value="455" selected>455</option>
     </select> <input type="button" id="sub" value="Submit" onclick="venitNetCalc()"><br />
     Venit fără bacșiș: <span id="venitAgentie"></span><br />
     Bacșiș cash: <span id="bacsisCash"></span><br />
     <b>Total încasări: <span id="totalIncasari"></span></b><br />
-    Comision: <span id="valComision"></span><br />
+    Comision Flotă Părinte: <span id="valComisionParentFleet"></span><br />
+    Comision Flotă Subcontractoare: <span id="valComisionChildFleet"></span><br />
     Taxă operațională: <span id="valTaxaOper"></span><br />
     <b>Rest plată: <span id="restPlata"></span></b><br />
     Combustibil: <span id="valCombustibil"></span><br />
