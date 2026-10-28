@@ -59,14 +59,19 @@
 
       // Formulas
 
-      faraTaxe = 200;
-      cursEur = 5.25;
+      cursEur = 5.35;
       venitBrut = parseFloat(salTarif) + parseFloat(valBonus);
       venitBrutEur = Math.trunc(parseFloat(venitBrut) / parseFloat(cursEur));
       venitBrutEurDisplay = '(' + venitBrutEur + ' EUR)';
       venitBrutTich = parseFloat(venitBrut) + parseFloat(valTich);
       venitBrutTichEur = Math.trunc(parseFloat(venitBrutTich) / parseFloat(cursEur));
       venitBrutTichEurDisplay = '(' + venitBrutTichEur + ' EUR)';
+      if (parseFloat(venitBrut) <= parseFloat(salMin)) {
+        faraTaxe = 200;
+      }
+      else {
+        faraTaxe = 0;
+      }
       if ((parseInt(venitBrutTich)) <= parseFloat(salMin)) {
         dedBaza = (parseFloat(salMin) * 0.2);
       } else {
@@ -237,20 +242,11 @@
       } else {
         dedSupl = 0;
       }
-      if (parseFloat(venitBrut) <= parseFloat(salMin)) {
-        bazaSanat = parseFloat(venitBrut) - parseFloat(faraTaxe) + parseFloat(valTich);
-        bazaPensie = parseFloat(venitBrut) - parseFloat(faraTaxe);
-        contrSanat = parseFloat(bazaSanat) * 0.1;
-        contrPensie = parseFloat(bazaPensie) * 0.25;
-        venitImp = parseFloat(venitBrut) - parseFloat(faraTaxe) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza) - parseFloat(dedSupl);
-      }
-      else {
-        bazaSanat = parseInt(venitBrutTich);
-        bazaPensie = parseFloat(venitBrut);
-        contrSanat = parseFloat(bazaSanat) * 0.1;
-        contrPensie = parseFloat(bazaPensie) * 0.25;
-        venitImp = parseInt(venitBrutTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza) - parseFloat(dedSupl);
-      }
+      bazaSanat = parseFloat(venitBrut) - parseFloat(faraTaxe) + parseFloat(valTich);
+      bazaPensie = parseFloat(venitBrut) - parseFloat(faraTaxe);
+      contrSanat = parseFloat(bazaSanat) * 0.1;
+      contrPensie = parseFloat(bazaPensie) * 0.25;
+      venitImp = parseFloat(venitBrut) - parseFloat(faraTaxe) + parseFloat(valTich) - parseFloat(contrSanat) - parseFloat(contrPensie) - parseFloat(dedBaza) - parseFloat(dedSupl);
       if (parseFloat(venitImp) <= 0) {
         valImp = 0;
       }
