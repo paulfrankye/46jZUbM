@@ -147,44 +147,138 @@
             }
           }
         }
-      } else {
-        if (nrAnVar === 2025) {
-          if (nrLunVar === 1) {
-            zileLucr = 18;
+      } else if (nrAnVar === 2025) {
+        if (nrLunVar === 1) {
+          zileLucr = 18;
+        } else {
+          if (nrLunVar === 2) {
+            zileLucr = 20;
           } else {
-            if (nrLunVar === 2) {
-              zileLucr = 20;
+            if (nrLunVar === 3) {
+              zileLucr = 21;
             } else {
-              if (nrLunVar === 3) {
-                zileLucr = 21;
+              if (nrLunVar === 4) {
+                zileLucr = 20;
               } else {
-                if (nrLunVar === 4) {
+                if (nrLunVar === 5) {
+                  zileLucr = 21;
+                } else {
+                  if (nrLunVar === 6) {
+                    zileLucr = 20;
+                  } else {
+                    if (nrLunVar === 7) {
+                      zileLucr = 23;
+                    } else {
+                      if (nrLunVar === 8) {
+                        zileLucr = 20;
+                      } else {
+                        if (nrLunVar === 9) {
+                          zileLucr = 22;
+                        } else {
+                          if (nrLunVar === 10) {
+                            zileLucr = 23;
+                          } else {
+                            if (nrLunVar === 11) {
+                              zileLucr = 20;
+                            } else {
+                              if (nrLunVar === 12) {
+                                zileLucr = 20;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      } else if (nrAnVar === 2026) {
+        if (nrLunVar === 1) {
+          zileLucr = 18;
+        } else {
+          if (nrLunVar === 2) {
+            zileLucr = 20;
+          } else {
+            if (nrLunVar === 3) {
+              zileLucr = 22;
+            } else {
+              if (nrLunVar === 4) {
+                zileLucr = 20;
+              } else {
+                if (nrLunVar === 5) {
                   zileLucr = 20;
                 } else {
-                  if (nrLunVar === 5) {
+                  if (nrLunVar === 6) {
                     zileLucr = 21;
                   } else {
-                    if (nrLunVar === 6) {
-                      zileLucr = 20;
+                    if (nrLunVar === 7) {
+                      zileLucr = 23;
                     } else {
-                      if (nrLunVar === 7) {
-                        zileLucr = 23;
+                      if (nrLunVar === 8) {
+                        zileLucr = 21;
                       } else {
-                        if (nrLunVar === 8) {
-                          zileLucr = 20;
+                        if (nrLunVar === 9) {
+                          zileLucr = 22;
                         } else {
-                          if (nrLunVar === 9) {
+                          if (nrLunVar === 10) {
                             zileLucr = 22;
                           } else {
-                            if (nrLunVar === 10) {
-                              zileLucr = 23;
+                            if (nrLunVar === 11) {
+                              zileLucr = 20;
                             } else {
-                              if (nrLunVar === 11) {
-                                zileLucr = 20;
-                              } else {
-                                if (nrLunVar === 12) {
-                                  zileLucr = 20;
-                                }
+                              if (nrLunVar === 12) {
+                                zileLucr = 21;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      } else if (nrAnVar === 2027) {
+        if (nrLunVar === 1) {
+          zileLucr = 18;
+        } else {
+          if (nrLunVar === 2) {
+            zileLucr = 20;
+          } else {
+            if (nrLunVar === 3) {
+              zileLucr = 23;
+            } else {
+              if (nrLunVar === 4) {
+                zileLucr = 21;
+              } else {
+                if (nrLunVar === 5) {
+                  zileLucr = 20;
+                } else {
+                  if (nrLunVar === 6) {
+                    zileLucr = 20;
+                  } else {
+                    if (nrLunVar === 7) {
+                      zileLucr = 22;
+                    } else {
+                      if (nrLunVar === 8) {
+                        zileLucr = 22;
+                      } else {
+                        if (nrLunVar === 9) {
+                          zileLucr = 22;
+                        } else {
+                          if (nrLunVar === 10) {
+                            zileLucr = 21;
+                          } else {
+                            if (nrLunVar === 11) {
+                              zileLucr = 21;
+                            } else {
+                              if (nrLunVar === 12) {
+                                zileLucr = 22;
                               }
                             }
                           }
@@ -201,14 +295,19 @@
       if (nrAnVar === 2024) {
         if (nrLunVar < 7) {
           salMin = 3300;
+        } else if (nrLunVar >= 7) {
+          salMin = 3700;
         } else {
-          if (nrLunVar >= 7) {
-            salMin = 3700;
-          }
+          salMin = 0;
         }
-      } else {
-        if (nrAnVar === 2025) {
+      } else if (nrAnVar === 2025) {
+        salMin = 4050;
+      } else if (nrAnVar === 2026) {
+        if (nrLunVar < 7) {
           salMin = 4050;
+        }
+        else if (nrLunVar >= 7) {
+          salMin = 4325;
         } else {
           salMin = 0;
         }
@@ -485,7 +584,9 @@
     </select><br />
     Anul: <select id="nrAnSel">
       <option value="2024">2024</option>
-      <option value="2025" selected>2025</option>
+      <option value="2025">2025</option>
+      <option value="2026" selected>2026</option>
+      <option value="2027">2027</option>
     </select><br />
     Zile lucrate: <input type="text" id="zileLucrInp" value="" style="width: 31px"><br />
     Zile sarbatori legale: <input type="text" id="zileSarbLegInp" value="" style="width: 31px"><br />
@@ -494,8 +595,8 @@
     Ore noapte: <input type="text" id="oreNoapteInp" value="" style="width: 31px"><br />
     Salariu tarifar: <input type="text" id="salTarifInp" value="" style="width: 31px"><br />
     Bonus: <input type="text" id="valBonusInp" value="" style="width: 31px"><br />
-    Decont: <input type="text" id="decElectrInp" value="" style="width: 31px"><br />
-    Tichete Masă: <input type="text" id="valTichInp" value="" style="width: 31px"> <input type="button" id="sub"
+    Decont electricitate: <input type="text" id="decElectrInp" value="" style="width: 31px"><br />
+    Tichet masă: <input type="text" id="valTichInp" value="" style="width: 31px"> <input type="button" id="sub"
       value="Submit" onclick="restPlatCalc()"><br />
     Ore lucrate - Ore: <span id="oreLucr"></span><br />
     Ore lucrate - RON: <span id="oreLucrRon"></span><br />
